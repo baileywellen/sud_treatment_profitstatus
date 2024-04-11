@@ -1,0 +1,172 @@
+---
+title: "SAMHSA NSSATS modeling and formal testing "
+output: html_notebook
+---
+
+
+Checking assumptions of linear regression: normal distribution and continuous variable
+```{r}
+#all of the forprofit distributions are skewed right 
+hist(profit_states_1419$count_Forprofit_2015)
+hist(profit_states_1419$count_Forprofit_2016)
+hist(profit_states_1419$count_Forprofit_2017)
+hist(profit_states_1419$count_Forprofit_2018)
+hist(profit_states_1419$count_Forprofit_2019)
+
+#all of the nonprofit distributions are skewed right
+hist(profit_states_1419$count_Nonprofit_2015)
+hist(profit_states_1419$count_Nonprofit_2016)
+hist(profit_states_1419$count_Nonprofit_2017)
+hist(profit_states_1419$count_Nonprofit_2018)
+hist(profit_states_1419$count_Nonprofit_2019)
+
+#all of the government distributions are skewed right
+hist(profit_states_1419$count_Government_2015)
+hist(profit_states_1419$count_Government_2016)
+hist(profit_states_1419$count_Government_2017)
+hist(profit_states_1419$count_Government_2018)
+hist(profit_states_1419$count_Government_2019)
+```
+
+
+For count data, we have options of poisson or negative binomial distributions. 
+
+Negative binomial distribution is appropriate if there is sparse data (not applicable) or overdispersion (variance > mean)
+```{r}
+print("For Profit Overdispersion")
+var(profit_states_1419$count_Forprofit_2015) > mean(profit_states_1419$count_Forprofit_2015)
+var(profit_states_1419$count_Forprofit_2016) > mean(profit_states_1419$count_Forprofit_2016)
+var(profit_states_1419$count_Forprofit_2017) > mean(profit_states_1419$count_Forprofit_2017)
+var(profit_states_1419$count_Forprofit_2018) > mean(profit_states_1419$count_Forprofit_2018)
+var(profit_states_1419$count_Forprofit_2019) > mean(profit_states_1419$count_Forprofit_2019)
+
+print("Non Profit Overdispersion")
+var(profit_states_1419$count_Nonprofit_2015) > mean(profit_states_1419$count_Nonprofit_2015)
+var(profit_states_1419$count_Nonprofit_2016) > mean(profit_states_1419$count_Nonprofit_2016)
+var(profit_states_1419$count_Nonprofit_2017) > mean(profit_states_1419$count_Nonprofit_2017)
+var(profit_states_1419$count_Nonprofit_2018) > mean(profit_states_1419$count_Nonprofit_2018)
+var(profit_states_1419$count_Nonprofit_2019) > mean(profit_states_1419$count_Nonprofit_2019)
+
+print("Government Overdispersion")
+var(profit_states_1419$count_Government_2015) > mean(profit_states_1419$count_Government_2015)
+var(profit_states_1419$count_Government_2016) > mean(profit_states_1419$count_Government_2016)
+var(profit_states_1419$count_Government_2017, na.rm = TRUE) > mean(profit_states_1419$count_Government_2017, na.rm = TRUE) #there is 1 null value in this datta 
+var(profit_states_1419$count_Government_2018) > mean(profit_states_1419$count_Government_2018)
+var(profit_states_1419$count_Government_2019) > mean(profit_states_1419$count_Government_2019)
+
+
+```
+
+
+Test for collinearity among control variables:
+
+needing_tx is correlated with other substance use variables:
+  sud_pastyear and needing_tx are HIGHLY correlated
+  drug_pastmonth and needing_tx are decently correlated (0.7)
+  bingealcohol_pastmonth and needing_tx are decently correlated (0.64)
+  
+bingealcohol_pastmonth and sud_pastyear are somewhat correlated 
+
+
+I think it makes sense to only use sud_pastyear for the demand measure, since having the diagnosis may be a better indicator of need anyway (people who use may not necessarily want treatment)
+```{r}
+cor(state_final_df[, c("pop_thousands", "percapita_health_spending", "medicaid_enroll_percapita", "needing_tx", "sud", "binge_drinking", "illicit_druguse")])
+```
+
+https://cran.r-project.org/web/packages/PanelCount/vignettes/vignette.html
+
+
+
+```{r}
+library(lme4)
+library(pglm)
+library(plm)
+library(MASS)
+
+state_forprofit <- state_final_df %>% filter(profit_type == "Forprofit")
+
+
+#the previous 2 years' data does significantly predict the number of for-profit treatment centers
+simplemodel_forprofit <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending  + 
+                                 lag(binge_drinking) + lag(illicit_druguse) ,
+                              #when controlling for all of the demand variables, nothing is significant. I think this is because sud and needing_tx are correlated with other variables (see above)
+                              # +lag(sud)  + lag(needing_tx), 
+    #the effect should be twooways because there may be state-level differences and country-level differences in each year                      
+    effect = "twoways", 
+   index = c('State_Name', 'year'),
+    data = state_forprofit, 
+    model = "within", 
+   #model = 'within' means fixed effects, or variable intercept by state by constant slope
+    #method = 'nr',
+    family = poisson) #can consider using 'negbin' instead
+
+summary(simplemodel_forprofit)
+exp(simplemodel_forprofit$estimate)
+
+
+#because the NSDUH data is combined over 2 years, it may make sense to try the CDC overdose deaths data, too
+#the previous 1 year's overdose data does significantly predict the number of for-profit treatment centers
+# simplemodel_forprofit2 <- pglm(count_tx ~ pop_thousands+ medicaid_enroll_percapita + percapita_health_spending  + sud, 
+#     effect = "individual",
+#    index = c('State_Name', 'year'),
+#     data = state_forprofit, 
+#     family = poisson)
+# 
+# summary(simplemodel_forprofit2)
+# exp(simplemodel_forprofit2$estimate)
+```
+
+```{r}
+state_nonprofit <- state_final_df %>% filter(profit_type == "Nonprofit")
+
+#we could also try fitting this as a linear regression with panel data? to predict treatment centers per capita
+linear_model <- plm(tx_percapita ~ medicaid_enroll_percapita + percapita_health_spending + lag(sud_pastyear),
+    index = c('State_Name', 'year'),
+    effect = c("twoways"), #we want effects for both individual states and time varying
+    model = "within",
+    data = state_nonprofit)
+
+summary(linear_model)
+
+linear_model2 <- plm(tx_percapita ~ medicaid_enroll_percapita + percapita_health_spending + lag(RATE),
+    index = c('State_Name', 'year'),
+    effect = c("twoways"), #we want effects for both individual states and time varying
+    model = "within",
+    data = state_nonprofit)
+
+summary(linear_model2)
+```
+
+
+```{r}
+
+state_govt <- state_final_df %>% filter(profit_type == "Government")
+
+simplemodel_govt <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending + lag(sud_pastyear), #when we include health spending all other significance goes away. why?
+    effect = "individual",
+    index = c('State_Name', 'year'),
+    model = "within",
+    data = state_govt, 
+    family = poisson)
+
+summary(simplemodel_govt)
+exp(simplemodel_govt$estimate)
+```
+
+The population data from the CMS website (above) is the same as the FREDS data, but rounded to the nearest thousand 
+```{r population data cleaning from FREDS data}
+
+#statepop_wide <- read.table("Data/FRED_StatePopulations/State_Treatment_Analysis_Annual.txt", header = TRUE)
+
+#change the data to have a row per state per year 
+#statepop_long <- statepop_wide %>% 
+# pivot_longer(cols = names(statepop_wide)[-1]) %>% 
+#  mutate(state = gsub("POP", "", name)) %>%
+#  rename(pop_thousands = value) %>%
+##  separate(DATE, into = c("year", NA, NA), sep = "-") %>%
+#  select(year, state, pop_thousands)
+
+#statepop_long
+```
+
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE codeBook
+SYSTEM "http://www.icpsr.umich.edu/files/DDI/Version2-1.dtd">
+    <codeBook>
+        <docDscr>
+            <citation>
+                <titlStmt>
+                    <titl>National Survey of Substance Abuse Treatment Services (N-SSATS), 2014</titl>
+                    <IDNo>50002</IDNo>
+                </titlStmt>
+                <prodStmt>
+                    <producer abbr="ICPSR">
+                        <ExtLink URI="http://www.icpsr.umich.edu/images/icpsr-logo.gif" title="ICPSR Logo" role="image"/>
+                        Inter-university Consortium for Political and Social Research
+                        <ExtLink URI="http://www.icpsr.umich.edu/" title="URL of ICPSR Web Site" />
+                    </producer>
+                </prodStmt>
+                <verStmt>
+                    <version date="2016-05-10"></version>
+                </verStmt>
+                <holdings URI="http://www.icpsr.umich.edu/xmldocs/STUDY/34968.xml"></holdings>
+            </citation>
+        </docDscr>
+        <stdyDscr>
+            <citation>
+                <titlStmt>
+                    <titl>National Survey of Substance Abuse Treatment Services (N-SSATS), 2014</titl>
+                    <altTitl>N-SSATS, 2014</altTitl>
+                    <IDNo agency="ICPSR">50002</IDNo>
+                </titlStmt>
+                <rspStmt>
+                    <AuthEnty affiliation="United States Department of Health and Human Services. Substance Abuse and Mental Health Services Administration. Center for Behavioral Health Statistics and Quality">United States Department of Health and Human Services. Substance Abuse and Mental Health Services Administration. Center for Behavioral Health Statistics and Quality</AuthEnty>
+                </rspStmt>
+                <prodStmt>
+                    <copyright>
+                        Some instruments administered as part of this
+                        study may contain contents from copyrighted
+                        instruments. Reproductions of the instruments
+                        are provided solely as documentation for
+                        the analysis of the data associated with this
+                        collection. Please contact the data producers for
+                        information on permissions to use the instruments
+                        for other purposes.
+                    </copyright>
+                    <prodDate>Please see full citation.</prodDate>
+                    <fundAg>United States Department of Health and Human Services. Substance Abuse and Mental Health Services Administration. Center for Behavioral Health Statistics and Quality</fundAg>
+                </prodStmt>
+                <distStmt>
+                    <distrbtr abbr="ICPSR" affiliation="Institute for Social Research, University of Michigan" URI="http://www.icpsr.umich.edu">
+                        <ExtLink URI="http://www.icpsr.umich.edu/images/icpsr-logo.gif" title="Logo" />
+                        Inter-university Consortium for Political and Social Research
+                        <ExtLink URI="http://www.icpsr.umich.edu/" title="URL" />
+                    </distrbtr>
+                    <distDate date="2016-05-10">2016-05-10</distDate>
+                </distStmt>
+                <serStmt>
+                    <serName ID="Series58">National Survey of Substance Abuse Treatment Services (N-SSATS) Series</serName>
+                </serStmt>
+                <verStmt>
+                    <version date="2016-02-22">2016-02-22</version>
+                </verStmt>
+                <verStmt>
+                    <version date=" "> </version>
+                    <notes> </notes>
+                </verStmt>
+                <biblCit>United States Department of Health and Human Services. Substance Abuse and Mental Health Services Administration. Center for Behavioral Health Statistics and Quality. National Survey of Substance Abuse Treatment Services (N-SSATS), 2014. ICPSR34968-v2. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2014-04-25. http://doi.org/10.3886/ICPSR34968.v2</biblCit>
+            </citation>
+            <stdyInfo>
+                    <subject>
+                        <keyword vocab="thesaurus">alcohol abuse</keyword>
+                        <keyword vocab="thesaurus">drug abuse</keyword>
+                        <keyword vocab="thesaurus">drug treatment</keyword>
+                        <keyword vocab="thesaurus">health care services</keyword>
+                        <keyword vocab="thesaurus">HIV</keyword>
+                        <keyword vocab="thesaurus">intervention</keyword>
+                        <keyword vocab="thesaurus">substance abuse</keyword>
+                        <keyword vocab="thesaurus">substance abuse treatment</keyword>
+                        <keyword vocab="thesaurus">treatment facilities</keyword>
+                        <keyword vocab="thesaurus">treatment programs</keyword>
+                        <topcClas source="archive" vocab="AHRQMCC subject classifications">AHRQMCC I. Multiple Chronic Conditions</topcClas>
+                        <topcClas source="archive" vocab="FENWAY subject classifications">FENWAY VI. Studies That Include Heterosexual Populations</topcClas>
+                        <topcClas source="archive" vocab="ICPSR subject classifications">ICPSR IX. Health Care and Health Facilities</topcClas>
+                        <topcClas source="archive" vocab="NAHDAP subject classifications">NAHDAP I. National Addiction and HIV Data Archive Program</topcClas>
+                        <topcClas source="archive" vocab="SAMHDA subject classifications">SAMHDA XIII. National Survey of Substance Abuse Treatment Services (N-SSATS)</topcClas>
+                    </subject>
+                    <abstract><p>The National Survey of Substance Abuse Treatment Services (N-SSATS) is designed to collect information from all facilities in the United States, both public and private, that provide substance abuse treatment. N-SSATS provides the mechanism for quantifying the dynamic character and composition of the United States substance abuse treatment delivery system. The objectives of N-SSATS are to collect multipurpose data that can be used to assist the Substance Abuse and Mental Health Services Administration (SAMHSA) and state and local governments in assessing the nature and extent of services provided and in forecasting treatment resource requirements, to update SAMHSA's Inventory of Behavioral Health Services (I-BHS), to analyze general treatment services trends, and to generate the online Substance Abuse Treatment Facility Locator <ExtLink URI="http://findtreatment.samhsa.gov" />, as well as the National Directory of Drug and Alcohol Abuse Treatment Programs.</p><p>Data are collected on topics including facility operation, services offered (assessment, testing, transitional, ancillary, and pharmacotherapies), detoxification, primary focus (substance abuse, mental health, both, general health, and other), Opioid Treatment Programs and medications dispensed/prescribed, counseling and therapeutic approaches, standard operating procedures, special programs/groups offered, languages in which treatment is provided, type of treatment provided (hospital inpatient, residential, outpatient), number of clients (by service, total, and under age 18), number of beds, types of payment accepted, sliding fee scale, and facility accreditation and licensure/certification.</p></abstract>
+                    <sumDscr>
+                        <timePrd event="single" date="2014" cycle="P1"> </timePrd>
+                        <collDate event="start" date="2014-03-31" cycle="P1"> </collDate>
+                        <collDate event="end"   date="2014-12-05" cycle="P1"> </collDate>
+                        <nation>Please see geographic coverage.</nation>
+                        <geogCover>United States</geogCover>
+                        <anlyUnit>facility</anlyUnit>
+                        <dataKind>survey data</dataKind>
+                    </sumDscr>
+            </stdyInfo>
+            <method>
+                <dataColl>
+                    <sampProc>The Inventory of Behavioral Health Services (I-BHS)  provides the sampling frame for N-SSATS. Two categories of treatment facilities in I-BHS may be distinguished. The largest group of facilities includes those that are licensed, certified, or otherwise approved by the state substance abuse agency to provide substance abuse treatment. The second group represents the SAMHSA effort in recent years to make I-BHS as comprehensive as possible by including treatment facilities that state substance abuse agencies, for a variety of reasons, do not license or certify. Many of these facilities are private, for-profit, small group practices, or hospital-based programs.</sampProc>
+                    <collMode>computer-assisted telephone interview (CATI)</collMode>
+                    <collMode>mail questionnaire</collMode>
+                    <collMode>telephone interview</collMode>
+                    <collMode>web-based survey</collMode>
+                    <cleanOps>Performed consistency checks.</cleanOps>
+                    <cleanOps>Created variable labels and/or value labels.</cleanOps>
+                    <cleanOps>Standardized missing values.</cleanOps>
+                    <cleanOps>Created online analysis version with question text.</cleanOps>
+                    <cleanOps>Performed recodes and/or calculated derived variables.</cleanOps>
+                    <cleanOps>Checked for undocumented or out-of-range codes.</cleanOps>
+                </dataColl>
+                <notes>Data were collected by Mathematica Policy Research, Inc., Princeton, NJ, and prepared for release by Synectics for Management Decisions, Inc., Arlington, VA.</notes>
+                <notes>N-SSATS is a point-prevalence survey. It provides information on the substance abuse treatment system and its clients on the reference date (March 31, 2014). Client counts do not represent annual totals. Rather, N-SSATS provides a "snapshot" of substance abuse treatment facilities and clients on an average day.</notes>
+                <notes>N-SSATS collects data about facilities, not individual clients. Data on clients represent an aggregate of clients in treatment for each reporting facility.</notes>
+                <notes>N-SSATS attempts to obtain responses from all known treatment and prevention facilities, but it is a voluntary survey. There is no adjustment for the approximately five percent facility nonresponse.</notes>
+                <notes><p>For users who wish to calculate client counts and admissions, instructions are available on the N-SSATS Series page and at  How to calculate N-SSATS client counts and admissions using SDA <ExtLink URI="http://www.icpsr.umich.edu/icpsrweb/SAMHDA/support/faqs/2012/09/how-to-correctly-calculate-n-ssats" />.</p></notes>
+                <anlyInfo>
+                    <respRate>There were 17,224 facilities in the survey universe. Of these facilities, 11 percent were found to be ineligible for the survey because they had closed or did not provide substance abuse treatment or detoxification on March 31, 2014. Of the remaining 15,351 facilities, 14,382 facilities (94 percent) completed the survey and 14,152 (92 percent) were eligible to be included in the data file. The percentage of respondents who completed the survey via the mail was 1.6 percent, while 14.7 percent completed the survey via telephone, and 83.7 percent completed the survey using a Web-based questionnaire.</respRate>
+                </anlyInfo>
+            </method>
+            <dataAccs>
+                <setAvail media="online">
+                    <accsPlac URI="http://www.icpsr.umich.edu">Ann Arbor, Mi.:  Inter-university Consortium for Political and Social Research</accsPlac>
+                    <notes>Stata system file(s), rda Data file(s), sav Data file(s), stc Data file(s), tsv Data file(s), Data file(s), and electronic documentation.</notes>
+                </setAvail>
+                <useStmt>
+                    <specPerm>Additional special permissions, where applicable, are described in the restrictions field.</specPerm>
+                    <restrctn>Users are reminded by the United States Department of
+Health and Human Services that these data are to be used solely for statistical analysis and reporting of aggregated information and not for the investigation of specific individuals or treatment facilities.</restrctn>
+
+		<conditions>
+		    <![CDATA[
+		    <p>Please read the Terms of Use below. If you agree to them, click on the "I Agree" button to proceed. If you do not agree, you can click on the "I Do Not Agree" button to exit this page.</p><p>These data are distributed under the following terms of use. By continuing past this point to the data retrieval process, you signify your agreement to comply with the requirements as stated below:</p><h2>Privacy of RESEARCH SUBJECTS</h2><p>Any intentional identification of a RESEARCH SUBJECT (whether an individual or an organization) or unauthorized disclosure of his or her confidential information violates the PROMISE OF CONFIDENTIALITY given to the providers of the information. Disclosure of confidential information may also be punishable under federal law. Therefore, users of data agree:</p><ul><li><p>To use these datasets solely for research or statistical purposes and not for re-identification of specific RESEARCH SUBJECTS.</p></li><li><p>To make no use of the identity of any RESEARCH SUBJECT discovered inadvertently and to report any such discovery to CBHSQ and SAMHDA ( <a href="mailto:samhda-support@icpsr.umich.edu">samhda-support@icpsr.umich.edu</a>)</p></li></ul><h2>Citing Data</h2><p>You agree to reference the recommended bibliographic citation in any of your publications that use SAMHSA data. Authors of publications that use SAMHSA data are required to send citations of their published works to ICPSR for inclusion in a database of related publications (<a href="mailto:bibliography@icpsr.umich.edu">bibliography@icpsr.umich.edu</a>).</p><h2>Disclaimer</h2><p>You acknowledge that SAMHSA and ICPSR will bear no responsibility for your use of the data or for your interpretations or inferences based upon such uses.</p><h2>Violations</h2><p>If SAMHSA or ICPSR determines that this terms of use agreement has been violated, then possible sanctions could include:</p><ul><li><p>Report of the violation to the Research Integrity Officer, Institutional Review Board, or Human Subjects Review Committee of the user's institution. A range of sanctions are available to institutions including revocation of tenure and termination.</p></li><li><p>If the confidentiality of human subjects has been violated, then report of the violation may be made to the Federal Office for Human Research Protections. This may result in an investigation of the user's institution, which can result in institution-wide sanctions including the suspension of all research grants.</p></li> <li><p>Report of the violation of federal law to the United States Attorney General for possible prosecution.</p></li><li><p>Court awarded payments of damages to any individual(s)/organization(s) harmed by the breach of confidential data.</p></li></ul> <h2>Definitions</h2><dl><dt>CBHSQ</dt><dd>Center for Behavioral Health Statistics and Quality</dd><dt>ICPSR</dt><dd>Inter-university Consortium for Political and Social Research</dd><dt>Promise of confidentiality</dt><dd>A promise to a respondent or research participant that the information the respondent provides will not be disseminated in identifiable form without the permission of the respondent; that the fact that the respondent participated in the study will not be disclosed; and that disseminated information will include no linkages to the identity of the respondent. Such a promise encompasses traditional notions of both confidentiality and anonymity. In most cases, federal law protects the confidentiality of the respondent's identity as referenced in the Promise of Confidentiality. Under this condition, names and other identifying information regarding respondents would be confidential.</dd><dt>Research subject</dt><dd>A person or organization that participates in a research study. A research subject may also be called a respondent. A respondent is generally a survey respondent or informant, experimental or observational subject, focus group participant, or any other person providing information to a study.</dd> <dt>SAMHDA</dt><dd>Substance Abuse and Mental Health Data Archive</dd><dt>SAMHSA</dt><dd>Substance Abuse and Mental Health Services Administration</dd></dl>
+		    ]]>
+		    <p>AVAILABLE.  This study is freely available to the general public.</p>
+		</conditions>
+
+		<disclaimer>The original collector of the data, ICPSR,
+		and the relevant funding agency bear no responsibility
+		for use of the data or for interpretations or inferences
+		based upon such uses.  </disclaimer>
+                    </useStmt>
+            </dataAccs>
+            <othrStdyMat>
+                <othRefs>
+                    <citation>
+                        <titlStmt>
+                            <titl>National Survey of Substance Abuse Treatment Services (N-SSATS), 2014</titl>
+                        </titlStmt>
+                        <holdings>SDA Component</holdings>
+                    </citation>
+                </othRefs>
+            </othrStdyMat>
+        </stdyDscr>
+        <fileDscr ID="F1">
+            <fileTxt ID="Part1">
+                <fileName>National Survey of Substance Abuse Treatment Services (N-SSATS), 2014</fileName>
+                <fileType>DELIMITED SAS SPSS</fileType>
+            </fileTxt>
+            <notes>41554</notes>
+        </fileDscr>
+    </codeBook>

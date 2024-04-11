@@ -1,0 +1,210 @@
+---
+title: "SAMHSA NSSATS Exploratory Data Analysis"
+output: html_notebook
+---
+
+```{r}
+forprofit_counts <- profit_states_1419 %>% 
+  dplyr::select(contains("count_Forprofit_")) %>% 
+  summarize(across(everything(), sum, na.rm = TRUE))
+
+nonprofit_counts <- profit_states_1419 %>% 
+  dplyr::select(contains("count_Nonprofit_")) %>% 
+  summarize(across(everything(), sum, na.rm = TRUE))
+
+govt_counts <- profit_states_1419 %>% 
+  dplyr::select(contains("count_Government_")) %>% 
+  summarize(across(everything(), sum, na.rm = TRUE))
+
+
+plot(seq(2014,2019), forprofit_counts, type = 'l', main= "Treatment Facility Counts over time", ylim = c(1000, 8000), col = 'blue', xlab = 'Year', ylab = '# Treatment Centers')
+lines(seq(2014,2019), nonprofit_counts, type = 'l', main= "Non Profit Counts", col = 'red')
+lines(seq(2014,2019), govt_counts, type = 'l', main= "Government Counts", col = 'green')
+
+legend("bottomleft", c("for profit", "non profit", "government"), col = c("blue", "red", "green"), pch ='-', lwd = 2)
+
+```
+
+
+using map tutorial from: https://jtr13.github.io/cc19/different-ways-of-plotting-u-s-map-in-r.html#using-ggplot2-package
+state abbreviations from: https://www.ssa.gov/international/coc-docs/states.html
+
+```{r}
+library(ggplot2)
+library(maps)
+library(mapdata)
+library(plotly)
+library(sf)
+
+usa <- map_data('usa')
+state <- map_data("state")
+
+#merge state geo file to the for-profit information
+state <- state %>% 
+              left_join(state_abbrevs_df, by = c("region" = "state_names")) %>% 
+              left_join(profit_states_1419, by = c('state_abbrevs' = 'STATE')) 
+                                      
+```
+
+
+
+
+```{r}
+#plot the number of for-profit treatment centers from 2015-2019
+for (i in seq(2015, 2019))
+{
+  plot_forprofits <- ggplot(data=state, aes(x=long, y=lat, fill= !!sym(paste0("count_Forprofit_", i, sep = "")), group=group)) + 
+                      scale_fill_gradient(low = "grey", high = "green", limits = c(0,800)) +
+                      geom_polygon(color = "white") + 
+                      ggtitle(paste('# For-Profit Treatment Centers in', i)) + 
+                      coord_fixed(1.3)
+  print(plot_forprofits)
+}
+
+
+ggplot(data=state, aes(x=long, y=lat, fill= change_Forprofit_1519, group=group)) + 
+                      scale_fill_gradient(low = "grey", high = "green", limits = c(0,400)) +
+                      geom_polygon(color = "white") + 
+                      ggtitle('Change in # For-Profit Treatment Centers from 2015 - 2019') + 
+                      coord_fixed(1.3)
+
+```
+
+
+```{r}
+for (i in seq(2015, 2019))
+{
+  plot_nonprofits <- ggplot(data=state, aes(x=long, y=lat, fill= !!sym(paste0("count_Nonprofit_", i, sep = "")), group=group)) + 
+                      scale_fill_gradient(low = "grey", high = "blue", limits = c(0,900)) +
+                      geom_polygon(color = "white") + 
+                      ggtitle(paste('# Non-Profit Treatment Centers in', i)) + 
+                      coord_fixed(1.3)
+  print(plot_nonprofits)
+}
+
+
+ggplot(data=state, aes(x=long, y=lat, fill= change_Nonprofit_1519, group=group)) + 
+                      scale_fill_gradient(low = "grey", high = "blue", limits = c(0,100)) +
+                      geom_polygon(color = "white") + 
+                      ggtitle('Change in # Non-Profit Treatment Centers from 2015 - 2019') + 
+                      coord_fixed(1.3)
+```
+
+```{r}
+for (i in seq(2015, 2019))
+{
+  plot_govt <- ggplot(data=state, aes(x=long, y=lat, fill= !!sym(paste0("count_Government_", i, sep = "")), group=group)) + 
+                      scale_fill_gradient(low = "grey", high = "red", limits = c(0,250)) +
+                      geom_polygon(color = "white") + 
+                      ggtitle(paste('# Government Treatment Centers in', i)) + 
+                      coord_fixed(1.3)
+  print(plot_govt)
+}
+
+
+
+ggplot(data=state, aes(x=long, y=lat, fill= change_Government_1519, group=group)) + 
+                      scale_fill_gradient(low = "grey", high = "red", limits = c(0,50)) +
+                      geom_polygon(color = "white") + 
+                      ggtitle('Change in # Government Treatment Centers from 2015 - 2019') + 
+                      coord_fixed(1.3)
+```
+
+
+
+```{r}
+
+state <- "California"
+
+par(mar=c(5, 4, 4, 12), xpd=TRUE)
+
+plot(yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "UDPYILAL", ]$start_year, yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "UDPYILAL", ]$est_total, type = 'o', ylim= c(0,10000), main = paste(state, "Substance Use Measures Over Time") ,xlab = "year", ylab = "Thousands of People in 2015-18")
+
+lines(yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "ILLEMMON", ]$start_year, yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "ILLEMMON", ]$est_total, col = 'blue', type = 'o')
+
+lines(yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "BNGDRK", ]$start_year, yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "BNGDRK", ]$est_total, col = 'red', type = 'o')
+
+lines(yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "TXNPILAL", ]$start_year, yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "TXNPILAL", ]$est_total, col = 'green', type = 'o')
+
+lines(yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "PNRNMYR", ]$start_year, yearly_nsduh_data[yearly_nsduh_data$stname == state & yearly_nsduh_data$outcome == "PNRNMYR", ]$est_total, col = 'purple', type = 'o')
+
+legend('topright',legend = c("Substance Use Disorder", "Drug use in past month", "Binge alcohol use", "Needing, not receiving tx", "pain reliever misuse"), col = c("black", "blue", "red", "green", "purple"), lty = 1,  inset=c(-0.5, 0))
+
+```
+
+
+```{r}
+
+plot(state_final_df[state_final_df$profit_type == "Forprofit", ]$sud, state_final_df[state_final_df$profit_type == "Forprofit",]$tx_percapita, xlab = "Substance Use Disorder Counts (in thousands)", ylab = "For profit treatment centers per capita")
+abline(lm(tx_percapita ~ sud, data = state_final_df[state_final_df$profit_type == "Forprofit", ]))
+
+
+plot(state_final_df[state_final_df$profit_type == "Nonprofit", ]$sud, state_final_df[state_final_df$profit_type == "Nonprofit",]$tx_percapita, col = "blue", xlab = "Substance Use Disorder counts (in thousands) ", ylab = "Nonprofit treatment centers per capita")
+abline(lm(tx_percapita ~ sud, data = state_final_df[state_final_df$profit_type == "Nonprofit", ]))
+
+plot(state_final_df[state_final_df$profit_type == "Government", ]$sud, state_final_df[state_final_df$profit_type == "Government",]$tx_percapita, col = "green", xlab = "Substance Use Disorder counts (in thousands)", ylab = "Government treatment centers per capita")
+abline(lm(tx_percapita ~ sud, data = state_final_df[state_final_df$profit_type == "Government", ]))
+
+
+```
+
+
+
+Look at the distribution of each input variable of interest at each point in time
+```{r}
+
+create_hist <- function(df, year_param, profit_param, col_param)
+{
+  subset_data <- df %>%
+  filter(year == year_param, profit_type == profit_param)
+  hist(subset_data[[col_param]], main = paste("Histogram of ",year_param, profit_param, col_param), xlab = col_param)
+}
+
+```
+
+```{r}
+
+#substance use measures are roughly normal
+create_hist(state_final_df, 2016, "Forprofit", "binge_drinking")
+create_hist(state_final_df, 2017, "Forprofit", "binge_drinking")
+create_hist(state_final_df, 2018, "Forprofit", "binge_drinking")
+create_hist(state_final_df, 2019, "Forprofit", "binge_drinking")
+
+create_hist(state_final_df, 2016, "Forprofit", "illicit_druguse")
+create_hist(state_final_df, 2017, "Forprofit", "illicit_druguse")
+create_hist(state_final_df, 2018, "Forprofit", "illicit_druguse")
+create_hist(state_final_df, 2019, "Forprofit", "illicit_druguse")
+
+create_hist(state_final_df, 2016, "Forprofit", "needing_tx")
+create_hist(state_final_df, 2017, "Forprofit", "needing_tx")
+create_hist(state_final_df, 2018, "Forprofit", "needing_tx")
+create_hist(state_final_df, 2019, "Forprofit", "needing_tx")
+
+create_hist(state_final_df, 2016, "Forprofit", "sud")
+create_hist(state_final_df, 2017, "Forprofit", "sud")
+create_hist(state_final_df, 2018, "Forprofit", "sud")
+create_hist(state_final_df, 2019, "Forprofit", "sud")
+```
+```{r}
+#for profit treatment centers are heavily skewed for all years
+create_hist(state_final_df, 2016, "Forprofit", "count_tx")
+create_hist(state_final_df, 2017, "Forprofit", "count_tx")
+create_hist(state_final_df, 2018, "Forprofit", "count_tx")
+create_hist(state_final_df, 2019, "Forprofit", "count_tx")
+```
+
+```{r}
+#non profit treatment centers are heavily skewed for all years
+create_hist(state_final_df, 2016, "Nonprofit", "count_tx")
+create_hist(state_final_df, 2017, "Nonprofit", "count_tx")
+create_hist(state_final_df, 2018, "Nonprofit", "count_tx")
+create_hist(state_final_df, 2019, "Nonprofit", "count_tx")
+```
+```{r}
+#non profit treatment centers are heavily skewed for all years
+create_hist(state_final_df, 2016, "Government", "count_tx")
+create_hist(state_final_df, 2017, "Government", "count_tx")
+create_hist(state_final_df, 2018, "Government", "count_tx")
+create_hist(state_final_df, 2019, "Government", "count_tx")
+```
+

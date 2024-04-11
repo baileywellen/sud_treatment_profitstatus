@@ -1,0 +1,300 @@
+---
+title: "SAMSHA NSSATS Data Cleaning"
+output: html_notebook
+---
+
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+```
+
+
+```{r}
+#could i look at PRIMPAY and HLTHINS columns to investigate moral hazard on the part of treatment centers for patients with certain insurance/payment characteristics (longer stays)?
+
+admission_cols <- c("CASEID", "PREG", "STFIPS",  # state ID 
+                    "SERVICES",  # type of treatment / service setting
+                    "PSOURCE",  # method of referral to treatment
+                    "NOPRIOR", # prior admissions to treatment
+                    "SUB1", "ROUTE1", "FREQ1", "FRSTUSE1", # characteristics of their primary substance, method and frequency of use  (could also include second substances)
+                    "HLTHINS", "PRIMPAY", # payment details of interest
+                    "REASON", # reason for discharge
+                    "LOS" #length of stay 
+                    )
+
+```
+
+
+
+
+```{r}
+#nssats2009 <- read.csv("N-SSATS-2009-DS0001-bndl-data-tsv/N-SSATS-2009-DS0001-data/N-SSATS-2009-DS0001-data-excel.csv")
+nssats2014 <- read.csv("Data/NSSATS/N-SSATS-2014-DS0001-bndl-data-tsv/N-SSATS-2014-DS0001-data/N-SSATS-2014-DS0001-data-excel.csv")
+nssats2015 <- read.csv("Data/NSSATS/N-SSATS-2015-DS0001-bndl-data-tsv/N-SSATS-2015-DS0001-data/N-SSATS-2015-DS0001-data-excel.csv")
+nssats2016 <- read.csv("Data/NSSATS/NSSATSPUF_2016.csv")
+nssats2017 <- read.csv("Data/NSSATS/NSSATS_PUF_2017_CSV.csv")
+nssats2018 <- read.csv("Data/NSSATS/NSSATS_PUF_2018_CSV.csv")
+nssats2019 <- read.csv("Data/NSSATS/NSSATS_PUF_2019_CSV.csv")
+#nssats2020 <- read.csv("NSSATS_PUF_2020_CSV.csv")
+head(nssats2015)
+```
+
+Data cleaning on all dfs 
+```{r}
+
+profit_types <- c("Forprofit", "Nonprofit", "Government", "Government", "Government", "Government")
+
+# Function to append a number to column names (from ChatGPT)
+append_number <- function(name, num) {
+  paste(name, num, sep = "_")
+}
+
+year_dfs <- list(nssats2014, nssats2015, nssats2016, nssats2017, nssats2018, nssats2019)
+year_nums <- seq(2014, 2019)
+
+results <- list()
+index <- 1
+for (year_df in year_dfs)
+{
+  this_df <- year_df %>% 
+    mutate(type = profit_types[OWNERSHP]) %>%
+    filter(! STATE %in% c("VI", "GU", "PW", "PR", "FM")) %>% #filter out US territories
+    group_by(STATE, type) %>% 
+    summarize(count = n()) %>%
+    ungroup() %>%
+    group_by(STATE) %>%
+    mutate(percent = count / sum(count)) %>% 
+    ungroup() %>%
+    pivot_wider(id_cols = STATE, names_from = type, values_from = c("count", "percent")) %>% #pivot long rows to columns
+    rename_with(~ ifelse(. == "STATE", ., append_number(., year_nums[index])), everything())  #add the year onto the columns to track %>%
+  
+
+  # add the dataframe to a list 
+  results[[index]] <- this_df
+  index <- index + 1
+  
+}
+
+```
+
+
+Merge the dataframes together
+```{r}
+
+profit_states_1419 <- results[[1]]
+
+for (index in seq(2, length(results)))
+{
+  profit_states_1419 <- left_join(profit_states_1419, results[[index]])
+}
+
+#add columns that calculate the change from 2015 - 2019 
+profit_states_1419$change_Forprofit_1519 <- profit_states_1419$count_Forprofit_2019 - profit_states_1419$count_Forprofit_2015
+profit_states_1419$change_Nonprofit_1519 <- profit_states_1419$count_Nonprofit_2019 - profit_states_1419$count_Nonprofit_2015
+profit_states_1419$change_Government_1519 <- profit_states_1419$count_Government_2019 - profit_states_1419$count_Government_2015
+
+```
+
+
+
+```{r}
+#merge state abbreviations to state names
+state_names <- tolower(c('ALABAMA','ALASKA','AMERICAN SAMOA','ARIZONA','ARKANSAS','CALIFORNIA','COLORADO','CONNECTICUT','DELAWARE','DISTRICT OF COLUMBIA','FLORIDA','GEORGIA','GUAM','HAWAII','IDAHO','ILLINOIS','INDIANA','IOWA','KANSAS','KENTUCKY','LOUISIANA','MAINE','MARYLAND','MASSACHUSETTS','MICHIGAN','MINNESOTA','MISSISSIPPI','MISSOURI','MONTANA','NEBRASKA','NEVADA','NEW HAMPSHIRE','NEW JERSEY','NEW MEXICO','NEW YORK','NORTH CAROLINA','NORTH DAKOTA','NORTHERN MARIANA IS','OHIO','OKLAHOMA','OREGON','PENNSYLVANIA','PUERTO RICO','RHODE ISLAND','SOUTH CAROLINA','SOUTH DAKOTA','TENNESSEE','TEXAS','UTAH','VERMONT','VIRGINIA','VIRGIN ISLANDS','WASHINGTON','WEST VIRGINIA','WISCONSIN','WYOMING'))
+state_abbrevs <- c('AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FL','GA','GU','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','MP','OH','OK','OR','PA','PR','RI','SC','SD','TN','TX','UT','VT','VA','VI','WA','WV','WI','WY')
+state_abbrevs_df <- data.frame(state_names, state_abbrevs)
+```
+
+
+
+
+MERGING DATA TOGETHER TO INCLUDE COVARIATES:
+```{r read and clean CMS population data }
+state_colnames <- c("State_Name", "Y2012", "Y2013", "Y2014", "Y2015", "Y2016", "Y2017", "Y2018", "Y2019", "Y2020")
+
+statepop_long <- read.csv("Data/state_health_spending/US_POPULATION20.CSV") %>% 
+  dplyr::select(state_colnames) %>%
+  pivot_longer(cols = state_colnames[-1]) %>% 
+  filter(State_Name != "") %>%
+  mutate(year = gsub("Y", "", name)) %>%
+  rename(pop_thousands = value) %>%
+  dplyr::select(State_Name, year, pop_thousands)
+
+statepop_long
+```
+
+```{r read and clean CMS per capita healthcare spending}
+state_healthspending_long <- read.csv("Data/state_health_spending/US_PER_CAPITA20.CSV") %>%
+  dplyr::select(state_colnames, "Item") %>%
+  pivot_longer(cols = state_colnames[-1]) %>% 
+  #filter to Personal Health Care, which is total spending 
+  filter(State_Name != "", grepl("Personal Health Care", Item)) %>%
+  mutate(year = gsub("Y", "", name)) %>%
+  rename(percapita_health_spending = value, spending_type = Item) %>%
+  dplyr::select(State_Name, year, percapita_health_spending, spending_type)
+
+state_healthspending_long 
+```
+
+
+
+question - will medicaid enrollment be correlated with population? should we divide by that?
+```{r read and clean CMS medicaid enrollment data}
+
+state_medicaidenroll_long <- read.csv("Data/state_health_spending/MEDICAID_ENROLLMENT20.CSV") %>%
+   dplyr::select(state_colnames) %>%
+   pivot_longer(cols = state_colnames[-1]) %>% 
+   filter(State_Name != "") %>%
+   mutate(year = gsub("Y", "", name)) %>%
+   rename(medicaid_enrollment = value) %>%
+   dplyr::select(State_Name, year, medicaid_enrollment)
+
+state_medicaidenroll_long
+```
+
+
+```{r read and merge NSDUH drug use data (demand measures) from the aggregated csv file from dashboard}
+
+# clean_nsduh_files <- function(folder_path, measure_name)
+# {
+#   #create columns to save the confidence intervals in 
+#   measure_upper <- paste(measure_name, "_ciupper", sep = "")
+#   measure_lower <- paste(measure_name, "_cilower", sep = "")
+#   
+#   #loop through all data in the folder, reformat, and save it
+#   year_data <- list()
+#   nsduh_files <- list.files(path = folder_path)
+#   print(nsduh_files)
+#   index <- 1
+#   
+#   #loop through all the files in the folder 
+#   for (file in nsduh_files)
+#   {
+#       this_data <- read.csv(paste(folder_path, file, sep = "")) %>%
+#           #round the year range (i.e. 2013-2014) up, so we are saving it as the year_end
+#           separate(year_pair, into = c(NA, "year_end")) %>%
+#           mutate(year_end = paste("20", year_end, sep = "")) %>%
+#           rename(!!measure_name := estimate,
+#                  !!measure_lower := ci_lower,
+#                  !!measure_upper := ci_upper) %>% 
+#           dplyr::select(-c(outcome, age_group))
+#       
+#       #add it to a list
+#       year_data[[index]] <- this_data
+#       index <- index + 1
+#   }
+# 
+#   #append the data from each file into one dataframe and return
+#   return(bind_rows(year_data))
+# }
+# 
+# 
+# sud_pastyear <- clean_nsduh_files("Data/NSDUH/NSDUH_SUD/", "sud_pastyear")
+# needing_notreceiving <- clean_nsduh_files("Data/NSDUH/NSDUH_NeedingNotReceiving/", "needing_tx")
+# bingealcohol_pastmonth <- clean_nsduh_files("Data/NSDUH/NSDUH_BingeAlcohol/", "bingealcohol_pastmonth")
+# drug_pastmonth <- clean_nsduh_files("Data/NSDUH/NSDUH_IllicitDrugUse/", "drug_pastmonth")
+# 
+# sud_demand_df <- sud_pastyear %>% 
+#   left_join(needing_notreceiving, by= c("state", "year_end")) %>%
+#   left_join(bingealcohol_pastmonth, by= c("state", "year_end")) %>%
+#   left_join(drug_pastmonth, by = c("state", "year_end"))
+# 
+# sud_demand_df
+
+```
+
+
+
+
+Read all NSDUH data from here: https://www.samhsa.gov/data/nsduh/state-reports
+```{r read in the combined nsduh file}
+library(haven)
+nsduh_all <- haven::read_sas("Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
+```
+
+```{r clean the nsduh data}
+#interested in 4 substance use outcomes
+nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL") #, "HERYR", "PNRNMYR")
+
+
+#filter the data to only state reports, and years post-2015 
+nsduh_data_long <- nsduh_all %>% 
+  separate(pyearnm, into = c("start_year", "end_year"), "-") %>%
+  filter(start_year >= 2015, area == 2) %>%
+  filter(outcome %in% nsduh_outcomes) %>%
+  filter(agegrp  == 4) %>% #filter to people above 18
+  mutate(stname_lower = tolower(stname)) %>%
+  dplyr::select(outname, outcome, start_year, end_year, agegrp, stname,stname_lower, BSAE, low_sae, up_sae)
+                #pop, est_total, low_total, up_total) #i was previously using est_total but this is the average number of people per state which will be dependent on population
+
+nsduh_data_wide <- nsduh_data_long %>%
+  select(stname, start_year, end_year, outcome, BSAE) %>%
+  pivot_wider(id_cols = c(stname, end_year), names_from = outcome, values_from = BSAE, unused_fn = first)
+
+nsduh_data_wide
+
+```
+
+```{r merge different statelevel control variables together}
+state_control_long <- statepop_long %>% 
+  inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
+  inner_join(state_medicaidenroll_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
+  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands,
+         state_name_lower = tolower(State_Name)) %>%
+  #join "demand" measures from NSDUH data
+  left_join(nsduh_data_wide, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
+  #left_join(sud_demand_df, by = c("State_Name" = "state", "year" = "year_end")) %>% 
+  #join state abbreviations onto dataframe
+  left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
+  dplyr::select(-c(spending_type, state_name_lower)) %>%
+  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, "needing_tx"= TXNPILAL, "sud" = UDPYILAL)
+
+state_control_long
+```
+
+
+
+
+```{r pivot state treatment center counts to long and merge to control variables}
+
+#pivot data to long format
+state_final_df <- profit_states_1419 %>%
+  dplyr::select(STATE, contains("count")) %>%
+  pivot_longer(cols = contains("count")) %>%
+  separate(name, into = c(NA, "profit_type", "year"), "_") %>%
+  rename(State_Abbrev = STATE, count_tx = value) %>% 
+#join to control variables
+  left_join(state_control_long, by = c("State_Abbrev" = "state_abbrevs", "year" = "year")) %>%
+  filter(year >= 2016 & year <= 2019) %>%
+  mutate(tx_percapita = count_tx / (pop_thousands*1000))
+
+head(state_final_df)
+```
+
+
+
+
+Read in data from the CDC death rates data - see if it is correlated with the drug use data 
+
+
+```{r reading in the CDC overdose rates }
+
+# cdc_overdoses <- read.csv('Data/CDC_DrugOverdoseDeaths.csv')
+# 
+# 
+# cdc_merge_nsduh <- cdc_overdoses %>%
+#   mutate(YEAR = as.character(YEAR)) %>%
+#   left_join(state_abbrevs_df, by = c("STATE" = "state_abbrevs")) %>%
+#   inner_join(yearly_nsduh_data, by = c("state_names" = "stname_lower", "YEAR" = "end_year")) %>%
+#   filter(outcome == "TXNPILAL")  %>% #could filter to other measures if preferred
+#   mutate(est_per_pop = est_total / pop)
+# 
+# cdc_merge_nsduh
+
+#state_final_df <- state_final_df %>% 
+#  left_join(cdc_merge_nsduh, by = c("State_Abbrev" = "STATE", "year" = "YEAR")) %>%
+#  filter(!is.na(RATE))
+#state_final_df
+#plot(state_final_df$RATE, state_final_df$count_tx)
+```
