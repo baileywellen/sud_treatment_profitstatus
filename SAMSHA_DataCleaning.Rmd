@@ -37,7 +37,7 @@ nssats2016 <- read.csv("Data/NSSATS/NSSATSPUF_2016.csv")
 nssats2017 <- read.csv("Data/NSSATS/NSSATS_PUF_2017_CSV.csv")
 nssats2018 <- read.csv("Data/NSSATS/NSSATS_PUF_2018_CSV.csv")
 nssats2019 <- read.csv("Data/NSSATS/NSSATS_PUF_2019_CSV.csv")
-#nssats2020 <- read.csv("NSSATS_PUF_2020_CSV.csv")
+nssats2020 <- read.csv("Data/NSSATS/NSSATS_PUF_2020_CSV.csv")
 head(nssats2015)
 ```
 
@@ -51,7 +51,7 @@ append_number <- function(name, num) {
   paste(name, num, sep = "_")
 }
 
-year_dfs <- list(nssats2014, nssats2015, nssats2016, nssats2017, nssats2018, nssats2019)
+year_dfs <- list(nssats2014, nssats2015, nssats2016, nssats2017, nssats2018, nssats2019)#, nssats2020)
 year_nums <- seq(2014, 2019)
 
 results <- list()
@@ -266,7 +266,7 @@ state_final_df <- profit_states_1419 %>%
   rename(State_Abbrev = STATE, count_tx = value) %>% 
 #join to control variables
   left_join(state_control_long, by = c("State_Abbrev" = "state_abbrevs", "year" = "year")) %>%
-  filter(year >= 2016 & year <= 2019) %>%
+  filter(year >= 2016 & year <= 2020) %>%
   mutate(tx_percapita = count_tx / (pop_thousands*1000))
 
 head(state_final_df)
