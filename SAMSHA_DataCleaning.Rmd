@@ -213,15 +213,28 @@ library(haven)
 nsduh_all <- haven::read_sas("Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
 ```
 
+
+looking for variables which can measure demand but are consistently available for a longer period of time - 
+alcohol use disorder in the past year, (ABODALC)
+cocaine use in the past year, (COCYR)
+heroin use in the past year, (HERYR)
+marijuana use in the past month  (MRJMON) - month chosen over year because it is more frequent and more likely represents high use / use disorder 
+
+(probably won't include tobacco use because it isnt as often treated in a specialty facility)
+
+
+
+
+
 ```{r clean the nsduh data}
 #interested in 4 substance use outcomes
-nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL") #, "HERYR", "PNRNMYR")
+nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABODALC", "COCYR", "HERYR", "MRJMON")
 
 
 #filter the data to only state reports, and years post-2015 
 nsduh_data_long <- nsduh_all %>% 
   separate(pyearnm, into = c("start_year", "end_year"), "-") %>%
-  filter(start_year >= 2015, area == 2) %>%
+  filter(area == 2) %>% #start_year >= 2015, ) %>%
   filter(outcome %in% nsduh_outcomes) %>%
   filter(agegrp  == 4) %>% #filter to people above 18
   mutate(stname_lower = tolower(stname)) %>%
@@ -248,11 +261,46 @@ state_control_long <- statepop_long %>%
   #join state abbreviations onto dataframe
   left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
   dplyr::select(-c(spending_type, state_name_lower)) %>%
-  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, "needing_tx"= TXNPILAL, "sud" = UDPYILAL)
+  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, "needing_tx"= TXNPILAL, "sud" = UDPYILAL, 
+         "heroin_yr"=HERYR, "cocaine_yr"=COCYR, "aud_yr" = ABODALC, "marijuana_month" = MRJMON)
 
 state_control_long
 ```
 
+
+Scale the variables and lag the need variables 
+
+```{r}
+#scale to health spending in thousands of dollars
+state_control_long$percapita_health_spending_thousands <- state_control_long$percapita_health_spending / 1000
+#scale to population in millions 
+state_control_long$pop_millions <- state_control_long$pop_thousands / 1000
+
+#change the demand variables to percents
+state_control_long$binge_drinking <- state_control_long$binge_drinking * 100
+state_control_long$illicit_druguse <- state_control_long$illicit_druguse * 100
+state_control_long$sud <- state_control_long$sud * 100 
+state_control_long$needing_tx <- state_control_long$needing_tx * 100
+state_control_long$aud_yr <- state_control_long$aud_yr * 100
+state_control_long$heroin_yr <- state_control_long$heroin_yr * 100
+state_control_long$cocaine_yr <- state_control_long$cocaine_yr * 100
+state_control_long$marijuana_month <- state_control_long$marijuana_month * 100
+
+#lag the 4 demand variables , and change them to percentages 
+state_control_long <- state_control_long %>%
+                    arrange(State_Name, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Name) %>%
+                    mutate(prev2years_bingedrinking = dplyr::lag(binge_drinking),
+                           prev2years_druguse = dplyr::lag(illicit_druguse),
+                           prev2years_sud = dplyr::lag(sud),
+                           prev2years_needingtx = dplyr::lag(needing_tx),
+                           prev2years_aud = dplyr::lag(aud_yr),
+                           prev2years_marijuana = dplyr::lag(marijuana_month),
+                           druguse_calc = (cocaine_yr + heroin_yr), #combine the 3 drug use metrics - average 
+                           prev2years_drugusecalc = dplyr::lag(druguse_calc),
+                           prev2years_cocaine = dplyr::lag(cocaine_yr),
+                           prev2years_heroin = dplyr::lag(heroin_yr))
+```
 
 
 
@@ -266,10 +314,23 @@ state_final_df <- profit_states_1419 %>%
   rename(State_Abbrev = STATE, count_tx = value) %>% 
 #join to control variables
   left_join(state_control_long, by = c("State_Abbrev" = "state_abbrevs", "year" = "year")) %>%
-  filter(year >= 2016 & year <= 2020) %>%
+  #filter(year >= 2016 & year <= 2020) %>%
   mutate(tx_percapita = count_tx / (pop_thousands*1000))
 
 head(state_final_df)
+```
+```{r}
+state_forprofitUSE %>%
+  group_by(year) %>%
+  summarize(total = sum(count_tx))
+
+state_nonprofitUSE %>%
+  group_by(year) %>%
+  summarize(total = sum(count_tx))
+
+state_govtUSE %>%
+  group_by(year) %>%
+  summarize(total = sum(count_tx, na.rm = TRUE))
 ```
 
 
@@ -280,11 +341,11 @@ Read in data from the CDC death rates data - see if it is correlated with the dr
 
 ```{r reading in the CDC overdose rates }
 
-# cdc_overdoses <- read.csv('Data/CDC_DrugOverdoseDeaths.csv')
+cdc_overdoses <- read.csv('Data/CDC_DrugOverdoseDeaths.csv')
 # 
 # 
-# cdc_merge_nsduh <- cdc_overdoses %>%
-#   mutate(YEAR = as.character(YEAR)) %>%
+cdc_overdoses <- cdc_overdoses %>%
+ mutate(YEAR = as.character(YEAR))# %>%
 #   left_join(state_abbrevs_df, by = c("STATE" = "state_abbrevs")) %>%
 #   inner_join(yearly_nsduh_data, by = c("state_names" = "stname_lower", "YEAR" = "end_year")) %>%
 #   filter(outcome == "TXNPILAL")  %>% #could filter to other measures if preferred
@@ -292,9 +353,12 @@ Read in data from the CDC death rates data - see if it is correlated with the dr
 # 
 # cdc_merge_nsduh
 
-#state_final_df <- state_final_df %>% 
-#  left_join(cdc_merge_nsduh, by = c("State_Abbrev" = "STATE", "year" = "YEAR")) %>%
-#  filter(!is.na(RATE))
+state_final_df <- state_final_df %>% 
+  left_join(cdc_overdoses, by = c("State_Abbrev" = "STATE", "year" = "YEAR")) %>%
+  filter(!is.na(RATE)) %>%
+  arrange(State_Abbrev, year) %>%
+  group_by(State_Abbrev) %>%
+  mutate(prevyear_deaths = dplyr::lag(RATE))
 #state_final_df
 #plot(state_final_df$RATE, state_final_df$count_tx)
 ```

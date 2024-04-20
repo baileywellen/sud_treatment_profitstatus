@@ -47,6 +47,30 @@ var(profit_states_1419$count_Government_2019) > mean(profit_states_1419$count_Go
 ```
 
 
+
+
+split the data into a forprofit, nonprofit, and government dataset 
+
+```{r}
+state_forprofit <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Forprofit", !is.na(prev2years_bingedrinking)) #the first year (2016) wont have demand predictors because we lagged them 
+
+state_nonprofit <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Nonprofit", !is.na(prev2years_bingedrinking))
+
+state_govt <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Government", !is.na(prev2years_bingedrinking))
+
+
+```
+
+
 Test for collinearity among control variables:
 
 needing_tx is correlated with other substance use variables:
@@ -59,290 +83,389 @@ bingealcohol_pastmonth and sud_pastyear are somewhat correlated
 
 I think it makes sense to only use sud_pastyear for the demand measure, since having the diagnosis may be a better indicator of need anyway (people who use may not necessarily want treatment)
 ```{r}
-cor(state_final_df[, c("pop_thousands", "percapita_health_spending", "medicaid_enroll_percapita", "needing_tx", "sud", "binge_drinking", "illicit_druguse")])
+library(corrplot)
+corr_matrix <- cor(state_forprofit[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_needingtx", "prev2years_sud", "prev2years_bingedrinking", "prev2years_druguse")])
+
+corrplot(corr_matrix, method="circle")
+
+
 ```
 
-https://cran.r-project.org/web/packages/PanelCount/vignettes/vignette.html
+GLMER model
+
+```{r LRT for best demand variables }
+
+#code to determine the best subset of demand variables to include 
+demandvars_lrt <- function(df, demandvars_list){
+  
+  model_list <- list()
+  
+  #loop through to peel off the last element from demandvars_list at a time, until only the first demand variable is left 
+  for(i in 0:(length(demandvars_list)-1))
+  {
+    demand_variables_touse <- demandvars_list[1:(length(demandvars_list) - i)]
+    
+    #create the list of demand variables to use 
+    demand_vars <- paste(demand_variables_touse, collapse = " + ")
+  
+    control_vars <- " + medicaid_enroll_percapita + 
+             percapita_health_spending_thousands + 
+             pop_millions +
+             (1|State_Name) + (1 | year )"
+    
+    #paste the formula together 
+    nb_formula <- formula(paste("count_tx ~", demand_vars, control_vars))
+    
+    #build the model and save in the list
+    model <- glmer.nb(nb_formula, data = df, 
+                      control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)))
+    
+    #append the model to the list 
+    model_list[[i + 1]] <- model
+
+  }
+  
+  #store the maximum likelihood model - start by assuming it is the full model 
+  max_model <- model_list[[1]]
+  
+  #compare the models pairwise using the LRT 
+  for (i in seq(1:(length(model_list) - 1) ))
+  {
+      anova_results <- anova(max_model, model_list[[i+1]])
+      
+      #get the p-value
+      pval <- anova_results$'Pr(>Chisq)'[2]
+      
+      if (pval < 0.05)
+      {
+        print(paste("The more complex model improves fit sufficiently, p = ", pval))
+      }
+      else
+      {
+        print(paste("The more complex model does not improve fit sufficiently. considering the less complex model to be better", p = pval))
+        max_model <- model_list[[i+1]]
+      }
+      
+      print("Best model so far includes: ")
+      print(all.vars(formula(max_model)))
+  }
+}
+
+```
 
 
-Using pglm() to fit a poisson model (neg.bin does not converge)
+```{r LRT for best control variables, given best demand variables}
+#code to determine the best subset of demand variables to include 
+controlvars_lrt <- function(df, bestdemandvars_str, controlvars_list){
+  
+  model_list <- list()
+  
+  #loop through to peel off the last element from controlvars_list at a time, until only the first control variable is left 
+  for(i in 0:(length(controlvars_list) - 1 ))
+  {
+    control_variables_touse <- controlvars_list[1:(length(controlvars_list) - i)]
+    
+    #create the list of control variables to use 
+    control_vars <- paste(control_variables_touse, collapse = " + ")
+  
+    random_effects <- " +
+             (1|State_Name) + (1 | year) "
+    
+    #paste the formula together 
+    nb_formula <- formula(paste("count_tx ~", bestdemandvars_str, control_vars, random_effects))
+
+    #build the model and save in the list
+    model <- glmer.nb(nb_formula, data = df, 
+                      control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)))
+    
+    #append the model to the list 
+    model_list[[i + 1]] <- model
+
+  }
+  
+
+  #store the maximum likelihood model - start by assuming it is the full model 
+  max_model <- model_list[[1]]
+  
+  #compare the models pairwise using the LRT 
+  for (i in seq(1:(length(model_list) - 1) ))
+  {
+      anova_results <- anova(max_model, model_list[[i+1]])
+      
+      #get the p-value
+      pval <- anova_results$'Pr(>Chisq)'[2]
+      print("PVAL")
+      print(pval)
+      if (pval < 0.05)
+      {
+        print(paste("The more complex model improves fit sufficiently, p = ", pval))
+      }
+      else
+      {
+        print(paste("The more complex model does not improve fit sufficiently. considering the less complex model to be better", p = pval))
+        max_model <- model_list[[i+1]]
+      }
+      
+      print("Best model so far includes: ")
+      print(all.vars(formula(max_model)))
+  }
+}
+```
+
+
+
+
+After controlling for random effects of both year and state, these results are not significant. I am wondering whether the date range is limiting us - i want to try using the following variables to measure demand, which have been available for a longer period of time 
+
+These are available starting at 2013-2014: 
+alcohol use disorder in the past year, 
+cocaine use in the past year, 
+heroin use in the past year, 
+marijuana use in the past month 
+(probably won't include tobacco use because it isnt as often treated in a specialty facility)
+
 ```{r}
-library(lme4)
-library(pglm)
-library(plm)
-library(MASS)
-
-
-state_forprofit <- state_final_df %>% 
+state_forprofitUSE <- state_final_df %>% 
                     arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
                     group_by(State_Abbrev) %>%
-                    mutate(prev2years_bingedrinking = dplyr::lag(binge_drinking),
-                           prev2years_druguse = dplyr::lag(illicit_druguse))%>%
-                    filter(profit_type == "Forprofit", !is.na(prev2years_bingedrinking))
-                    
+                    filter(profit_type == "Forprofit", !is.na(prev2years_drugusecalc)) #2014 does not have this data
 
-
-#the previous 2 years' data does significantly predict the number of for-profit treatment centers
-poissonmodel_forprofit <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending  + 
-                                 prev2years_bingedrinking + prev2years_druguse ,
-                              #when controlling for all of the demand variables, nothing is significant. I think this is because sud and needing_tx are correlated with other variables (see above)
-                              # +lag(sud)  + lag(needing_tx), 
-    #the effect should be twooways because there may be state-level differences and country-level differences in each year                      
-    effect = "twoways", 
-   index = c('State_Name', 'year'),
-    data = state_forprofit, 
-    model = "within", 
-   #model = 'within' means fixed effects, or variable intercept by state by constant slope
-    #method = 'nr',
-    family = poisson) #can consider using 'negbin' instead
-
-summary(poissonmodel_forprofit)
-exp(poissonmodel_forprofit$estimate)
-
-#trying negative binomial - i dont think controlling for the states is the same as fixed effects
-#nbmodel_forprofit <- glm.nb(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending  + 
-#                                 lag(binge_drinking) + lag(illicit_druguse) + factor(State_Name),
-#                             data = state_forprofit)
-#summary(nbmodel_forprofit)
-
-# nbmodel_forprofit <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending  + 
-#                                  prev2years_bingedrinking + prev2years_druguse + factor(year),
-#                               #when controlling for all of the demand variables, nothing is significant. I think this is because sud and needing_tx are correlated with other variables (see above)
-#                               # +lag(sud)  + lag(needing_tx), 
-#     #the effect should be twooways because there may be state-level differences and country-level differences in each year                      
-#    index = c('State_Name', 'year'),
-#     data = state_forprofit, 
-#    model = "within", 
-#    print.level=3,
-#    #model = 'within' means fixed effects, or variable intercept by state by constant slope
-#     method = 'nr',
-#     family = negbin)
-
-
-#try a linear model
-lm_forprofit <- plm(tx_percapita ~ medicaid_enroll_percapita + percapita_health_spending  + 
-                                 prev2years_bingedrinking + prev2years_druguse ,
-                              
-   index = c('State_Name', 'year'),
-    data = state_forprofit, 
-    model = "within") 
-
-summary(lm_forprofit)
-lm_forprofit$coefficients
-
-
-#because the NSDUH data is combined over 2 years, it may make sense to try the CDC overdose deaths data, too
-#the previous 1 year's overdose data does significantly predict the number of for-profit treatment centers
-# simplemodel_forprofit2 <- pglm(count_tx ~ pop_thousands+ medicaid_enroll_percapita + percapita_health_spending  + sud, 
-#     effect = "individual",
-#    index = c('State_Name', 'year'),
-#     data = state_forprofit, 
-#     family = poisson)
-# 
-# summary(simplemodel_forprofit2)
-# exp(simplemodel_forprofit2$estimate)
-```
-
-```{r}
-#binge drinking and drug use don't seem to be too correlated but seem to become insignificant when controlling for both
-#cor(state_forprofit$prev2years_bingedrinking, state_forprofit$prev2years_druguse)
-```
-
-
-Trying to use GLMMadaptive instead to fit a negative binomial model with country-level grouping
-https://drizopoulos.github.io/GLMMadaptive/
-
-
-Getting an error of "the leading minor of order 1 is not positive" when i introduce more covariates 
-
-```{r}
-library(GLMMadaptive)
-
-#example from website
-#https://drizopoulos.github.io/GLMMadaptive/reference/negative_binomial.html
-#set.seed(102)
-#dd <- expand.grid(f1 = factor(1:3), f2 = LETTERS[1:2], g = 1:30, rep = 1:15,
-#                  KEEP.OUT.ATTRS = FALSE)
-#mu <- 5 * (-4 + with(dd, as.integer(f1) + 4 * as.numeric(f2)))
-#dd$y <- rnbinom(nrow(dd), mu = mu, size = 0.5)#
-
-#gm1 <-  mixed_model(fixed = y ~ f1 * f2, random = ~ 1 | g, data = dd, 
-#                    family = GLMMadaptive::negative.binomial())
-
-#summary(gm1)
-
-fm <- mixed_model(fixed = count_tx ~ prev2years_druguse + prev2years_bingedrinking,
-                     #percapita_health_spending, #medicaid_enroll_percapita + ,
-                    #pop_thousands +   + 
-                                 #
-                  random = ~ 1 | State_Name, 
-                  data = state_forprofit,
-                  family = GLMMadaptive::negative.binomial(),
-                  #initial_values = list(betas = poisson()), #rep(0, 3)),
-                  #iter_EM = 0,
-                  #penalized = TRUE,
-                  max_coef_value= 10000
-                  )
-
-summary(fm)
-```
-
-Let's also try glmer model?
-
-Because the percapita_health_spending and pop_thousands are so large relative to the prev2years_drug use and medicaid_enroll_percapita, the model struggles with convergence. we need to scale these variables. 
-```{r}
-library(lme4)
-#scale to health spending in thousands of dollars
-state_forprofit$percapita_health_spending_thousands <- state_forprofit$percapita_health_spending / 1000
-#scale to population in millions 
-state_forprofit$pop_millions <- state_forprofit$pop_thousands / 1000
-
-
-#this model throws a warning about the predictors being on different scales 
-glmer_forprofit1 <- glmer.nb(count_tx ~ prev2years_druguse + #prev2years_bingedrinking + #primary predictor of interest
-           medicaid_enroll_percapita + 
-           percapita_health_spending_thousands + 
-           pop_millions +
-           (1|State_Name)  #random effects 
-           ,
-          #nAGQ=0,
-         data = state_forprofit)
-summary(glmer_forprofit1)
-
-
-#this model does not throw a warning, and displays a lower BIC
-glmer_forprofit2 <- glmer.nb(count_tx ~ prev2years_druguse + #prev2years_bingedrinking + #primary predictor of interest
-          medicaid_enroll_percapita +
-           log(percapita_health_spending) + #scale using log
-           log(pop_thousands) + #scale using log
-           (1|State_Name)  # random effects 
-           ,
-          #nAGQ=0,
-         data = state_forprofit)
-summary(glmer_forprofit2)
-
-#when we use this model and control for the year, we see that most of the variation is explained by the year alone
-#however, this does not converge
-glmer_forprofit3 <- glmer.nb(count_tx ~ prev2years_druguse + #prev2years_bingedrinking + #primary predictor of interest
-           I(as.numeric(year) - 2017) +
-           medicaid_enroll_percapita +
-           log(percapita_health_spending) + #scale using log
-           log(pop_thousands)+ #scale using log
-           (1|State_Name)  # random effects 
-           ,
-          #nAGQ=0,
-         data = state_forprofit)
-summary(glmer_forprofit3)
-
-```
-
-
-#may want to consider using glmmTMB later on, AND VALIDATE RESULTS THIS WAY  per https://stackoverflow.com/questions/65565135/model-convergence-warning-with-negative-binomial-glmer
-
-
-
-
-
-```{r}
-anova(glmer_forprofit1, glmer_forprofit2, glmer_forprofit3)
-```
-
-
-```{r}
-state_nonprofit <- state_final_df %>% 
+state_nonprofitUSE <- state_final_df %>% 
                     arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
                     group_by(State_Abbrev) %>%
-                    mutate(prev2years_bingedrinking = dplyr::lag(binge_drinking),
-                           prev2years_druguse = dplyr::lag(illicit_druguse))%>%
-                    filter(profit_type == "Nonprofit", !is.na(prev2years_bingedrinking))
+                    filter(profit_type == "Nonprofit", !is.na(prev2years_drugusecalc))
+
+state_govtUSE <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Government", !is.na(prev2years_drugusecalc))
+
+```
+
+```{r}
+library(corrplot)
+corr_matrix <- cor(state_forprofitUSE[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "prev2years_cocaine", "prev2years_heroin")])
+
+corrplot(corr_matrix, method="circle")
+```
 
 
-poissonmodel_nonprofit <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending  + 
-                                 prev2years_bingedrinking + prev2years_druguse ,
-                              #when controlling for all of the demand variables, nothing is significant. I think this is because sud and needing_tx are correlated with other variables (see above)
-                              # +lag(sud)  + lag(needing_tx), 
-    #the effect should be twooways because there may be state-level differences and country-level differences in each year                      
-    effect = "twoways", 
-   index = c('State_Name', 'year'),
-    data = state_nonprofit, 
-    model = "within", 
-   #model = 'within' means fixed effects, or variable intercept by state by constant slope
-    #method = 'nr',
-    family = poisson) #can consider using 'negbin' instead
 
-summary(poissonmodel_nonprofit)
+```{r}
+#demandvars_lrt(state_forprofitUSE, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
+demandvars_lrt(state_forprofitUSE, c("prev2years_cocaine", "prev2years_heroin",  "prev2years_aud", "prev2years_marijuana"))
 
-
-#we could also try fitting this as a linear regression with panel data? to predict treatment centers per capita
-linear_model <- plm(tx_percapita ~ medicaid_enroll_percapita + percapita_health_spending + lag(sud_pastyear),
-    index = c('State_Name', 'year'),
-    effect = c("twoways"), #we want effects for both individual states and time varying
-    model = "within",
-    data = state_nonprofit)
-
-summary(linear_model)
-
-linear_model2 <- plm(tx_percapita ~ medicaid_enroll_percapita + percapita_health_spending + lag(RATE),
-    index = c('State_Name', 'year'),
-    effect = c("twoways"), #we want effects for both individual states and time varying
-    model = "within",
-    data = state_nonprofit)
-
-summary(linear_model2)
+```
+```{r}
+controlvars_lrt(state_forprofitUSE, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
 ```
 
 
 ```{r}
+glmer_forprofitUSE <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
+                                pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_forprofitUSE)
 
-state_govt <- state_final_df %>% 
-                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
-                    group_by(State_Abbrev) %>%
-                    mutate(prev2years_bingedrinking = dplyr::lag(binge_drinking),
-                           prev2years_druguse = dplyr::lag(illicit_druguse))%>%
-                    filter(profit_type == "Government", !is.na(prev2years_bingedrinking))
+summary(glmer_forprofitUSE)
 
-
-poissonmodel_govt <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending  + 
-                                 prev2years_bingedrinking + prev2years_druguse ,
-                              #when controlling for all of the demand variables, nothing is significant. I think this is because sud and needing_tx are correlated with other variables (see above)
-                              # +lag(sud)  + lag(needing_tx), 
-    #the effect should be twooways because there may be state-level differences and country-level differences in each year                      
-    effect = "twoways", 
-   index = c('State_Name', 'year'),
-    data = state_govt, 
-    model = "within", 
-   #model = 'within' means fixed effects, or variable intercept by state by constant slope
-    #method = 'nr',
-    family = poisson) #can consider using 'negbin' instead
-
-summary(poissonmodel_govt)
-
-
-simplemodel_govt <- pglm(count_tx ~ pop_thousands + medicaid_enroll_percapita + percapita_health_spending + lag(sud_pastyear), #when we include health spending all other significance goes away. why?
-    effect = "individual",
-    index = c('State_Name', 'year'),
-    model = "within",
-    data = state_govt, 
-    family = poisson)
-
-summary(simplemodel_govt)
-exp(simplemodel_govt$estimate)
 ```
 
-The population data from the CMS website (above) is the same as the FREDS data, but rounded to the nearest thousand 
-```{r population data cleaning from FREDS data}
-
-#statepop_wide <- read.table("Data/FRED_StatePopulations/State_Treatment_Analysis_Annual.txt", header = TRUE)
-
-#change the data to have a row per state per year 
-#statepop_long <- statepop_wide %>% 
-# pivot_longer(cols = names(statepop_wide)[-1]) %>% 
-#  mutate(state = gsub("POP", "", name)) %>%
-#  rename(pop_thousands = value) %>%
-##  separate(DATE, into = c("year", NA, NA), sep = "-") %>%
-#  select(year, state, pop_thousands)
-
-#statepop_long
+```{r}
+demandvars_lrt(state_nonprofitUSE, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
 ```
 
 
+```{r}
+controlvars_lrt(state_nonprofitUSE, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+```
+
+
+```{r}
+glmer_nonprofitUSE <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
+                                pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_nonprofitUSE)
+
+summary(glmer_nonprofitUSE)
+```
+
+
+
+test the best model for government
+```{r}
+demandvars_lrt(state_govtUSE, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
+```
+
+
+
+```{r}
+
+
+summary(glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
+                                pop_millions + percapita_health_spending_thousands + medicaid_enroll_percapita + 
+                                (1|State_Name) + (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_govtUSE))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Analysis using only the post-2016 measures: I think this was too limited by sample size 
+
+The best set of demand variables for the for profit model is only using drug use
+
+not including the tx metric because it is so highly correlated with SUD. I am choosing to include the SUD metric because i conceptually expect it to be most closely correlated with SUD treatment, and because the "needing but not receiving treatment" measure is complex (i.e. does that indicate more demand, or just an existing gap?) whereas drug use and binge drinking might not directly translate to wanting or needing treatment 
+```{r}
+demandvars_lrt(state_forprofit, c("prev2years_sud", "prev2years_druguse", "prev2years_bingedrinking")) #"prev2years_needingtx"
+print("___________________________________________")
+#demandvars_lrt(state_forprofit, c("needing_tx", "illicit_druguse", "binge_drinking"))
+
+```
+
+Keeping all three of the control variables (population, medicaid enrollment, and percapita health spending) improves the fit 
+```{r}
+controlvars_lrt(state_forprofit, "prev2years_sud +", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+```
+
+
+Now that we have chosen the model with the best demand variables and the best control variables according to the likelihood ratio test, we can review the coefficients on that model. 
+
+There is a negative, nearly significant relationship between the previous 2 years' prevalence of SUD and the count of treatment centers in a given state-year. 
+
+State population and percapita health spending is associated with a significant increase in the number of for-profit treatment centers. 
+
+```{r}
+glmer_forprofitFINAL <- glmer.nb(count_tx ~ prev2years_sud + 
+                                   pop_millions + percapita_health_spending_thousands + medicaid_enroll_percapita + 
+                                   (1 | State_Name) + (1 | year),
+                                 data = state_forprofit)
+
+summary(glmer_forprofitFINAL)
+```
+
+
+
+
+
+Now do the same thing for non-profit, starting by identifying the best demand variables 
+
+```{r}
+demandvars_lrt(state_nonprofit, c("prev2years_sud", "prev2years_druguse", "prev2years_bingedrinking")) #prev2years_sud
+print("___________________________________________")
+#demandvars_lrt(state_nonprofit, c("needing_tx", "illicit_druguse", "binge_drinking"))
+
+```
+
+Keeping all the control variables improves the fit.
+```{r}
+controlvars_lrt(state_nonprofit, "prev2years_sud +", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+```
+
+
+
+The tests  suggest that the most simple model is best. But because of the iteration warning, I will run the AllFit() call to ensure that all model approaches converge to the same result (as recommended by ?covergence ). If all approaches converge to near identical estimates, I will assume this is a false positive convergence warning.
+
+```{r}
+#?convergence
+
+glmer_nonprofitFINAL <- glmer.nb(count_tx ~ prev2years_sud + prev2years_druguse +
+                                pop_millions + percapita_health_spending_thousands + medicaid_enroll_percapita + 
+                                (1|State_Name) + (1 | year),
+                                control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_nonprofit)
+glmer_nonprofitALL <- allFit(glmer_nonprofitFINAL)
+
+ss_nonprofitALL <- summary(glmer_nonprofitALL)
+ss_nonprofitALL$fixef #all of these fixed effects are very similar, so i think it is safe to proceed with the model results 
+```
+
+
+Now that we have chosen the best model and investigated the convergence warning, we can look at the coefficients. 
+
+There is no significant relationship between the previous 2 years' amount of people with a SUD and the count of treatment centers in a given state-year. 
+
+State population and percapita health spending is associated with a significant increase in the number of non-profit treatment centers. Medicaid enrollment per-capita is associated with a significant decrease in the number of non-profit treatment centers. 
+```{r}
+summary(glmer_nonprofitFINAL)
+```
+
+
+
+Finally, we can follow the same steps for the Government-run treatment centers
+```{r}
+demandvars_lrt(state_govt, c("prev2years_sud", "prev2years_druguse", "prev2years_bingedrinking"))
+
+```
+
+The model with only the needing but not receiving treatment metric is best. Now we can evaluate the best control variables. Here we see that the best model does not include the control variables... but we should probably use them for comparability to the other models 
+```{r}
+controlvars_lrt(state_govt, "prev2years_sud +", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+```
+
+
+```{r}
+glmer_govtFINAL <- glmer.nb(count_tx ~ prev2years_sud + 
+                                pop_millions + percapita_health_spending_thousands + medicaid_enroll_percapita + 
+                                (1|State_Name) + (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_govt)
+
+glmer_govtALL <- allFit(glmer_govtFINAL)
+ss_govtALL <- summary(glmer_govtALL)
+ss_govtALL$fixef #these are all similar so considering it to be accurate
+
+```
+```{r}
+summary(glmer_govtFINAL)
+```

@@ -318,3 +318,19 @@ state_final_df %>%
   #mutate(increase = ifelse())
 ```
 
+```{r}
+
+state_yearly_averages<- state_final_df %>%
+  distinct(State_Abbrev, profit_type, year, .keep_all = TRUE) %>%
+  group_by(year) %>%
+  summarize(avg_druguse = mean(illicit_druguse),
+         avg_drinking = mean(binge_drinking),
+         avg_od = mean(RATE)) %>%
+  arrange(year)
+
+plot(state_yearly_averages$year, state_yearly_averages$avg_druguse, type = 'l')
+plot(state_yearly_averages$year, state_yearly_averages$avg_drinking, type = 'l')
+plot(state_yearly_averages$avg_od, state_yearly_averages$avg_od, type = 'l')
+
+```
+
