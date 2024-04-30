@@ -24,9 +24,54 @@ plot(years, forprofit_counts, type = 'l', main= "Treatment Facility Counts over 
 lines(years, nonprofit_counts, type = 'l', main= "Non Profit Counts", col = 'red')
 lines(years, govt_counts, type = 'l', main= "Government Counts", col = 'green')
 
+
 legend("bottomleft", c("for profit", "non profit", "government"), col = c("blue", "red", "green"), pch ='-', lwd = 2)
 
 ```
+```{r}
+library(ggplot2)
+state_final_df %>%
+  distinct(State_Name, year, .keep_all = TRUE) %>%
+  group_by(year) %>%
+  summarize(mean_drugusecalc = mean(druguse_calc),
+            mean_aud = mean(aud_yr),
+            mean_marijuana = mean(marijuana_month),
+            mean_cocaine = mean(cocaine_yr),
+            mean_heroin = mean(heroin_yr)) %>%
+  mutate(prev_year= as.integer(year) - 1,
+          year_range = paste(prev_year, "-", year)) %>%
+   ungroup() %>%
+   filter(year <= 2018) %>% #interested in only data until 2018
+   ggplot(., aes(x = year_range, group = 1)) + 
+   geom_line(aes(y = mean_cocaine, color = "Cocaine")) + 
+   geom_line(aes(y = mean_heroin, color = "Heroin")) + 
+   geom_line(aes(y = mean_aud, color = "Alcohol Use Disorder")) + 
+   geom_line(aes(y=mean_marijuana, color = "Marijuana")) + 
+   scale_color_manual(values = c("Cocaine" = "red", "Heroin" = "blue", "Alcohol Use Disorder" = "purple", "Marijuana" = "green")) +
+   labs(y = "Average Prevalence in 50 States + DC", title = "NSDUH Alcohol Use Disorder and Drug Use Prevalence over Time")# + 
+   #scale_x_discrete(labels = year_range)
+  # #labs(y = "Average Prevalence in 50 States + DC", title = "NSDUH Alcohol Use Disorder and Marijuana Use Prevalence over Time")
+  # #labs(y = "Average Prevalence in 50 States + DC", title = "NSDUH Cocaine and Heroin Use Prevalence over Time")
+
+```
+
+
+```{r}
+state_final_df %>%
+  #distinct(State_Name, year, .keep_all = TRUE) %>%
+  filter(year >= 2015) %>%
+  group_by(year, profit_type) %>%
+  summarize(num_centers = sum(count_tx, na.rm = TRUE)) %>%
+  ungroup() %>%
+  pivot_wider(id_cols = year, names_from = profit_type, values_from = num_centers) %>%
+  ggplot(., aes(x = year, group = 1)) + 
+  geom_line(aes(y = Forprofit, color = "For-Profit Centers")) + 
+  geom_line(aes(y = Nonprofit, color = "Non-Profit Centers")) + 
+  geom_line(aes(y = Government, color = "Government Centers")) + 
+  scale_color_manual(values = c("For-Profit Centers" = "green", "Non-Profit Centers" = "blue", "Government Centers" = "red")) +
+  labs(y = "Sum Treatment Centers in 50 States + DC", title = "Treatment Center Counts by Profit Status over Time")
+```
+
 
 
 using map tutorial from: https://jtr13.github.io/cc19/different-ways-of-plotting-u-s-map-in-r.html#using-ggplot2-package
@@ -307,16 +352,49 @@ ggplot(aes(x=long, y=lat, fill= avg_txpercapita, group=group)) +
                       coord_fixed(1.3)
 ```
 
+Create a csv with the averages per state between 2015 - 2019 and write to csv 
 ```{r}
 state_final_df %>%
-  group_by(State_Name, profit_type) %>%
-  pivot_wider(id_cols = c(State_Name, profit_type), names_from = year, values_from = count_tx, names_prefix = "yr") %>%
-  mutate(change_2016_17 = yr2017 - yr2016,
-         change_2017_18 = yr2018 - yr2017,
-         change_2018_19 = yr2019 - yr2018, 
-         total_change = yr2019 - yr2017)
+  filter(year >= 2015) %>% #model will only use 2015 - 2019
+  group_by(State_Name, year) %>%
+  pivot_wider(id_cols = c(State_Name, year), names_from = profit_type, values_from = count_tx) %>%
+  ungroup() %>%
+  arrange(year) %>%
+  group_by(State_Name) %>%
+  summarize(Forprofit_Count2015 = first(Forprofit),
+            Forprofit_Change1519 = last(Forprofit) - first(Forprofit),
+            Nonprofit_Count2015 = first(Nonprofit),
+            Nonprofit_Change1519 = last(Nonprofit) - first(Nonprofit),
+            Government_Count2015 = first(Government), 
+            Government_Change1519 = last(Government) - first(Government)
+) %>%
+  arrange(desc(Forprofit_Change1519)) %>%
+  write.csv("State_Profit_Counts.csv")
   #mutate(increase = ifelse())
 ```
+
+Create a csv of the drug use by state 
+```{r}
+state_final_df %>%
+  filter(year >= 2015) %>% #model will only use 2015 - 2019
+  group_by(State_Name) %>%
+  arrange(year) %>%
+   summarize(Druguse2013_14 = first(prev2years_drugusecalc),
+             Cocaine2013_14 = first(prev2years_cocaine),
+             Heroin2013_14 = first(prev2years_heroin),
+             AUD2013_14 = first(prev2years_aud),
+             Marijuana2013_14 = first(prev2years_marijuana))%>%
+#             Forprofit_Change1519 = last(Forprofit) - first(Forprofit),
+#             Nonprofit_Count2015 = first(Nonprofit),
+#             Nonprofit_Change1519 = last(Nonprofit) - first(Nonprofit),
+#             Government_Count2015 = first(Government), 
+#             Government_Change1519 = last(Government) - first(Government)
+   arrange(desc(Druguse2013_14)) %>%
+    write.csv("State_Druguse_Counts.csv")
+
+```
+
+
 
 ```{r}
 
@@ -332,5 +410,18 @@ plot(state_yearly_averages$year, state_yearly_averages$avg_druguse, type = 'l')
 plot(state_yearly_averages$year, state_yearly_averages$avg_drinking, type = 'l')
 plot(state_yearly_averages$avg_od, state_yearly_averages$avg_od, type = 'l')
 
+```
+```{r}
+state_final_df %>%
+  select(State_Name, profit_type, year, count_tx, cocaine_yr, marijuana_month, aud_yr, heroin_yr, druguse_calc) %>%
+  #group_by(State_Name, profit_type) #%>%
+  pivot_wider(id_cols = c(State_Name, profit_type), names_from = year, values_from = count_tx, unused_fn = first) #%>%
+  #mutate(average_1419 = mean(select("2014", "2015", "2016", "2017", "2018", "2019")))#%>%
+  #pivot_wider(id_cols = c(State_Name, year), names_from = profit_type, values_from = count_tx, unused_fn = first) #%>%
+  #pivot_wider(id_cols = c(State_Name), names_from = profit_type, values_from=c("2014", "2015", "2016", "2017", "2018", "2019"), unused_fn = first)
+
+```
+```{r}
+print("Test")
 ```
 

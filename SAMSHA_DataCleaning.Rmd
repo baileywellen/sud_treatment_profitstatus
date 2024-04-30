@@ -257,7 +257,6 @@ state_control_long <- statepop_long %>%
          state_name_lower = tolower(State_Name)) %>%
   #join "demand" measures from NSDUH data
   left_join(nsduh_data_wide, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
-  #left_join(sud_demand_df, by = c("State_Name" = "state", "year" = "year_end")) %>% 
   #join state abbreviations onto dataframe
   left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
   dplyr::select(-c(spending_type, state_name_lower)) %>%
@@ -319,19 +318,7 @@ state_final_df <- profit_states_1419 %>%
 
 head(state_final_df)
 ```
-```{r}
-state_forprofitUSE %>%
-  group_by(year) %>%
-  summarize(total = sum(count_tx))
 
-state_nonprofitUSE %>%
-  group_by(year) %>%
-  summarize(total = sum(count_tx))
-
-state_govtUSE %>%
-  group_by(year) %>%
-  summarize(total = sum(count_tx, na.rm = TRUE))
-```
 
 
 
@@ -353,12 +340,14 @@ cdc_overdoses <- cdc_overdoses %>%
 # 
 # cdc_merge_nsduh
 
-state_final_df <- state_final_df %>% 
-  left_join(cdc_overdoses, by = c("State_Abbrev" = "STATE", "year" = "YEAR")) %>%
-  filter(!is.na(RATE)) %>%
-  arrange(State_Abbrev, year) %>%
-  group_by(State_Abbrev) %>%
-  mutate(prevyear_deaths = dplyr::lag(RATE))
+
+#NOTE - the cdc data does not include D.C.
+# state_final_df <- state_final_df %>% 
+#   left_join(cdc_overdoses, by = c("State_Abbrev" = "STATE", "year" = "YEAR")) %>%
+#   filter(!is.na(RATE)) %>%
+#   arrange(State_Abbrev, year) %>%
+#   group_by(State_Abbrev) %>%
+#   mutate(prevyear_deaths = dplyr::lag(RATE))
 #state_final_df
 #plot(state_final_df$RATE, state_final_df$count_tx)
 ```
