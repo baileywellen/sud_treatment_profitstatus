@@ -47,8 +47,9 @@ state_final_df %>%
    geom_line(aes(y = mean_heroin, color = "Heroin")) + 
    geom_line(aes(y = mean_aud, color = "Alcohol Use Disorder")) + 
    geom_line(aes(y=mean_marijuana, color = "Marijuana")) + 
-   scale_color_manual(values = c("Cocaine" = "red", "Heroin" = "blue", "Alcohol Use Disorder" = "purple", "Marijuana" = "green")) +
-   labs(y = "Average Prevalence in 50 States + DC", title = "NSDUH Alcohol Use Disorder and Drug Use Prevalence over Time")# + 
+   scale_color_manual(name = "Substance Use Measure", values = c("Cocaine" = "red", "Heroin" = "blue", "Alcohol Use Disorder" = "purple", "Marijuana" = "green")) +
+   labs(x = "Year Range", y = "Average Prevalence in 50 States + DC", title = "Alcohol Use Disorder and Drug Use Prevalence over Time") + 
+  theme_minimal()# + 
    #scale_x_discrete(labels = year_range)
   # #labs(y = "Average Prevalence in 50 States + DC", title = "NSDUH Alcohol Use Disorder and Marijuana Use Prevalence over Time")
   # #labs(y = "Average Prevalence in 50 States + DC", title = "NSDUH Cocaine and Heroin Use Prevalence over Time")
@@ -65,11 +66,12 @@ state_final_df %>%
   ungroup() %>%
   pivot_wider(id_cols = year, names_from = profit_type, values_from = num_centers) %>%
   ggplot(., aes(x = year, group = 1)) + 
-  geom_line(aes(y = Forprofit, color = "For-Profit Centers")) + 
-  geom_line(aes(y = Nonprofit, color = "Non-Profit Centers")) + 
-  geom_line(aes(y = Government, color = "Government Centers")) + 
-  scale_color_manual(values = c("For-Profit Centers" = "green", "Non-Profit Centers" = "blue", "Government Centers" = "red")) +
-  labs(y = "Sum Treatment Centers in 50 States + DC", title = "Treatment Center Counts by Profit Status over Time")
+  geom_line(aes(y = Forprofit, color = "For-Profit")) + 
+  geom_line(aes(y = Nonprofit, color = "Non-Profit")) + 
+  geom_line(aes(y = Government, color = "Government")) + 
+  scale_color_manual(name = "Profit Status", values = c("For-Profit" = "green", "Non-Profit" = "blue", "Government" = "red")) +
+  labs(x = "Year", y = "Sum Treatment Centers in 50 States + DC", title = "Treatment Center Counts by Profit Status over Time") + 
+  theme_minimal()
 ```
 
 
