@@ -6,4 +6,6 @@
 
 
  Data is publicly available and comes from SAMHSA and CMS:  
- * National Survey on Drug Use and Health (NSDUH) data is available [here](Data/NSDUH) . More information is available directly in the [NSDUH documentation](https://www.samhsa.gov/data/nsduh/state-reports)  
+ * National Survey on Drug Use and Health (NSDUH) data is available [here](Data/NSDUH). More information is available directly in the [NSDUH documentation](https://www.samhsa.gov/data/nsduh/state-reports)
+ * National Survey of Substance Abuse Treatment Services (NSSATS) data is available [here](Data/NSSATS). More information is available directly in the [NSSATS documentation](https://www.datafiles.samhsa.gov/dataset/national-survey-substance-abuse-treatment-services-2020-n-ssats-2020-ds0001)
+ * Control variables (population, healthcare spending, Medicaid enrollment) data come from the Center for Medicaid Services (CMS) and are available [here](Data/state_health_spending). More information is available on the [CMS Website](https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/state-residence)  
