@@ -56,6 +56,13 @@ var(profit_states_1419$count_Government_2019) > mean(profit_states_1419$count_Go
 
 ```
 
+```{r}
+state_final_df %>%
+  filter(year == 2014, profit_type == "Forprofit") %>%
+  select(c("State_Name", "cocaine_yr", "marijuana_month", "aud_yr", "heroin_yr", "druguse_calc")) %>%
+  write.csv("StateDrugUse_Prevalence.csv")
+```
+
 
 
 
@@ -205,17 +212,17 @@ marijuana use in the past month
 (probably won't include tobacco use because it isnt as often treated in a specialty facility)
 
 ```{r}
-state_forprofitUSE <- state_final_df %>% 
+state_forprofit <- state_final_df %>% 
                     arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
                     group_by(State_Abbrev) %>%
                     filter(profit_type == "Forprofit", !is.na(prev2years_drugusecalc)) #2014 does not have this data
 
-state_nonprofitUSE <- state_final_df %>% 
+state_nonprofit <- state_final_df %>% 
                     arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
                     group_by(State_Abbrev) %>%
                     filter(profit_type == "Nonprofit", !is.na(prev2years_drugusecalc))
 
-state_govtUSE <- state_final_df %>% 
+state_govt <- state_final_df %>% 
                     arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
                     group_by(State_Abbrev) %>%
                     filter(profit_type == "Government", !is.na(prev2years_drugusecalc))
@@ -224,68 +231,73 @@ state_govtUSE <- state_final_df %>%
 
 ```{r}
 library(corrplot)
-corr_matrix <- cor(state_forprofitUSE[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana")])
+corr_matrix <- cor(state_forprofit[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana")])
 
 write.csv(corr_matrix, "correlation_matrix.csv")
 corrplot(corr_matrix, method="circle")
+corr_matrix
 ```
 
 
 
+
+
 ```{r}
-demandvars_lrt(state_forprofitUSE, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
-#demandvars_lrt(state_forprofitUSE, c("prev2years_cocaine", "prev2years_heroin",  "prev2years_aud", "prev2years_marijuana"))
+demandvars_lrt(state_forprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
+#demandvars_lrt(state_forprofit, c("prev2years_cocaine", "prev2years_heroin",  "prev2years_aud", "prev2years_marijuana"))
 ```
 ```{r}
-#controlvars_lrt(state_forprofitUSE, "prev2years_cocaine + prev2years_heroin + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
-controlvars_lrt(state_forprofitUSE, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions",  "percapita_health_spending_thousands", "medicaid_enroll_percapita"), verbose = TRUE)
+#controlvars_lrt(state_forprofit, "prev2years_cocaine + prev2years_heroin + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions",  "percapita_health_spending_thousands", "medicaid_enroll_percapita"), verbose = TRUE)
 ```
 
 
 relationship is not significant when adding cocaine and heroin separately
 ```{r}
-glmer_forprofitUSE <- glmer.nb(count_tx ~ #prev2years_cocaine +  prev2years_heroin +  prev2years_aud + 
+glmer_forprofit <- glmer.nb(count_tx ~ #prev2years_cocaine +  prev2years_heroin +  prev2years_aud + 
                                  prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
                                 pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
                                 (1|State_Name)+ (1 | year),
                               control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                              data = state_forprofitUSE)
+                              data = state_forprofit)
 
-summary(glmer_forprofitUSE)
+summary(glmer_forprofit)
 
 ```
 
 ```{r}
-demandvars_lrt(state_nonprofitUSE, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
+demandvars_lrt(state_nonprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
 ```
 
 
 ```{r}
-controlvars_lrt(state_nonprofitUSE, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+controlvars_lrt(state_nonprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
 ```
 
 
 ```{r}
-glmer_nonprofitUSE <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
+glmer_nonprofit <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
                                 pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
                                 (1|State_Name)+ (1 | year),
                               control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                              data = state_nonprofitUSE)
+                              data = state_nonprofit)
 
-summary(glmer_nonprofitUSE)
+summary(glmer_nonprofit)
 ```
 Because the above threw convergence errors, running allFit
 ```{r}
-summary(allFit(glmer_nonprofitUSE))
+summary(allFit(glmer_nonprofit))
 ```
 
 
 test the best model for government
 ```{r}
-demandvars_lrt(state_govtUSE, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
+demandvars_lrt(state_govt, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
 ```
+
+
 ```{r}
-controlvars_lrt(state_govtUSE, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+controlvars_lrt(state_govt, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
 ```
 
 
@@ -297,7 +309,7 @@ glmer_govt <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #pre
                                 pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
                                 (1|State_Name) + (1 | year),
                               control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                              data = state_govtUSE)
+                              data = state_govt)
 
 summary(glmer_govt)
 ```
@@ -309,12 +321,12 @@ summary(allFit(glmer_govt))
 
 Extract the state and year random effects
 ```{r}
-state_randomeffects <- ranef(glmer_forprofitUSE)$State_Name
+state_randomeffects <- ranef(glmer_forprofit)$State_Name
 #relabel the dataframe
 state_randomeffects <- data.frame("State_Name" =row.names(state_randomeffects), "Intercept" = state_randomeffects[,"(Intercept)"])
+state_randomeffects %>% arrange(Intercept)
 
-
-year_randomeffects <- ranef(glmer_forprofitUSE)$year
+year_randomeffects <- ranef(glmer_forprofit)$year
 #relabel the dataframe
 year_randomeffects <- data.frame("year" =row.names(year_randomeffects), "Intercept" = year_randomeffects[,"(Intercept)"])
 
@@ -343,7 +355,7 @@ state_randomeffects %>%
                       ggtitle('Random Effects per State in For-Profit Model') + 
                        coord_fixed(1.3)
 
-# ranef(glmer_forprofitUSE)$year
+# ranef(glmer_forprofit)$year
 
 ```
 

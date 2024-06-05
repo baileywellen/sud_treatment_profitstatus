@@ -234,9 +234,9 @@ nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABOD
 #filter the data to only state reports, and years post-2015 
 nsduh_data_long <- nsduh_all %>% 
   separate(pyearnm, into = c("start_year", "end_year"), "-") %>%
-  filter(area == 2) %>% #start_year >= 2015, ) %>%
+  filter(area == 2) %>% 
   filter(outcome %in% nsduh_outcomes) %>%
-  filter(agegrp  == 4) %>% #filter to people above 18
+  filter(agegrp  == 4) %>% #filter to people above 18 (adults)
   mutate(stname_lower = tolower(stname)) %>%
   dplyr::select(outname, outcome, start_year, end_year, agegrp, stname,stname_lower, BSAE, low_sae, up_sae)
                 #pop, est_total, low_total, up_total) #i was previously using est_total but this is the average number of people per state which will be dependent on population
@@ -295,7 +295,8 @@ state_control_long <- state_control_long %>%
                            prev2years_needingtx = dplyr::lag(needing_tx),
                            prev2years_aud = dplyr::lag(aud_yr),
                            prev2years_marijuana = dplyr::lag(marijuana_month),
-                           druguse_calc = (cocaine_yr + heroin_yr), #combine the 3 drug use metrics - average 
+                           druguse_calc = (cocaine_yr + heroin_yr)/2, #combine the 2 drug use metrics - average 
+                           #BWO 5/22- changing the above metric to divide by 2 for the prevalence of drug use per 100
                            prev2years_drugusecalc = dplyr::lag(druguse_calc),
                            prev2years_cocaine = dplyr::lag(cocaine_yr),
                            prev2years_heroin = dplyr::lag(heroin_yr))

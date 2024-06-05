@@ -1,0 +1,97 @@
+---
+title: "SAMHSA Sensitivity Analysis"
+output: html_notebook
+---
+
+
+Conduct sensitivity analysis to confirm whether these results hold under different assumptions
+
+
+Assumption #1 - do the (direction of) the results still hold when including the other covariates (Medicaid, healthcare spending) as predictors?
+
+Yes - the coefficients are almost exactly the same
+```{r}
+glmer_forprofit_sensitivity <- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc + prev2years_aud +
+                                pop_millions +  medicaid_enroll_percapita +  percapita_health_spending_thousands +
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_forprofit)
+
+summary(glmer_forprofit_sensitivity)
+```
+
+
+Assumption #2 - what do the relationships look like when the outcome is ONLY drug use and alcohol use? (no control variables, no random effects)
+
+almost exactly the same 
+```{r}
+glmer_forprofit_sensitivity2 <- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc + prev2years_aud+
+                                #pop_millions +  medicaid_enroll_percapita +  percapita_health_spending_thousands +
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_forprofit)
+
+summary(glmer_forprofit_sensitivity2)
+```
+
+
+Assumption #3 - what happens if we separate out the cocaine and heroin variables? 
+
+
+AUD stays negative and significant, but neither drug use variable is still significant
+```{r}
+glmer_forprofit_sensitivity3 <- glmer.nb(count_tx ~ 
+                                  prev2years_aud + prev2years_heroin + prev2years_cocaine +
+                                pop_millions + # medicaid_enroll_percapita +  percapita_health_spending_thousands +
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_forprofit)
+
+summary(glmer_forprofit_sensitivity3)
+```
+
+Assumption #4 - what if we also include marijuana
+
+Same general direction, but the drug use measurement increases to be slightly over 0.05
+```{r}
+glmer_forprofit_sensitivity4 <- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc + prev2years_aud + prev2years_marijuana +
+                                pop_millions +  #medicaid_enroll_percapita +  percapita_health_spending_thousands +
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_forprofit)
+
+summary(glmer_forprofit_sensitivity4)
+```
+
+Assumption #5 - what happens if we fit the model using the predictors that were best from LRT for nonprofit / govt?
+
+Still not significant - this is a good thing because that was the result when we included AUD also 
+```{r}
+glmer_nonprofit_sensitivity1 <- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc +
+                                pop_millions +  
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_nonprofit)
+summary(glmer_nonprofit_sensitivity1)
+
+glmer_govt_sensitivity1 <- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc +
+                                pop_millions +  
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                              data = state_govt)
+summary(glmer_govt_sensitivity1)
+```
+
+
+
+
+Assumption #6 - do these trends hold PRE- ACA? 
+```{r}
+
+```
+

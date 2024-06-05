@@ -37,7 +37,8 @@ state_final_df %>%
             mean_aud = mean(aud_yr),
             mean_marijuana = mean(marijuana_month),
             mean_cocaine = mean(cocaine_yr),
-            mean_heroin = mean(heroin_yr)) %>%
+            mean_heroin = mean(heroin_yr), 
+            mean_drugusecalc = mean(druguse_calc)) %>%
   mutate(prev_year= as.integer(year) - 1,
           year_range = paste(prev_year, "-", year)) %>%
    ungroup() %>%
@@ -45,9 +46,10 @@ state_final_df %>%
    ggplot(., aes(x = year_range, group = 1)) + 
    geom_line(aes(y = mean_cocaine, color = "Cocaine")) + 
    geom_line(aes(y = mean_heroin, color = "Heroin")) + 
-   geom_line(aes(y = mean_aud, color = "Alcohol Use Disorder")) + 
-   geom_line(aes(y=mean_marijuana, color = "Marijuana")) + 
-   scale_color_manual(name = "Substance Use Measure", values = c("Cocaine" = "red", "Heroin" = "blue", "Alcohol Use Disorder" = "purple", "Marijuana" = "green")) +
+   geom_line(aes(y = mean_aud, color = "Alcohol Use Disorder")) +
+   geom_line(aes(y= mean_drugusecalc, color = "Cocaine + Heroin"), linetype = "dashed") + 
+   #geom_line(aes(y=mean_marijuana, color = "Marijuana")) + 
+   scale_color_manual(name = "Substance Use Measure", values = c("Cocaine" = "red", "Heroin" = "blue", "Alcohol Use Disorder" = "green", "Cocaine + Heroin" = "purple")) +
    labs(x = "Year Range", y = "Average Prevalence in 50 States + DC", title = "Alcohol Use Disorder and Drug Use Prevalence over Time") + 
   theme_minimal()# + 
    #scale_x_discrete(labels = year_range)
