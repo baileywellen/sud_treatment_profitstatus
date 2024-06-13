@@ -320,35 +320,39 @@ state_final_df <- profit_states_1419 %>%
 head(state_final_df)
 ```
 
+These are available starting at 2013-2014: 
+alcohol use disorder in the past year, 
+cocaine use in the past year, 
+heroin use in the past year, 
+marijuana use in the past month 
+(probably won't include tobacco use because it isnt as often treated in a specialty facility)
 
 
 
+```{r}
+state_forprofit <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Forprofit", !is.na(prev2years_drugusecalc)) #2014 does not have this data
 
-Read in data from the CDC death rates data - see if it is correlated with the drug use data 
+state_nonprofit <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Nonprofit", !is.na(prev2years_drugusecalc))
 
+state_govt <- state_final_df %>% 
+                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
+                    group_by(State_Abbrev) %>%
+                    filter(profit_type == "Government", !is.na(prev2years_drugusecalc))
 
-```{r reading in the CDC overdose rates }
+write.csv(state_forprofit, "Data/CleanData/Forprofit_finaldata.csv", row.names = FALSE)
+write.csv(state_nonprofit, "Data/CleanData/Nonprofit_finaldata.csv", row.names = FALSE)
+write.csv(state_govt, "Data/CleanData/Government_finaldata.csv", row.names = FALSE)
 
-cdc_overdoses <- read.csv('Data/CDC_DrugOverdoseDeaths.csv')
-# 
-# 
-cdc_overdoses <- cdc_overdoses %>%
- mutate(YEAR = as.character(YEAR))# %>%
-#   left_join(state_abbrevs_df, by = c("STATE" = "state_abbrevs")) %>%
-#   inner_join(yearly_nsduh_data, by = c("state_names" = "stname_lower", "YEAR" = "end_year")) %>%
-#   filter(outcome == "TXNPILAL")  %>% #could filter to other measures if preferred
-#   mutate(est_per_pop = est_total / pop)
-# 
-# cdc_merge_nsduh
-
-
-#NOTE - the cdc data does not include D.C.
-# state_final_df <- state_final_df %>% 
-#   left_join(cdc_overdoses, by = c("State_Abbrev" = "STATE", "year" = "YEAR")) %>%
-#   filter(!is.na(RATE)) %>%
-#   arrange(State_Abbrev, year) %>%
-#   group_by(State_Abbrev) %>%
-#   mutate(prevyear_deaths = dplyr::lag(RATE))
-#state_final_df
-#plot(state_final_df$RATE, state_final_df$count_tx)
 ```
+
+
+
+
+
+

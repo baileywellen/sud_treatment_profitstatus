@@ -202,33 +202,6 @@ controlvars_lrt <- function(df, bestdemandvars_str, controlvars_list, verbose = 
 
 
 
-After controlling for random effects of both year and state, these results are not significant. I am wondering whether the date range is limiting us - i want to try using the following variables to measure demand, which have been available for a longer period of time 
-
-These are available starting at 2013-2014: 
-alcohol use disorder in the past year, 
-cocaine use in the past year, 
-heroin use in the past year, 
-marijuana use in the past month 
-(probably won't include tobacco use because it isnt as often treated in a specialty facility)
-
-```{r}
-state_forprofit <- state_final_df %>% 
-                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
-                    group_by(State_Abbrev) %>%
-                    filter(profit_type == "Forprofit", !is.na(prev2years_drugusecalc)) #2014 does not have this data
-
-state_nonprofit <- state_final_df %>% 
-                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
-                    group_by(State_Abbrev) %>%
-                    filter(profit_type == "Nonprofit", !is.na(prev2years_drugusecalc))
-
-state_govt <- state_final_df %>% 
-                    arrange(State_Abbrev, year) %>%  # Ensure data is ordered by State_Abbrev and year
-                    group_by(State_Abbrev) %>%
-                    filter(profit_type == "Government", !is.na(prev2years_drugusecalc))
-
-```
-
 ```{r}
 library(corrplot)
 corr_matrix <- cor(state_forprofit[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana")])
