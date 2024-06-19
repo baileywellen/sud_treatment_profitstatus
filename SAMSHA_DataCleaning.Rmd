@@ -400,9 +400,7 @@ state_demographics <- bind_rows(demographics_2013,
 rm(demographics_2013, demographics_2014, demographics_2015, demographics_2016, demographics_2017, demographics_2018, demographics_2019)
 ```
 
-Merging following variables
-* unemployment
-* income
+Merging insurance variable
 * insurance
 ```{r read in data about insurance types}
 read_clean_insurance <- function(path, year_param)
@@ -438,7 +436,36 @@ rm(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_201
 ```
 
 
+Merging poverty and unemployment variables
+```{r}
+library(janitor) #use to overwrite row names 
+library(tibble)
 
+freds_name_mapping <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=2) 
+#create a named vector of the values from the name mapping
+state_names <- freds_name_mapping$State_Parsed
+names(state_names) <- freds_name_mapping$`Series ID:`
+
+value_names <- freds_name_mapping$`Title:`
+names(value_names) <- freds_name_mapping$`Series ID:`
+
+freds_df <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=3) 
+
+freds_df %>%
+  t() %>%  #switch the rows and the columns so the values are in the rows and columns are years
+  as.data.frame() %>% #cast to dataframe
+  janitor::row_to_names(row_number = 1) %>% #move the first row to be the header
+  tibble::rownames_to_column("freds_colname") %>% #rename the row names to "freds_colname"
+  mutate(val = value_names[freds_colname]) %>%
+  separate(val, into = c("variable_measure", "state_name"), sep = " in ") %>% #mark which variables we are looking at 
+  mutate(variable_measure = ifelse(variable_measure == "Resident Population", "Population", 
+                                   ifelse(variable_measure == "Unemployment Rate", "Unemployment", 
+                                          ifelse(variable_measure == "Real Median Household Income", "Income", "MISSING"))))
+
+
+# STILL NEED TO CHANGE COLUMN NAMES, AND CREATE NEW VARIABLE COLUMN THAT COMBINES STATE NAME WITH THE VARIABLE MEASURE
+  
+```
 
 
 These are available starting at 2013-2014: 
