@@ -1,0 +1,2025 @@
+"Notes"	"States"	"States Code"	"Gender"	"Gender Code"	"Race"	"Race Code"	"Ethnicity"	"Ethnicity Code"	Population
+	"Alabama"	"01"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1750
+	"Alabama"	"01"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	11519
+"Total"	"Alabama"	"01"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			13269
+	"Alabama"	"01"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	385
+	"Alabama"	"01"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	29657
+"Total"	"Alabama"	"01"	"Female"	"F"	"Asian"	"A"			30042
+	"Alabama"	"01"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	4798
+	"Alabama"	"01"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	538246
+"Total"	"Alabama"	"01"	"Female"	"F"	"Black or African American"	"2054-5"			543044
+	"Alabama"	"01"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	720
+	"Alabama"	"01"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	964
+"Total"	"Alabama"	"01"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1684
+	"Alabama"	"01"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	50172
+	"Alabama"	"01"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1328705
+"Total"	"Alabama"	"01"	"Female"	"F"	"White"	"2106-3"			1378877
+	"Alabama"	"01"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1904
+	"Alabama"	"01"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	21368
+"Total"	"Alabama"	"01"	"Female"	"F"	"More than one race"	"M"			23272
+"Total"	"Alabama"	"01"	"Female"	"F"					1990188
+	"Alabama"	"01"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2585
+	"Alabama"	"01"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	11095
+"Total"	"Alabama"	"01"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			13680
+	"Alabama"	"01"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	484
+	"Alabama"	"01"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	25454
+"Total"	"Alabama"	"01"	"Male"	"M"	"Asian"	"A"			25938
+	"Alabama"	"01"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	5057
+	"Alabama"	"01"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	441385
+"Total"	"Alabama"	"01"	"Male"	"M"	"Black or African American"	"2054-5"			446442
+	"Alabama"	"01"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1057
+	"Alabama"	"01"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	869
+"Total"	"Alabama"	"01"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1926
+	"Alabama"	"01"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	59309
+	"Alabama"	"01"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1240244
+"Total"	"Alabama"	"01"	"Male"	"M"	"White"	"2106-3"			1299553
+	"Alabama"	"01"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2115
+	"Alabama"	"01"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	19187
+"Total"	"Alabama"	"01"	"Male"	"M"	"More than one race"	"M"			21302
+"Total"	"Alabama"	"01"	"Male"	"M"					1808841
+"Total"	"Alabama"	"01"							3799029
+	"Alaska"	"02"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1194
+	"Alaska"	"02"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	37068
+"Total"	"Alaska"	"02"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			38262
+	"Alaska"	"02"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	333
+	"Alaska"	"02"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	19534
+"Total"	"Alaska"	"02"	"Female"	"F"	"Asian"	"A"			19867
+	"Alaska"	"02"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	949
+	"Alaska"	"02"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	7782
+"Total"	"Alaska"	"02"	"Female"	"F"	"Black or African American"	"2054-5"			8731
+	"Alaska"	"02"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	166
+	"Alaska"	"02"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	3255
+"Total"	"Alaska"	"02"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3421
+	"Alaska"	"02"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	12399
+	"Alaska"	"02"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	165680
+"Total"	"Alaska"	"02"	"Female"	"F"	"White"	"2106-3"			178079
+	"Alaska"	"02"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1186
+	"Alaska"	"02"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	13573
+"Total"	"Alaska"	"02"	"Female"	"F"	"More than one race"	"M"			14759
+"Total"	"Alaska"	"02"	"Female"	"F"					263119
+	"Alaska"	"02"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1417
+	"Alaska"	"02"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	37197
+"Total"	"Alaska"	"02"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			38614
+	"Alaska"	"02"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	462
+	"Alaska"	"02"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	16815
+"Total"	"Alaska"	"02"	"Male"	"M"	"Asian"	"A"			17277
+	"Alaska"	"02"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1026
+	"Alaska"	"02"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	11080
+"Total"	"Alaska"	"02"	"Male"	"M"	"Black or African American"	"2054-5"			12106
+	"Alaska"	"02"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	164
+	"Alaska"	"02"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	3407
+"Total"	"Alaska"	"02"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3571
+	"Alaska"	"02"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	14286
+	"Alaska"	"02"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	189782
+"Total"	"Alaska"	"02"	"Male"	"M"	"White"	"2106-3"			204068
+	"Alaska"	"02"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1329
+	"Alaska"	"02"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	13351
+"Total"	"Alaska"	"02"	"Male"	"M"	"More than one race"	"M"			14680
+"Total"	"Alaska"	"02"	"Male"	"M"					290316
+"Total"	"Alaska"	"02"							553435
+	"Arizona"	"04"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	28717
+	"Arizona"	"04"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	106046
+"Total"	"Arizona"	"04"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			134763
+	"Arizona"	"04"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	6726
+	"Arizona"	"04"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	105001
+"Total"	"Arizona"	"04"	"Female"	"F"	"Asian"	"A"			111727
+	"Arizona"	"04"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	16234
+	"Arizona"	"04"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	112691
+"Total"	"Arizona"	"04"	"Female"	"F"	"Black or African American"	"2054-5"			128925
+	"Arizona"	"04"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2147
+	"Arizona"	"04"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	4625
+"Total"	"Arizona"	"04"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			6772
+	"Arizona"	"04"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	695354
+	"Arizona"	"04"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1664098
+"Total"	"Arizona"	"04"	"Female"	"F"	"White"	"2106-3"			2359452
+	"Arizona"	"04"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	15953
+	"Arizona"	"04"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	42849
+"Total"	"Arizona"	"04"	"Female"	"F"	"More than one race"	"M"			58802
+"Total"	"Arizona"	"04"	"Female"	"F"					2800441
+	"Arizona"	"04"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	30677
+	"Arizona"	"04"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	96694
+"Total"	"Arizona"	"04"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			127371
+	"Arizona"	"04"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	6481
+	"Arizona"	"04"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	89999
+"Total"	"Arizona"	"04"	"Male"	"M"	"Asian"	"A"			96480
+	"Arizona"	"04"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	15512
+	"Arizona"	"04"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	122678
+"Total"	"Arizona"	"04"	"Male"	"M"	"Black or African American"	"2054-5"			138190
+	"Arizona"	"04"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2122
+	"Arizona"	"04"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	5827
+"Total"	"Arizona"	"04"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			7949
+	"Arizona"	"04"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	693365
+	"Arizona"	"04"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1605665
+"Total"	"Arizona"	"04"	"Male"	"M"	"White"	"2106-3"			2299030
+	"Arizona"	"04"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	15705
+	"Arizona"	"04"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	40405
+"Total"	"Arizona"	"04"	"Male"	"M"	"More than one race"	"M"			56110
+"Total"	"Arizona"	"04"	"Male"	"M"					2725130
+"Total"	"Arizona"	"04"							5525571
+	"Arkansas"	"05"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2229
+	"Arkansas"	"05"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9174
+"Total"	"Arkansas"	"05"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			11403
+	"Arkansas"	"05"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	488
+	"Arkansas"	"05"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	19292
+"Total"	"Arkansas"	"05"	"Female"	"F"	"Asian"	"A"			19780
+	"Arkansas"	"05"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	2105
+	"Arkansas"	"05"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	182431
+"Total"	"Arkansas"	"05"	"Female"	"F"	"Black or African American"	"2054-5"			184536
+	"Arkansas"	"05"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	325
+	"Arkansas"	"05"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	3006
+"Total"	"Arkansas"	"05"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3331
+	"Arkansas"	"05"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	60826
+	"Arkansas"	"05"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	892294
+"Total"	"Arkansas"	"05"	"Female"	"F"	"White"	"2106-3"			953120
+	"Arkansas"	"05"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1606
+	"Arkansas"	"05"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	16160
+"Total"	"Arkansas"	"05"	"Female"	"F"	"More than one race"	"M"			17766
+"Total"	"Arkansas"	"05"	"Female"	"F"					1189936
+	"Arkansas"	"05"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2497
+	"Arkansas"	"05"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	8731
+"Total"	"Arkansas"	"05"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			11228
+	"Arkansas"	"05"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	540
+	"Arkansas"	"05"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	17391
+"Total"	"Arkansas"	"05"	"Male"	"M"	"Asian"	"A"			17931
+	"Arkansas"	"05"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	2464
+	"Arkansas"	"05"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	157364
+"Total"	"Arkansas"	"05"	"Male"	"M"	"Black or African American"	"2054-5"			159828
+	"Arkansas"	"05"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	445
+	"Arkansas"	"05"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	3392
+"Total"	"Arkansas"	"05"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3837
+	"Arkansas"	"05"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	68153
+	"Arkansas"	"05"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	840962
+"Total"	"Arkansas"	"05"	"Male"	"M"	"White"	"2106-3"			909115
+	"Arkansas"	"05"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1704
+	"Arkansas"	"05"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	14956
+"Total"	"Arkansas"	"05"	"Male"	"M"	"More than one race"	"M"			16660
+"Total"	"Arkansas"	"05"	"Male"	"M"					1118599
+"Total"	"Arkansas"	"05"							2308535
+	"California"	"06"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	174120
+	"California"	"06"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	66548
+"Total"	"California"	"06"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			240668
+	"California"	"06"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	86691
+	"California"	"06"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	2534281
+"Total"	"California"	"06"	"Female"	"F"	"Asian"	"A"			2620972
+	"California"	"06"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	115376
+	"California"	"06"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	892563
+"Total"	"California"	"06"	"Female"	"F"	"Black or African American"	"2054-5"			1007939
+	"California"	"06"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	18661
+	"California"	"06"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	57954
+"Total"	"California"	"06"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			76615
+	"California"	"06"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	4859101
+	"California"	"06"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	6161742
+"Total"	"California"	"06"	"Female"	"F"	"White"	"2106-3"			11020843
+	"California"	"06"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	133639
+	"California"	"06"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	341319
+"Total"	"California"	"06"	"Female"	"F"	"More than one race"	"M"			474958
+"Total"	"California"	"06"	"Female"	"F"					15441995
+	"California"	"06"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	184197
+	"California"	"06"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	64097
+"Total"	"California"	"06"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			248294
+	"California"	"06"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	82770
+	"California"	"06"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	2204999
+"Total"	"California"	"06"	"Male"	"M"	"Asian"	"A"			2287769
+	"California"	"06"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	107613
+	"California"	"06"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	871676
+"Total"	"California"	"06"	"Male"	"M"	"Black or African American"	"2054-5"			979289
+	"California"	"06"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	19058
+	"California"	"06"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	55828
+"Total"	"California"	"06"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			74886
+	"California"	"06"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	4870879
+	"California"	"06"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	6108091
+"Total"	"California"	"06"	"Male"	"M"	"White"	"2106-3"			10978970
+	"California"	"06"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	129033
+	"California"	"06"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	322750
+"Total"	"California"	"06"	"Male"	"M"	"More than one race"	"M"			451783
+"Total"	"California"	"06"	"Male"	"M"					15020991
+"Total"	"California"	"06"							30462986
+	"Colorado"	"08"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	17836
+	"Colorado"	"08"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	14530
+"Total"	"Colorado"	"08"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			32366
+	"Colorado"	"08"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	3333
+	"Colorado"	"08"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	80789
+"Total"	"Colorado"	"08"	"Female"	"F"	"Asian"	"A"			84122
+	"Colorado"	"08"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	9536
+	"Colorado"	"08"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	79604
+"Total"	"Colorado"	"08"	"Female"	"F"	"Black or African American"	"2054-5"			89140
+	"Colorado"	"08"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1083
+	"Colorado"	"08"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2786
+"Total"	"Colorado"	"08"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3869
+	"Colorado"	"08"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	365665
+	"Colorado"	"08"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1583839
+"Total"	"Colorado"	"08"	"Female"	"F"	"White"	"2106-3"			1949504
+	"Colorado"	"08"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13046
+	"Colorado"	"08"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	38526
+"Total"	"Colorado"	"08"	"Female"	"F"	"More than one race"	"M"			51572
+"Total"	"Colorado"	"08"	"Female"	"F"					2210573
+	"Colorado"	"08"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	18980
+	"Colorado"	"08"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	14730
+"Total"	"Colorado"	"08"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			33710
+	"Colorado"	"08"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	3255
+	"Colorado"	"08"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	66912
+"Total"	"Colorado"	"08"	"Male"	"M"	"Asian"	"A"			70167
+	"Colorado"	"08"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	9370
+	"Colorado"	"08"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	95335
+"Total"	"Colorado"	"08"	"Male"	"M"	"Black or African American"	"2054-5"			104705
+	"Colorado"	"08"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1165
+	"Colorado"	"08"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2984
+"Total"	"Colorado"	"08"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			4149
+	"Colorado"	"08"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	379933
+	"Colorado"	"08"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1579830
+"Total"	"Colorado"	"08"	"Male"	"M"	"White"	"2106-3"			1959763
+	"Colorado"	"08"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	12714
+	"Colorado"	"08"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	37148
+"Total"	"Colorado"	"08"	"Male"	"M"	"More than one race"	"M"			49862
+"Total"	"Colorado"	"08"	"Male"	"M"					2222356
+"Total"	"Colorado"	"08"							4432929
+	"Connecticut"	"09"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	4289
+	"Connecticut"	"09"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	2866
+"Total"	"Connecticut"	"09"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			7155
+	"Connecticut"	"09"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1429
+	"Connecticut"	"09"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	68375
+"Total"	"Connecticut"	"09"	"Female"	"F"	"Asian"	"A"			69804
+	"Connecticut"	"09"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	23233
+	"Connecticut"	"09"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	150030
+"Total"	"Connecticut"	"09"	"Female"	"F"	"Black or African American"	"2054-5"			173263
+	"Connecticut"	"09"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	851
+	"Connecticut"	"09"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	496
+"Total"	"Connecticut"	"09"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1347
+	"Connecticut"	"09"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	171110
+	"Connecticut"	"09"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1023400
+"Total"	"Connecticut"	"09"	"Female"	"F"	"White"	"2106-3"			1194510
+	"Connecticut"	"09"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6870
+	"Connecticut"	"09"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	17998
+"Total"	"Connecticut"	"09"	"Female"	"F"	"More than one race"	"M"			24868
+"Total"	"Connecticut"	"09"	"Female"	"F"					1470947
+	"Connecticut"	"09"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	4761
+	"Connecticut"	"09"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	2913
+"Total"	"Connecticut"	"09"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			7674
+	"Connecticut"	"09"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1458
+	"Connecticut"	"09"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	62749
+"Total"	"Connecticut"	"09"	"Male"	"M"	"Asian"	"A"			64207
+	"Connecticut"	"09"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	20089
+	"Connecticut"	"09"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	131700
+"Total"	"Connecticut"	"09"	"Male"	"M"	"Black or African American"	"2054-5"			151789
+	"Connecticut"	"09"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1157
+	"Connecticut"	"09"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	454
+"Total"	"Connecticut"	"09"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1611
+	"Connecticut"	"09"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	166978
+	"Connecticut"	"09"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	952422
+"Total"	"Connecticut"	"09"	"Male"	"M"	"White"	"2106-3"			1119400
+	"Connecticut"	"09"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6597
+	"Connecticut"	"09"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	16275
+"Total"	"Connecticut"	"09"	"Male"	"M"	"More than one race"	"M"			22872
+"Total"	"Connecticut"	"09"	"Male"	"M"					1367553
+"Total"	"Connecticut"	"09"							2838500
+	"Delaware"	"10"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1139
+	"Delaware"	"10"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1283
+"Total"	"Delaware"	"10"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			2422
+	"Delaware"	"10"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	200
+	"Delaware"	"10"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	15555
+"Total"	"Delaware"	"10"	"Female"	"F"	"Asian"	"A"			15755
+	"Delaware"	"10"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3614
+	"Delaware"	"10"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	86197
+"Total"	"Delaware"	"10"	"Female"	"F"	"Black or African American"	"2054-5"			89811
+	"Delaware"	"10"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	206
+	"Delaware"	"10"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	130
+"Total"	"Delaware"	"10"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			336
+	"Delaware"	"10"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	22188
+	"Delaware"	"10"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	261166
+"Total"	"Delaware"	"10"	"Female"	"F"	"White"	"2106-3"			283354
+	"Delaware"	"10"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	931
+	"Delaware"	"10"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	6159
+"Total"	"Delaware"	"10"	"Female"	"F"	"More than one race"	"M"			7090
+"Total"	"Delaware"	"10"	"Female"	"F"					398768
+	"Delaware"	"10"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1244
+	"Delaware"	"10"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1201
+"Total"	"Delaware"	"10"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			2445
+	"Delaware"	"10"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	199
+	"Delaware"	"10"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	14797
+"Total"	"Delaware"	"10"	"Male"	"M"	"Asian"	"A"			14996
+	"Delaware"	"10"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3120
+	"Delaware"	"10"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	73584
+"Total"	"Delaware"	"10"	"Male"	"M"	"Black or African American"	"2054-5"			76704
+	"Delaware"	"10"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	266
+	"Delaware"	"10"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	121
+"Total"	"Delaware"	"10"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			387
+	"Delaware"	"10"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	24101
+	"Delaware"	"10"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	239254
+"Total"	"Delaware"	"10"	"Male"	"M"	"White"	"2106-3"			263355
+	"Delaware"	"10"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	885
+	"Delaware"	"10"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	5291
+"Total"	"Delaware"	"10"	"Male"	"M"	"More than one race"	"M"			6176
+"Total"	"Delaware"	"10"	"Male"	"M"					364063
+"Total"	"Delaware"	"10"							762831
+	"District of Columbia"	"11"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	812
+	"District of Columbia"	"11"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	649
+"Total"	"District of Columbia"	"11"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			1461
+	"District of Columbia"	"11"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	280
+	"District of Columbia"	"11"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	15899
+"Total"	"District of Columbia"	"11"	"Female"	"F"	"Asian"	"A"			16179
+	"District of Columbia"	"11"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3893
+	"District of Columbia"	"11"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	138965
+"Total"	"District of Columbia"	"11"	"Female"	"F"	"Black or African American"	"2054-5"			142858
+	"District of Columbia"	"11"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	184
+	"District of Columbia"	"11"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	145
+"Total"	"District of Columbia"	"11"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			329
+	"District of Columbia"	"11"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	21511
+	"District of Columbia"	"11"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	117130
+"Total"	"District of Columbia"	"11"	"Female"	"F"	"White"	"2106-3"			138641
+	"District of Columbia"	"11"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1277
+	"District of Columbia"	"11"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	6295
+"Total"	"District of Columbia"	"11"	"Female"	"F"	"More than one race"	"M"			7572
+"Total"	"District of Columbia"	"11"	"Female"	"F"					307040
+	"District of Columbia"	"11"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1081
+	"District of Columbia"	"11"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	605
+"Total"	"District of Columbia"	"11"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			1686
+	"District of Columbia"	"11"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	270
+	"District of Columbia"	"11"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	11021
+"Total"	"District of Columbia"	"11"	"Male"	"M"	"Asian"	"A"			11291
+	"District of Columbia"	"11"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3614
+	"District of Columbia"	"11"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	109005
+"Total"	"District of Columbia"	"11"	"Male"	"M"	"Black or African American"	"2054-5"			112619
+	"District of Columbia"	"11"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	202
+	"District of Columbia"	"11"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	137
+"Total"	"District of Columbia"	"11"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			339
+	"District of Columbia"	"11"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	22876
+	"District of Columbia"	"11"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	115889
+"Total"	"District of Columbia"	"11"	"Male"	"M"	"White"	"2106-3"			138765
+	"District of Columbia"	"11"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1077
+	"District of Columbia"	"11"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	4627
+"Total"	"District of Columbia"	"11"	"Male"	"M"	"More than one race"	"M"			5704
+"Total"	"District of Columbia"	"11"	"Male"	"M"					270404
+"Total"	"District of Columbia"	"11"							577444
+	"Florida"	"12"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	17757
+	"Florida"	"12"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	22464
+"Total"	"Florida"	"12"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			40221
+	"Florida"	"12"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	8474
+	"Florida"	"12"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	265655
+"Total"	"Florida"	"12"	"Female"	"F"	"Asian"	"A"			274129
+	"Florida"	"12"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	102921
+	"Florida"	"12"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1297080
+"Total"	"Florida"	"12"	"Female"	"F"	"Black or African American"	"2054-5"			1400001
+	"Florida"	"12"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	3551
+	"Florida"	"12"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	5578
+"Total"	"Florida"	"12"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			9129
+	"Florida"	"12"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	1980841
+	"Florida"	"12"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4952885
+"Total"	"Florida"	"12"	"Female"	"F"	"White"	"2106-3"			6933726
+	"Florida"	"12"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	33029
+	"Florida"	"12"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	104053
+"Total"	"Florida"	"12"	"Female"	"F"	"More than one race"	"M"			137082
+"Total"	"Florida"	"12"	"Female"	"F"					8794288
+	"Florida"	"12"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	21673
+	"Florida"	"12"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	22313
+"Total"	"Florida"	"12"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			43986
+	"Florida"	"12"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	7936
+	"Florida"	"12"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	219011
+"Total"	"Florida"	"12"	"Male"	"M"	"Asian"	"A"			226947
+	"Florida"	"12"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	99077
+	"Florida"	"12"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1157944
+"Total"	"Florida"	"12"	"Male"	"M"	"Black or African American"	"2054-5"			1257021
+	"Florida"	"12"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	4003
+	"Florida"	"12"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	5173
+"Total"	"Florida"	"12"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			9176
+	"Florida"	"12"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	1886641
+	"Florida"	"12"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4686122
+"Total"	"Florida"	"12"	"Male"	"M"	"White"	"2106-3"			6572763
+	"Florida"	"12"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	31005
+	"Florida"	"12"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	93606
+"Total"	"Florida"	"12"	"Male"	"M"	"More than one race"	"M"			124611
+"Total"	"Florida"	"12"	"Male"	"M"					8234504
+"Total"	"Florida"	"12"							17028792
+	"Georgia"	"13"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	8491
+	"Georgia"	"13"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9906
+"Total"	"Georgia"	"13"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			18397
+	"Georgia"	"13"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2513
+	"Georgia"	"13"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	178667
+"Total"	"Georgia"	"13"	"Female"	"F"	"Asian"	"A"			181180
+	"Georgia"	"13"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	30241
+	"Georgia"	"13"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1349333
+"Total"	"Georgia"	"13"	"Female"	"F"	"Black or African American"	"2054-5"			1379574
+	"Georgia"	"13"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1637
+	"Georgia"	"13"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2421
+"Total"	"Georgia"	"13"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			4058
+	"Georgia"	"13"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	253803
+	"Georgia"	"13"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2269977
+"Total"	"Georgia"	"13"	"Female"	"F"	"White"	"2106-3"			2523780
+	"Georgia"	"13"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	9263
+	"Georgia"	"13"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	54500
+"Total"	"Georgia"	"13"	"Female"	"F"	"More than one race"	"M"			63763
+"Total"	"Georgia"	"13"	"Female"	"F"					4170752
+	"Georgia"	"13"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	11377
+	"Georgia"	"13"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9430
+"Total"	"Georgia"	"13"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			20807
+	"Georgia"	"13"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2715
+	"Georgia"	"13"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	162765
+"Total"	"Georgia"	"13"	"Male"	"M"	"Asian"	"A"			165480
+	"Georgia"	"13"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	29007
+	"Georgia"	"13"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1122785
+"Total"	"Georgia"	"13"	"Male"	"M"	"Black or African American"	"2054-5"			1151792
+	"Georgia"	"13"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2110
+	"Georgia"	"13"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2482
+"Total"	"Georgia"	"13"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			4592
+	"Georgia"	"13"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	289494
+	"Georgia"	"13"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2152255
+"Total"	"Georgia"	"13"	"Male"	"M"	"White"	"2106-3"			2441749
+	"Georgia"	"13"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	8852
+	"Georgia"	"13"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	45909
+"Total"	"Georgia"	"13"	"Male"	"M"	"More than one race"	"M"			54761
+"Total"	"Georgia"	"13"	"Male"	"M"					3839181
+"Total"	"Georgia"	"13"							8009933
+	"Hawaii"	"15"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	894
+	"Hawaii"	"15"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1204
+"Total"	"Hawaii"	"15"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			2098
+	"Hawaii"	"15"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5847
+	"Hawaii"	"15"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	242737
+"Total"	"Hawaii"	"15"	"Female"	"F"	"Asian"	"A"			248584
+	"Hawaii"	"15"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	946
+	"Hawaii"	"15"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	8156
+"Total"	"Hawaii"	"15"	"Female"	"F"	"Black or African American"	"2054-5"			9102
+	"Hawaii"	"15"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2736
+	"Hawaii"	"15"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	49638
+"Total"	"Hawaii"	"15"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			52374
+	"Hawaii"	"15"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	18982
+	"Hawaii"	"15"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	123055
+"Total"	"Hawaii"	"15"	"Female"	"F"	"White"	"2106-3"			142037
+	"Hawaii"	"15"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	16651
+	"Hawaii"	"15"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	91768
+"Total"	"Hawaii"	"15"	"Female"	"F"	"More than one race"	"M"			108419
+"Total"	"Hawaii"	"15"	"Female"	"F"					562614
+	"Hawaii"	"15"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1153
+	"Hawaii"	"15"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1383
+"Total"	"Hawaii"	"15"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			2536
+	"Hawaii"	"15"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5073
+	"Hawaii"	"15"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	202676
+"Total"	"Hawaii"	"15"	"Male"	"M"	"Asian"	"A"			207749
+	"Hawaii"	"15"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1231
+	"Hawaii"	"15"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	14268
+"Total"	"Hawaii"	"15"	"Male"	"M"	"Black or African American"	"2054-5"			15499
+	"Hawaii"	"15"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2980
+	"Hawaii"	"15"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	51537
+"Total"	"Hawaii"	"15"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			54517
+	"Hawaii"	"15"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	22297
+	"Hawaii"	"15"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	145669
+"Total"	"Hawaii"	"15"	"Male"	"M"	"White"	"2106-3"			167966
+	"Hawaii"	"15"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	15830
+	"Hawaii"	"15"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	93342
+"Total"	"Hawaii"	"15"	"Male"	"M"	"More than one race"	"M"			109172
+"Total"	"Hawaii"	"15"	"Male"	"M"					557439
+"Total"	"Hawaii"	"15"							1120053
+	"Idaho"	"16"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3087
+	"Idaho"	"16"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7236
+"Total"	"Idaho"	"16"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			10323
+	"Idaho"	"16"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	568
+	"Idaho"	"16"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	11616
+"Total"	"Idaho"	"16"	"Female"	"F"	"Asian"	"A"			12184
+	"Idaho"	"16"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	779
+	"Idaho"	"16"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	3408
+"Total"	"Idaho"	"16"	"Female"	"F"	"Black or African American"	"2054-5"			4187
+	"Idaho"	"16"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	229
+	"Idaho"	"16"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1074
+"Total"	"Idaho"	"16"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1303
+	"Idaho"	"16"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	60123
+	"Idaho"	"16"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	555632
+"Total"	"Idaho"	"16"	"Female"	"F"	"White"	"2106-3"			615755
+	"Idaho"	"16"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2188
+	"Idaho"	"16"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	10050
+"Total"	"Idaho"	"16"	"Female"	"F"	"More than one race"	"M"			12238
+"Total"	"Idaho"	"16"	"Female"	"F"					655990
+	"Idaho"	"16"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3402
+	"Idaho"	"16"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7050
+"Total"	"Idaho"	"16"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			10452
+	"Idaho"	"16"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	620
+	"Idaho"	"16"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	8546
+"Total"	"Idaho"	"16"	"Male"	"M"	"Asian"	"A"			9166
+	"Idaho"	"16"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	851
+	"Idaho"	"16"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	5543
+"Total"	"Idaho"	"16"	"Male"	"M"	"Black or African American"	"2054-5"			6394
+	"Idaho"	"16"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	277
+	"Idaho"	"16"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1205
+"Total"	"Idaho"	"16"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1482
+	"Idaho"	"16"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	65576
+	"Idaho"	"16"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	545343
+"Total"	"Idaho"	"16"	"Male"	"M"	"White"	"2106-3"			610919
+	"Idaho"	"16"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2292
+	"Idaho"	"16"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	10245
+"Total"	"Idaho"	"16"	"Male"	"M"	"More than one race"	"M"			12537
+"Total"	"Idaho"	"16"	"Male"	"M"					650950
+"Total"	"Idaho"	"16"							1306940
+	"Illinois"	"17"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	19337
+	"Illinois"	"17"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7966
+"Total"	"Illinois"	"17"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			27303
+	"Illinois"	"17"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5576
+	"Illinois"	"17"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	302615
+"Total"	"Illinois"	"17"	"Female"	"F"	"Asian"	"A"			308191
+	"Illinois"	"17"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	22933
+	"Illinois"	"17"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	736036
+"Total"	"Illinois"	"17"	"Female"	"F"	"Black or African American"	"2054-5"			758969
+	"Illinois"	"17"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1629
+	"Illinois"	"17"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1396
+"Total"	"Illinois"	"17"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3025
+	"Illinois"	"17"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	664319
+	"Illinois"	"17"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	3241629
+"Total"	"Illinois"	"17"	"Female"	"F"	"White"	"2106-3"			3905948
+	"Illinois"	"17"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	14054
+	"Illinois"	"17"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	56153
+"Total"	"Illinois"	"17"	"Female"	"F"	"More than one race"	"M"			70207
+"Total"	"Illinois"	"17"	"Female"	"F"					5073643
+	"Illinois"	"17"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	22132
+	"Illinois"	"17"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7562
+"Total"	"Illinois"	"17"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			29694
+	"Illinois"	"17"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5414
+	"Illinois"	"17"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	274469
+"Total"	"Illinois"	"17"	"Male"	"M"	"Asian"	"A"			279883
+	"Illinois"	"17"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	21668
+	"Illinois"	"17"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	619914
+"Total"	"Illinois"	"17"	"Male"	"M"	"Black or African American"	"2054-5"			641582
+	"Illinois"	"17"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1837
+	"Illinois"	"17"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1438
+"Total"	"Illinois"	"17"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3275
+	"Illinois"	"17"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	699419
+	"Illinois"	"17"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	3073306
+"Total"	"Illinois"	"17"	"Male"	"M"	"White"	"2106-3"			3772725
+	"Illinois"	"17"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13779
+	"Illinois"	"17"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	52755
+"Total"	"Illinois"	"17"	"Male"	"M"	"More than one race"	"M"			66534
+"Total"	"Illinois"	"17"	"Male"	"M"					4793693
+"Total"	"Illinois"	"17"							9867336
+	"Indiana"	"18"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3759
+	"Indiana"	"18"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	6354
+"Total"	"Indiana"	"18"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			10113
+	"Indiana"	"18"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1025
+	"Indiana"	"18"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	61781
+"Total"	"Indiana"	"18"	"Female"	"F"	"Asian"	"A"			62806
+	"Indiana"	"18"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	7108
+	"Indiana"	"18"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	243907
+"Total"	"Indiana"	"18"	"Female"	"F"	"Black or African American"	"2054-5"			251015
+	"Indiana"	"18"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	586
+	"Indiana"	"18"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	946
+"Total"	"Indiana"	"18"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1532
+	"Indiana"	"18"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	126013
+	"Indiana"	"18"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2140966
+"Total"	"Indiana"	"18"	"Female"	"F"	"White"	"2106-3"			2266979
+	"Indiana"	"18"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	4002
+	"Indiana"	"18"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	31646
+"Total"	"Indiana"	"18"	"Female"	"F"	"More than one race"	"M"			35648
+"Total"	"Indiana"	"18"	"Female"	"F"					2628093
+	"Indiana"	"18"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	4508
+	"Indiana"	"18"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	6254
+"Total"	"Indiana"	"18"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			10762
+	"Indiana"	"18"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1058
+	"Indiana"	"18"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	62197
+"Total"	"Indiana"	"18"	"Male"	"M"	"Asian"	"A"			63255
+	"Indiana"	"18"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	6501
+	"Indiana"	"18"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	217726
+"Total"	"Indiana"	"18"	"Male"	"M"	"Black or African American"	"2054-5"			224227
+	"Indiana"	"18"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	640
+	"Indiana"	"18"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	906
+"Total"	"Indiana"	"18"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1546
+	"Indiana"	"18"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	138244
+	"Indiana"	"18"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2026820
+"Total"	"Indiana"	"18"	"Male"	"M"	"White"	"2106-3"			2165064
+	"Indiana"	"18"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	4055
+	"Indiana"	"18"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	29075
+"Total"	"Indiana"	"18"	"Male"	"M"	"More than one race"	"M"			33130
+"Total"	"Indiana"	"18"	"Male"	"M"					2497984
+"Total"	"Indiana"	"18"							5126077
+	"Iowa"	"19"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1856
+	"Iowa"	"19"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	3510
+"Total"	"Iowa"	"19"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			5366
+	"Iowa"	"19"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	418
+	"Iowa"	"19"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	30769
+"Total"	"Iowa"	"19"	"Female"	"F"	"Asian"	"A"			31187
+	"Iowa"	"19"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1379
+	"Iowa"	"19"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	36944
+"Total"	"Iowa"	"19"	"Female"	"F"	"Black or African American"	"2054-5"			38323
+	"Iowa"	"19"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	189
+	"Iowa"	"19"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1160
+"Total"	"Iowa"	"19"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1349
+	"Iowa"	"19"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	50650
+	"Iowa"	"19"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1084997
+"Total"	"Iowa"	"19"	"Female"	"F"	"White"	"2106-3"			1135647
+	"Iowa"	"19"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1651
+	"Iowa"	"19"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	12470
+"Total"	"Iowa"	"19"	"Female"	"F"	"More than one race"	"M"			14121
+"Total"	"Iowa"	"19"	"Female"	"F"					1225993
+	"Iowa"	"19"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2115
+	"Iowa"	"19"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	3316
+"Total"	"Iowa"	"19"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			5431
+	"Iowa"	"19"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	383
+	"Iowa"	"19"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	31576
+"Total"	"Iowa"	"19"	"Male"	"M"	"Asian"	"A"			31959
+	"Iowa"	"19"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1732
+	"Iowa"	"19"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	43631
+"Total"	"Iowa"	"19"	"Male"	"M"	"Black or African American"	"2054-5"			45363
+	"Iowa"	"19"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	283
+	"Iowa"	"19"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1284
+"Total"	"Iowa"	"19"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1567
+	"Iowa"	"19"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	56505
+	"Iowa"	"19"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1039405
+"Total"	"Iowa"	"19"	"Male"	"M"	"White"	"2106-3"			1095910
+	"Iowa"	"19"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1611
+	"Iowa"	"19"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	12264
+"Total"	"Iowa"	"19"	"Male"	"M"	"More than one race"	"M"			13875
+"Total"	"Iowa"	"19"	"Male"	"M"					1194105
+"Total"	"Iowa"	"19"							2420098
+	"Kansas"	"20"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3428
+	"Kansas"	"20"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9190
+"Total"	"Kansas"	"20"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			12618
+	"Kansas"	"20"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	672
+	"Kansas"	"20"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	36375
+"Total"	"Kansas"	"20"	"Female"	"F"	"Asian"	"A"			37047
+	"Kansas"	"20"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3279
+	"Kansas"	"20"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	59242
+"Total"	"Kansas"	"20"	"Female"	"F"	"Black or African American"	"2054-5"			62521
+	"Kansas"	"20"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	276
+	"Kansas"	"20"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	931
+"Total"	"Kansas"	"20"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1207
+	"Kansas"	"20"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	94531
+	"Kansas"	"20"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	885869
+"Total"	"Kansas"	"20"	"Female"	"F"	"White"	"2106-3"			980400
+	"Kansas"	"20"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2982
+	"Kansas"	"20"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	19877
+"Total"	"Kansas"	"20"	"Female"	"F"	"More than one race"	"M"			22859
+"Total"	"Kansas"	"20"	"Female"	"F"					1116652
+	"Kansas"	"20"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3935
+	"Kansas"	"20"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	8745
+"Total"	"Kansas"	"20"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			12680
+	"Kansas"	"20"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	618
+	"Kansas"	"20"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	33134
+"Total"	"Kansas"	"20"	"Male"	"M"	"Asian"	"A"			33752
+	"Kansas"	"20"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3415
+	"Kansas"	"20"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	64653
+"Total"	"Kansas"	"20"	"Male"	"M"	"Black or African American"	"2054-5"			68068
+	"Kansas"	"20"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	347
+	"Kansas"	"20"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1069
+"Total"	"Kansas"	"20"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1416
+	"Kansas"	"20"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	102744
+	"Kansas"	"20"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	848821
+"Total"	"Kansas"	"20"	"Male"	"M"	"White"	"2106-3"			951565
+	"Kansas"	"20"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3044
+	"Kansas"	"20"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	18978
+"Total"	"Kansas"	"20"	"Male"	"M"	"More than one race"	"M"			22022
+"Total"	"Kansas"	"20"	"Male"	"M"					1089503
+"Total"	"Kansas"	"20"							2206155
+	"Kentucky"	"21"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1026
+	"Kentucky"	"21"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	3864
+"Total"	"Kentucky"	"21"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			4890
+	"Kentucky"	"21"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	417
+	"Kentucky"	"21"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	26959
+"Total"	"Kentucky"	"21"	"Female"	"F"	"Asian"	"A"			27376
+	"Kentucky"	"21"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	2825
+	"Kentucky"	"21"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	137740
+"Total"	"Kentucky"	"21"	"Female"	"F"	"Black or African American"	"2054-5"			140565
+	"Kentucky"	"21"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	299
+	"Kentucky"	"21"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1014
+"Total"	"Kentucky"	"21"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1313
+	"Kentucky"	"21"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	41039
+	"Kentucky"	"21"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1536902
+"Total"	"Kentucky"	"21"	"Female"	"F"	"White"	"2106-3"			1577941
+	"Kentucky"	"21"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1507
+	"Kentucky"	"21"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	20322
+"Total"	"Kentucky"	"21"	"Female"	"F"	"More than one race"	"M"			21829
+"Total"	"Kentucky"	"21"	"Female"	"F"					1773914
+	"Kentucky"	"21"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1480
+	"Kentucky"	"21"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	3939
+"Total"	"Kentucky"	"21"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			5419
+	"Kentucky"	"21"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	439
+	"Kentucky"	"21"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	24234
+"Total"	"Kentucky"	"21"	"Male"	"M"	"Asian"	"A"			24673
+	"Kentucky"	"21"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3299
+	"Kentucky"	"21"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	134078
+"Total"	"Kentucky"	"21"	"Male"	"M"	"Black or African American"	"2054-5"			137377
+	"Kentucky"	"21"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	435
+	"Kentucky"	"21"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1123
+"Total"	"Kentucky"	"21"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1558
+	"Kentucky"	"21"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	51297
+	"Kentucky"	"21"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1441255
+"Total"	"Kentucky"	"21"	"Male"	"M"	"White"	"2106-3"			1492552
+	"Kentucky"	"21"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1828
+	"Kentucky"	"21"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	18935
+"Total"	"Kentucky"	"21"	"Male"	"M"	"More than one race"	"M"			20763
+"Total"	"Kentucky"	"21"	"Male"	"M"					1682342
+"Total"	"Kentucky"	"21"							3456256
+	"Louisiana"	"22"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1758
+	"Louisiana"	"22"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	11797
+"Total"	"Louisiana"	"22"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			13555
+	"Louisiana"	"22"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	584
+	"Louisiana"	"22"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	32779
+"Total"	"Louisiana"	"22"	"Female"	"F"	"Asian"	"A"			33363
+	"Louisiana"	"22"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	6426
+	"Louisiana"	"22"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	593789
+"Total"	"Louisiana"	"22"	"Female"	"F"	"Black or African American"	"2054-5"			600215
+	"Louisiana"	"22"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	301
+	"Louisiana"	"22"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	733
+"Total"	"Louisiana"	"22"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1034
+	"Louisiana"	"22"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	64005
+	"Louisiana"	"22"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1115682
+"Total"	"Louisiana"	"22"	"Female"	"F"	"White"	"2106-3"			1179687
+	"Louisiana"	"22"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2540
+	"Louisiana"	"22"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	18669
+"Total"	"Louisiana"	"22"	"Female"	"F"	"More than one race"	"M"			21209
+"Total"	"Louisiana"	"22"	"Female"	"F"					1849063
+	"Louisiana"	"22"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2269
+	"Louisiana"	"22"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	11307
+"Total"	"Louisiana"	"22"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			13576
+	"Louisiana"	"22"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	664
+	"Louisiana"	"22"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	31379
+"Total"	"Louisiana"	"22"	"Male"	"M"	"Asian"	"A"			32043
+	"Louisiana"	"22"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	6906
+	"Louisiana"	"22"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	509924
+"Total"	"Louisiana"	"22"	"Male"	"M"	"Black or African American"	"2054-5"			516830
+	"Louisiana"	"22"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	464
+	"Louisiana"	"22"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	667
+"Total"	"Louisiana"	"22"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1131
+	"Louisiana"	"22"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	76536
+	"Louisiana"	"22"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1057731
+"Total"	"Louisiana"	"22"	"Male"	"M"	"White"	"2106-3"			1134267
+	"Louisiana"	"22"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2608
+	"Louisiana"	"22"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	16614
+"Total"	"Louisiana"	"22"	"Male"	"M"	"More than one race"	"M"			19222
+"Total"	"Louisiana"	"22"	"Male"	"M"					1717069
+"Total"	"Louisiana"	"22"							3566132
+	"Maine"	"23"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	253
+	"Maine"	"23"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	3423
+"Total"	"Maine"	"23"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			3676
+	"Maine"	"23"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	123
+	"Maine"	"23"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	7623
+"Total"	"Maine"	"23"	"Female"	"F"	"Asian"	"A"			7746
+	"Maine"	"23"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	367
+	"Maine"	"23"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	5747
+"Total"	"Maine"	"23"	"Female"	"F"	"Black or African American"	"2054-5"			6114
+	"Maine"	"23"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	22
+	"Maine"	"23"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	142
+"Total"	"Maine"	"23"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			164
+	"Maine"	"23"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	6606
+	"Maine"	"23"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	530651
+"Total"	"Maine"	"23"	"Female"	"F"	"White"	"2106-3"			537257
+	"Maine"	"23"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	398
+	"Maine"	"23"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	6590
+"Total"	"Maine"	"23"	"Female"	"F"	"More than one race"	"M"			6988
+"Total"	"Maine"	"23"	"Female"	"F"					561945
+	"Maine"	"23"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	256
+	"Maine"	"23"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	3238
+"Total"	"Maine"	"23"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			3494
+	"Maine"	"23"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	119
+	"Maine"	"23"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	5640
+"Total"	"Maine"	"23"	"Male"	"M"	"Asian"	"A"			5759
+	"Maine"	"23"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	446
+	"Maine"	"23"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	7868
+"Total"	"Maine"	"23"	"Male"	"M"	"Black or African American"	"2054-5"			8314
+	"Maine"	"23"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	27
+	"Maine"	"23"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	136
+"Total"	"Maine"	"23"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			163
+	"Maine"	"23"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	6665
+	"Maine"	"23"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	496621
+"Total"	"Maine"	"23"	"Male"	"M"	"White"	"2106-3"			503286
+	"Maine"	"23"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	433
+	"Maine"	"23"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	6264
+"Total"	"Maine"	"23"	"Male"	"M"	"More than one race"	"M"			6697
+"Total"	"Maine"	"23"	"Male"	"M"					527713
+"Total"	"Maine"	"23"							1089658
+	"Maryland"	"24"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	6324
+	"Maryland"	"24"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	6190
+"Total"	"Maryland"	"24"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			12514
+	"Maryland"	"24"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2133
+	"Maryland"	"24"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	166907
+"Total"	"Maryland"	"24"	"Female"	"F"	"Asian"	"A"			169040
+	"Maryland"	"24"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	21752
+	"Maryland"	"24"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	759422
+"Total"	"Maryland"	"24"	"Female"	"F"	"Black or African American"	"2054-5"			781174
+	"Maryland"	"24"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	968
+	"Maryland"	"24"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1278
+"Total"	"Maryland"	"24"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2246
+	"Maryland"	"24"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	159097
+	"Maryland"	"24"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1283986
+"Total"	"Maryland"	"24"	"Female"	"F"	"White"	"2106-3"			1443083
+	"Maryland"	"24"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	7599
+	"Maryland"	"24"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	41912
+"Total"	"Maryland"	"24"	"Female"	"F"	"More than one race"	"M"			49511
+"Total"	"Maryland"	"24"	"Female"	"F"					2457568
+	"Maryland"	"24"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	7871
+	"Maryland"	"24"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	5656
+"Total"	"Maryland"	"24"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			13527
+	"Maryland"	"24"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2145
+	"Maryland"	"24"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	144869
+"Total"	"Maryland"	"24"	"Male"	"M"	"Asian"	"A"			147014
+	"Maryland"	"24"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	20249
+	"Maryland"	"24"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	633147
+"Total"	"Maryland"	"24"	"Male"	"M"	"Black or African American"	"2054-5"			653396
+	"Maryland"	"24"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1291
+	"Maryland"	"24"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1123
+"Total"	"Maryland"	"24"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2414
+	"Maryland"	"24"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	175286
+	"Maryland"	"24"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1208336
+"Total"	"Maryland"	"24"	"Male"	"M"	"White"	"2106-3"			1383622
+	"Maryland"	"24"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	7460
+	"Maryland"	"24"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	35722
+"Total"	"Maryland"	"24"	"Male"	"M"	"More than one race"	"M"			43182
+"Total"	"Maryland"	"24"	"Male"	"M"					2243155
+"Total"	"Maryland"	"24"							4700723
+	"Massachusetts"	"25"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	7781
+	"Massachusetts"	"25"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	4957
+"Total"	"Massachusetts"	"25"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			12738
+	"Massachusetts"	"25"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2503
+	"Massachusetts"	"25"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	201931
+"Total"	"Massachusetts"	"25"	"Female"	"F"	"Asian"	"A"			204434
+	"Massachusetts"	"25"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	41053
+	"Massachusetts"	"25"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	197718
+"Total"	"Massachusetts"	"25"	"Female"	"F"	"Black or African American"	"2054-5"			238771
+	"Massachusetts"	"25"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1529
+	"Massachusetts"	"25"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1182
+"Total"	"Massachusetts"	"25"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2711
+	"Massachusetts"	"25"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	229256
+	"Massachusetts"	"25"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2136640
+"Total"	"Massachusetts"	"25"	"Female"	"F"	"White"	"2106-3"			2365896
+	"Massachusetts"	"25"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13924
+	"Massachusetts"	"25"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	37311
+"Total"	"Massachusetts"	"25"	"Female"	"F"	"More than one race"	"M"			51235
+"Total"	"Massachusetts"	"25"	"Female"	"F"					2875785
+	"Massachusetts"	"25"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	8178
+	"Massachusetts"	"25"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	4891
+"Total"	"Massachusetts"	"25"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			13069
+	"Massachusetts"	"25"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2308
+	"Massachusetts"	"25"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	179870
+"Total"	"Massachusetts"	"25"	"Male"	"M"	"Asian"	"A"			182178
+	"Massachusetts"	"25"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	36626
+	"Massachusetts"	"25"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	181192
+"Total"	"Massachusetts"	"25"	"Male"	"M"	"Black or African American"	"2054-5"			217818
+	"Massachusetts"	"25"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1589
+	"Massachusetts"	"25"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1056
+"Total"	"Massachusetts"	"25"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2645
+	"Massachusetts"	"25"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	221809
+	"Massachusetts"	"25"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1958666
+"Total"	"Massachusetts"	"25"	"Male"	"M"	"White"	"2106-3"			2180475
+	"Massachusetts"	"25"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	14036
+	"Massachusetts"	"25"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	33758
+"Total"	"Massachusetts"	"25"	"Male"	"M"	"More than one race"	"M"			47794
+"Total"	"Massachusetts"	"25"	"Male"	"M"					2643979
+"Total"	"Massachusetts"	"25"							5519764
+	"Michigan"	"26"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	5175
+	"Michigan"	"26"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	22358
+"Total"	"Michigan"	"26"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			27533
+	"Michigan"	"26"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1331
+	"Michigan"	"26"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	130302
+"Total"	"Michigan"	"26"	"Female"	"F"	"Asian"	"A"			131633
+	"Michigan"	"26"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	10170
+	"Michigan"	"26"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	552980
+"Total"	"Michigan"	"26"	"Female"	"F"	"Black or African American"	"2054-5"			563150
+	"Michigan"	"26"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	419
+	"Michigan"	"26"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1087
+"Total"	"Michigan"	"26"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1506
+	"Michigan"	"26"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	141511
+	"Michigan"	"26"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	3077105
+"Total"	"Michigan"	"26"	"Female"	"F"	"White"	"2106-3"			3218616
+	"Michigan"	"26"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6873
+	"Michigan"	"26"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	62619
+"Total"	"Michigan"	"26"	"Female"	"F"	"More than one race"	"M"			69492
+"Total"	"Michigan"	"26"	"Female"	"F"					4011930
+	"Michigan"	"26"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	5314
+	"Michigan"	"26"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	21705
+"Total"	"Michigan"	"26"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			27019
+	"Michigan"	"26"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1260
+	"Michigan"	"26"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	125545
+"Total"	"Michigan"	"26"	"Male"	"M"	"Asian"	"A"			126805
+	"Michigan"	"26"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	9166
+	"Michigan"	"26"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	477168
+"Total"	"Michigan"	"26"	"Male"	"M"	"Black or African American"	"2054-5"			486334
+	"Michigan"	"26"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	463
+	"Michigan"	"26"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1057
+"Total"	"Michigan"	"26"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1520
+	"Michigan"	"26"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	147879
+	"Michigan"	"26"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2958785
+"Total"	"Michigan"	"26"	"Male"	"M"	"White"	"2106-3"			3106664
+	"Michigan"	"26"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6205
+	"Michigan"	"26"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	57219
+"Total"	"Michigan"	"26"	"Male"	"M"	"More than one race"	"M"			63424
+"Total"	"Michigan"	"26"	"Male"	"M"					3811766
+"Total"	"Michigan"	"26"							7823696
+	"Minnesota"	"27"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3882
+	"Minnesota"	"27"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	20879
+"Total"	"Minnesota"	"27"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			24761
+	"Minnesota"	"27"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1046
+	"Minnesota"	"27"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	105449
+"Total"	"Minnesota"	"27"	"Female"	"F"	"Asian"	"A"			106495
+	"Minnesota"	"27"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3626
+	"Minnesota"	"27"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	118016
+"Total"	"Minnesota"	"27"	"Female"	"F"	"Black or African American"	"2054-5"			121642
+	"Minnesota"	"27"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	380
+	"Minnesota"	"27"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1001
+"Total"	"Minnesota"	"27"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1381
+	"Minnesota"	"27"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	77843
+	"Minnesota"	"27"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1810054
+"Total"	"Minnesota"	"27"	"Female"	"F"	"White"	"2106-3"			1887897
+	"Minnesota"	"27"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3808
+	"Minnesota"	"27"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	31885
+"Total"	"Minnesota"	"27"	"Female"	"F"	"More than one race"	"M"			35693
+"Total"	"Minnesota"	"27"	"Female"	"F"					2177869
+	"Minnesota"	"27"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	4413
+	"Minnesota"	"27"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	19886
+"Total"	"Minnesota"	"27"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			24299
+	"Minnesota"	"27"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1115
+	"Minnesota"	"27"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	97973
+"Total"	"Minnesota"	"27"	"Male"	"M"	"Asian"	"A"			99088
+	"Minnesota"	"27"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3962
+	"Minnesota"	"27"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	123182
+"Total"	"Minnesota"	"27"	"Male"	"M"	"Black or African American"	"2054-5"			127144
+	"Minnesota"	"27"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	377
+	"Minnesota"	"27"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	999
+"Total"	"Minnesota"	"27"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1376
+	"Minnesota"	"27"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	86683
+	"Minnesota"	"27"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1755815
+"Total"	"Minnesota"	"27"	"Male"	"M"	"White"	"2106-3"			1842498
+	"Minnesota"	"27"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3884
+	"Minnesota"	"27"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	29514
+"Total"	"Minnesota"	"27"	"Male"	"M"	"More than one race"	"M"			33398
+"Total"	"Minnesota"	"27"	"Male"	"M"					2127803
+"Total"	"Minnesota"	"27"							4305672
+	"Mississippi"	"28"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	846
+	"Mississippi"	"28"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	5531
+"Total"	"Mississippi"	"28"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			6377
+	"Mississippi"	"28"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	201
+	"Mississippi"	"28"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	13417
+"Total"	"Mississippi"	"28"	"Female"	"F"	"Asian"	"A"			13618
+	"Mississippi"	"28"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3097
+	"Mississippi"	"28"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	446537
+"Total"	"Mississippi"	"28"	"Female"	"F"	"Black or African American"	"2054-5"			449634
+	"Mississippi"	"28"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	193
+	"Mississippi"	"28"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	419
+"Total"	"Mississippi"	"28"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			612
+	"Mississippi"	"28"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	21009
+	"Mississippi"	"28"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	687575
+"Total"	"Mississippi"	"28"	"Female"	"F"	"White"	"2106-3"			708584
+	"Mississippi"	"28"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1027
+	"Mississippi"	"28"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	8878
+"Total"	"Mississippi"	"28"	"Female"	"F"	"More than one race"	"M"			9905
+"Total"	"Mississippi"	"28"	"Female"	"F"					1188730
+	"Mississippi"	"28"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1291
+	"Mississippi"	"28"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	5005
+"Total"	"Mississippi"	"28"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			6296
+	"Mississippi"	"28"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	209
+	"Mississippi"	"28"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	11294
+"Total"	"Mississippi"	"28"	"Male"	"M"	"Asian"	"A"			11503
+	"Mississippi"	"28"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3477
+	"Mississippi"	"28"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	375659
+"Total"	"Mississippi"	"28"	"Male"	"M"	"Black or African American"	"2054-5"			379136
+	"Mississippi"	"28"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	366
+	"Mississippi"	"28"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	415
+"Total"	"Mississippi"	"28"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			781
+	"Mississippi"	"28"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	30657
+	"Mississippi"	"28"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	648792
+"Total"	"Mississippi"	"28"	"Male"	"M"	"White"	"2106-3"			679449
+	"Mississippi"	"28"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1171
+	"Mississippi"	"28"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	8150
+"Total"	"Mississippi"	"28"	"Male"	"M"	"More than one race"	"M"			9321
+"Total"	"Mississippi"	"28"	"Male"	"M"					1086486
+"Total"	"Mississippi"	"28"							2275216
+	"Missouri"	"29"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2460
+	"Missouri"	"29"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	10555
+"Total"	"Missouri"	"29"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			13015
+	"Missouri"	"29"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	761
+	"Missouri"	"29"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	52723
+"Total"	"Missouri"	"29"	"Female"	"F"	"Asian"	"A"			53484
+	"Missouri"	"29"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3943
+	"Missouri"	"29"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	281386
+"Total"	"Missouri"	"29"	"Female"	"F"	"Black or African American"	"2054-5"			285329
+	"Missouri"	"29"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	484
+	"Missouri"	"29"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2745
+"Total"	"Missouri"	"29"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3229
+	"Missouri"	"29"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	69392
+	"Missouri"	"29"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1983214
+"Total"	"Missouri"	"29"	"Female"	"F"	"White"	"2106-3"			2052606
+	"Missouri"	"29"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3186
+	"Missouri"	"29"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	34867
+"Total"	"Missouri"	"29"	"Female"	"F"	"More than one race"	"M"			38053
+"Total"	"Missouri"	"29"	"Female"	"F"					2445716
+	"Missouri"	"29"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2770
+	"Missouri"	"29"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	10627
+"Total"	"Missouri"	"29"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			13397
+	"Missouri"	"29"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	813
+	"Missouri"	"29"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	46449
+"Total"	"Missouri"	"29"	"Male"	"M"	"Asian"	"A"			47262
+	"Missouri"	"29"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3981
+	"Missouri"	"29"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	243061
+"Total"	"Missouri"	"29"	"Male"	"M"	"Black or African American"	"2054-5"			247042
+	"Missouri"	"29"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	544
+	"Missouri"	"29"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2704
+"Total"	"Missouri"	"29"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3248
+	"Missouri"	"29"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	75548
+	"Missouri"	"29"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1878122
+"Total"	"Missouri"	"29"	"Male"	"M"	"White"	"2106-3"			1953670
+	"Missouri"	"29"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3258
+	"Missouri"	"29"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	33285
+"Total"	"Missouri"	"29"	"Male"	"M"	"More than one race"	"M"			36543
+"Total"	"Missouri"	"29"	"Male"	"M"					2301162
+"Total"	"Missouri"	"29"							4746878
+	"Montana"	"30"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1309
+	"Montana"	"30"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	21723
+"Total"	"Montana"	"30"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			23032
+	"Montana"	"30"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	177
+	"Montana"	"30"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	4620
+"Total"	"Montana"	"30"	"Female"	"F"	"Asian"	"A"			4797
+	"Montana"	"30"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	177
+	"Montana"	"30"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1467
+"Total"	"Montana"	"30"	"Female"	"F"	"Black or African American"	"2054-5"			1644
+	"Montana"	"30"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	57
+	"Montana"	"30"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	261
+"Total"	"Montana"	"30"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			318
+	"Montana"	"30"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	10752
+	"Montana"	"30"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	366422
+"Total"	"Montana"	"30"	"Female"	"F"	"White"	"2106-3"			377174
+	"Montana"	"30"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	851
+	"Montana"	"30"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	7924
+"Total"	"Montana"	"30"	"Female"	"F"	"More than one race"	"M"			8775
+"Total"	"Montana"	"30"	"Female"	"F"					415740
+	"Montana"	"30"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1275
+	"Montana"	"30"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	20692
+"Total"	"Montana"	"30"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			21967
+	"Montana"	"30"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	125
+	"Montana"	"30"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	3056
+"Total"	"Montana"	"30"	"Male"	"M"	"Asian"	"A"			3181
+	"Montana"	"30"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	243
+	"Montana"	"30"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	2618
+"Total"	"Montana"	"30"	"Male"	"M"	"Black or African American"	"2054-5"			2861
+	"Montana"	"30"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	69
+	"Montana"	"30"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	324
+"Total"	"Montana"	"30"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			393
+	"Montana"	"30"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	11198
+	"Montana"	"30"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	368580
+"Total"	"Montana"	"30"	"Male"	"M"	"White"	"2106-3"			379778
+	"Montana"	"30"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	891
+	"Montana"	"30"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	7797
+"Total"	"Montana"	"30"	"Male"	"M"	"More than one race"	"M"			8688
+"Total"	"Montana"	"30"	"Male"	"M"					416868
+"Total"	"Montana"	"30"							832608
+	"Nebraska"	"31"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2830
+	"Nebraska"	"31"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	5621
+"Total"	"Nebraska"	"31"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			8451
+	"Nebraska"	"31"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	384
+	"Nebraska"	"31"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	19264
+"Total"	"Nebraska"	"31"	"Female"	"F"	"Asian"	"A"			19648
+	"Nebraska"	"31"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1477
+	"Nebraska"	"31"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	31302
+"Total"	"Nebraska"	"31"	"Female"	"F"	"Black or African American"	"2054-5"			32779
+	"Nebraska"	"31"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	309
+	"Nebraska"	"31"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	404
+"Total"	"Nebraska"	"31"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			713
+	"Nebraska"	"31"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	54734
+	"Nebraska"	"31"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	605137
+"Total"	"Nebraska"	"31"	"Female"	"F"	"White"	"2106-3"			659871
+	"Nebraska"	"31"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1527
+	"Nebraska"	"31"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	9111
+"Total"	"Nebraska"	"31"	"Female"	"F"	"More than one race"	"M"			10638
+"Total"	"Nebraska"	"31"	"Female"	"F"					732100
+	"Nebraska"	"31"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3261
+	"Nebraska"	"31"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	5141
+"Total"	"Nebraska"	"31"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			8402
+	"Nebraska"	"31"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	459
+	"Nebraska"	"31"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	17928
+"Total"	"Nebraska"	"31"	"Male"	"M"	"Asian"	"A"			18387
+	"Nebraska"	"31"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1670
+	"Nebraska"	"31"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	33567
+"Total"	"Nebraska"	"31"	"Male"	"M"	"Black or African American"	"2054-5"			35237
+	"Nebraska"	"31"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	399
+	"Nebraska"	"31"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	453
+"Total"	"Nebraska"	"31"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			852
+	"Nebraska"	"31"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	60904
+	"Nebraska"	"31"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	582940
+"Total"	"Nebraska"	"31"	"Male"	"M"	"White"	"2106-3"			643844
+	"Nebraska"	"31"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	1710
+	"Nebraska"	"31"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	8399
+"Total"	"Nebraska"	"31"	"Male"	"M"	"More than one race"	"M"			10109
+"Total"	"Nebraska"	"31"	"Male"	"M"					716831
+"Total"	"Nebraska"	"31"							1448931
+	"Nevada"	"32"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	7965
+	"Nevada"	"32"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	10769
+"Total"	"Nevada"	"32"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			18734
+	"Nevada"	"32"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	4481
+	"Nevada"	"32"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	118088
+"Total"	"Nevada"	"32"	"Female"	"F"	"Asian"	"A"			122569
+	"Nevada"	"32"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	9504
+	"Nevada"	"32"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	105072
+"Total"	"Nevada"	"32"	"Female"	"F"	"Black or African American"	"2054-5"			114576
+	"Nevada"	"32"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1516
+	"Nevada"	"32"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	7528
+"Total"	"Nevada"	"32"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			9044
+	"Nevada"	"32"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	261431
+	"Nevada"	"32"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	608150
+"Total"	"Nevada"	"32"	"Female"	"F"	"White"	"2106-3"			869581
+	"Nevada"	"32"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	8564
+	"Nevada"	"32"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	30511
+"Total"	"Nevada"	"32"	"Female"	"F"	"More than one race"	"M"			39075
+"Total"	"Nevada"	"32"	"Female"	"F"					1173579
+	"Nevada"	"32"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	8825
+	"Nevada"	"32"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9818
+"Total"	"Nevada"	"32"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			18643
+	"Nevada"	"32"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	4339
+	"Nevada"	"32"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	91137
+"Total"	"Nevada"	"32"	"Male"	"M"	"Asian"	"A"			95476
+	"Nevada"	"32"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	8935
+	"Nevada"	"32"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	101597
+"Total"	"Nevada"	"32"	"Male"	"M"	"Black or African American"	"2054-5"			110532
+	"Nevada"	"32"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1599
+	"Nevada"	"32"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	7110
+"Total"	"Nevada"	"32"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			8709
+	"Nevada"	"32"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	268336
+	"Nevada"	"32"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	630116
+"Total"	"Nevada"	"32"	"Male"	"M"	"White"	"2106-3"			898452
+	"Nevada"	"32"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	8202
+	"Nevada"	"32"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	28143
+"Total"	"Nevada"	"32"	"Male"	"M"	"More than one race"	"M"			36345
+"Total"	"Nevada"	"32"	"Male"	"M"					1168157
+"Total"	"Nevada"	"32"							2341736
+	"New Hampshire"	"33"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	373
+	"New Hampshire"	"33"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1174
+"Total"	"New Hampshire"	"33"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			1547
+	"New Hampshire"	"33"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	171
+	"New Hampshire"	"33"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	16098
+"Total"	"New Hampshire"	"33"	"Female"	"F"	"Asian"	"A"			16269
+	"New Hampshire"	"33"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1146
+	"New Hampshire"	"33"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	6103
+"Total"	"New Hampshire"	"33"	"Female"	"F"	"Black or African American"	"2054-5"			7249
+	"New Hampshire"	"33"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	79
+	"New Hampshire"	"33"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	154
+"Total"	"New Hampshire"	"33"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			233
+	"New Hampshire"	"33"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	14836
+	"New Hampshire"	"33"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	510591
+"Total"	"New Hampshire"	"33"	"Female"	"F"	"White"	"2106-3"			525427
+	"New Hampshire"	"33"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	748
+	"New Hampshire"	"33"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	5994
+"Total"	"New Hampshire"	"33"	"Female"	"F"	"More than one race"	"M"			6742
+"Total"	"New Hampshire"	"33"	"Female"	"F"					557467
+	"New Hampshire"	"33"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	472
+	"New Hampshire"	"33"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1266
+"Total"	"New Hampshire"	"33"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			1738
+	"New Hampshire"	"33"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	158
+	"New Hampshire"	"33"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	14785
+"Total"	"New Hampshire"	"33"	"Male"	"M"	"Asian"	"A"			14943
+	"New Hampshire"	"33"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	1684
+	"New Hampshire"	"33"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	8209
+"Total"	"New Hampshire"	"33"	"Male"	"M"	"Black or African American"	"2054-5"			9893
+	"New Hampshire"	"33"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	101
+	"New Hampshire"	"33"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	156
+"Total"	"New Hampshire"	"33"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			257
+	"New Hampshire"	"33"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	15437
+	"New Hampshire"	"33"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	490523
+"Total"	"New Hampshire"	"33"	"Male"	"M"	"White"	"2106-3"			505960
+	"New Hampshire"	"33"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	743
+	"New Hampshire"	"33"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	6018
+"Total"	"New Hampshire"	"33"	"Male"	"M"	"More than one race"	"M"			6761
+"Total"	"New Hampshire"	"33"	"Male"	"M"					539552
+"Total"	"New Hampshire"	"33"							1097019
+	"New Jersey"	"34"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	14694
+	"New Jersey"	"34"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	5164
+"Total"	"New Jersey"	"34"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			19858
+	"New Jersey"	"34"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5276
+	"New Jersey"	"34"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	349770
+"Total"	"New Jersey"	"34"	"Female"	"F"	"Asian"	"A"			355046
+	"New Jersey"	"34"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	64059
+	"New Jersey"	"34"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	477338
+"Total"	"New Jersey"	"34"	"Female"	"F"	"Black or African American"	"2054-5"			541397
+	"New Jersey"	"34"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2344
+	"New Jersey"	"34"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1213
+"Total"	"New Jersey"	"34"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3557
+	"New Jersey"	"34"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	546383
+	"New Jersey"	"34"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2066492
+"Total"	"New Jersey"	"34"	"Female"	"F"	"White"	"2106-3"			2612875
+	"New Jersey"	"34"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	18632
+	"New Jersey"	"34"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	39650
+"Total"	"New Jersey"	"34"	"Female"	"F"	"More than one race"	"M"			58282
+"Total"	"New Jersey"	"34"	"Female"	"F"					3591015
+	"New Jersey"	"34"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	16641
+	"New Jersey"	"34"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	4787
+"Total"	"New Jersey"	"34"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			21428
+	"New Jersey"	"34"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5202
+	"New Jersey"	"34"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	324682
+"Total"	"New Jersey"	"34"	"Male"	"M"	"Asian"	"A"			329884
+	"New Jersey"	"34"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	60738
+	"New Jersey"	"34"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	409307
+"Total"	"New Jersey"	"34"	"Male"	"M"	"Black or African American"	"2054-5"			470045
+	"New Jersey"	"34"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	2414
+	"New Jersey"	"34"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1137
+"Total"	"New Jersey"	"34"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3551
+	"New Jersey"	"34"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	542372
+	"New Jersey"	"34"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1925762
+"Total"	"New Jersey"	"34"	"Male"	"M"	"White"	"2106-3"			2468134
+	"New Jersey"	"34"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	17805
+	"New Jersey"	"34"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	35823
+"Total"	"New Jersey"	"34"	"Male"	"M"	"More than one race"	"M"			53628
+"Total"	"New Jersey"	"34"	"Male"	"M"					3346670
+"Total"	"New Jersey"	"34"							6937685
+	"New Mexico"	"35"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	12320
+	"New Mexico"	"35"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	71522
+"Total"	"New Mexico"	"35"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			83842
+	"New Mexico"	"35"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1727
+	"New Mexico"	"35"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	14988
+"Total"	"New Mexico"	"35"	"Female"	"F"	"Asian"	"A"			16715
+	"New Mexico"	"35"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	4868
+	"New Mexico"	"35"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	12710
+"Total"	"New Mexico"	"35"	"Female"	"F"	"Black or African American"	"2054-5"			17578
+	"New Mexico"	"35"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	714
+	"New Mexico"	"35"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	559
+"Total"	"New Mexico"	"35"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1273
+	"New Mexico"	"35"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	347920
+	"New Mexico"	"35"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	337278
+"Total"	"New Mexico"	"35"	"Female"	"F"	"White"	"2106-3"			685198
+	"New Mexico"	"35"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6380
+	"New Mexico"	"35"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	9850
+"Total"	"New Mexico"	"35"	"Female"	"F"	"More than one race"	"M"			16230
+"Total"	"New Mexico"	"35"	"Female"	"F"					820836
+	"New Mexico"	"35"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	12995
+	"New Mexico"	"35"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	63550
+"Total"	"New Mexico"	"35"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			76545
+	"New Mexico"	"35"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1621
+	"New Mexico"	"35"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	11622
+"Total"	"New Mexico"	"35"	"Male"	"M"	"Asian"	"A"			13243
+	"New Mexico"	"35"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	4499
+	"New Mexico"	"35"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	17945
+"Total"	"New Mexico"	"35"	"Male"	"M"	"Black or African American"	"2054-5"			22444
+	"New Mexico"	"35"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	698
+	"New Mexico"	"35"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	573
+"Total"	"New Mexico"	"35"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1271
+	"New Mexico"	"35"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	335427
+	"New Mexico"	"35"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	325771
+"Total"	"New Mexico"	"35"	"Male"	"M"	"White"	"2106-3"			661198
+	"New Mexico"	"35"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6149
+	"New Mexico"	"35"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	9626
+"Total"	"New Mexico"	"35"	"Male"	"M"	"More than one race"	"M"			15775
+"Total"	"New Mexico"	"35"	"Male"	"M"					790476
+"Total"	"New Mexico"	"35"							1611312
+	"New York"	"36"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	49294
+	"New York"	"36"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	23399
+"Total"	"New York"	"36"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			72693
+	"New York"	"36"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	14413
+	"New York"	"36"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	731123
+"Total"	"New York"	"36"	"Female"	"F"	"Asian"	"A"			745536
+	"New York"	"36"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	237921
+	"New York"	"36"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1207026
+"Total"	"New York"	"36"	"Female"	"F"	"Black or African American"	"2054-5"			1444947
+	"New York"	"36"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	6779
+	"New York"	"36"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	3723
+"Total"	"New York"	"36"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			10502
+	"New York"	"36"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	1041394
+	"New York"	"36"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4586752
+"Total"	"New York"	"36"	"Female"	"F"	"White"	"2106-3"			5628146
+	"New York"	"36"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	54197
+	"New York"	"36"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	106140
+"Total"	"New York"	"36"	"Female"	"F"	"More than one race"	"M"			160337
+"Total"	"New York"	"36"	"Female"	"F"					8062161
+	"New York"	"36"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	51667
+	"New York"	"36"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	21555
+"Total"	"New York"	"36"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			73222
+	"New York"	"36"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	13640
+	"New York"	"36"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	642875
+"Total"	"New York"	"36"	"Male"	"M"	"Asian"	"A"			656515
+	"New York"	"36"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	202767
+	"New York"	"36"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1008253
+"Total"	"New York"	"36"	"Male"	"M"	"Black or African American"	"2054-5"			1211020
+	"New York"	"36"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	6766
+	"New York"	"36"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	3250
+"Total"	"New York"	"36"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			10016
+	"New York"	"36"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	1006796
+	"New York"	"36"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4308665
+"Total"	"New York"	"36"	"Male"	"M"	"White"	"2106-3"			5315461
+	"New York"	"36"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	48402
+	"New York"	"36"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	92887
+"Total"	"New York"	"36"	"Male"	"M"	"More than one race"	"M"			141289
+"Total"	"New York"	"36"	"Male"	"M"					7407523
+"Total"	"New York"	"36"							15469684
+	"North Carolina"	"37"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	12572
+	"North Carolina"	"37"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	46843
+"Total"	"North Carolina"	"37"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			59415
+	"North Carolina"	"37"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2471
+	"North Carolina"	"37"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	124320
+"Total"	"North Carolina"	"37"	"Female"	"F"	"Asian"	"A"			126791
+	"North Carolina"	"37"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	24314
+	"North Carolina"	"37"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	926336
+"Total"	"North Carolina"	"37"	"Female"	"F"	"Black or African American"	"2054-5"			950650
+	"North Carolina"	"37"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1555
+	"North Carolina"	"37"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2473
+"Total"	"North Carolina"	"37"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			4028
+	"North Carolina"	"37"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	241664
+	"North Carolina"	"37"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2759770
+"Total"	"North Carolina"	"37"	"Female"	"F"	"White"	"2106-3"			3001434
+	"North Carolina"	"37"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	9344
+	"North Carolina"	"37"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	55186
+"Total"	"North Carolina"	"37"	"Female"	"F"	"More than one race"	"M"			64530
+"Total"	"North Carolina"	"37"	"Female"	"F"					4206848
+	"North Carolina"	"37"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	15059
+	"North Carolina"	"37"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	42109
+"Total"	"North Carolina"	"37"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			57168
+	"North Carolina"	"37"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2641
+	"North Carolina"	"37"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	113474
+"Total"	"North Carolina"	"37"	"Male"	"M"	"Asian"	"A"			116115
+	"North Carolina"	"37"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	23293
+	"North Carolina"	"37"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	775402
+"Total"	"North Carolina"	"37"	"Male"	"M"	"Black or African American"	"2054-5"			798695
+	"North Carolina"	"37"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1915
+	"North Carolina"	"37"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2510
+"Total"	"North Carolina"	"37"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			4425
+	"North Carolina"	"37"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	266494
+	"North Carolina"	"37"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2580352
+"Total"	"North Carolina"	"37"	"Male"	"M"	"White"	"2106-3"			2846846
+	"North Carolina"	"37"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	9118
+	"North Carolina"	"37"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	47614
+"Total"	"North Carolina"	"37"	"Male"	"M"	"More than one race"	"M"			56732
+"Total"	"North Carolina"	"37"	"Male"	"M"					3879981
+"Total"	"North Carolina"	"37"							8086829
+	"North Dakota"	"38"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	606
+	"North Dakota"	"38"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	12923
+"Total"	"North Dakota"	"38"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			13529
+	"North Dakota"	"38"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	57
+	"North Dakota"	"38"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	4969
+"Total"	"North Dakota"	"38"	"Female"	"F"	"Asian"	"A"			5026
+	"North Dakota"	"38"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	285
+	"North Dakota"	"38"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	6596
+"Total"	"North Dakota"	"38"	"Female"	"F"	"Black or African American"	"2054-5"			6881
+	"North Dakota"	"38"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	29
+	"North Dakota"	"38"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	160
+"Total"	"North Dakota"	"38"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			189
+	"North Dakota"	"38"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	6814
+	"North Dakota"	"38"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	247130
+"Total"	"North Dakota"	"38"	"Female"	"F"	"White"	"2106-3"			253944
+	"North Dakota"	"38"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	318
+	"North Dakota"	"38"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	3770
+"Total"	"North Dakota"	"38"	"Female"	"F"	"More than one race"	"M"			4088
+"Total"	"North Dakota"	"38"	"Female"	"F"					283657
+	"North Dakota"	"38"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	621
+	"North Dakota"	"38"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	12049
+"Total"	"North Dakota"	"38"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			12670
+	"North Dakota"	"38"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	89
+	"North Dakota"	"38"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	4963
+"Total"	"North Dakota"	"38"	"Male"	"M"	"Asian"	"A"			5052
+	"North Dakota"	"38"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	394
+	"North Dakota"	"38"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	10005
+"Total"	"North Dakota"	"38"	"Male"	"M"	"Black or African American"	"2054-5"			10399
+	"North Dakota"	"38"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	48
+	"North Dakota"	"38"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	163
+"Total"	"North Dakota"	"38"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			211
+	"North Dakota"	"38"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	8681
+	"North Dakota"	"38"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	256553
+"Total"	"North Dakota"	"38"	"Male"	"M"	"White"	"2106-3"			265234
+	"North Dakota"	"38"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	396
+	"North Dakota"	"38"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	3919
+"Total"	"North Dakota"	"38"	"Male"	"M"	"More than one race"	"M"			4315
+"Total"	"North Dakota"	"38"	"Male"	"M"					297881
+"Total"	"North Dakota"	"38"							581538
+	"Ohio"	"39"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3236
+	"Ohio"	"39"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9302
+"Total"	"Ohio"	"39"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			12538
+	"Ohio"	"39"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1261
+	"Ohio"	"39"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	113078
+"Total"	"Ohio"	"39"	"Female"	"F"	"Asian"	"A"			114339
+	"Ohio"	"39"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	12993
+	"Ohio"	"39"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	574815
+"Total"	"Ohio"	"39"	"Female"	"F"	"Black or African American"	"2054-5"			587808
+	"Ohio"	"39"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	678
+	"Ohio"	"39"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1608
+"Total"	"Ohio"	"39"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2286
+	"Ohio"	"39"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	118850
+	"Ohio"	"39"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	3780702
+"Total"	"Ohio"	"39"	"Female"	"F"	"White"	"2106-3"			3899552
+	"Ohio"	"39"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6293
+	"Ohio"	"39"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	63933
+"Total"	"Ohio"	"39"	"Female"	"F"	"More than one race"	"M"			70226
+"Total"	"Ohio"	"39"	"Female"	"F"					4686749
+	"Ohio"	"39"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3797
+	"Ohio"	"39"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9317
+"Total"	"Ohio"	"39"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			13114
+	"Ohio"	"39"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1241
+	"Ohio"	"39"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	104195
+"Total"	"Ohio"	"39"	"Male"	"M"	"Asian"	"A"			105436
+	"Ohio"	"39"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	12230
+	"Ohio"	"39"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	507734
+"Total"	"Ohio"	"39"	"Male"	"M"	"Black or African American"	"2054-5"			519964
+	"Ohio"	"39"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	832
+	"Ohio"	"39"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1809
+"Total"	"Ohio"	"39"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2641
+	"Ohio"	"39"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	126879
+	"Ohio"	"39"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	3565244
+"Total"	"Ohio"	"39"	"Male"	"M"	"White"	"2106-3"			3692123
+	"Ohio"	"39"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	6108
+	"Ohio"	"39"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	59173
+"Total"	"Ohio"	"39"	"Male"	"M"	"More than one race"	"M"			65281
+"Total"	"Ohio"	"39"	"Male"	"M"					4398559
+"Total"	"Ohio"	"39"							9085308
+	"Oklahoma"	"40"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	8806
+	"Oklahoma"	"40"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	122319
+"Total"	"Oklahoma"	"40"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			131125
+	"Oklahoma"	"40"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	846
+	"Oklahoma"	"40"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	37098
+"Total"	"Oklahoma"	"40"	"Female"	"F"	"Asian"	"A"			37944
+	"Oklahoma"	"40"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3824
+	"Oklahoma"	"40"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	109005
+"Total"	"Oklahoma"	"40"	"Female"	"F"	"Black or African American"	"2054-5"			112829
+	"Oklahoma"	"40"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	482
+	"Oklahoma"	"40"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2171
+"Total"	"Oklahoma"	"40"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2653
+	"Oklahoma"	"40"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	102980
+	"Oklahoma"	"40"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1062290
+"Total"	"Oklahoma"	"40"	"Female"	"F"	"White"	"2106-3"			1165270
+	"Oklahoma"	"40"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	5565
+	"Oklahoma"	"40"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	67603
+"Total"	"Oklahoma"	"40"	"Female"	"F"	"More than one race"	"M"			73168
+"Total"	"Oklahoma"	"40"	"Female"	"F"					1522989
+	"Oklahoma"	"40"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	10027
+	"Oklahoma"	"40"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	114720
+"Total"	"Oklahoma"	"40"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			124747
+	"Oklahoma"	"40"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	974
+	"Oklahoma"	"40"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	32468
+"Total"	"Oklahoma"	"40"	"Male"	"M"	"Asian"	"A"			33442
+	"Oklahoma"	"40"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	4103
+	"Oklahoma"	"40"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	108068
+"Total"	"Oklahoma"	"40"	"Male"	"M"	"Black or African American"	"2054-5"			112171
+	"Oklahoma"	"40"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	538
+	"Oklahoma"	"40"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2391
+"Total"	"Oklahoma"	"40"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2929
+	"Oklahoma"	"40"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	116860
+	"Oklahoma"	"40"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1007528
+"Total"	"Oklahoma"	"40"	"Male"	"M"	"White"	"2106-3"			1124388
+	"Oklahoma"	"40"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	5693
+	"Oklahoma"	"40"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	61133
+"Total"	"Oklahoma"	"40"	"Male"	"M"	"More than one race"	"M"			66826
+"Total"	"Oklahoma"	"40"	"Male"	"M"					1464503
+"Total"	"Oklahoma"	"40"							2987492
+	"Oregon"	"41"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	8516
+	"Oregon"	"41"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	18322
+"Total"	"Oregon"	"41"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			26838
+	"Oregon"	"41"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1976
+	"Oregon"	"41"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	86244
+"Total"	"Oregon"	"41"	"Female"	"F"	"Asian"	"A"			88220
+	"Oregon"	"41"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3477
+	"Oregon"	"41"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	26843
+"Total"	"Oregon"	"41"	"Female"	"F"	"Black or African American"	"2054-5"			30320
+	"Oregon"	"41"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	649
+	"Oregon"	"41"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	6271
+"Total"	"Oregon"	"41"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			6920
+	"Oregon"	"41"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	149411
+	"Oregon"	"41"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1332733
+"Total"	"Oregon"	"41"	"Female"	"F"	"White"	"2106-3"			1482144
+	"Oregon"	"41"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	7579
+	"Oregon"	"41"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	43364
+"Total"	"Oregon"	"41"	"Female"	"F"	"More than one race"	"M"			50943
+"Total"	"Oregon"	"41"	"Female"	"F"					1685385
+	"Oregon"	"41"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	9979
+	"Oregon"	"41"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	17972
+"Total"	"Oregon"	"41"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			27951
+	"Oregon"	"41"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1974
+	"Oregon"	"41"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	72113
+"Total"	"Oregon"	"41"	"Male"	"M"	"Asian"	"A"			74087
+	"Oregon"	"41"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3929
+	"Oregon"	"41"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	33266
+"Total"	"Oregon"	"41"	"Male"	"M"	"Black or African American"	"2054-5"			37195
+	"Oregon"	"41"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	785
+	"Oregon"	"41"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	6424
+"Total"	"Oregon"	"41"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			7209
+	"Oregon"	"41"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	162764
+	"Oregon"	"41"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1271740
+"Total"	"Oregon"	"41"	"Male"	"M"	"White"	"2106-3"			1434504
+	"Oregon"	"41"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	7897
+	"Oregon"	"41"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	40431
+"Total"	"Oregon"	"41"	"Male"	"M"	"More than one race"	"M"			48328
+"Total"	"Oregon"	"41"	"Male"	"M"					1629274
+"Total"	"Oregon"	"41"							3314659
+	"Pennsylvania"	"42"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	9832
+	"Pennsylvania"	"42"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7472
+"Total"	"Pennsylvania"	"42"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			17304
+	"Pennsylvania"	"42"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2775
+	"Pennsylvania"	"42"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	187276
+"Total"	"Pennsylvania"	"42"	"Female"	"F"	"Asian"	"A"			190051
+	"Pennsylvania"	"42"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	43972
+	"Pennsylvania"	"42"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	550881
+"Total"	"Pennsylvania"	"42"	"Female"	"F"	"Black or African American"	"2054-5"			594853
+	"Pennsylvania"	"42"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1822
+	"Pennsylvania"	"42"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1594
+"Total"	"Pennsylvania"	"42"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3416
+	"Pennsylvania"	"42"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	245607
+	"Pennsylvania"	"42"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4114919
+"Total"	"Pennsylvania"	"42"	"Female"	"F"	"White"	"2106-3"			4360526
+	"Pennsylvania"	"42"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13745
+	"Pennsylvania"	"42"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	57564
+"Total"	"Pennsylvania"	"42"	"Female"	"F"	"More than one race"	"M"			71309
+"Total"	"Pennsylvania"	"42"	"Female"	"F"					5237459
+	"Pennsylvania"	"42"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	10430
+	"Pennsylvania"	"42"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7257
+"Total"	"Pennsylvania"	"42"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			17687
+	"Pennsylvania"	"42"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	2723
+	"Pennsylvania"	"42"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	170443
+"Total"	"Pennsylvania"	"42"	"Male"	"M"	"Asian"	"A"			173166
+	"Pennsylvania"	"42"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	42258
+	"Pennsylvania"	"42"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	492846
+"Total"	"Pennsylvania"	"42"	"Male"	"M"	"Black or African American"	"2054-5"			535104
+	"Pennsylvania"	"42"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1753
+	"Pennsylvania"	"42"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1386
+"Total"	"Pennsylvania"	"42"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3139
+	"Pennsylvania"	"42"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	255359
+	"Pennsylvania"	"42"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	3868705
+"Total"	"Pennsylvania"	"42"	"Male"	"M"	"White"	"2106-3"			4124064
+	"Pennsylvania"	"42"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13748
+	"Pennsylvania"	"42"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	51682
+"Total"	"Pennsylvania"	"42"	"Male"	"M"	"More than one race"	"M"			65430
+"Total"	"Pennsylvania"	"42"	"Male"	"M"					4918590
+"Total"	"Pennsylvania"	"42"							10156049
+	"Rhode Island"	"44"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1984
+	"Rhode Island"	"44"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1745
+"Total"	"Rhode Island"	"44"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			3729
+	"Rhode Island"	"44"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	461
+	"Rhode Island"	"44"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	15657
+"Total"	"Rhode Island"	"44"	"Female"	"F"	"Asian"	"A"			16118
+	"Rhode Island"	"44"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	8731
+	"Rhode Island"	"44"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	24206
+"Total"	"Rhode Island"	"44"	"Female"	"F"	"Black or African American"	"2054-5"			32937
+	"Rhode Island"	"44"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	448
+	"Rhode Island"	"44"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	258
+"Total"	"Rhode Island"	"44"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			706
+	"Rhode Island"	"44"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	43723
+	"Rhode Island"	"44"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	337126
+"Total"	"Rhode Island"	"44"	"Female"	"F"	"White"	"2106-3"			380849
+	"Rhode Island"	"44"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2292
+	"Rhode Island"	"44"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	6659
+"Total"	"Rhode Island"	"44"	"Female"	"F"	"More than one race"	"M"			8951
+"Total"	"Rhode Island"	"44"	"Female"	"F"					443290
+	"Rhode Island"	"44"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1943
+	"Rhode Island"	"44"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1652
+"Total"	"Rhode Island"	"44"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			3595
+	"Rhode Island"	"44"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	483
+	"Rhode Island"	"44"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	14086
+"Total"	"Rhode Island"	"44"	"Male"	"M"	"Asian"	"A"			14569
+	"Rhode Island"	"44"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	8137
+	"Rhode Island"	"44"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	24227
+"Total"	"Rhode Island"	"44"	"Male"	"M"	"Black or African American"	"2054-5"			32364
+	"Rhode Island"	"44"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	434
+	"Rhode Island"	"44"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	241
+"Total"	"Rhode Island"	"44"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			675
+	"Rhode Island"	"44"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	43923
+	"Rhode Island"	"44"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	306675
+"Total"	"Rhode Island"	"44"	"Male"	"M"	"White"	"2106-3"			350598
+	"Rhode Island"	"44"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2233
+	"Rhode Island"	"44"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	5955
+"Total"	"Rhode Island"	"44"	"Male"	"M"	"More than one race"	"M"			8188
+"Total"	"Rhode Island"	"44"	"Male"	"M"					409989
+"Total"	"Rhode Island"	"44"							853279
+	"South Carolina"	"45"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	2202
+	"South Carolina"	"45"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7630
+"Total"	"South Carolina"	"45"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			9832
+	"South Carolina"	"45"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	752
+	"South Carolina"	"45"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	36734
+"Total"	"South Carolina"	"45"	"Female"	"F"	"Asian"	"A"			37486
+	"South Carolina"	"45"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	7683
+	"South Carolina"	"45"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	560053
+"Total"	"South Carolina"	"45"	"Female"	"F"	"Black or African American"	"2054-5"			567736
+	"South Carolina"	"45"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	485
+	"South Carolina"	"45"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1050
+"Total"	"South Carolina"	"45"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1535
+	"South Carolina"	"45"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	73382
+	"South Carolina"	"45"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1363266
+"Total"	"South Carolina"	"45"	"Female"	"F"	"White"	"2106-3"			1436648
+	"South Carolina"	"45"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2663
+	"South Carolina"	"45"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	22794
+"Total"	"South Carolina"	"45"	"Female"	"F"	"More than one race"	"M"			25457
+"Total"	"South Carolina"	"45"	"Female"	"F"					2078694
+	"South Carolina"	"45"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3381
+	"South Carolina"	"45"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7381
+"Total"	"South Carolina"	"45"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			10762
+	"South Carolina"	"45"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	745
+	"South Carolina"	"45"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	31598
+"Total"	"South Carolina"	"45"	"Male"	"M"	"Asian"	"A"			32343
+	"South Carolina"	"45"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	7920
+	"South Carolina"	"45"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	466587
+"Total"	"South Carolina"	"45"	"Male"	"M"	"Black or African American"	"2054-5"			474507
+	"South Carolina"	"45"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	681
+	"South Carolina"	"45"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1157
+"Total"	"South Carolina"	"45"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1838
+	"South Carolina"	"45"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	87102
+	"South Carolina"	"45"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1274848
+"Total"	"South Carolina"	"45"	"Male"	"M"	"White"	"2106-3"			1361950
+	"South Carolina"	"45"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	2701
+	"South Carolina"	"45"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	20319
+"Total"	"South Carolina"	"45"	"Male"	"M"	"More than one race"	"M"			23020
+"Total"	"South Carolina"	"45"	"Male"	"M"					1904420
+"Total"	"South Carolina"	"45"							3983114
+	"South Dakota"	"46"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1036
+	"South Dakota"	"46"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	23484
+"Total"	"South Dakota"	"46"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			24520
+	"South Dakota"	"46"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	74
+	"South Dakota"	"46"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	5377
+"Total"	"South Dakota"	"46"	"Female"	"F"	"Asian"	"A"			5451
+	"South Dakota"	"46"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	206
+	"South Dakota"	"46"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	4735
+"Total"	"South Dakota"	"46"	"Female"	"F"	"Black or African American"	"2054-5"			4941
+	"South Dakota"	"46"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	72
+	"South Dakota"	"46"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	146
+"Total"	"South Dakota"	"46"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			218
+	"South Dakota"	"46"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	7467
+	"South Dakota"	"46"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	282310
+"Total"	"South Dakota"	"46"	"Female"	"F"	"White"	"2106-3"			289777
+	"South Dakota"	"46"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	437
+	"South Dakota"	"46"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	4741
+"Total"	"South Dakota"	"46"	"Female"	"F"	"More than one race"	"M"			5178
+"Total"	"South Dakota"	"46"	"Female"	"F"					330085
+	"South Dakota"	"46"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1224
+	"South Dakota"	"46"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	21929
+"Total"	"South Dakota"	"46"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			23153
+	"South Dakota"	"46"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	85
+	"South Dakota"	"46"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	4702
+"Total"	"South Dakota"	"46"	"Male"	"M"	"Asian"	"A"			4787
+	"South Dakota"	"46"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	309
+	"South Dakota"	"46"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	7901
+"Total"	"South Dakota"	"46"	"Male"	"M"	"Black or African American"	"2054-5"			8210
+	"South Dakota"	"46"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	133
+	"South Dakota"	"46"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	201
+"Total"	"South Dakota"	"46"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			334
+	"South Dakota"	"46"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	9579
+	"South Dakota"	"46"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	281528
+"Total"	"South Dakota"	"46"	"Male"	"M"	"White"	"2106-3"			291107
+	"South Dakota"	"46"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	555
+	"South Dakota"	"46"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	4433
+"Total"	"South Dakota"	"46"	"Male"	"M"	"More than one race"	"M"			4988
+"Total"	"South Dakota"	"46"	"Male"	"M"					332579
+"Total"	"South Dakota"	"46"							662664
+	"Tennessee"	"47"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3139
+	"Tennessee"	"47"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	7753
+"Total"	"Tennessee"	"47"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			10892
+	"Tennessee"	"47"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	885
+	"Tennessee"	"47"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	52045
+"Total"	"Tennessee"	"47"	"Female"	"F"	"Asian"	"A"			52930
+	"Tennessee"	"47"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	5744
+	"Tennessee"	"47"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	456633
+"Total"	"Tennessee"	"47"	"Female"	"F"	"Black or African American"	"2054-5"			462377
+	"Tennessee"	"47"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	713
+	"Tennessee"	"47"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1323
+"Total"	"Tennessee"	"47"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2036
+	"Tennessee"	"47"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	92770
+	"Tennessee"	"47"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2074767
+"Total"	"Tennessee"	"47"	"Female"	"F"	"White"	"2106-3"			2167537
+	"Tennessee"	"47"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3318
+	"Tennessee"	"47"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	31629
+"Total"	"Tennessee"	"47"	"Female"	"F"	"More than one race"	"M"			34947
+"Total"	"Tennessee"	"47"	"Female"	"F"					2730719
+	"Tennessee"	"47"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	4263
+	"Tennessee"	"47"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	8013
+"Total"	"Tennessee"	"47"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			12276
+	"Tennessee"	"47"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	919
+	"Tennessee"	"47"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	45300
+"Total"	"Tennessee"	"47"	"Male"	"M"	"Asian"	"A"			46219
+	"Tennessee"	"47"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	5911
+	"Tennessee"	"47"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	391142
+"Total"	"Tennessee"	"47"	"Male"	"M"	"Black or African American"	"2054-5"			397053
+	"Tennessee"	"47"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	938
+	"Tennessee"	"47"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	1378
+"Total"	"Tennessee"	"47"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			2316
+	"Tennessee"	"47"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	106990
+	"Tennessee"	"47"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1939724
+"Total"	"Tennessee"	"47"	"Male"	"M"	"White"	"2106-3"			2046714
+	"Tennessee"	"47"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3436
+	"Tennessee"	"47"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	29072
+"Total"	"Tennessee"	"47"	"Male"	"M"	"More than one race"	"M"			32508
+"Total"	"Tennessee"	"47"	"Male"	"M"					2537086
+"Total"	"Tennessee"	"47"							5267805
+	"Texas"	"48"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	67765
+	"Texas"	"48"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	37986
+"Total"	"Texas"	"48"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			105751
+	"Texas"	"48"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	16564
+	"Texas"	"48"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	569999
+"Total"	"Texas"	"48"	"Female"	"F"	"Asian"	"A"			586563
+	"Texas"	"48"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	70634
+	"Texas"	"48"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1347220
+"Total"	"Texas"	"48"	"Female"	"F"	"Black or African American"	"2054-5"			1417854
+	"Texas"	"48"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	5330
+	"Texas"	"48"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	9504
+"Total"	"Texas"	"48"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			14834
+	"Texas"	"48"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	3626579
+	"Texas"	"48"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4878592
+"Total"	"Texas"	"48"	"Female"	"F"	"White"	"2106-3"			8505171
+	"Texas"	"48"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	40632
+	"Texas"	"48"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	119054
+"Total"	"Texas"	"48"	"Female"	"F"	"More than one race"	"M"			159686
+"Total"	"Texas"	"48"	"Female"	"F"					10789859
+	"Texas"	"48"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	74704
+	"Texas"	"48"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	37435
+"Total"	"Texas"	"48"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			112139
+	"Texas"	"48"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	16146
+	"Texas"	"48"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	524434
+"Total"	"Texas"	"48"	"Male"	"M"	"Asian"	"A"			540580
+	"Texas"	"48"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	67036
+	"Texas"	"48"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1221311
+"Total"	"Texas"	"48"	"Male"	"M"	"Black or African American"	"2054-5"			1288347
+	"Texas"	"48"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	5901
+	"Texas"	"48"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	8925
+"Total"	"Texas"	"48"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			14826
+	"Texas"	"48"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	3628665
+	"Texas"	"48"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	4715576
+"Total"	"Texas"	"48"	"Male"	"M"	"White"	"2106-3"			8344241
+	"Texas"	"48"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	41066
+	"Texas"	"48"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	110820
+"Total"	"Texas"	"48"	"Male"	"M"	"More than one race"	"M"			151886
+"Total"	"Texas"	"48"	"Male"	"M"					10452019
+"Total"	"Texas"	"48"							21241878
+	"Utah"	"49"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	5053
+	"Utah"	"49"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	10969
+"Total"	"Utah"	"49"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			16022
+	"Utah"	"49"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1180
+	"Utah"	"49"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	33259
+"Total"	"Utah"	"49"	"Female"	"F"	"Asian"	"A"			34439
+	"Utah"	"49"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	2720
+	"Utah"	"49"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	9491
+"Total"	"Utah"	"49"	"Female"	"F"	"Black or African American"	"2054-5"			12211
+	"Utah"	"49"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	697
+	"Utah"	"49"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	9964
+"Total"	"Utah"	"49"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			10661
+	"Utah"	"49"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	123862
+	"Utah"	"49"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	895393
+"Total"	"Utah"	"49"	"Female"	"F"	"White"	"2106-3"			1019255
+	"Utah"	"49"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	4017
+	"Utah"	"49"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	16635
+"Total"	"Utah"	"49"	"Female"	"F"	"More than one race"	"M"			20652
+"Total"	"Utah"	"49"	"Female"	"F"					1113240
+	"Utah"	"49"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	5606
+	"Utah"	"49"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	10335
+"Total"	"Utah"	"49"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			15941
+	"Utah"	"49"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	1329
+	"Utah"	"49"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	28531
+"Total"	"Utah"	"49"	"Male"	"M"	"Asian"	"A"			29860
+	"Utah"	"49"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	3088
+	"Utah"	"49"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	14897
+"Total"	"Utah"	"49"	"Male"	"M"	"Black or African American"	"2054-5"			17985
+	"Utah"	"49"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	785
+	"Utah"	"49"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	11026
+"Total"	"Utah"	"49"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			11811
+	"Utah"	"49"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	130262
+	"Utah"	"49"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	885159
+"Total"	"Utah"	"49"	"Male"	"M"	"White"	"2106-3"			1015421
+	"Utah"	"49"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	4178
+	"Utah"	"49"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	16555
+"Total"	"Utah"	"49"	"Male"	"M"	"More than one race"	"M"			20733
+"Total"	"Utah"	"49"	"Male"	"M"					1111751
+"Total"	"Utah"	"49"							2224991
+	"Vermont"	"50"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	118
+	"Vermont"	"50"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	864
+"Total"	"Vermont"	"50"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			982
+	"Vermont"	"50"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	64
+	"Vermont"	"50"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	5256
+"Total"	"Vermont"	"50"	"Female"	"F"	"Asian"	"A"			5320
+	"Vermont"	"50"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	206
+	"Vermont"	"50"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	2344
+"Total"	"Vermont"	"50"	"Female"	"F"	"Black or African American"	"2054-5"			2550
+	"Vermont"	"50"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	17
+	"Vermont"	"50"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	66
+"Total"	"Vermont"	"50"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			83
+	"Vermont"	"50"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	3883
+	"Vermont"	"50"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	243627
+"Total"	"Vermont"	"50"	"Female"	"F"	"White"	"2106-3"			247510
+	"Vermont"	"50"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	296
+	"Vermont"	"50"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	3543
+"Total"	"Vermont"	"50"	"Female"	"F"	"More than one race"	"M"			3839
+"Total"	"Vermont"	"50"	"Female"	"F"					260284
+	"Vermont"	"50"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	149
+	"Vermont"	"50"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	875
+"Total"	"Vermont"	"50"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			1024
+	"Vermont"	"50"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	55
+	"Vermont"	"50"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	4073
+"Total"	"Vermont"	"50"	"Male"	"M"	"Asian"	"A"			4128
+	"Vermont"	"50"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	258
+	"Vermont"	"50"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	3371
+"Total"	"Vermont"	"50"	"Male"	"M"	"Black or African American"	"2054-5"			3629
+	"Vermont"	"50"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	25
+	"Vermont"	"50"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	91
+"Total"	"Vermont"	"50"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			116
+	"Vermont"	"50"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	3908
+	"Vermont"	"50"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	232493
+"Total"	"Vermont"	"50"	"Male"	"M"	"White"	"2106-3"			236401
+	"Vermont"	"50"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	249
+	"Vermont"	"50"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	3341
+"Total"	"Vermont"	"50"	"Male"	"M"	"More than one race"	"M"			3590
+"Total"	"Vermont"	"50"	"Male"	"M"					248888
+"Total"	"Vermont"	"50"							509172
+	"Virginia"	"51"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	7696
+	"Virginia"	"51"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9117
+"Total"	"Virginia"	"51"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			16813
+	"Virginia"	"51"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	3131
+	"Virginia"	"51"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	240050
+"Total"	"Virginia"	"51"	"Female"	"F"	"Asian"	"A"			243181
+	"Virginia"	"51"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	20786
+	"Virginia"	"51"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	662321
+"Total"	"Virginia"	"51"	"Female"	"F"	"Black or African American"	"2054-5"			683107
+	"Virginia"	"51"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1024
+	"Virginia"	"51"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2594
+"Total"	"Virginia"	"51"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3618
+	"Virginia"	"51"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	225148
+	"Virginia"	"51"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2164618
+"Total"	"Virginia"	"51"	"Female"	"F"	"White"	"2106-3"			2389766
+	"Virginia"	"51"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	9878
+	"Virginia"	"51"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	62306
+"Total"	"Virginia"	"51"	"Female"	"F"	"More than one race"	"M"			72184
+"Total"	"Virginia"	"51"	"Female"	"F"					3408669
+	"Virginia"	"51"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	9291
+	"Virginia"	"51"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	9436
+"Total"	"Virginia"	"51"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			18727
+	"Virginia"	"51"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	3255
+	"Virginia"	"51"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	207240
+"Total"	"Virginia"	"51"	"Male"	"M"	"Asian"	"A"			210495
+	"Virginia"	"51"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	19985
+	"Virginia"	"51"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	591723
+"Total"	"Virginia"	"51"	"Male"	"M"	"Black or African American"	"2054-5"			611708
+	"Virginia"	"51"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1342
+	"Virginia"	"51"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	2405
+"Total"	"Virginia"	"51"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			3747
+	"Virginia"	"51"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	241643
+	"Virginia"	"51"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2078805
+"Total"	"Virginia"	"51"	"Male"	"M"	"White"	"2106-3"			2320448
+	"Virginia"	"51"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	9516
+	"Virginia"	"51"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	57568
+"Total"	"Virginia"	"51"	"Male"	"M"	"More than one race"	"M"			67084
+"Total"	"Virginia"	"51"	"Male"	"M"					3232209
+"Total"	"Virginia"	"51"							6640878
+	"Washington"	"53"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	12243
+	"Washington"	"53"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	36802
+"Total"	"Washington"	"53"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			49045
+	"Washington"	"53"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5037
+	"Washington"	"53"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	296916
+"Total"	"Washington"	"53"	"Female"	"F"	"Asian"	"A"			301953
+	"Washington"	"53"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	7875
+	"Washington"	"53"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	99898
+"Total"	"Washington"	"53"	"Female"	"F"	"Black or African American"	"2054-5"			107773
+	"Washington"	"53"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1563
+	"Washington"	"53"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	19255
+"Total"	"Washington"	"53"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			20818
+	"Washington"	"53"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	252526
+	"Washington"	"53"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2114630
+"Total"	"Washington"	"53"	"Female"	"F"	"White"	"2106-3"			2367156
+	"Washington"	"53"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13862
+	"Washington"	"53"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	90011
+"Total"	"Washington"	"53"	"Female"	"F"	"More than one race"	"M"			103873
+"Total"	"Washington"	"53"	"Female"	"F"					2950618
+	"Washington"	"53"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	13832
+	"Washington"	"53"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	35491
+"Total"	"Washington"	"53"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			49323
+	"Washington"	"53"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	5109
+	"Washington"	"53"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	255957
+"Total"	"Washington"	"53"	"Male"	"M"	"Asian"	"A"			261066
+	"Washington"	"53"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	8650
+	"Washington"	"53"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	123844
+"Total"	"Washington"	"53"	"Male"	"M"	"Black or African American"	"2054-5"			132494
+	"Washington"	"53"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	1771
+	"Washington"	"53"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	19293
+"Total"	"Washington"	"53"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			21064
+	"Washington"	"53"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	274077
+	"Washington"	"53"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	2080810
+"Total"	"Washington"	"53"	"Male"	"M"	"White"	"2106-3"			2354887
+	"Washington"	"53"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	13886
+	"Washington"	"53"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	85632
+"Total"	"Washington"	"53"	"Male"	"M"	"More than one race"	"M"			99518
+"Total"	"Washington"	"53"	"Male"	"M"					2918352
+"Total"	"Washington"	"53"							5868970
+	"West Virginia"	"54"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	181
+	"West Virginia"	"54"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1546
+"Total"	"West Virginia"	"54"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			1727
+	"West Virginia"	"54"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	83
+	"West Virginia"	"54"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	6547
+"Total"	"West Virginia"	"54"	"Female"	"F"	"Asian"	"A"			6630
+	"West Virginia"	"54"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	507
+	"West Virginia"	"54"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	22423
+"Total"	"West Virginia"	"54"	"Female"	"F"	"Black or African American"	"2054-5"			22930
+	"West Virginia"	"54"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	38
+	"West Virginia"	"54"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	155
+"Total"	"West Virginia"	"54"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			193
+	"West Virginia"	"54"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	8169
+	"West Virginia"	"54"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	686114
+"Total"	"West Virginia"	"54"	"Female"	"F"	"White"	"2106-3"			694283
+	"West Virginia"	"54"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	391
+	"West Virginia"	"54"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	7959
+"Total"	"West Virginia"	"54"	"Female"	"F"	"More than one race"	"M"			8350
+"Total"	"West Virginia"	"54"	"Female"	"F"					734113
+	"West Virginia"	"54"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	286
+	"West Virginia"	"54"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	1729
+"Total"	"West Virginia"	"54"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			2015
+	"West Virginia"	"54"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	102
+	"West Virginia"	"54"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	5567
+"Total"	"West Virginia"	"54"	"Male"	"M"	"Asian"	"A"			5669
+	"West Virginia"	"54"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	697
+	"West Virginia"	"54"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	27379
+"Total"	"West Virginia"	"54"	"Male"	"M"	"Black or African American"	"2054-5"			28076
+	"West Virginia"	"54"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	47
+	"West Virginia"	"54"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	154
+"Total"	"West Virginia"	"54"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			201
+	"West Virginia"	"54"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	9435
+	"West Virginia"	"54"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	653155
+"Total"	"West Virginia"	"54"	"Male"	"M"	"White"	"2106-3"			662590
+	"West Virginia"	"54"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	428
+	"West Virginia"	"54"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	7742
+"Total"	"West Virginia"	"54"	"Male"	"M"	"More than one race"	"M"			8170
+"Total"	"West Virginia"	"54"	"Male"	"M"					706721
+"Total"	"West Virginia"	"54"							1440834
+	"Wisconsin"	"55"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	3944
+	"Wisconsin"	"55"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	18999
+"Total"	"Wisconsin"	"55"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			22943
+	"Wisconsin"	"55"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	899
+	"Wisconsin"	"55"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	63629
+"Total"	"Wisconsin"	"55"	"Female"	"F"	"Asian"	"A"			64528
+	"Wisconsin"	"55"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	5383
+	"Wisconsin"	"55"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	133474
+"Total"	"Wisconsin"	"55"	"Female"	"F"	"Black or African American"	"2054-5"			138857
+	"Wisconsin"	"55"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	334
+	"Wisconsin"	"55"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	753
+"Total"	"Wisconsin"	"55"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1087
+	"Wisconsin"	"55"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	106509
+	"Wisconsin"	"55"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1933088
+"Total"	"Wisconsin"	"55"	"Female"	"F"	"White"	"2106-3"			2039597
+	"Wisconsin"	"55"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3837
+	"Wisconsin"	"55"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	24681
+"Total"	"Wisconsin"	"55"	"Female"	"F"	"More than one race"	"M"			28518
+"Total"	"Wisconsin"	"55"	"Female"	"F"					2295530
+	"Wisconsin"	"55"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	4339
+	"Wisconsin"	"55"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	18559
+"Total"	"Wisconsin"	"55"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			22898
+	"Wisconsin"	"55"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	920
+	"Wisconsin"	"55"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	59749
+"Total"	"Wisconsin"	"55"	"Male"	"M"	"Asian"	"A"			60669
+	"Wisconsin"	"55"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	5375
+	"Wisconsin"	"55"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	124776
+"Total"	"Wisconsin"	"55"	"Male"	"M"	"Black or African American"	"2054-5"			130151
+	"Wisconsin"	"55"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	385
+	"Wisconsin"	"55"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	865
+"Total"	"Wisconsin"	"55"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			1250
+	"Wisconsin"	"55"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	115317
+	"Wisconsin"	"55"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	1880361
+"Total"	"Wisconsin"	"55"	"Male"	"M"	"White"	"2106-3"			1995678
+	"Wisconsin"	"55"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	3821
+	"Wisconsin"	"55"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	23256
+"Total"	"Wisconsin"	"55"	"Male"	"M"	"More than one race"	"M"			27077
+"Total"	"Wisconsin"	"55"	"Male"	"M"					2237723
+"Total"	"Wisconsin"	"55"							4533253
+	"Wyoming"	"56"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	919
+	"Wyoming"	"56"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	4191
+"Total"	"Wyoming"	"56"	"Female"	"F"	"American Indian or Alaska Native"	"1002-5"			5110
+	"Wyoming"	"56"	"Female"	"F"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	112
+	"Wyoming"	"56"	"Female"	"F"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	2721
+"Total"	"Wyoming"	"56"	"Female"	"F"	"Asian"	"A"			2833
+	"Wyoming"	"56"	"Female"	"F"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	258
+	"Wyoming"	"56"	"Female"	"F"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	1846
+"Total"	"Wyoming"	"56"	"Female"	"F"	"Black or African American"	"2054-5"			2104
+	"Wyoming"	"56"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	61
+	"Wyoming"	"56"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	148
+"Total"	"Wyoming"	"56"	"Female"	"F"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			209
+	"Wyoming"	"56"	"Female"	"F"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	15942
+	"Wyoming"	"56"	"Female"	"F"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	188841
+"Total"	"Wyoming"	"56"	"Female"	"F"	"White"	"2106-3"			204783
+	"Wyoming"	"56"	"Female"	"F"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	579
+	"Wyoming"	"56"	"Female"	"F"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	2918
+"Total"	"Wyoming"	"56"	"Female"	"F"	"More than one race"	"M"			3497
+"Total"	"Wyoming"	"56"	"Female"	"F"					218536
+	"Wyoming"	"56"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Hispanic or Latino"	"2135-2"	1092
+	"Wyoming"	"56"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"	"Not Hispanic or Latino"	"2186-5"	4124
+"Total"	"Wyoming"	"56"	"Male"	"M"	"American Indian or Alaska Native"	"1002-5"			5216
+	"Wyoming"	"56"	"Male"	"M"	"Asian"	"A"	"Hispanic or Latino"	"2135-2"	142
+	"Wyoming"	"56"	"Male"	"M"	"Asian"	"A"	"Not Hispanic or Latino"	"2186-5"	2270
+"Total"	"Wyoming"	"56"	"Male"	"M"	"Asian"	"A"			2412
+	"Wyoming"	"56"	"Male"	"M"	"Black or African American"	"2054-5"	"Hispanic or Latino"	"2135-2"	320
+	"Wyoming"	"56"	"Male"	"M"	"Black or African American"	"2054-5"	"Not Hispanic or Latino"	"2186-5"	3019
+"Total"	"Wyoming"	"56"	"Male"	"M"	"Black or African American"	"2054-5"			3339
+	"Wyoming"	"56"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Hispanic or Latino"	"2135-2"	73
+	"Wyoming"	"56"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	"Not Hispanic or Latino"	"2186-5"	165
+"Total"	"Wyoming"	"56"	"Male"	"M"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"			238
+	"Wyoming"	"56"	"Male"	"M"	"White"	"2106-3"	"Hispanic or Latino"	"2135-2"	17935
+	"Wyoming"	"56"	"Male"	"M"	"White"	"2106-3"	"Not Hispanic or Latino"	"2186-5"	193219
+"Total"	"Wyoming"	"56"	"Male"	"M"	"White"	"2106-3"			211154
+	"Wyoming"	"56"	"Male"	"M"	"More than one race"	"M"	"Hispanic or Latino"	"2135-2"	620
+	"Wyoming"	"56"	"Male"	"M"	"More than one race"	"M"	"Not Hispanic or Latino"	"2186-5"	2856
+"Total"	"Wyoming"	"56"	"Male"	"M"	"More than one race"	"M"			3476
+"Total"	"Wyoming"	"56"	"Male"	"M"					225835
+"Total"	"Wyoming"	"56"							444371
+"Total"									253452698
+"---"
+"Dataset: Single-Race Population Estimates 2010-2020 by State and Single-Year Age"
+"Query Parameters:"
+"Single-Year Ages: 18 years; 19 years; 20 years; 21 years; 22 years; 23 years; 24 years; 25 years; 26 years; 27 years; 28 years;"
+"29 years; 30 years; 31 years; 32 years; 33 years; 34 years; 35 years; 36 years; 37 years; 38 years; 39 years; 40 years; 41"
+"years; 42 years; 43 years; 44 years; 45 years; 46 years; 47 years; 48 years; 49 years; 50 years; 51 years; 52 years; 53 years;"
+"54 years; 55 years; 56 years; 57 years; 58 years; 59 years; 60 years; 61 years; 62 years; 63 years; 64 years; 65 years; 66"
+"years; 67 years; 68 years; 69 years; 70 years; 71 years; 72 years; 73 years; 74 years; 75 years; 76 years; 77 years; 78 years;"
+"79 years; 80 years; 81 years; 82 years; 83 years; 84 years; 85+ years"
+"States: Alabama (01); Alaska (02); Arizona (04); Arkansas (05); California (06); Colorado (08); Connecticut (09); Delaware (10);"
+"District of Columbia (11); Florida (12); Georgia (13); Hawaii (15); Idaho (16); Illinois (17); Indiana (18); Iowa (19); Kansas"
+"(20); Kentucky (21); Louisiana (22); Maine (23); Maryland (24); Massachusetts (25); Michigan (26); Minnesota (27); Mississippi"
+"(28); Missouri (29); Montana (30); Nebraska (31); Nevada (32); New Hampshire (33); New Jersey (34); New Mexico (35); New York"
+"(36); North Carolina (37); North Dakota (38); Ohio (39); Oklahoma (40); Oregon (41); Pennsylvania (42); Rhode Island (44); South"
+"Carolina (45); South Dakota (46); Tennessee (47); Texas (48); Utah (49); Vermont (50); Virginia (51); Washington (53); West"
+"Virginia (54); Wisconsin (55); Wyoming (56)"
+"Yearly July 1st Estimates: 2018"
+"Group By: States; Gender; Race; Ethnicity"
+"Show Totals: True"
+"Show Zero Values: False"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/single-race.html for more information."
+"---"
+"Query Date: Jun 16, 2024 5:27:07 PM"
+"---"
+"Suggested Citation: Single-race Population Estimates, United States, 2010-2020. July 1st resident population by state, age, sex,"
+"single-race, and Hispanic origin, on CDC WONDER Online Database. Vintage 2020 estimates released by U.S. Census Bureau on July"
+"27, 2021. Accessed at http://wonder.cdc.gov/single-race-single-year-v2020.html on Jun 16, 2024 5:27:07 PM"
+"---"
+Footnotes:
+"1. Estimates for 2010-2020 are single-race Vintage 2020 postcensal estimates of the July 1 resident population. These estimates"
+"were prepared and released by the U.S. Census Bureau on July 27, 2021."
+"---"
+Caveats:
