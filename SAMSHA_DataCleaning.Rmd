@@ -320,6 +320,127 @@ state_final_df <- profit_states_1419 %>%
 head(state_final_df)
 ```
 
+
+Merging following variables:
+* race
+* gender
+* ethnicity
+
+
+
+```{r read in the race/gender/ethnicity data}
+
+#read demographic information from 1 year from the WONDER CDC dataset
+read_clean_demographic <- function(filepath, year_param)
+{
+  demographic_states <- read.table(filepath, sep = "\t", 
+           fill = TRUE,
+           header = TRUE) %>%
+  filter(!is.na(Population),#filter out unnecessary text at the bottom 
+         Gender != "", #filter to the most granular level of each combination of gender/Race/Ethnicity and then we can aggregate up
+         Race != "", 
+         Ethnicity != "") 
+
+gender_df <- demographic_states %>%  
+  arrange(States) %>% 
+  group_by(States, Gender) %>% 
+  summarize(count = sum(Population)) %>%
+  #change the count per gender into a percent
+  mutate(Total = sum(across(where(is.numeric))),
+         Percent = count / Total)  %>% 
+   ungroup() %>%
+  pivot_wider(id_cols = States, names_from = Gender, values_from = Percent) 
+
+race_df <- demographic_states %>%  
+  arrange(States) %>% 
+  group_by(States, Race) %>% 
+  summarize(count = sum(Population)) %>%
+  #change the count per Race into a percent
+  mutate(Total = sum(across(where(is.numeric))),
+         Percent = count / Total)  %>% 
+   ungroup() %>%
+  pivot_wider(id_cols = States, names_from = Race, values_from = Percent) 
+
+ethnicity_df <- demographic_states %>%  
+  arrange(States) %>% 
+  group_by(States, Ethnicity) %>% 
+  summarize(count = sum(Population)) %>%
+  #change the count per Ethnicity into a percent
+  mutate(Total = sum(across(where(is.numeric))),
+         Percent = count / Total)  %>% 
+   ungroup() %>%
+  pivot_wider(id_cols = States, names_from = Ethnicity, values_from = Percent) 
+
+demographics_df <- gender_df %>% 
+  merge(ethnicity_df, by = "States") %>%
+  merge(race_df, by = "States") %>%
+  mutate(year = year_param)
+
+return(demographics_df)
+}
+
+
+demographics_2013 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2013)
+demographics_2014 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2014)
+demographics_2015 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2015)
+demographics_2016 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2016)
+demographics_2017 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2017)
+demographics_2018 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2018)
+demographics_2019 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2019.txt", 2019)
+
+state_demographics <- bind_rows(demographics_2013,
+          demographics_2014,
+          demographics_2015,
+          demographics_2016,
+          demographics_2017,
+          demographics_2018, 
+          demographics_2019)
+
+#delete unnecessary dfs 
+rm(demographics_2013, demographics_2014, demographics_2015, demographics_2016, demographics_2017, demographics_2018, demographics_2019)
+```
+
+Merging following variables
+* unemployment
+* income
+* insurance
+```{r read in data about insurance types}
+read_clean_insurance <- function(path, year_param)
+  {
+  insurance_states <- read.csv(path,
+                               skip=2,
+                               header = TRUE) %>%
+  filter(!is.na(Total)) %>%
+  select(-Footnotes) %>%
+  mutate(year = year_param)
+  
+  #some of the columns show "<0.01" - calculate them by subtracting from the other values 
+  insurance_states <- insurance_states %>%
+    mutate(Military = na_if(as.character(Military), "<.01")) %>% #change any "<.01" text to na
+    mutate(Military = coalesce(as.numeric(Military), 1 - (Employer + Non.Group + Medicaid + Medicare + Uninsured))) #calculate the remaining percentage
+  
+  return(insurance_states)
+}
+
+insurance_2013 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2013.csv", 2013)
+insurance_2014 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2014.csv", 2014)
+insurance_2015 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2015.csv", 2015)
+insurance_2016 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2016.csv", 2016)
+insurance_2017 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2017.csv", 2017)
+insurance_2018 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2018.csv", 2018)
+insurance_2019 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2019.csv", 2019)
+
+state_insurance <- bind_rows(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019)
+
+#delete unnecessary dfs
+rm(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019)
+
+```
+
+
+
+
+
 These are available starting at 2013-2014: 
 alcohol use disorder in the past year, 
 cocaine use in the past year, 
