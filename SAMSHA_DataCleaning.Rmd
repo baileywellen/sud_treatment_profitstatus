@@ -349,7 +349,7 @@ gender_df <- demographic_states %>%
   mutate(Total = sum(across(where(is.numeric))),
          Percent = count / Total)  %>% 
    ungroup() %>%
-  pivot_wider(id_cols = States, names_from = Gender, values_from = Percent) 
+  pivot_wider(id_cols = States, names_from = Gender, values_from = Percent, names_glue = "Gender_{Gender}") 
 
 race_df <- demographic_states %>%  
   arrange(States) %>% 
@@ -359,7 +359,10 @@ race_df <- demographic_states %>%
   mutate(Total = sum(across(where(is.numeric))),
          Percent = count / Total)  %>% 
    ungroup() %>%
-  pivot_wider(id_cols = States, names_from = Race, values_from = Percent) 
+  #replace all spaces in the Race column
+  mutate(Race = gsub(" ", "", Race)) %>%
+  #Pivot the race into columns
+  pivot_wider(id_cols = States, names_from = Race, values_from = Percent, names_glue = "Race_{Race}") 
 
 ethnicity_df <- demographic_states %>%  
   arrange(States) %>% 
@@ -369,7 +372,10 @@ ethnicity_df <- demographic_states %>%
   mutate(Total = sum(across(where(is.numeric))),
          Percent = count / Total)  %>% 
    ungroup() %>%
-  pivot_wider(id_cols = States, names_from = Ethnicity, values_from = Percent) 
+  #replace all spaces in the Ethnicity column
+  mutate(Ethnicity = gsub(" ", "", Ethnicity)) %>%
+  #pivot the ethnicity into columns
+  pivot_wider(id_cols = States, names_from = Ethnicity, values_from = Percent, names_glue = "Ethnicity_{Ethnicity}") 
 
 demographics_df <- gender_df %>% 
   merge(ethnicity_df, by = "States") %>%
@@ -394,15 +400,14 @@ state_demographics <- bind_rows(demographics_2013,
           demographics_2016,
           demographics_2017,
           demographics_2018, 
-          demographics_2019)
+          demographics_2019) %>%
+  mutate(year = as.character(year)) #cast the year column to character
 
 #delete unnecessary dfs 
 rm(demographics_2013, demographics_2014, demographics_2015, demographics_2016, demographics_2017, demographics_2018, demographics_2019)
 ```
 
-Merging following variables
-* unemployment
-* income
+Merging insurance variable
 * insurance
 ```{r read in data about insurance types}
 read_clean_insurance <- function(path, year_param)
@@ -412,12 +417,15 @@ read_clean_insurance <- function(path, year_param)
                                header = TRUE) %>%
   filter(!is.na(Total)) %>%
   select(-Footnotes) %>%
-  mutate(year = year_param)
+  mutate(year = year_param) %>%
+  rename_with(~paste0("Insurance_", .x), everything()) %>%
+    #remove the "Insurance" from year and Location
+  rename(year = Insurance_year, Location = Insurance_Location)
   
   #some of the columns show "<0.01" - calculate them by subtracting from the other values 
   insurance_states <- insurance_states %>%
-    mutate(Military = na_if(as.character(Military), "<.01")) %>% #change any "<.01" text to na
-    mutate(Military = coalesce(as.numeric(Military), 1 - (Employer + Non.Group + Medicaid + Medicare + Uninsured))) #calculate the remaining percentage
+    mutate(Insurance_Military = na_if(as.character(Insurance_Military), "<.01")) %>% #change any "<.01" text to na
+    mutate(Insurance_Military = coalesce(as.numeric(Insurance_Military), 1 - (Insurance_Employer + Insurance_Non.Group + Insurance_Medicaid + Insurance_Medicare + Insurance_Uninsured))) #calculate the remaining percentage
   
   return(insurance_states)
 }
@@ -430,13 +438,81 @@ insurance_2017 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2017.cs
 insurance_2018 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2018.csv", 2018)
 insurance_2019 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2019.csv", 2019)
 
-state_insurance <- bind_rows(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019)
+state_insurance <- bind_rows(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019) %>%
+  mutate(year = as.character(year))
 
 #delete unnecessary dfs
 rm(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019)
 
 ```
 
+
+Merging poverty and unemployment variables
+```{r}
+library(janitor) #use to overwrite row names 
+library(tibble)
+
+freds_name_mapping <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=2) 
+#create a named vector of the values from the name mapping
+state_names <- freds_name_mapping$State_Parsed
+names(state_names) <- freds_name_mapping$`Series ID:`
+
+value_names <- freds_name_mapping$`Title:`
+names(value_names) <- freds_name_mapping$`Series ID:`
+
+freds_df_unformatted <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=3) 
+
+freds_df <- freds_df_unformatted %>%
+  #switch the rows and the columns so the values are in the rows and columns are years
+  t() %>%  
+  #cast to dataframe
+  as.data.frame() %>% 
+  #move the first row to be the header
+  janitor::row_to_names(row_number = 1) %>% 
+  #rename the row names to "freds_colname"
+  tibble::rownames_to_column("freds_colname") %>% 
+  mutate(val = value_names[freds_colname]) %>%
+  #mark which variables we are looking at 
+  separate(val, into = c("variable_measure", "state_name"), sep = " in ") %>% 
+  #remove "the" from DC name
+  mutate(state_name = ifelse(state_name == "the District of Columbia", "District of Columbia", state_name)) %>% 
+  #shorten variable measure names 
+  mutate(variable_measure = ifelse(variable_measure == "Resident Population", "Population", 
+                                   ifelse(variable_measure == "Unemployment Rate", "Unemployment", 
+                                          ifelse(variable_measure == "Real Median Household Income", "Income", "MISSING")))) %>%
+  #remove month/date from year names - unnecessary
+  rename("2013" = "2013-01-01",
+         "2014" = "2014-01-01",
+         "2015" = "2015-01-01",
+         "2016" = "2016-01-01",
+         "2017" = "2017-01-01",
+         "2018" = "2018-01-01",
+         "2019" = "2019-01-01") %>% 
+  #change the years from the columns to a row indicator - data is now in long format with one row per state-year-measurement
+  pivot_longer(cols = c("2013", "2014", "2015", "2016", "2017", "2018", "2019")) %>%
+  rename("year" = name) %>%
+  #pivot the individual measures into columns so we have only one row per state-year
+  pivot_wider(id_cols = c(state_name, year), values_from = value, names_from = variable_measure) %>% 
+  #cast numeric variables to numeric
+  mutate(year = as.character(year), Population = as.numeric(Population), Unemployment = as.numeric(Unemployment), Income = as.numeric(Income))
+
+# STILL NEED TO CHANGE COLUMN NAMES, AND CREATE NEW VARIABLE COLUMN THAT COMBINES STATE NAME WITH THE VARIABLE MEASURE
+  
+```
+
+
+
+```{r merge indep. and depend. variables to other controls}
+state_final_df <- state_final_df %>%
+  #join demographic information
+  left_join(state_demographics, by = c("State_Name"="States", "year"="year")) %>%
+  #join insurance information
+  left_join(state_insurance, by = c("State_Name"="Location", "year"="year")) %>%
+  #join the population, unemployment, and income information
+  left_join(freds_df, by=c("State_Name"="state_name", "year"="year"))
+
+head(state_final_df)
+```
 
 
 
@@ -447,8 +523,6 @@ cocaine use in the past year,
 heroin use in the past year, 
 marijuana use in the past month 
 (probably won't include tobacco use because it isnt as often treated in a specialty facility)
-
-
 
 ```{r}
 state_forprofit <- state_final_df %>% 
