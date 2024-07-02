@@ -347,7 +347,7 @@ gender_df <- demographic_states %>%
   summarize(count = sum(Population)) %>%
   #change the count per gender into a percent
   mutate(Total = sum(across(where(is.numeric))),
-         Percent = count / Total)  %>% 
+         Percent = (count / Total) * 100)  %>% 
    ungroup() %>%
   pivot_wider(id_cols = States, names_from = Gender, values_from = Percent, names_glue = "Gender_{Gender}") 
 
@@ -357,10 +357,11 @@ race_df <- demographic_states %>%
   summarize(count = sum(Population)) %>%
   #change the count per Race into a percent
   mutate(Total = sum(across(where(is.numeric))),
-         Percent = count / Total)  %>% 
+        #change the percent from a decimal (i.e. 10% = 0.1) to a percent (i.e 10% = 10) to correspond with other variables' format in df
+         Percent = (count / Total) * 100) %>% 
    ungroup() %>%
   #replace all spaces in the Race column
-  mutate(Race = gsub(" ", "", Race)) %>%
+  mutate(Race = gsub(" ", "", Race)) %>% 
   #Pivot the race into columns
   pivot_wider(id_cols = States, names_from = Race, values_from = Percent, names_glue = "Race_{Race}") 
 
@@ -370,7 +371,7 @@ ethnicity_df <- demographic_states %>%
   summarize(count = sum(Population)) %>%
   #change the count per Ethnicity into a percent
   mutate(Total = sum(across(where(is.numeric))),
-         Percent = count / Total)  %>% 
+         Percent = (count / Total) * 100)  %>% 
    ungroup() %>%
   #replace all spaces in the Ethnicity column
   mutate(Ethnicity = gsub(" ", "", Ethnicity)) %>%
@@ -451,6 +452,7 @@ Merging poverty and unemployment variables
 ```{r}
 library(janitor) #use to overwrite row names 
 library(tibble)
+library(readxl)
 
 freds_name_mapping <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=2) 
 #create a named vector of the values from the name mapping
@@ -496,8 +498,7 @@ freds_df <- freds_df_unformatted %>%
   #cast numeric variables to numeric
   mutate(year = as.character(year), Population = as.numeric(Population), Unemployment = as.numeric(Unemployment), Income = as.numeric(Income))
 
-# STILL NEED TO CHANGE COLUMN NAMES, AND CREATE NEW VARIABLE COLUMN THAT COMBINES STATE NAME WITH THE VARIABLE MEASURE
-  
+
 ```
 
 
