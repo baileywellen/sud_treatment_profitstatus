@@ -201,13 +201,13 @@ controlvars_lrt <- function(df, bestdemandvars_str, controlvars_list, verbose = 
 
 
 
-
+Uninsured rate is negatively correlated with a lot of things (medicaid enrollment, income)- let's remove
 ```{r}
 library(corrplot)
-corr_matrix <- cor(state_forprofit[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_BlackorAfricanAmerican", "Insurance_Uninsured", "Unemployment")])
+corr_matrix <- cor(state_forprofit[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_White", "Insurance_Uninsured", "Unemployment", "Income")])
 
-colnames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "Black Race", "Uninsured", "Unemployment")
-rownames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "Black Race", "Uninsured", "Unemployment")
+colnames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
+rownames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
 
 write.csv(corr_matrix, "correlation_matrix.csv")
 corrplot(corr_matrix, method="circle")
@@ -238,18 +238,61 @@ glmer_forprofit <- glmer.nb(count_tx ~ #prev2years_cocaine +  prev2years_heroin 
                               data = state_forprofit)
 
 summary(glmer_forprofit)
+confint(glmer_forprofit)
 
 ```
 
-
+#drug policy is covered by state fixed effects
+#mental health services would be a whole separate project
+#we dont have info on urbanization, education level, crime rates now
 ```{r try a model with more control variables}
-summary(glmer.nb(count_tx ~ #prev2years_cocaine +  prev2years_heroin +  prev2years_aud + 
-                                 prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
-                                pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
-                                Gender_Male + Ethnicity_HispanicorLatino + Race_BlackorAfricanAmerican + Unemployment +
-                                (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                              data = state_forprofit))
+
+more_controls_formula <- formula("count_tx ~ prev2years_aud + prev2years_drugusecalc + 
+                                scale(pop_millions) + 
+                                scale(Income) +
+                                scale(medicaid_enroll_percapita) +
+                                scale(Gender_Male) +
+                                scale(Unemployment) + 
+                                scale(percapita_health_spending_thousands) +
+                                scale(Insurance_Uninsured) + 
+                                scale(Ethnicity_HispanicorLatino) + 
+                                scale(Race_White) +
+                                (1| State_Name) + (1 | year)")
+# summary(glmer.nb(count_tx ~ 
+#                                 prev2years_aud + prev2years_drugusecalc + 
+#                                 #prev2years_cocaine + prev2years_heroin +
+#                                 scale(pop_millions) + 
+#                                 scale(Income) +
+#                                 scale(medicaid_enroll_percapita) +
+#                                 scale(Gender_Male) +
+#                                 #no urbanization
+#                                 #no education
+#                                 scale(Unemployment) + 
+#                                 scale(percapita_health_spending_thousands) +
+#                                 scale(Insurance_Uninsured) + #may want to remove because of correlations
+#                                 #no drug policy data
+#                                 #no crime rates 
+#                                 #no mental health services 
+#                                 scale(Ethnicity_HispanicorLatino) + 
+#                                 scale(Race_White) +
+#                                 (1| State_Name) + (1 | year),
+#                               control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+#                               data = state_forprofit))
+
+summary(glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                               data = state_forprofit))
+```
+```{r}
+log(state_forprofit$pop_millions)
+```
+
+
+```{r those variables dont seem to improve the fit much but we can use them}
+controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("scale(pop_millions)",  
+                                                                                 "scale(Race_White)", "scale(Gender_Male)", "scale(Ethnicity_HispanicorLatino)",
+                                                                                 "scale(percapita_health_spending_thousands)", "scale(medicaid_enroll_percapita)", 
+                                                                                 "scale(Income)", "scale(Unemployment)"
+                                                                                 ), verbose = TRUE)
 ```
 
 
@@ -279,6 +322,12 @@ Because the above threw convergence errors, running allFit
 summary(allFit(glmer_nonprofit))
 ```
 
+```{r fit a model for nonprofit with all control variables}
+summary(glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                               data = state_nonprofit))
+```
+
+
 
 test the best model for government
 ```{r}
@@ -293,8 +342,6 @@ controlvars_lrt(state_govt, "prev2years_drugusecalc + prev2years_aud + ", c("pop
 
 
 ```{r}
-
-
 glmer_govt <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
                                 pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
                                 (1|State_Name) + (1 | year),
@@ -302,12 +349,21 @@ glmer_govt <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #pre
                               data = state_govt)
 
 summary(glmer_govt)
+confint(glmer_govt)
 ```
 
 ```{r}
 summary(allFit(glmer_govt))
 
 ```
+
+```{r fit a model with all control variables for govt}
+summary(glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                               data = state_govt))
+```
+
+
+
 
 Extract the state and year random effects
 ```{r}
@@ -534,6 +590,7 @@ ss_govtALL <- summary(glmer_govtALL)
 ss_govtALL$fixef #these are all similar so considering it to be accurate
 
 ```
+
 ```{r}
 summary(glmer_govtFINAL)
 ```
