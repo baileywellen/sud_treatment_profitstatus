@@ -428,6 +428,11 @@ read_clean_insurance <- function(path, year_param)
     mutate(Insurance_Military = na_if(as.character(Insurance_Military), "<.01")) %>% #change any "<.01" text to na
     mutate(Insurance_Military = coalesce(as.numeric(Insurance_Military), 1 - (Insurance_Employer + Insurance_Non.Group + Insurance_Medicaid + Insurance_Medicare + Insurance_Uninsured))) #calculate the remaining percentage
   
+  #change the decimals to percents 
+  insurance_states <- insurance_states %>% 
+                      mutate(year = as.character(year)) %>% # ensure the year is a character column
+                      mutate_if(is.numeric, ~. * 100)
+  
   return(insurance_states)
 }
 
@@ -541,11 +546,23 @@ state_govt <- state_final_df %>%
                     group_by(State_Abbrev) %>%
                     filter(profit_type == "Government", !is.na(prev2years_drugusecalc))
 
+
+state_totals <- state_final_df %>%
+                  filter(!is.na(prev2years_drugusecalc)) %>%  #filter out rows we don't want first 
+                  group_by(State_Abbrev, year) %>% 
+                  mutate(count_tx_total = sum(count_tx)) %>% #calculate the total number of treatment centers per year 
+                  select(-c(count_tx, profit_type)) %>%  #remove the columns that only applied to specific treatment center counts 
+                  ungroup() %>%
+                  distinct(State_Abbrev, year, count_tx_total, .keep_all = TRUE)# get rid of the duplicate rows of control variables for each profit status
+
 write.csv(state_forprofit, "Data/CleanData/Forprofit_finaldata.csv", row.names = FALSE)
 write.csv(state_nonprofit, "Data/CleanData/Nonprofit_finaldata.csv", row.names = FALSE)
 write.csv(state_govt, "Data/CleanData/Government_finaldata.csv", row.names = FALSE)
+write.csv(state_totals, "Data/CleanData/Totals_finaldata.csv", row.names = FALSE)
 
 ```
+
+
 
 
 
