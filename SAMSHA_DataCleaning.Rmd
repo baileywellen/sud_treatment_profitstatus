@@ -550,10 +550,11 @@ state_govt <- state_final_df %>%
 state_totals <- state_final_df %>%
                   filter(!is.na(prev2years_drugusecalc)) %>%  #filter out rows we don't want first 
                   group_by(State_Abbrev, year) %>% 
-                  mutate(count_tx_total = sum(count_tx)) %>% #calculate the total number of treatment centers per year 
+                  mutate(count_tx_total = sum(count_tx, na.rm = TRUE)) %>% #calculate the total number of treatment centers per year 
                   select(-c(count_tx, profit_type)) %>%  #remove the columns that only applied to specific treatment center counts 
                   ungroup() %>%
-                  distinct(State_Abbrev, year, count_tx_total, .keep_all = TRUE)# get rid of the duplicate rows of control variables for each profit status
+                  rename(count_tx = count_tx_total) %>%
+                  distinct(State_Abbrev, year, count_tx, .keep_all = TRUE)# get rid of the duplicate rows of control variables for each profit status
 
 write.csv(state_forprofit, "Data/CleanData/Forprofit_finaldata.csv", row.names = FALSE)
 write.csv(state_nonprofit, "Data/CleanData/Nonprofit_finaldata.csv", row.names = FALSE)
