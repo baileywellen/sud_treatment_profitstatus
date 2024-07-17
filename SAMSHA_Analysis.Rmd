@@ -199,7 +199,7 @@ corr_matrix <- cor(state_final_df[, c("pop_millions", "percapita_health_spending
 colnames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
 rownames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
 
-write.csv(corr_matrix, "correlation_matrix.csv")
+write.csv(corr_matrix, "Data/CleanData/correlation_matrix.csv")
 corrplot(corr_matrix, method="circle")
 corr_matrix
 ```
@@ -222,11 +222,11 @@ data.frame(descr(state_final_df, show=c("n", "NA.prc", "mean", "sd", "range"))) 
 
 FOR PROFIT MODEL
 ```{r}
-demandvars_lrt(state_forprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
+#demandvars_lrt(state_forprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
 ```
 
 ```{r}
-controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions",  "percapita_health_spending_thousands", "medicaid_enroll_percapita"), verbose = TRUE)
+#controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions",  "percapita_health_spending_thousands", "medicaid_enroll_percapita"), verbose = TRUE)
 ```
 
 
@@ -283,11 +283,11 @@ summary(glmer_forprofit)
 
 
 ```{r those variables dont seem to improve the fit much but we can use them}
-controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("scale(pop_millions)",  
-                                                                                 "scale(Race_White)", "scale(Gender_Male)", "scale(Ethnicity_HispanicorLatino)",
-                                                                                 "scale(percapita_health_spending_thousands)", "scale(medicaid_enroll_percapita)", 
-                                                                                 "scale(Income)", "scale(Unemployment)"
-                                                                                 ), verbose = TRUE)
+#controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("scale(pop_millions)",  
+#                                                                                 "scale(Race_White)", "scale(Gender_Male)", "scale(Ethnicity_HispanicorLatino)",
+#                                                                                 "scale(percapita_health_spending_thousands)", "scale(medicaid_enroll_percapita)", 
+#                                                                                 "scale(Income)", "scale(Unemployment)"
+#                                                                                 ), verbose = TRUE)
 ```
 
 
@@ -296,12 +296,12 @@ controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c
 
 NON PROFIT MODEL
 ```{r find best set of variables for the nonprofit model}
-demandvars_lrt(state_nonprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
+#demandvars_lrt(state_nonprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
 ```
 
 
 ```{r}
-controlvars_lrt(state_nonprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+#controlvars_lrt(state_nonprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
 ```
 
 
@@ -333,12 +333,12 @@ summary(allFit(glmer_nonprofit))
 
 GOVERNMENT MODEL
 ```{r}
-demandvars_lrt(state_govt, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
+#demandvars_lrt(state_govt, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
 ```
 
 
 ```{r}
-controlvars_lrt(state_govt, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
+#controlvars_lrt(state_govt, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
 ```
 
 
@@ -393,14 +393,29 @@ library(usmap)
 usa <- map_data('usa')
 state <- map_data("state")
 
+get_year_randomeffects <- function(model)
+{
+  #create the dataset 
+  year_randomeffects <- ranef(model)$year
+  #relabel the dataframe
+  year_randomeffects <- data.frame("year" =row.names(year_randomeffects), "Intercept" = year_randomeffects[,"(Intercept)"])
 
-map_randomeffects <- function(model, title)
+  return(year_randomeffects)
+}
+
+get_state_randomeffects <- function(model)
 {
   #create the dataset 
   state_randomeffects <- ranef(model)$State_Name
   #relabel the dataframe
   state_randomeffects <- data.frame("State_Name" =row.names(state_randomeffects), "Intercept" = state_randomeffects[,"(Intercept)"])
 
+  return(state_randomeffects)
+}
+
+map_randomeffects <- function(model, title)
+{
+  state_randomeffects <- get_state_randomeffects(model)
   #create the map
   state_data_inc_alaska <- state_randomeffects %>%
   mutate(fips = fips(State_Name))
@@ -416,6 +431,29 @@ map_randomeffects(glmer_forprofit, "For Profit Model")
 map_randomeffects(glmer_nonprofit, "Non Profit Model")
 map_randomeffects(glmer_govt, "Government Model")
 map_randomeffects(glmer_all, "Overall Model")
+```
+
+```{r}
+#extract the state random effects
+state_randomeffects <- list('forprofit' = get_state_randomeffects(glmer_forprofit),
+                            'nonprofit' = get_state_randomeffects(glmer_nonprofit), 
+                            'government' = get_state_randomeffects(glmer_govt),
+                            'total' = get_state_randomeffects(glmer_all))
+
+
+
+#we can also get the year random effects for all models 
+year_randomeffects <- list('forprofit' = get_year_randomeffects(glmer_forprofit),
+                            'nonprofit' = get_year_randomeffects(glmer_nonprofit), 
+                            'government' = get_year_randomeffects(glmer_govt),
+                            'total' = get_year_randomeffects(glmer_all))
+
+
+#write both to xlsx
+write.xlsx(state_randomeffects, "Data/CleanData/StateRandomEffects.xlsx")
+write.xlsx(year_randomeffects, "Data/CleanData/YearRandomEffects.xlsx")
+
+
 ```
 
 
