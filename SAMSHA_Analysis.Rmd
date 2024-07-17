@@ -5,24 +5,26 @@ output: html_notebook
 
 
 Checking assumptions of linear regression: normal distribution and continuous variable
+
+
 ```{r}
 #all of the forprofit distributions are skewed right 
-hist(state_final_df[state_final_df$profit_type=="Forprofit", ]$count_tx, 
+hist(state_final_df$Forprofit, 
      xlab = "Number of Treatment Centers", 
      main = "For-Profit Treatment Center Distribution")
 
 #add the mean and variance onto the plot
-text(600,150,paste("mean = ", round(mean(state_final_df[state_final_df$profit_type=="Forprofit", ]$count_tx), 2), "\n variance = ", round(var(state_final_df[state_final_df$profit_type=="Forprofit", ]$count_tx),2)))
+text(600,150,paste("mean = ", round(mean(state_final_df$Forprofit), 2), "\n variance = ", round(var(state_final_df$Forprofit),2)))
 
 #all of the nonprofit distributions are skewed right
-hist(state_final_df[state_final_df$profit_type=="Nonprofit", ]$count_tx, xlab = "Number of Treatment Centers", main = "Non-Profit Treatment Center Distribution")
+hist(state_final_df$Nonprofit, xlab = "Number of Treatment Centers", main = "Non-Profit Treatment Center Distribution")
 #add the mean and variance onto the plot
-text(600,120,paste("mean = ", round(mean(state_final_df[state_final_df$profit_type=="Nonprofit", ]$count_tx), 2), "\n variance = ", round(var(state_final_df[state_final_df$profit_type=="Nonprofit", ]$count_tx),2)))
+text(600,120,paste("mean = ", round(mean(state_final_df$Nonprofit), 2), "\n variance = ", round(var(state_final_df$Nonprofit),2)))
 
 #all of the government distributions are skewed right
-hist(state_final_df[state_final_df$profit_type=="Government", ]$count_tx, xlab = "Number of Treatment Centers", main = "Government Treatment Center Distribution")
+hist(state_final_df$Government, xlab = "Number of Treatment Centers", main = "Government Treatment Center Distribution")
 #add the mean and variance onto the plot
-text(150,120,paste("mean = ", round(mean(state_final_df[state_final_df$profit_type=="Government", ]$count_tx, na.rm = TRUE), 2), "\n variance = ", round(var(state_final_df[state_final_df$profit_type=="Government", ]$count_tx, na.rm = TRUE),2)))
+text(150,120,paste("mean = ", round(mean(state_final_df$Government, na.rm = TRUE), 2), "\n variance = ", round(var(state_final_df$Government, na.rm = TRUE),2)))
 
 
 ```
@@ -55,17 +57,6 @@ var(profit_states_1419$count_Government_2019) > mean(profit_states_1419$count_Go
 
 
 ```
-
-```{r}
-state_final_df %>%
-  filter(year == 2014, profit_type == "Forprofit") %>%
-  select(c("State_Name", "cocaine_yr", "marijuana_month", "aud_yr", "heroin_yr", "druguse_calc")) %>%
-  write.csv("StateDrugUse_Prevalence.csv")
-```
-
-
-
-
 
 
 ```{r LRT for best demand variables }
@@ -203,7 +194,7 @@ controlvars_lrt <- function(df, bestdemandvars_str, controlvars_list, verbose = 
 Uninsured rate is negatively correlated with a lot of things (medicaid enrollment, income)- let's remove
 ```{r}
 library(corrplot)
-corr_matrix <- cor(state_forprofit[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_White", "Insurance_Uninsured", "Unemployment", "Income")])
+corr_matrix <- cor(state_final_df[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_White", "Insurance_Uninsured", "Unemployment", "Income")])
 
 colnames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
 rownames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
@@ -214,21 +205,27 @@ corr_matrix
 ```
 
 Create a summary table of all the variables we want to investigate
-```{r}
-library(gtsummary)
+```{r create summary table 1}
+data.frame(descr(state_final_df, show=c("n", "NA.prc", "mean", "sd", "range"))) %>%
+  separate(range, into = c("range", "min_max"), sep = " ") %>%
+  mutate(min_max = gsub("[\\(\\)]", "", min_max)) %>%
+  separate(min_max, into = c("min", "max"), sep = "-") %>%
+  select(-range) %>%
+  mutate(min=as.numeric(min), max = as.numeric(max),
+         mean = round(mean, 2),
+         sd = round(sd, 2)) %>%
+  write.csv("Data/CleanData/SummaryStatistics.csv", row.names = FALSE)
 
-tbl_summary(state_totals, include = c("count_tx", "pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_White", "Insurance_Uninsured", "Unemployment", "Income")) %>%
-  modify_header(label = "**Variable**")
 ```
 
 
 
+FOR PROFIT MODEL
 ```{r}
 demandvars_lrt(state_forprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
-#demandvars_lrt(state_forprofit, c("prev2years_cocaine", "prev2years_heroin",  "prev2years_aud", "prev2years_marijuana"))
 ```
+
 ```{r}
-#controlvars_lrt(state_forprofit, "prev2years_cocaine + prev2years_heroin + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
 controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions",  "percapita_health_spending_thousands", "medicaid_enroll_percapita"), verbose = TRUE)
 ```
 
@@ -252,7 +249,19 @@ relationship is not significant when adding cocaine and heroin separately
 #we dont have info on urbanization, education level, crime rates now
 ```{r try a model with more control variables}
 
-more_controls_formula <- formula("count_tx ~ prev2years_aud + prev2years_drugusecalc + 
+# more_controls_formula <- formula("count_tx ~ prev2years_aud + prev2years_drugusecalc + 
+#                                 scale(pop_millions) + 
+#                                 scale(Income) +
+#                                 scale(medicaid_enroll_percapita) +
+#                                 scale(Gender_Male) +
+#                                 scale(Unemployment) + 
+#                                 scale(percapita_health_spending_thousands) +
+#                                 scale(Insurance_Uninsured) + 
+#                                 scale(Ethnicity_HispanicorLatino) + 
+#                                 scale(Race_White) +
+#                                 (1| State_Name) + (1 | year)")
+
+more_controls_str <- "~ prev2years_aud + prev2years_drugusecalc + 
                                 scale(pop_millions) + 
                                 scale(Income) +
                                 scale(medicaid_enroll_percapita) +
@@ -262,10 +271,12 @@ more_controls_formula <- formula("count_tx ~ prev2years_aud + prev2years_druguse
                                 scale(Insurance_Uninsured) + 
                                 scale(Ethnicity_HispanicorLatino) + 
                                 scale(Race_White) +
-                                (1| State_Name) + (1 | year)")
+                                (1| State_Name) + (1 | year)"
 
-glmer_forprofit <- glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                               data = state_forprofit)
+#glmer_forprofit <- glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+#                               data = state_forprofit)
+glmer_forprofit <- glmer.nb(formula(paste("Forprofit", more_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                               data = state_final_df)
 
 summary(glmer_forprofit)
 ```
@@ -282,6 +293,8 @@ controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c
 
 
 
+
+NON PROFIT MODEL
 ```{r find best set of variables for the nonprofit model}
 demandvars_lrt(state_nonprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
 ```
@@ -301,21 +314,24 @@ controlvars_lrt(state_nonprofit, "prev2years_drugusecalc + prev2years_aud + ", c
 # 
 # summary(glmer_nonprofit)
 ```
+
+
+```{r fit a model for nonprofit with all control variables}
+glmer_nonprofit <- glmer.nb(formula(paste("Nonprofit", more_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)
+
+summary(glmer_nonprofit)
+```
+
 Because the above threw convergence errors, running allFit
 ```{r}
 summary(allFit(glmer_nonprofit))
 ```
 
-```{r fit a model for nonprofit with all control variables}
-glmer_nonprofit <- glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                               data = state_nonprofit)
-
-summary(glmer_nonprofit)
-```
 
 
 
-test the best model for government
+GOVERNMENT MODEL
 ```{r}
 demandvars_lrt(state_govt, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
 ```
@@ -338,17 +354,32 @@ controlvars_lrt(state_govt, "prev2years_drugusecalc + prev2years_aud + ", c("pop
 # confint(glmer_govt)
 ```
 
-```{r}
+
+
+```{r fit a model with all control variables for govt}
+glmer_govt <- glmer.nb(formula(paste("Government", more_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                               data = state_final_df)
+
+summary(glmer_govt)
+```
+
+
+```{r allFit checks if other convergence methods get the same result}
 summary(allFit(glmer_govt))
 
 ```
 
-```{r fit a model with all control variables for govt}
-glmer_govt <- glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                               data = state_govt)
 
-summary(glmer_govt)
+
+MODEL ON ALL TREATMENT CENTERS
+```{r fit a model on all treatment centers}
+glmer_all <- glmer.nb(formula(paste("count_tx_total", more_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                               data = state_final_df)
+
+summary(glmer_all)
 ```
+
+
 
 Plot
 ```{r function to create a map of state random effects}
@@ -385,28 +416,6 @@ map_randomeffects(glmer_forprofit, "For Profit Model")
 map_randomeffects(glmer_nonprofit, "Non Profit Model")
 map_randomeffects(glmer_govt, "Government Model")
 map_randomeffects(glmer_all, "Overall Model")
-```
-
-
-```{r}
-state_data_inc_alaska <- stateforprofit_randomeffects %>%
-  mutate(fips = fips(State_Name))
-
-  plot_usmap(data = state_data_inc_alaska, values = "Intercept", regions = "states", color = "grey") + #, labels = TRUE) + 
-  scale_fill_gradient2(midpoint = 0, low = "red", mid = "grey", high = "green") +
-                       #scale_fill_gradient(low = "darkgrey", high = "blue", limits = c(-1.75, 1.3)) +
-                       #geom_polygon(color = "white") + 
-                      ggtitle('Random Effects per State in For-Profit Model') + 
-                       #coord_fixed(1.3)
-    theme(legend.position = "right")
-
-```
-
-```{r fit a model on all treatment centers}
-glmer_all <- glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-                               data = state_totals)
-
-summary(glmer_all)
 ```
 
 
