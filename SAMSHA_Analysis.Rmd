@@ -206,6 +206,8 @@ corr_matrix
 
 Create a summary table of all the variables we want to investigate
 ```{r create summary table 1}
+library(sjmisc)
+
 data.frame(descr(state_final_df, show=c("n", "NA.prc", "mean", "sd", "range"))) %>%
   separate(range, into = c("range", "min_max"), sep = " ") %>%
   mutate(min_max = gsub("[\\(\\)]", "", min_max)) %>%
@@ -389,6 +391,7 @@ library(mapdata)
 library(plotly)
 library(sf)
 library(usmap)
+library(patchwork)
 
 usa <- map_data('usa')
 state <- map_data("state")
@@ -421,16 +424,26 @@ map_randomeffects <- function(model, title)
   mutate(fips = fips(State_Name))
 
   plot_usmap(data = state_data_inc_alaska, values = "Intercept", regions = "states", color = "grey") + #, labels = TRUE) + 
-  scale_fill_gradient2(midpoint = 0, low = "red", mid = "grey", high = "green") +
-                      ggtitle(paste('Random Effects per State in', title)) + 
-                       #coord_fixed(1.3)
-    theme(legend.position = "right")
+  scale_fill_gradient2(midpoint = 0, low = "red", mid = "grey", high = "green",
+                       limits = c(-1.82, 1.55)) +
+                      ggtitle(title) + 
+    theme(legend.position = "right", 
+          #legend.box.spacing = margin(1.5),
+          plot.title = element_text(hjust = 0.5))
 }
 
-map_randomeffects(glmer_forprofit, "For Profit Model")
-map_randomeffects(glmer_nonprofit, "Non Profit Model")
-map_randomeffects(glmer_govt, "Government Model")
-map_randomeffects(glmer_all, "Overall Model")
+layout <- "
+#AAAA#
+BBCC#D
+"
+
+#combined_maps <-   + guide_area() +  + 
+map_randomeffects(glmer_forprofit, "For-Profit") + 
+  map_randomeffects(glmer_nonprofit, "Non-Profit")+ 
+  map_randomeffects(glmer_govt, "Government")+ 
+  guide_area() + 
+  plot_layout(design = layout,  guides = "collect")
+#map_randomeffects(glmer_all, "Overall Model")
 ```
 
 ```{r}
@@ -457,6 +470,10 @@ write_xlsx(state_randomeffects, "Data/CleanData/StateRandomEffects.xlsx")
 write_xlsx(year_randomeffects, "Data/CleanData/YearRandomEffects.xlsx")
 
 
+```
+
+```{r}
+state_randomeffects
 ```
 
 
