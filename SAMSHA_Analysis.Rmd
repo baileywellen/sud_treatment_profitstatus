@@ -14,17 +14,17 @@ hist(state_final_df$Forprofit,
      main = "For-Profit Treatment Center Distribution")
 
 #add the mean and variance onto the plot
-text(600,150,paste("mean = ", round(mean(state_final_df$Forprofit), 2), "\n variance = ", round(var(state_final_df$Forprofit),2)))
+text(600, 150, paste("mean = ", round(mean(state_final_df$Forprofit), 2), "\n variance = ", round(var(state_final_df$Forprofit),2)))
 
 #all of the nonprofit distributions are skewed right
 hist(state_final_df$Nonprofit, xlab = "Number of Treatment Centers", main = "Non-Profit Treatment Center Distribution")
 #add the mean and variance onto the plot
-text(600,120,paste("mean = ", round(mean(state_final_df$Nonprofit), 2), "\n variance = ", round(var(state_final_df$Nonprofit),2)))
+text(600,110,paste("mean = ", round(mean(state_final_df$Nonprofit), 2), "\n variance = ", round(var(state_final_df$Nonprofit),2)))
 
 #all of the government distributions are skewed right
 hist(state_final_df$Government, xlab = "Number of Treatment Centers", main = "Government Treatment Center Distribution")
 #add the mean and variance onto the plot
-text(150,120,paste("mean = ", round(mean(state_final_df$Government, na.rm = TRUE), 2), "\n variance = ", round(var(state_final_df$Government, na.rm = TRUE),2)))
+text(150,110,paste("mean = ", round(mean(state_final_df$Government, na.rm = TRUE), 2), "\n variance = ", round(var(state_final_df$Government, na.rm = TRUE),2)))
 
 
 ```
@@ -433,16 +433,15 @@ map_randomeffects <- function(model, title)
 }
 
 layout <- "
-#AAAA#
-BBCC#D
+1111
+2233
 "
 
 #combined_maps <-   + guide_area() +  + 
 map_randomeffects(glmer_forprofit, "For-Profit") + 
-  map_randomeffects(glmer_nonprofit, "Non-Profit")+ 
-  map_randomeffects(glmer_govt, "Government")+ 
-  guide_area() + 
-  plot_layout(design = layout,  guides = "collect")
+  map_randomeffects(glmer_nonprofit, "Non-Profit") + 
+  map_randomeffects(glmer_govt, "Government") +
+  plot_layout(heights = c(2,1.5), design = layout,  guides = "collect")
 #map_randomeffects(glmer_all, "Overall Model")
 ```
 
@@ -450,11 +449,23 @@ map_randomeffects(glmer_forprofit, "For-Profit") +
 
 library(writexl)
 
+
+combined_table <- get_state_randomeffects(glmer_forprofit) %>%
+  rename("Forprofit_Intercept" = Intercept) %>%
+  left_join(get_state_randomeffects(glmer_nonprofit)) %>%
+  rename("NonProfit_Intercept" = Intercept) %>%
+  left_join(get_state_randomeffects(glmer_govt)) %>%
+  rename("Government_Intercept" = Intercept) %>%
+  left_join(get_state_randomeffects(glmer_all)) %>%
+  rename("Total_Intercept" = Intercept) %>%
+  arrange(Total_Intercept)
+
 #extract the state random effects
 state_randomeffects <- list('forprofit' = get_state_randomeffects(glmer_forprofit),
                             'nonprofit' = get_state_randomeffects(glmer_nonprofit), 
                             'government' = get_state_randomeffects(glmer_govt),
-                            'total' = get_state_randomeffects(glmer_all))
+                            'total' = get_state_randomeffects(glmer_all),
+                            'all_combined' = combined_table)
 
 
 
@@ -473,7 +484,10 @@ write_xlsx(year_randomeffects, "Data/CleanData/YearRandomEffects.xlsx")
 ```
 
 ```{r}
-state_randomeffects
+
+```
+```{r}
+exp(summary(glmer_forprofit)$coef["(Intercept)", "Estimate"])
 ```
 
 
