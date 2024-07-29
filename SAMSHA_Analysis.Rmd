@@ -3,6 +3,28 @@ title: "SAMHSA NSSATS modeling and formal testing "
 output: html_notebook
 ---
 
+```{r}
+library(lme4)
+library(corrplot) 
+library(sjmisc) #library for summary table descr()
+#plotting
+library(ggplot2)
+library(maps)
+library(mapdata)
+library(plotly)
+library(sf)
+library(usmap)
+library(patchwork)
+
+library(writexl)
+
+#displaying summary  table
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+
+```
+
 
 Checking assumptions of linear regression: normal distribution and continuous variable
 
@@ -59,141 +81,13 @@ var(profit_states_1419$count_Government_2019) > mean(profit_states_1419$count_Go
 ```
 
 
-```{r LRT for best demand variables }
-library(lme4)
-#code to determine the best subset of demand variables to include 
-demandvars_lrt <- function(df, demandvars_list, verbose = FALSE){
-  
-  model_list <- list()
-  
-  #loop through to peel off the last element from demandvars_list at a time, until only the first demand variable is left 
-  for(i in 0:(length(demandvars_list)-1))
-  {
-    demand_variables_touse <- demandvars_list[1:(length(demandvars_list) - i)]
-    
-    #create the list of demand variables to use 
-    demand_vars <- paste(demand_variables_touse, collapse = " + ")
-  
-    control_vars <- " + medicaid_enroll_percapita + 
-             percapita_health_spending_thousands + 
-             pop_millions +
-             (1|State_Name) + (1 | year )"
-    
-    #paste the formula together 
-    nb_formula <- formula(paste("count_tx ~", demand_vars, control_vars))
-    
-    #build the model and save in the list
-    model <- glmer.nb(nb_formula, data = df, 
-                      control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)))
-    
-    #append the model to the list 
-    model_list[[i + 1]] <- model
-
-  }
-  
-  #store the maximum likelihood model - start by assuming it is the full model 
-  max_model <- model_list[[1]]
-  
-  #compare the models pairwise using the LRT 
-  for (i in seq(1:(length(model_list) - 1) ))
-  {
-      anova_results <- anova(max_model, model_list[[i+1]])
-      
-      if (verbose)
-      {
-        print("________________RESULTS_________________")
-        print(anova_results)
-      }
-      
-      #get the p-value
-      pval <- anova_results$'Pr(>Chisq)'[2]
-      
-      if (pval < 0.05)
-      {
-        print(paste("The more complex model improves fit sufficiently, p = ", pval))
-      }
-      else
-      {
-        print(paste("The more complex model does not improve fit sufficiently. considering the less complex model to be better", p = pval))
-        max_model <- model_list[[i+1]]
-      }
-      
-      print("Best model so far includes: ")
-      print(all.vars(formula(max_model)))
-  }
-}
-
-```
 
 
-```{r LRT for best control variables, given best demand variables}
-#code to determine the best subset of demand variables to include 
-controlvars_lrt <- function(df, bestdemandvars_str, controlvars_list, verbose = FALSE){
-  
-  model_list <- list()
-  
-  #loop through to peel off the last element from controlvars_list at a time, until only the first control variable is left 
-  for(i in 0:(length(controlvars_list) - 1 ))
-  {
-    control_variables_touse <- controlvars_list[1:(length(controlvars_list) - i)]
-    
-    #create the list of control variables to use 
-    control_vars <- paste(control_variables_touse, collapse = " + ")
-  
-    random_effects <- " +
-             (1|State_Name) + (1 | year) "
-    
-    #paste the formula together 
-    nb_formula <- formula(paste("count_tx ~", bestdemandvars_str, control_vars, random_effects))
-
-    #build the model and save in the list
-    model <- glmer.nb(nb_formula, data = df, 
-                      control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)))
-    
-    #append the model to the list 
-    model_list[[i + 1]] <- model
-
-  }
-  
-
-  #store the maximum likelihood model - start by assuming it is the full model 
-  max_model <- model_list[[1]]
-  
-  #compare the models pairwise using the LRT 
-  for (i in seq(1:(length(model_list) - 1) ))
-  {
-      anova_results <- anova(max_model, model_list[[i+1]])
-      
-      #get the p-value
-      pval <- anova_results$'Pr(>Chisq)'[2]
-      
-      if (verbose)
-      {
-        print("________________RESULTS_________________")
-        print(anova_results)
-      }
-      
-      if (pval < 0.05)
-      {
-        print(paste("The more complex model improves fit sufficiently, p = ", pval))
-      }
-      else
-      {
-        print(paste("The more complex model does not improve fit sufficiently. considering the less complex model to be better", p = pval))
-        max_model <- model_list[[i+1]]
-      }
-      
-      print("Best model so far includes: ")
-      print(all.vars(formula(max_model)))
-  }
-}
-```
 
 
 
 Uninsured rate is negatively correlated with a lot of things (medicaid enrollment, income)- let's remove
 ```{r}
-library(corrplot)
 corr_matrix <- cor(state_final_df[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_White", "Insurance_Uninsured", "Unemployment", "Income")])
 
 colnames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
@@ -206,7 +100,6 @@ corr_matrix
 
 Create a summary table of all the variables we want to investigate
 ```{r create summary table 1}
-library(sjmisc)
 
 data.frame(descr(state_final_df, show=c("n", "NA.prc", "mean", "sd", "range"))) %>%
   separate(range, into = c("range", "min_max"), sep = " ") %>%
@@ -223,14 +116,6 @@ data.frame(descr(state_final_df, show=c("n", "NA.prc", "mean", "sd", "range"))) 
 
 
 FOR PROFIT MODEL
-```{r}
-#demandvars_lrt(state_forprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
-```
-
-```{r}
-#controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions",  "percapita_health_spending_thousands", "medicaid_enroll_percapita"), verbose = TRUE)
-```
-
 
 relationship is not significant when adding cocaine and heroin separately
 ```{r previous for profit model with only a few covariates}
@@ -263,7 +148,7 @@ relationship is not significant when adding cocaine and heroin separately
 #                                 scale(Race_White) +
 #                                 (1| State_Name) + (1 | year)")
 
-more_controls_str <- "~ prev2years_aud + prev2years_drugusecalc + 
+more_controls_str <- "~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +
                                 scale(pop_millions) + 
                                 scale(Income) +
                                 scale(medicaid_enroll_percapita) +
@@ -275,6 +160,8 @@ more_controls_str <- "~ prev2years_aud + prev2years_drugusecalc +
                                 scale(Race_White) +
                                 (1| State_Name) + (1 | year)"
 
+
+
 #glmer_forprofit <- glmer.nb(more_controls_formula, control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
 #                               data = state_forprofit)
 glmer_forprofit <- glmer.nb(formula(paste("Forprofit", more_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
@@ -284,27 +171,13 @@ summary(glmer_forprofit)
 ```
 
 
-```{r those variables dont seem to improve the fit much but we can use them}
-#controlvars_lrt(state_forprofit, "prev2years_drugusecalc + prev2years_aud + ", c("scale(pop_millions)",  
-#                                                                                 "scale(Race_White)", "scale(Gender_Male)", "scale(Ethnicity_HispanicorLatino)",
-#                                                                                 "scale(percapita_health_spending_thousands)", "scale(medicaid_enroll_percapita)", 
-#                                                                                 "scale(Income)", "scale(Unemployment)"
-#                                                                                 ), verbose = TRUE)
-```
 
 
 
 
 
 NON PROFIT MODEL
-```{r find best set of variables for the nonprofit model}
-#demandvars_lrt(state_nonprofit, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"), verbose = TRUE)
-```
 
-
-```{r}
-#controlvars_lrt(state_nonprofit, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
-```
 
 
 ```{r previous nonprofit model with few covariates}
@@ -333,29 +206,12 @@ summary(allFit(glmer_nonprofit))$fixef
 
 
 
+
+
+
+
+
 GOVERNMENT MODEL
-```{r}
-#demandvars_lrt(state_govt, c("prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana"))
-```
-
-
-```{r}
-#controlvars_lrt(state_govt, "prev2years_drugusecalc + prev2years_aud + ", c("pop_millions", "medicaid_enroll_percapita", "percapita_health_spending_thousands"))
-```
-
-
-
-```{r previous govt model with few covariates}
-# glmer_govt <- glmer.nb(count_tx ~ prev2years_drugusecalc + prev2years_aud + #prev2years_marijuana +
-#                                 pop_millions + #percapita_health_spending_thousands + medicaid_enroll_percapita + 
-#                                 (1|State_Name) + (1 | year),
-#                               control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
-#                               data = state_govt)
-# 
-# summary(glmer_govt)
-# confint(glmer_govt)
-```
-
 
 
 ```{r fit a model with all control variables for govt}
@@ -373,6 +229,9 @@ summary(allFit(glmer_govt))$fixef
 
 
 
+
+
+
 MODEL ON ALL TREATMENT CENTERS
 ```{r fit a model on all treatment centers}
 glmer_all <- glmer.nb(formula(paste("count_tx_total", more_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
@@ -383,15 +242,13 @@ summary(glmer_all)
 
 
 
+
+
+
+
 Plot
 ```{r function to create a map of state random effects}
-library(ggplot2)
-library(maps)
-library(mapdata)
-library(plotly)
-library(sf)
-library(usmap)
-library(patchwork)
+
 
 usa <- map_data('usa')
 state <- map_data("state")
@@ -447,7 +304,6 @@ map_randomeffects(glmer_forprofit, "For-Profit") +
 
 ```{r}
 
-library(writexl)
 
 
 combined_table <- get_state_randomeffects(glmer_forprofit) %>%
@@ -483,18 +339,14 @@ write_xlsx(year_randomeffects, "Data/CleanData/YearRandomEffects.xlsx")
 
 ```
 
-```{r}
 
-```
 ```{r}
 exp(summary(glmer_forprofit)$coef["(Intercept)", "Estimate"])
 ```
 
 
 ```{r print coefficients in a handy table}
-library(sjPlot)
-library(sjmisc)
-library(sjlabelled)
+
 #tab_model
 
 tab_model(glmer_all, glmer_forprofit, glmer_nonprofit, glmer_govt, show.se=TRUE)
