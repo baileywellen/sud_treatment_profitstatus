@@ -200,7 +200,7 @@ summary(glmer_nonprofit)
 
 Because the above threw convergence errors, running allFit
 ```{r}
-summary(allFit(glmer_nonprofit))$fixef
+write.csv(summary(allFit(glmer_nonprofit))$fixef, "Tables/allfit_nonprofit.csv")
 ```
 
 
@@ -223,7 +223,8 @@ summary(glmer_govt)
 
 
 ```{r allFit checks if other convergence methods get the same result}
-summary(allFit(glmer_govt))$fixef
+write.csv(summary(allFit(glmer_govt))$fixef, "Tables/allfit_govt.csv")
+
 
 ```
 
