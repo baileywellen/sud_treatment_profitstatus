@@ -93,7 +93,7 @@ corr_matrix <- cor(state_final_df[, c("pop_millions", "percapita_health_spending
 colnames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
 rownames(corr_matrix) <- c("Population in Millions", "Percapita Health Spending", "Percapita Medicaid Enrollment", "Lagged Drug Use", "Lagged AUD", "Lagged Marijuana Use", "Male", "Hispanic", "White Race", "Uninsured", "Unemployment", "Income")
 
-write.csv(corr_matrix, "Data/CleanData/correlation_matrix.csv")
+write.csv(corr_matrix, "../Data/CleanData/correlation_matrix.csv")
 corrplot(corr_matrix, method="circle")
 corr_matrix
 ```
@@ -109,7 +109,7 @@ data.frame(descr(state_final_df, show=c("n", "NA.prc", "mean", "sd", "range"))) 
   mutate(min=as.numeric(min), max = as.numeric(max),
          mean = round(mean, 2),
          sd = round(sd, 2)) %>%
-  write.csv("Data/CleanData/SummaryStatistics.csv", row.names = FALSE)
+  write.csv("../Data/CleanData/SummaryStatistics.csv", row.names = FALSE)
 
 ```
 
@@ -200,7 +200,7 @@ summary(glmer_nonprofit)
 
 Because the above threw convergence errors, running allFit
 ```{r}
-write.csv(summary(allFit(glmer_nonprofit))$fixef, "Tables/allfit_nonprofit.csv")
+write.csv(summary(allFit(glmer_nonprofit))$fixef, "../Tables/allfit_nonprofit.csv")
 ```
 
 
@@ -223,7 +223,7 @@ summary(glmer_govt)
 
 
 ```{r allFit checks if other convergence methods get the same result}
-write.csv(summary(allFit(glmer_govt))$fixef, "Tables/allfit_govt.csv")
+write.csv(summary(allFit(glmer_govt))$fixef, "../Tables/allfit_govt.csv")
 
 
 ```
@@ -334,8 +334,8 @@ year_randomeffects <- list('forprofit' = get_year_randomeffects(glmer_forprofit)
 
 
 #write both to xlsx
-write_xlsx(state_randomeffects, "Data/CleanData/StateRandomEffects.xlsx")
-write_xlsx(year_randomeffects, "Data/CleanData/YearRandomEffects.xlsx")
+write_xlsx(state_randomeffects, "../Data/CleanData/StateRandomEffects.xlsx")
+write_xlsx(year_randomeffects, "../Data/CleanData/YearRandomEffects.xlsx")
 
 
 ```
@@ -350,7 +350,7 @@ exp(summary(glmer_forprofit)$coef["(Intercept)", "Estimate"])
 
 #tab_model
 
-tab_model(glmer_all, glmer_forprofit, glmer_nonprofit, glmer_govt, show.se=TRUE)
+tab_model(glmer_all, glmer_forprofit, glmer_nonprofit, glmer_govt, show.ci = FALSE, show.se=TRUE, p.style = 'stars')
 ```
 
 
