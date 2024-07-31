@@ -31,13 +31,13 @@ admission_cols <- c("CASEID", "PREG", "STFIPS",  # state ID
 
 ```{r}
 #nssats2009 <- read.csv("N-SSATS-2009-DS0001-bndl-data-tsv/N-SSATS-2009-DS0001-data/N-SSATS-2009-DS0001-data-excel.csv")
-nssats2014 <- read.csv("Data/NSSATS/N-SSATS-2014-DS0001-bndl-data-tsv/N-SSATS-2014-DS0001-data/N-SSATS-2014-DS0001-data-excel.csv")
-nssats2015 <- read.csv("Data/NSSATS/N-SSATS-2015-DS0001-bndl-data-tsv/N-SSATS-2015-DS0001-data/N-SSATS-2015-DS0001-data-excel.csv")
-nssats2016 <- read.csv("Data/NSSATS/NSSATSPUF_2016.csv")
-nssats2017 <- read.csv("Data/NSSATS/NSSATS_PUF_2017_CSV.csv")
-nssats2018 <- read.csv("Data/NSSATS/NSSATS_PUF_2018_CSV.csv")
-nssats2019 <- read.csv("Data/NSSATS/NSSATS_PUF_2019_CSV.csv")
-nssats2020 <- read.csv("Data/NSSATS/NSSATS_PUF_2020_CSV.csv")
+nssats2014 <- read.csv("../Data/NSSATS/N-SSATS-2014-DS0001-bndl-data-tsv/N-SSATS-2014-DS0001-data/N-SSATS-2014-DS0001-data-excel.csv")
+nssats2015 <- read.csv("../Data/NSSATS/N-SSATS-2015-DS0001-bndl-data-tsv/N-SSATS-2015-DS0001-data/N-SSATS-2015-DS0001-data-excel.csv")
+nssats2016 <- read.csv("../Data/NSSATS/NSSATSPUF_2016.csv")
+nssats2017 <- read.csv("../Data/NSSATS/NSSATS_PUF_2017_CSV.csv")
+nssats2018 <- read.csv("../Data/NSSATS/NSSATS_PUF_2018_CSV.csv")
+nssats2019 <- read.csv("../Data/NSSATS/NSSATS_PUF_2019_CSV.csv")
+nssats2020 <- read.csv("../Data/NSSATS/NSSATS_PUF_2020_CSV.csv")
 head(nssats2015)
 ```
 
@@ -113,7 +113,7 @@ MERGING DATA TOGETHER TO INCLUDE COVARIATES:
 ```{r read and clean CMS population data }
 state_colnames <- c("State_Name", "Y2012", "Y2013", "Y2014", "Y2015", "Y2016", "Y2017", "Y2018", "Y2019", "Y2020")
 
-statepop_long <- read.csv("Data/state_health_spending/US_POPULATION20.CSV") %>% 
+statepop_long <- read.csv("../Data/state_health_spending/US_POPULATION20.CSV") %>% 
   dplyr::select(state_colnames) %>%
   pivot_longer(cols = state_colnames[-1]) %>% 
   filter(State_Name != "") %>%
@@ -125,7 +125,7 @@ statepop_long
 ```
 
 ```{r read and clean CMS per capita healthcare spending}
-state_healthspending_long <- read.csv("Data/state_health_spending/US_PER_CAPITA20.CSV") %>%
+state_healthspending_long <- read.csv("../Data/state_health_spending/US_PER_CAPITA20.CSV") %>%
   dplyr::select(state_colnames, "Item") %>%
   pivot_longer(cols = state_colnames[-1]) %>% 
   #filter to Personal Health Care, which is total spending 
@@ -142,7 +142,7 @@ state_healthspending_long
 question - will medicaid enrollment be correlated with population? should we divide by that?
 ```{r read and clean CMS medicaid enrollment data}
 
-state_medicaidenroll_long <- read.csv("Data/state_health_spending/MEDICAID_ENROLLMENT20.CSV") %>%
+state_medicaidenroll_long <- read.csv("../Data/state_health_spending/MEDICAID_ENROLLMENT20.CSV") %>%
    dplyr::select(state_colnames) %>%
    pivot_longer(cols = state_colnames[-1]) %>% 
    filter(State_Name != "") %>%
@@ -210,7 +210,7 @@ state_medicaidenroll_long
 Read all NSDUH data from here: https://www.samhsa.gov/data/nsduh/state-reports
 ```{r read in the combined nsduh file}
 library(haven)
-nsduh_all <- haven::read_sas("Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
+nsduh_all <- haven::read_sas("../Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
 ```
 
 
@@ -387,13 +387,13 @@ return(demographics_df)
 }
 
 
-demographics_2013 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2013)
-demographics_2014 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2014)
-demographics_2015 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2015)
-demographics_2016 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2016)
-demographics_2017 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2017)
-demographics_2018 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2018)
-demographics_2019 <- read_clean_demographic("Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2019.txt", 2019)
+demographics_2013 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2013)
+demographics_2014 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2014)
+demographics_2015 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2015)
+demographics_2016 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2016)
+demographics_2017 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2017)
+demographics_2018 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2018)
+demographics_2019 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2019.txt", 2019)
 
 state_demographics <- bind_rows(demographics_2013,
           demographics_2014,
@@ -436,13 +436,13 @@ read_clean_insurance <- function(path, year_param)
   return(insurance_states)
 }
 
-insurance_2013 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2013.csv", 2013)
-insurance_2014 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2014.csv", 2014)
-insurance_2015 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2015.csv", 2015)
-insurance_2016 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2016.csv", 2016)
-insurance_2017 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2017.csv", 2017)
-insurance_2018 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2018.csv", 2018)
-insurance_2019 <- read_clean_insurance("Data/StateYear_Insurance/raw_data2019.csv", 2019)
+insurance_2013 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2013.csv", 2013)
+insurance_2014 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2014.csv", 2014)
+insurance_2015 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2015.csv", 2015)
+insurance_2016 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2016.csv", 2016)
+insurance_2017 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2017.csv", 2017)
+insurance_2018 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2018.csv", 2018)
+insurance_2019 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2019.csv", 2019)
 
 state_insurance <- bind_rows(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019) %>%
   mutate(year = as.character(year))
@@ -459,7 +459,7 @@ library(janitor) #use to overwrite row names
 library(tibble)
 library(readxl)
 
-freds_name_mapping <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=2) 
+freds_name_mapping <- read_excel("../Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=2) 
 #create a named vector of the values from the name mapping
 state_names <- freds_name_mapping$State_Parsed
 names(state_names) <- freds_name_mapping$`Series ID:`
@@ -467,7 +467,7 @@ names(state_names) <- freds_name_mapping$`Series ID:`
 value_names <- freds_name_mapping$`Title:`
 names(value_names) <- freds_name_mapping$`Series ID:`
 
-freds_df_unformatted <- read_excel("Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=3) 
+freds_df_unformatted <- read_excel("../Data/StateYear_Income_Unemployed/State_Population_Unemployment_Income.xlsx", sheet=3) 
 
 freds_df <- freds_df_unformatted %>%
   #switch the rows and the columns so the values are in the rows and columns are years
@@ -579,7 +579,7 @@ state_final_df <- state_final_df %>%
   
 
 
-write.csv(state_final_df, "Data/CleanData/Allprofit_finaldata.csv", row.names = FALSE)
+write.csv(state_final_df, "../Data/CleanData/Allprofit_finaldata.csv", row.names = FALSE)
 
 ```
 
