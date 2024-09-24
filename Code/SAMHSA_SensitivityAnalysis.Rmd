@@ -95,3 +95,53 @@ Assumption #6 - do these trends hold PRE- ACA?
 
 ```
 
+
+
+
+Assumption # 7 - do results change if we include the (lagged) overdose rates? i.e. can we measure whether the number of treatment centers is a function of how much attention is given to drug use (brought by overdose deaths) and not by prevalence of substance use? 
+```{r}
+overdose_controls_str <- "~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +
+                                overdose_rate_lag + 
+                                scale(pop_millions) + 
+                                scale(Income) +
+                                scale(medicaid_enroll_percapita) +
+                                scale(Gender_Male) +
+                                scale(Unemployment) + 
+                                scale(percapita_health_spending_thousands) +
+                                scale(Insurance_Uninsured) + 
+                                scale(Ethnicity_HispanicorLatino) + 
+                                scale(Race_White) +
+                                (1| State_Name) + (1 | year)"
+
+
+
+#the results are the same for for-profit - except that AUD becomes no longer significant (barely)
+
+#overdose rates themselves are not significant 
+
+#drug use prevalence is still closely correlated
+glmer_overdose_forprofit <- glmer.nb(formula(paste("Forprofit", overdose_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)
+
+summary(glmer_overdose_forprofit)
+```
+
+```{r}
+
+#nonprofit results are the same - no relationship between drug use prevalence and number of treatment centers, nor with overdose deaths
+glmer_overdose_nonprofit <- glmer.nb(formula(paste("Nonprofit", overdose_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)
+
+summary(glmer_overdose_nonprofit)
+
+#summary(allFit(glmer_overdose_nonprofit))
+```
+
+```{r}
+#nonprofit results are the same - no relationship between drug use prevalence and number of treatment centers, nor with overdose deaths
+glmer_overdose_govt <- glmer.nb(formula(paste("Government", overdose_controls_str)), control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)
+
+summary(glmer_overdose_govt)
+```
+
