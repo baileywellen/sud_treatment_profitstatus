@@ -99,6 +99,18 @@ Assumption #6 - do these trends hold PRE- ACA?
 
 
 Assumption # 7 - do results change if we include the (lagged) overdose rates? i.e. can we measure whether the number of treatment centers is a function of how much attention is given to drug use (brought by overdose deaths) and not by prevalence of substance use? 
+
+
+First, look how closely drug use and overdose rates are correlated
+```{r}
+state_final_df %>%
+  filter(is.na(overdose_rate_lag))
+```
+
+```{r}
+cor(state_final_df[, c("pop_millions", "percapita_health_spending_thousands", "medicaid_enroll_percapita", "prev2years_drugusecalc", "prev2years_aud", "prev2years_marijuana", "Gender_Male", "Ethnicity_HispanicorLatino", "Race_White", "Insurance_Uninsured", "Unemployment", "Income", "overdose_rate_lag")], use = "complete.obs")
+```
+
 ```{r}
 overdose_controls_str <- "~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +
                                 overdose_rate_lag + 
