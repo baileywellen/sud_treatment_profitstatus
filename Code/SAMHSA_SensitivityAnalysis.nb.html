@@ -1760,325 +1760,616 @@ predictors?</p>
 <p>Yes - the coefficients are almost exactly the same</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgbWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSArICAjcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eSlcbmBgYCJ9 -->
-<pre class="r"><code>glmer_forprofit_sensitivity &lt;- glmer.nb(count_tx ~ 
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgbWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSArICAjcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eSlcbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+glmer_forprofit_sensitivity &lt;- glmer.nb(count_tx ~ 
                                  prev2years_drugusecalc + prev2years_aud +
                                 pop_millions +  medicaid_enroll_percapita +  #percapita_health_spending_thousands +
                                 (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
                               data = state_forprofit)
 
 summary(glmer_forprofit_sensitivity)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODUuNzk4KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgKyBwb3BfbWlsbGlvbnMgKyAgICAgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAoMSB8IFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjEyMS44ICAgMjE1MC4xICAtMTA1Mi45ICAgMjEwNS44ICAgICAgMjQ3IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjU2OTAgLTAuNDE2NyAtMC4wMjMwICAwLjM3NzIgIDMuODM4MyBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC42NDk1MTggMC44MDU5MyBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA1NDU0IDAuMDczODUgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgeiB2YWx1ZSBQcig+fHp8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgICAgIDMuNzI3OTkgICAgMC4yOTY4NCAgMTIuNTU5ICA8IDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgICAgMC4wNzgzMSAgICAwLjAzODU5ICAgMi4wMjkgICAwLjA0MjQgKiAgXG5wcmV2MnllYXJzX2F1ZCAgICAgICAgICAgIC0wLjA1MDAwICAgIDAuMDIxOTAgIC0yLjI4MyAgIDAuMDIyNSAqICBcbnBvcF9taWxsaW9ucyAgICAgICAgICAgICAgIDAuMDk4NzkgICAgMC4wMTUzMCAgIDYuNDU2IDEuMDhlLTEwICoqKlxubWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSAtMC40OTg3NSAgICAwLjg1MDYwICAtMC41ODYgICAwLjU1NzYgICAgXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeXJzX2RyIHByZXYyeXJzX2QgcHBfbWxsXG5wcnYyeXJzX2RyZyAtMC4xNjcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxucHJldjJ5ZXJzX2QgLTAuNDcxIC0wLjMxMiAgICAgICAgICAgICAgICAgICAgICBcbnBvcF9taWxsaW5zIC0wLjM4NSAgMC4wMDQgICAgICAwLjA4MSAgICAgICAgICAgXG5tZGNkX25ybGxfcCAtMC42OTQgIDAuMDEzICAgICAgMC4xMDEgICAgICAwLjAyNFxuIn0= -->
-<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
- Family: Negative Binomial(185.798)  ( log )
-Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud + pop_millions +      medicaid_enroll_percapita + (1 | State_Name) + (1 | year)
-   Data: state_forprofit
-Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
 
-     AIC      BIC   logLik deviance df.resid 
-  2121.8   2150.1  -1052.9   2105.8      247 
+&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODUuNzk4KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgKyBwb3BfbWlsbGlvbnMgKyAgICAgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAoMSB8IFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjEyMS44ICAgMjE1MC4xICAtMTA1Mi45ICAgMjEwNS44ICAgICAgMjQ3IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjU2OTAgLTAuNDE2NyAtMC4wMjMwICAwLjM3NzIgIDMuODM4MyBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC42NDk1MTggMC44MDU5MyBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA1NDU0IDAuMDczODUgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgeiB2YWx1ZSBQcig+fHp8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgICAgIDMuNzI3OTkgICAgMC4yOTY4NCAgMTIuNTU5ICA8IDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgICAgMC4wNzgzMSAgICAwLjAzODU5ICAgMi4wMjkgICAwLjA0MjQgKiAgXG5wcmV2MnllYXJzX2F1ZCAgICAgICAgICAgIC0wLjA1MDAwICAgIDAuMDIxOTAgIC0yLjI4MyAgIDAuMDIyNSAqICBcbnBvcF9taWxsaW9ucyAgICAgICAgICAgICAgIDAuMDk4NzkgICAgMC4wMTUzMCAgIDYuNDU2IDEuMDhlLTEwICoqKlxubWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSAtMC40OTg3NSAgICAwLjg1MDYwICAtMC41ODYgICAwLjU1NzYgICAgXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeXJzX2RyIHByZXYyeXJzX2QgcHBfbWxsXG5wcnYyeXJzX2RyZyAtMC4xNjcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxucHJldjJ5ZXJzX2QgLTAuNDcxIC0wLjMxMiAgICAgICAgICAgICAgICAgICAgICBcbnBvcF9taWxsaW5zIC0wLjM4NSAgMC4wMDQgICAgICAwLjA4MSAgICAgICAgICAgXG5tZGNkX25ybGxfcCAtMC42OTQgIDAuMDEzICAgICAgMC4xMDEgICAgICAwLjAyNFxuIn0= --&gt;
+</code></pre>
+<p>Generalized linear mixed model fit by maximum likelihood (Laplace
+Approximation) [‘glmerMod’] Family: Negative Binomial(185.798) ( log )
+Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud +
+pop_millions + medicaid_enroll_percapita + (1 | State_Name) + (1 | year)
+Data: state_forprofit Control: glmerControl(optimizer = , optCtrl =
+list(maxfun = 2e+06))</p>
+<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
+<p>2121.8 2150.1 -1052.9 2105.8 247</p>
+<p>Scaled residuals: Min 1Q Median 3Q Max -2.5690 -0.4167 -0.0230 0.3772
+3.8383</p>
+<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
+0.649518 0.80593 year (Intercept) 0.005454 0.07385 Number of obs: 255,
+groups: State_Name, 51; year, 5</p>
+<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
+(Intercept) 3.72799 0.29684 12.559 &lt; 2e-16 <strong><em>
+prev2years_drugusecalc 0.07831 0.03859 2.029 0.0424 </em><br />
+prev2years_aud -0.05000 0.02190 -2.283 0.0225 *<br />
+pop_millions 0.09879 0.01530 6.456 1.08e-10 </strong>*
+medicaid_enroll_percapita -0.49875 0.85060 -0.586 0.5576<br />
+— Signif. codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05
+‘.’ 0.1 ‘ ’ 1</p>
+<p>Correlation of Fixed Effects: (Intr) prv2yrs_dr prev2yrs_d pp_mll
+prv2yrs_drg -0.167<br />
+prev2yers_d -0.471 -0.312<br />
+pop_millins -0.385 0.004 0.081<br />
+mdcd_nrll_p -0.694 0.013 0.101 0.024</p>
+<pre><code>
 
-Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.5690 -0.4167 -0.0230  0.3772  3.8383 
 
-Random effects:
- Groups     Name        Variance Std.Dev.
- State_Name (Intercept) 0.649518 0.80593 
- year       (Intercept) 0.005454 0.07385 
-Number of obs: 255, groups:  State_Name, 51; year, 5
+&lt;!-- rnb-output-end --&gt;
 
-Fixed effects:
-                          Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                3.72799    0.29684  12.559  &lt; 2e-16 ***
-prev2years_drugusecalc     0.07831    0.03859   2.029   0.0424 *  
-prev2years_aud            -0.05000    0.02190  -2.283   0.0225 *  
-pop_millions               0.09879    0.01530   6.456 1.08e-10 ***
-medicaid_enroll_percapita -0.49875    0.85060  -0.586   0.5576    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+&lt;!-- rnb-chunk-end --&gt;
 
-Correlation of Fixed Effects:
-            (Intr) prv2yrs_dr prev2yrs_d pp_mll
-prv2yrs_drg -0.167                             
-prev2yers_d -0.471 -0.312                      
-pop_millins -0.385  0.004      0.081           
-mdcd_nrll_p -0.694  0.013      0.101      0.024</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Assumption #2 - what do the relationships look like when the outcome
-is ONLY drug use and alcohol use? (no control variables, no random
-effects)</p>
-<p>almost exactly the same</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MiA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjcG9wX21pbGxpb25zICsgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTIpXG5gYGAifQ== -->
-<pre class="r"><code>glmer_forprofit_sensitivity2 &lt;- glmer.nb(count_tx ~ 
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+Assumption #2 - what do the relationships look like when the outcome is ONLY drug use and alcohol use? (no control variables, no random effects)
+
+almost exactly the same 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MiA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjcG9wX21pbGxpb25zICsgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTIpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+glmer_forprofit_sensitivity2 &lt;- glmer.nb(count_tx ~ 
                                  prev2years_drugusecalc + prev2years_aud+
                                 #pop_millions +  medicaid_enroll_percapita +  percapita_health_spending_thousands +
                                 (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
                               data = state_forprofit)
 
 summary(glmer_forprofit_sensitivity2)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODkuNDcwNSkgICggbG9nIClcbkZvcm11bGE6IGNvdW50X3R4IH4gcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkICsgKDEgfCBTdGF0ZV9OYW1lKSArICAgICAgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjE0OC4zICAgMjE2OS41ICAtMTA2OC4xICAgMjEzNi4zICAgICAgMjQ5IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjYyNTYgLTAuMzk4NCAtMC4wMjE1ICAwLjM3MTYgIDMuODMxOCBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMS4yMTAzNzkgMS4xMDAgICBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA2NTYxIDAuMDgxICAgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgeiB2YWx1ZSBQcig+fHp8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgIDQuMjcxNzIgICAgMC4yMTI1MiAgMjAuMTAwICAgPDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgMC4xNTc0OSAgICAwLjA3NzgyICAgMi4wMjQgICAwLjA0MzAgKiAgXG5wcmV2MnllYXJzX2F1ZCAgICAgICAgIC0wLjA1NDI0ICAgIDAuMDIxODggIC0yLjQ3OSAgIDAuMDEzMiAqICBcbi0tLVxuU2lnbmlmLiBjb2RlczogIDAg4oCYKioq4oCZIDAuMDAxIOKAmCoq4oCZIDAuMDEg4oCYKuKAmSAwLjA1IOKAmC7igJkgMC4xIOKAmCDigJkgMVxuXG5Db3JyZWxhdGlvbiBvZiBGaXhlZCBFZmZlY3RzOlxuICAgICAgICAgICAgKEludHIpIHBydjJ5cnNfZHJcbnBydjJ5cnNfZHJnIC0wLjIxNyAgICAgICAgICAgXG5wcmV2MnllcnNfZCAtMC41MjUgLTAuMzIxICAgIFxuIn0= -->
-<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
- Family: Negative Binomial(189.4705)  ( log )
-Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud + (1 | State_Name) +      (1 | year)
-   Data: state_forprofit
-Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
 
-     AIC      BIC   logLik deviance df.resid 
-  2148.3   2169.5  -1068.1   2136.3      249 
+&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODkuNDcwNSkgICggbG9nIClcbkZvcm11bGE6IGNvdW50X3R4IH4gcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkICsgKDEgfCBTdGF0ZV9OYW1lKSArICAgICAgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjE0OC4zICAgMjE2OS41ICAtMTA2OC4xICAgMjEzNi4zICAgICAgMjQ5IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjYyNTYgLTAuMzk4NCAtMC4wMjE1ICAwLjM3MTYgIDMuODMxOCBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMS4yMTAzNzkgMS4xMDAgICBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA2NTYxIDAuMDgxICAgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgeiB2YWx1ZSBQcig+fHp8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgIDQuMjcxNzIgICAgMC4yMTI1MiAgMjAuMTAwICAgPDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgMC4xNTc0OSAgICAwLjA3NzgyICAgMi4wMjQgICAwLjA0MzAgKiAgXG5wcmV2MnllYXJzX2F1ZCAgICAgICAgIC0wLjA1NDI0ICAgIDAuMDIxODggIC0yLjQ3OSAgIDAuMDEzMiAqICBcbi0tLVxuU2lnbmlmLiBjb2RlczogIDAg4oCYKioq4oCZIDAuMDAxIOKAmCoq4oCZIDAuMDEg4oCYKuKAmSAwLjA1IOKAmC7igJkgMC4xIOKAmCDigJkgMVxuXG5Db3JyZWxhdGlvbiBvZiBGaXhlZCBFZmZlY3RzOlxuICAgICAgICAgICAgKEludHIpIHBydjJ5cnNfZHJcbnBydjJ5cnNfZHJnIC0wLjIxNyAgICAgICAgICAgXG5wcmV2MnllcnNfZCAtMC41MjUgLTAuMzIxICAgIFxuIn0= --&gt;
+</code></pre>
+<p>Generalized linear mixed model fit by maximum likelihood (Laplace
+Approximation) [‘glmerMod’] Family: Negative Binomial(189.4705) ( log )
+Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud + (1 |
+State_Name) + (1 | year) Data: state_forprofit Control:
+glmerControl(optimizer = , optCtrl = list(maxfun = 2e+06))</p>
+<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
+<p>2148.3 2169.5 -1068.1 2136.3 249</p>
+<p>Scaled residuals: Min 1Q Median 3Q Max -2.6256 -0.3984 -0.0215 0.3716
+3.8318</p>
+<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
+1.210379 1.100<br />
+year (Intercept) 0.006561 0.081<br />
+Number of obs: 255, groups: State_Name, 51; year, 5</p>
+<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
+(Intercept) 4.27172 0.21252 20.100 &lt;2e-16 **<em>
+prev2years_drugusecalc 0.15749 0.07782 2.024 0.0430 </em><br />
+prev2years_aud -0.05424 0.02188 -2.479 0.0132 *<br />
+— Signif. codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05
+‘.’ 0.1 ‘ ’ 1</p>
+<p>Correlation of Fixed Effects: (Intr) prv2yrs_dr prv2yrs_drg
+-0.217<br />
+prev2yers_d -0.525 -0.321</p>
+<pre><code>
 
-Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.6256 -0.3984 -0.0215  0.3716  3.8318 
 
-Random effects:
- Groups     Name        Variance Std.Dev.
- State_Name (Intercept) 1.210379 1.100   
- year       (Intercept) 0.006561 0.081   
-Number of obs: 255, groups:  State_Name, 51; year, 5
+&lt;!-- rnb-output-end --&gt;
 
-Fixed effects:
-                       Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)             4.27172    0.21252  20.100   &lt;2e-16 ***
-prev2years_drugusecalc  0.15749    0.07782   2.024   0.0430 *  
-prev2years_aud         -0.05424    0.02188  -2.479   0.0132 *  
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+&lt;!-- rnb-chunk-end --&gt;
 
-Correlation of Fixed Effects:
-            (Intr) prv2yrs_dr
-prv2yrs_drg -0.217           
-prev2yers_d -0.525 -0.321    </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Assumption #3 - what happens if we separate out the cocaine and
-heroin variables?</p>
-<p>AUD stays negative and significant, but neither drug use variable is
-still significant</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MyA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19oZXJvaW4gKyBwcmV2MnllYXJzX2NvY2FpbmUgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAjIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTMpXG5gYGAifQ== -->
-<pre class="r"><code>glmer_forprofit_sensitivity3 &lt;- glmer.nb(count_tx ~ 
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+Assumption #3 - what happens if we separate out the cocaine and heroin variables? 
+
+
+AUD stays negative and significant, but neither drug use variable is still significant
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MyA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19oZXJvaW4gKyBwcmV2MnllYXJzX2NvY2FpbmUgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAjIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTMpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+glmer_forprofit_sensitivity3 &lt;- glmer.nb(count_tx ~ 
                                   prev2years_aud + prev2years_heroin + prev2years_cocaine +
                                 pop_millions + # medicaid_enroll_percapita +  percapita_health_spending_thousands +
                                 (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
                               data = state_forprofit)
 
 summary(glmer_forprofit_sensitivity3)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODYuMTE2KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfaGVyb2luICsgcHJldjJ5ZWFyc19jb2NhaW5lICsgICAgICBwb3BfbWlsbGlvbnMgKyAoMSB8IFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjEyMS43ICAgMjE1MC4wICAtMTA1Mi45ICAgMjEwNS43ICAgICAgMjQ3IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjYyMDAgLTAuNDEwOCAtMC4wMjQxICAwLjM4MzYgIDMuODE0NCBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC42NjE0OTcgMC44MTMzMiBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA2MTU4IDAuMDc4NDcgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAzLjU5NzQzICAgIDAuMjE1NzMgIDE2LjY3NiAgPCAyZS0xNiAqKipcbnByZXYyeWVhcnNfYXVkICAgICAtMC4wNDY0NSAgICAwLjAyMjExICAtMi4xMDEgICAwLjAzNTYgKiAgXG5wcmV2MnllYXJzX2hlcm9pbiAgIDAuMTQzNTYgICAgMC4xMDY2MiAgIDEuMzQ2ICAgMC4xNzgyICAgIFxucHJldjJ5ZWFyc19jb2NhaW5lICAwLjA2MjQ0ICAgIDAuMDQ1OTAgICAxLjM2MCAgIDAuMTczNyAgICBcbnBvcF9taWxsaW9ucyAgICAgICAgMC4wOTkyMyAgICAwLjAxNTQzICAgNi40MzAgMS4yOGUtMTAgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeXJzX2QgcHJ2Mnlyc19oIHBydjJ5cnNfY1xucHJldjJ5ZXJzX2QgLTAuNTU5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5wcnYyeXJzX2hybiAtMC4xNDMgIDAuMDMyICAgICAgICAgICAgICAgICAgICAgICBcbnBydjJ5cnNfY2NuIC0wLjE0NCAtMC4zNDggICAgLTAuMTk5ICAgICAgICAgICAgIFxucG9wX21pbGxpbnMgLTAuNTEyICAwLjA4MSAgICAgMC4wMjIgICAgLTAuMDA5ICAgXG4ifQ== -->
-<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
- Family: Negative Binomial(186.116)  ( log )
-Formula: count_tx ~ prev2years_aud + prev2years_heroin + prev2years_cocaine +      pop_millions + (1 | State_Name) + (1 | year)
-   Data: state_forprofit
-Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
 
-     AIC      BIC   logLik deviance df.resid 
-  2121.7   2150.0  -1052.9   2105.7      247 
+&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODYuMTE2KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfaGVyb2luICsgcHJldjJ5ZWFyc19jb2NhaW5lICsgICAgICBwb3BfbWlsbGlvbnMgKyAoMSB8IFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjEyMS43ICAgMjE1MC4wICAtMTA1Mi45ICAgMjEwNS43ICAgICAgMjQ3IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjYyMDAgLTAuNDEwOCAtMC4wMjQxICAwLjM4MzYgIDMuODE0NCBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC42NjE0OTcgMC44MTMzMiBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA2MTU4IDAuMDc4NDcgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAzLjU5NzQzICAgIDAuMjE1NzMgIDE2LjY3NiAgPCAyZS0xNiAqKipcbnByZXYyeWVhcnNfYXVkICAgICAtMC4wNDY0NSAgICAwLjAyMjExICAtMi4xMDEgICAwLjAzNTYgKiAgXG5wcmV2MnllYXJzX2hlcm9pbiAgIDAuMTQzNTYgICAgMC4xMDY2MiAgIDEuMzQ2ICAgMC4xNzgyICAgIFxucHJldjJ5ZWFyc19jb2NhaW5lICAwLjA2MjQ0ICAgIDAuMDQ1OTAgICAxLjM2MCAgIDAuMTczNyAgICBcbnBvcF9taWxsaW9ucyAgICAgICAgMC4wOTkyMyAgICAwLjAxNTQzICAgNi40MzAgMS4yOGUtMTAgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeXJzX2QgcHJ2Mnlyc19oIHBydjJ5cnNfY1xucHJldjJ5ZXJzX2QgLTAuNTU5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5wcnYyeXJzX2hybiAtMC4xNDMgIDAuMDMyICAgICAgICAgICAgICAgICAgICAgICBcbnBydjJ5cnNfY2NuIC0wLjE0NCAtMC4zNDggICAgLTAuMTk5ICAgICAgICAgICAgIFxucG9wX21pbGxpbnMgLTAuNTEyICAwLjA4MSAgICAgMC4wMjIgICAgLTAuMDA5ICAgXG4ifQ== --&gt;
+</code></pre>
+<p>Generalized linear mixed model fit by maximum likelihood (Laplace
+Approximation) [‘glmerMod’] Family: Negative Binomial(186.116) ( log )
+Formula: count_tx ~ prev2years_aud + prev2years_heroin +
+prev2years_cocaine + pop_millions + (1 | State_Name) + (1 | year) Data:
+state_forprofit Control: glmerControl(optimizer = , optCtrl =
+list(maxfun = 2e+06))</p>
+<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
+<p>2121.7 2150.0 -1052.9 2105.7 247</p>
+<p>Scaled residuals: Min 1Q Median 3Q Max -2.6200 -0.4108 -0.0241 0.3836
+3.8144</p>
+<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
+0.661497 0.81332 year (Intercept) 0.006158 0.07847 Number of obs: 255,
+groups: State_Name, 51; year, 5</p>
+<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
+(Intercept) 3.59743 0.21573 16.676 &lt; 2e-16 <strong><em>
+prev2years_aud -0.04645 0.02211 -2.101 0.0356 </em><br />
+prev2years_heroin 0.14356 0.10662 1.346 0.1782<br />
+prev2years_cocaine 0.06244 0.04590 1.360 0.1737<br />
+pop_millions 0.09923 0.01543 6.430 1.28e-10 </strong>* — Signif. codes:
+0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
+<p>Correlation of Fixed Effects: (Intr) prv2yrs_d prv2yrs_h prv2yrs_c
+prev2yers_d -0.559<br />
+prv2yrs_hrn -0.143 0.032<br />
+prv2yrs_ccn -0.144 -0.348 -0.199<br />
+pop_millins -0.512 0.081 0.022 -0.009</p>
+<pre><code>
 
-Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.6200 -0.4108 -0.0241  0.3836  3.8144 
 
-Random effects:
- Groups     Name        Variance Std.Dev.
- State_Name (Intercept) 0.661497 0.81332 
- year       (Intercept) 0.006158 0.07847 
-Number of obs: 255, groups:  State_Name, 51; year, 5
+&lt;!-- rnb-output-end --&gt;
 
-Fixed effects:
-                   Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)         3.59743    0.21573  16.676  &lt; 2e-16 ***
-prev2years_aud     -0.04645    0.02211  -2.101   0.0356 *  
-prev2years_heroin   0.14356    0.10662   1.346   0.1782    
-prev2years_cocaine  0.06244    0.04590   1.360   0.1737    
-pop_millions        0.09923    0.01543   6.430 1.28e-10 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+&lt;!-- rnb-chunk-end --&gt;
 
-Correlation of Fixed Effects:
-            (Intr) prv2yrs_d prv2yrs_h prv2yrs_c
-prev2yers_d -0.559                              
-prv2yrs_hrn -0.143  0.032                       
-prv2yrs_ccn -0.144 -0.348    -0.199             
-pop_millins -0.512  0.081     0.022    -0.009   </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Assumption #4 - what if we also include marijuana</p>
-<p>Same general direction, but the drug use measurement increases to be
-slightly over 0.05</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5NCA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19tYXJpanVhbmEgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgI21lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTQpXG5gYGAifQ== -->
-<pre class="r"><code>glmer_forprofit_sensitivity4 &lt;- glmer.nb(count_tx ~ 
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Assumption #4 - what if we also include marijuana
+
+Same general direction, but the drug use measurement increases to be slightly over 0.05
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5NCA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19tYXJpanVhbmEgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgI21lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTQpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+glmer_forprofit_sensitivity4 &lt;- glmer.nb(count_tx ~ 
                                  prev2years_drugusecalc + prev2years_aud + prev2years_marijuana +
                                 pop_millions +  #medicaid_enroll_percapita +  percapita_health_spending_thousands +
                                 (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
                               data = state_forprofit)
 
 summary(glmer_forprofit_sensitivity4)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODYuODM4KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgKyBwcmV2MnllYXJzX21hcmlqdWFuYSArICAgICAgcG9wX21pbGxpb25zICsgKDEgfCBTdGF0ZV9OYW1lKSArICgxIHwgeWVhcilcbiAgIERhdGE6IHN0YXRlX2ZvcnByb2ZpdFxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFxcYm9ieXFhXFwsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDIxMjIuMSAgIDIxNTAuNCAgLTEwNTMuMSAgIDIxMDYuMSAgICAgIDI0NyBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMi42MjYxIC0wLjQxNTcgLTAuMDEyOCAgMC4zNjQxICAzLjkwOTYgXG5cblJhbmRvbSBlZmZlY3RzOlxuIEdyb3VwcyAgICAgTmFtZSAgICAgICAgVmFyaWFuY2UgU3RkLkRldi5cbiBTdGF0ZV9OYW1lIChJbnRlcmNlcHQpIDAuNjYxNzg5IDAuODEzNTAgXG4geWVhciAgICAgICAoSW50ZXJjZXB0KSAwLjAwNTM4MSAwLjA3MzM2IFxuTnVtYmVyIG9mIG9iczogMjU1LCBncm91cHM6ICBTdGF0ZV9OYW1lLCA1MTsgeWVhciwgNVxuXG5GaXhlZCBlZmZlY3RzOlxuICAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgMy41OTg1MTIgICAwLjIyMTQxOSAgMTYuMjUyICA8IDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgMC4xNTQyODggICAwLjA3OTEyMyAgIDEuOTUwICAgMC4wNTEyIC4gIFxucHJldjJ5ZWFyc19hdWQgICAgICAgICAtMC4wNDk5NDMgICAwLjAyMzA3NCAgLTIuMTY1ICAgMC4wMzA0ICogIFxucHJldjJ5ZWFyc19tYXJpanVhbmEgICAgMC4wMDIwODggICAwLjAxMjk1NCAgIDAuMTYxICAgMC44NzE5ICAgIFxucG9wX21pbGxpb25zICAgICAgICAgICAgMC4wOTkwODQgICAwLjAxNTQzOCAgIDYuNDE4IDEuMzhlLTEwICoqKlxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cbkNvcnJlbGF0aW9uIG9mIEZpeGVkIEVmZmVjdHM6XG4gICAgICAgICAgICAoSW50cikgcHJ2Mnlyc19kciBwcmV2Mnlyc19kIHBydjJ5cnNfbVxucHJ2Mnlyc19kcmcgLTAuMTUxICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbnByZXYyeWVyc19kIC0wLjQyNyAtMC4yMDcgICAgICAgICAgICAgICAgICAgICAgICAgXG5wcnYyeXJzX21yaiAtMC4yNDQgLTAuMjMxICAgICAtMC4zMzcgICAgICAgICAgICAgIFxucG9wX21pbGxpbnMgLTAuNTA2IC0wLjAwNSAgICAgIDAuMDY0ICAgICAgMC4wMzQgICBcbiJ9 --&gt;
+</code></pre>
+<p>Generalized linear mixed model fit by maximum likelihood (Laplace
+Approximation) [‘glmerMod’] Family: Negative Binomial(186.838) ( log )
+Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud +
+prev2years_marijuana + pop_millions + (1 | State_Name) + (1 | year)
+Data: state_forprofit Control: glmerControl(optimizer = , optCtrl =
+list(maxfun = 2e+06))</p>
+<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
+<p>2122.1 2150.4 -1053.1 2106.1 247</p>
+<p>Scaled residuals: Min 1Q Median 3Q Max -2.6261 -0.4157 -0.0128 0.3641
+3.9096</p>
+<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
+0.661789 0.81350 year (Intercept) 0.005381 0.07336 Number of obs: 255,
+groups: State_Name, 51; year, 5</p>
+<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
+(Intercept) 3.598512 0.221419 16.252 &lt; 2e-16 <strong><em>
+prev2years_drugusecalc 0.154288 0.079123 1.950 0.0512 .<br />
+prev2years_aud -0.049943 0.023074 -2.165 0.0304 </em><br />
+prev2years_marijuana 0.002088 0.012954 0.161 0.8719<br />
+pop_millions 0.099084 0.015438 6.418 1.38e-10 </strong>* — Signif.
+codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’
+1</p>
+<p>Correlation of Fixed Effects: (Intr) prv2yrs_dr prev2yrs_d prv2yrs_m
+prv2yrs_drg -0.151<br />
+prev2yers_d -0.427 -0.207<br />
+prv2yrs_mrj -0.244 -0.231 -0.337<br />
+pop_millins -0.506 -0.005 0.064 0.034</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Assumption #5 - what happens if we fit the model using the predictors that were best from LRT for nonprofit / govt?
+
+Still not significant - this is a good thing because that was the result when we included AUD also 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfbm9ucHJvZml0X3NlbnNpdGl2aXR5MSA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcF9taWxsaW9ucyArICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDF8U3RhdGVfTmFtZSkrICgxIHwgeWVhciksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFxcYm9ieXFhXFwsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlNikpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX25vbnByb2ZpdClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+glmer_nonprofit_sensitivity1 &lt;- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc +
+                                pop_millions +  
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
+                              data = state_nonprofit)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRcbiJ9 --&gt;
+</code></pre>
+<p>Warning: iteration limit reached</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc3VtbWFyeShnbG1lcl9ub25wcm9maXRfc2Vuc2l0aXZpdHkxKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+summary(glmer_nonprofit_sensitivity1)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxMzI4OS45MykgICggbG9nIClcbkZvcm11bGE6IGNvdW50X3R4IH4gcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHBvcF9taWxsaW9ucyArICgxIHwgU3RhdGVfTmFtZSkgKyAgICAgICgxIHwgeWVhcilcbiAgIERhdGE6IHN0YXRlX25vbnByb2ZpdFxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFxcYm9ieXFhXFwsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDIxNTAuNSAgIDIxNzEuNyAgLTEwNjkuMiAgIDIxMzguNSAgICAgIDI0OSBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMy42MDQwIC0wLjM5NDggLTAuMDQxMCAgMC4zOTE4ICAyLjU1NjIgXG5cblJhbmRvbSBlZmZlY3RzOlxuIEdyb3VwcyAgICAgTmFtZSAgICAgICAgVmFyaWFuY2UgU3RkLkRldi5cbiBTdGF0ZV9OYW1lIChJbnRlcmNlcHQpIDAuNDI3NzI1IDAuNjU0MDEgXG4geWVhciAgICAgICAoSW50ZXJjZXB0KSAwLjAwMTM1MyAwLjAzNjc4IFxuTnVtYmVyIG9mIG9iczogMjU1LCBncm91cHM6ICBTdGF0ZV9OYW1lLCA1MTsgeWVhciwgNVxuXG5GaXhlZCBlZmZlY3RzOlxuICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICA0LjEyMjg4ICAgIDAuMTMzNTAgIDMwLjg4NCAgPCAyZS0xNiAqKipcbnByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgIDAuMDIyMjMgICAgMC4wNDUyNSAgIDAuNDkxICAgIDAuNjIzICAgIFxucG9wX21pbGxpb25zICAgICAgICAgICAgMC4wNzE5MyAgICAwLjAxMjM5ICAgNS44MDggNi4zNGUtMDkgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeV9cbnBydjJ5cnNfZHJnIC0wLjQwMiAgICAgICBcbnBvcF9taWxsaW5zIC0wLjU5NCAgMC4wMDVcbiJ9 --&gt;
+</code></pre>
+<p>Generalized linear mixed model fit by maximum likelihood (Laplace
+Approximation) [‘glmerMod’] Family: Negative Binomial(13289.93) ( log )
+Formula: count_tx ~ prev2years_drugusecalc + pop_millions + (1 |
+State_Name) + (1 | year) Data: state_nonprofit Control:
+glmerControl(optimizer = , optCtrl = list(maxfun = 2e+06))</p>
+<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
+<p>2150.5 2171.7 -1069.2 2138.5 249</p>
+<p>Scaled residuals: Min 1Q Median 3Q Max -3.6040 -0.3948 -0.0410 0.3918
+2.5562</p>
+<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
+0.427725 0.65401 year (Intercept) 0.001353 0.03678 Number of obs: 255,
+groups: State_Name, 51; year, 5</p>
+<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
+(Intercept) 4.12288 0.13350 30.884 &lt; 2e-16 <strong><em>
+prev2years_drugusecalc 0.02223 0.04525 0.491 0.623<br />
+pop_millions 0.07193 0.01239 5.808 6.34e-09 </em></strong> — Signif.
+codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’
+1</p>
+<p>Correlation of Fixed Effects: (Intr) prv2y_ prv2yrs_drg -0.402<br />
+pop_millins -0.594 0.005</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZ292dF9zZW5zaXRpdml0eTEgPC0gZ2xtZXIubmIoY291bnRfdHggfiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcXGJvYnlxYVxcLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9nb3Z0KVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+glmer_govt_sensitivity1 &lt;- glmer.nb(count_tx ~ 
+                                 prev2years_drugusecalc +
+                                pop_millions +  
+                                (1|State_Name)+ (1 | year),
+                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
+                              data = state_govt)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRcbiJ9 --&gt;
+</code></pre>
+<p>Warning: iteration limit reached</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc3VtbWFyeShnbG1lcl9nb3Z0X3NlbnNpdGl2aXR5MSlcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+summary(glmer_govt_sensitivity1)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgyNjc4NDk0KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcG9wX21pbGxpb25zICsgKDEgfCBTdGF0ZV9OYW1lKSArICAgICAgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZ292dFxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFxcYm9ieXFhXFwsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDE1NjAuMCAgIDE1ODEuMiAgIC03NzQuMCAgIDE1NDguMCAgICAgIDI0OCBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgIE1pbiAgICAgICAxUSAgIE1lZGlhbiAgICAgICAzUSAgICAgIE1heCBcbi0xLjE3ODI1IC0wLjMzMDI4IC0wLjAwNzY1ICAwLjIyMzE1ICAyLjAwNzQ3IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICAgIE5hbWUgICAgICAgIFZhcmlhbmNlICBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC44MDA0NzkyIDAuODk0NzAgXG4geWVhciAgICAgICAoSW50ZXJjZXB0KSAwLjAwMDg1MzUgMC4wMjkyMSBcbk51bWJlciBvZiBvYnM6IDI1NCwgZ3JvdXBzOiAgU3RhdGVfTmFtZSwgNTE7IHllYXIsIDVcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgMi40MDIyNCAgICAwLjEyNzE4ICAxOC44ODggIDwgMmUtMTYgKioqXG5wcmV2MnllYXJzX2RydWd1c2VjYWxjIC0wLjAyMTUxICAgIDAuMDc2NTkgIC0wLjI4MSAgICAwLjc3OSAgICBcbnBvcF9taWxsaW9ucyAgICAgICAgICAgIDAuMDg2MDIgICAgMC4wMTU0NiAgIDUuNTY1IDIuNjJlLTA4ICoqKlxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cbkNvcnJlbGF0aW9uIG9mIEZpeGVkIEVmZmVjdHM6XG4gICAgICAgICAgICAoSW50cikgcHJ2MnlfXG5wcnYyeXJzX2RyZyAtMC4zNTAgICAgICAgXG5wb3BfbWlsbGlucyAtMC40MDYgLTAuMjAzXG4ifQ== --&gt;
+</code></pre>
+<p>Generalized linear mixed model fit by maximum likelihood (Laplace
+Approximation) [‘glmerMod’] Family: Negative Binomial(2678494) ( log )
+Formula: count_tx ~ prev2years_drugusecalc + pop_millions + (1 |
+State_Name) + (1 | year) Data: state_govt Control:
+glmerControl(optimizer = , optCtrl = list(maxfun = 2e+06))</p>
+<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
+<p>1560.0 1581.2 -774.0 1548.0 248</p>
+<p>Scaled residuals: Min 1Q Median 3Q Max -1.17825 -0.33028 -0.00765
+0.22315 2.00747</p>
+<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
+0.8004792 0.89470 year (Intercept) 0.0008535 0.02921 Number of obs: 254,
+groups: State_Name, 51; year, 5</p>
+<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
+(Intercept) 2.40224 0.12718 18.888 &lt; 2e-16 <strong><em>
+prev2years_drugusecalc -0.02151 0.07659 -0.281 0.779<br />
+pop_millions 0.08602 0.01546 5.565 2.62e-08 </em></strong> — Signif.
+codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’
+1</p>
+<p>Correlation of Fixed Effects: (Intr) prv2y_ prv2yrs_drg -0.350<br />
+pop_millins -0.406 -0.203</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+
+Assumption #6 - do these trends hold PRE- ACA? 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+
+Assumption # 7 - do results change if we include the (lagged) overdose rates? i.e. can we measure whether the number of treatment centers is a function of how much attention is given to drug use (brought by overdose deaths) and not by prevalence of substance use? 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3ZlcmRvc2VfY29udHJvbHNfc3RyIDwtIFwifiBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX21hcmlqdWFuYSArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG92ZXJkb3NlX3JhdGVfbGFnICsgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKHBvcF9taWxsaW9ucykgKyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoSW5jb21lKSArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEpICtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoR2VuZGVyX01hbGUpICtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoVW5lbXBsb3ltZW50KSArIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShwZXJjYXBpdGFfaGVhbHRoX3NwZW5kaW5nX3Rob3VzYW5kcykgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShJbnN1cmFuY2VfVW5pbnN1cmVkKSArIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShFdGhuaWNpdHlfSGlzcGFuaWNvckxhdGlubykgKyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoUmFjZV9XaGl0ZSkgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXwgU3RhdGVfTmFtZSkgKyAoMSB8IHllYXIpXCJcblxuXG5nbG1lcl9vdmVyZG9zZV9mb3Jwcm9maXQgPC0gZ2xtZXIubmIoZm9ybXVsYShwYXN0ZShcIkZvcnByb2ZpdFwiLCBvdmVyZG9zZV9jb250cm9sc19zdHIpKSwgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZmluYWxfZGYpXG5cbnN1bW1hcnkoZ2xtZXJfb3ZlcmRvc2VfZm9ycHJvZml0KVxuYGBgIn0= --&gt;
+
+```r
+overdose_controls_str &lt;- &quot;~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +
+                                overdose_rate_lag + 
+                                scale(pop_millions) + 
+                                scale(Income) +
+                                scale(medicaid_enroll_percapita) +
+                                scale(Gender_Male) +
+                                scale(Unemployment) + 
+                                scale(percapita_health_spending_thousands) +
+                                scale(Insurance_Uninsured) + 
+                                scale(Ethnicity_HispanicorLatino) + 
+                                scale(Race_White) +
+                                (1| State_Name) + (1 | year)&quot;
+
+
+glmer_overdose_forprofit &lt;- glmer.nb(formula(paste(&quot;Forprofit&quot;, overdose_controls_str)), control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)
+
+summary(glmer_overdose_forprofit)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODYuODM4KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgKyBwcmV2MnllYXJzX21hcmlqdWFuYSArICAgICAgcG9wX21pbGxpb25zICsgKDEgfCBTdGF0ZV9OYW1lKSArICgxIHwgeWVhcilcbiAgIERhdGE6IHN0YXRlX2ZvcnByb2ZpdFxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDIxMjIuMSAgIDIxNTAuNCAgLTEwNTMuMSAgIDIxMDYuMSAgICAgIDI0NyBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMi42MjYxIC0wLjQxNTcgLTAuMDEyOCAgMC4zNjQxICAzLjkwOTYgXG5cblJhbmRvbSBlZmZlY3RzOlxuIEdyb3VwcyAgICAgTmFtZSAgICAgICAgVmFyaWFuY2UgU3RkLkRldi5cbiBTdGF0ZV9OYW1lIChJbnRlcmNlcHQpIDAuNjYxNzg5IDAuODEzNTAgXG4geWVhciAgICAgICAoSW50ZXJjZXB0KSAwLjAwNTM4MSAwLjA3MzM2IFxuTnVtYmVyIG9mIG9iczogMjU1LCBncm91cHM6ICBTdGF0ZV9OYW1lLCA1MTsgeWVhciwgNVxuXG5GaXhlZCBlZmZlY3RzOlxuICAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgMy41OTg1MTIgICAwLjIyMTQxOSAgMTYuMjUyICA8IDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgMC4xNTQyODggICAwLjA3OTEyMyAgIDEuOTUwICAgMC4wNTEyIC4gIFxucHJldjJ5ZWFyc19hdWQgICAgICAgICAtMC4wNDk5NDMgICAwLjAyMzA3NCAgLTIuMTY1ICAgMC4wMzA0ICogIFxucHJldjJ5ZWFyc19tYXJpanVhbmEgICAgMC4wMDIwODggICAwLjAxMjk1NCAgIDAuMTYxICAgMC44NzE5ICAgIFxucG9wX21pbGxpb25zICAgICAgICAgICAgMC4wOTkwODQgICAwLjAxNTQzOCAgIDYuNDE4IDEuMzhlLTEwICoqKlxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cbkNvcnJlbGF0aW9uIG9mIEZpeGVkIEVmZmVjdHM6XG4gICAgICAgICAgICAoSW50cikgcHJ2Mnlyc19kciBwcmV2Mnlyc19kIHBydjJ5cnNfbVxucHJ2Mnlyc19kcmcgLTAuMTUxICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbnByZXYyeWVyc19kIC0wLjQyNyAtMC4yMDcgICAgICAgICAgICAgICAgICAgICAgICAgXG5wcnYyeXJzX21yaiAtMC4yNDQgLTAuMjMxICAgICAtMC4zMzcgICAgICAgICAgICAgIFxucG9wX21pbGxpbnMgLTAuNTA2IC0wLjAwNSAgICAgIDAuMDY0ICAgICAgMC4wMzQgICBcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxOTUuODI2NCkgICggbG9nIClcbkZvcm11bGE6IEZvcnByb2ZpdCB+IHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfbWFyaWp1YW5hICsgIFxuICAgIG92ZXJkb3NlX3JhdGVfbGFnICsgc2NhbGUocG9wX21pbGxpb25zKSArIHNjYWxlKEluY29tZSkgKyAgXG4gICAgc2NhbGUobWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSkgKyBzY2FsZShHZW5kZXJfTWFsZSkgKyBzY2FsZShVbmVtcGxveW1lbnQpICsgIFxuICAgIHNjYWxlKHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzKSArIHNjYWxlKEluc3VyYW5jZV9Vbmluc3VyZWQpICsgIFxuICAgIHNjYWxlKEV0aG5pY2l0eV9IaXNwYW5pY29yTGF0aW5vKSArIHNjYWxlKFJhY2VfV2hpdGUpICsgKDEgfCAgICAgIFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZmluYWxfZGZcbkNvbnRyb2w6IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZSswNikpXG5cbiAgICAgQUlDICAgICAgQklDICAgbG9nTGlrIGRldmlhbmNlIGRmLnJlc2lkIFxuICAyMTAzLjQgICAyMTYzLjIgIC0xMDM0LjcgICAyMDY5LjQgICAgICAyMzMgXG5cblNjYWxlZCByZXNpZHVhbHM6IFxuICAgIE1pbiAgICAgIDFRICBNZWRpYW4gICAgICAzUSAgICAgTWF4IFxuLTIuNDI0MyAtMC40MjUwIC0wLjAwOTIgIDAuMzQzNCAgNC4yMTM0IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICAgIE5hbWUgICAgICAgIFZhcmlhbmNlIFN0ZC5EZXYuXG4gU3RhdGVfTmFtZSAoSW50ZXJjZXB0KSAwLjU0NTcwMyAwLjczODcyIFxuIHllYXIgICAgICAgKEludGVyY2VwdCkgMC4wMDUxNDIgMC4wNzE3MSBcbk51bWJlciBvZiBvYnM6IDI1MCwgZ3JvdXBzOiAgU3RhdGVfTmFtZSwgNTA7IHllYXIsIDVcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA0LjExMDQ0OSAgIDAuMjAyNDAzICAyMC4zMDggIDwgMmUtMTYgKioqXG5wcmV2MnllYXJzX2F1ZCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLTAuMDQ0MDUxICAgMC4wMjI5NTAgIC0xLjkxOSAgMC4wNTQ5MyAuICBcbnByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgICAgICAgICAgICAgICAgICAgICAgMC4yMDQ5NDAgICAwLjA3OTE4MSAgIDIuNTg4ICAwLjAwOTY1ICoqIFxucHJldjJ5ZWFyc19tYXJpanVhbmEgICAgICAgICAgICAgICAgICAgICAgIC0wLjAwMjA2OCAgIDAuMDEyODk2ICAtMC4xNjAgIDAuODcyNTggICAgXG5vdmVyZG9zZV9yYXRlX2xhZyAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMDA1MDc4ICAgMC4wMDMyNzkgICAxLjU0OCAgMC4xMjE1MSAgICBcbnNjYWxlKHBvcF9taWxsaW9ucykgICAgICAgICAgICAgICAgICAgICAgICAgMC42ODE3MjAgICAwLjEyNzY3MyAgIDUuMzQwIDkuMzJlLTA4ICoqKlxuc2NhbGUoSW5jb21lKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjA1MjUwMiAgIDAuMDM5OTE3ICAgMS4zMTUgIDAuMTg4NDEgICAgXG5zY2FsZShtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhKSAgICAgICAgICAgLTAuMDc5NzU1ICAgMC4wNjcxNTMgIC0xLjE4OCAgMC4yMzQ5NyAgICBcbnNjYWxlKEdlbmRlcl9NYWxlKSAgICAgICAgICAgICAgICAgICAgICAgICAtMC4xNDQ0MTggICAwLjEwMjQwMyAgLTEuNDEwICAwLjE1ODQ1ICAgIFxuc2NhbGUoVW5lbXBsb3ltZW50KSAgICAgICAgICAgICAgICAgICAgICAgICAwLjAwMjc2MSAgIDAuMDM0NTY3ICAgMC4wODAgIDAuOTM2MzQgICAgXG5zY2FsZShwZXJjYXBpdGFfaGVhbHRoX3NwZW5kaW5nX3Rob3VzYW5kcykgLTAuMDUyNjAxICAgMC4wOTk5MzggIC0wLjUyNiAgMC41OTg2NSAgICBcbnNjYWxlKEluc3VyYW5jZV9Vbmluc3VyZWQpICAgICAgICAgICAgICAgICAtMC4xMDMyMzUgICAwLjA3NDk0MyAgLTEuMzc4ICAwLjE2ODM1ICAgIFxuc2NhbGUoRXRobmljaXR5X0hpc3Bhbmljb3JMYXRpbm8pICAgICAgICAgICAwLjAyNTY2NSAgIDAuMTI2NDIwICAgMC4yMDMgIDAuODM5MTIgICAgXG5zY2FsZShSYWNlX1doaXRlKSAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMDE3Nzg5ICAgMC4xMTYxMTAgICAwLjE1MyAgMC44NzgyNCAgICBcbi0tLVxuU2lnbmlmLiBjb2RlczogIDAg4oCYKioq4oCZIDAuMDAxIOKAmCoq4oCZIDAuMDEg4oCYKuKAmSAwLjA1IOKAmC7igJkgMC4xIOKAmCDigJkgMVxuIn0= -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
- Family: Negative Binomial(186.838)  ( log )
-Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud + prev2years_marijuana +      pop_millions + (1 | State_Name) + (1 | year)
-   Data: state_forprofit
+ Family: Negative Binomial(195.8264)  ( log )
+Formula: Forprofit ~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +  
+    overdose_rate_lag + scale(pop_millions) + scale(Income) +  
+    scale(medicaid_enroll_percapita) + scale(Gender_Male) + scale(Unemployment) +  
+    scale(percapita_health_spending_thousands) + scale(Insurance_Uninsured) +  
+    scale(Ethnicity_HispanicorLatino) + scale(Race_White) + (1 |      State_Name) + (1 | year)
+   Data: state_final_df
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
 
      AIC      BIC   logLik deviance df.resid 
-  2122.1   2150.4  -1053.1   2106.1      247 
+  2103.4   2163.2  -1034.7   2069.4      233 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--2.6261 -0.4157 -0.0128  0.3641  3.9096 
+-2.4243 -0.4250 -0.0092  0.3434  4.2134 
 
 Random effects:
  Groups     Name        Variance Std.Dev.
- State_Name (Intercept) 0.661789 0.81350 
- year       (Intercept) 0.005381 0.07336 
-Number of obs: 255, groups:  State_Name, 51; year, 5
+ State_Name (Intercept) 0.545703 0.73872 
+ year       (Intercept) 0.005142 0.07171 
+Number of obs: 250, groups:  State_Name, 50; year, 5
 
 Fixed effects:
-                        Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)             3.598512   0.221419  16.252  &lt; 2e-16 ***
-prev2years_drugusecalc  0.154288   0.079123   1.950   0.0512 .  
-prev2years_aud         -0.049943   0.023074  -2.165   0.0304 *  
-prev2years_marijuana    0.002088   0.012954   0.161   0.8719    
-pop_millions            0.099084   0.015438   6.418 1.38e-10 ***
+                                            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)                                 4.110449   0.202403  20.308  &lt; 2e-16 ***
+prev2years_aud                             -0.044051   0.022950  -1.919  0.05493 .  
+prev2years_drugusecalc                      0.204940   0.079181   2.588  0.00965 ** 
+prev2years_marijuana                       -0.002068   0.012896  -0.160  0.87258    
+overdose_rate_lag                           0.005078   0.003279   1.548  0.12151    
+scale(pop_millions)                         0.681720   0.127673   5.340 9.32e-08 ***
+scale(Income)                               0.052502   0.039917   1.315  0.18841    
+scale(medicaid_enroll_percapita)           -0.079755   0.067153  -1.188  0.23497    
+scale(Gender_Male)                         -0.144418   0.102403  -1.410  0.15845    
+scale(Unemployment)                         0.002761   0.034567   0.080  0.93634    
+scale(percapita_health_spending_thousands) -0.052601   0.099938  -0.526  0.59865    
+scale(Insurance_Uninsured)                 -0.103235   0.074943  -1.378  0.16835    
+scale(Ethnicity_HispanicorLatino)           0.025665   0.126420   0.203  0.83912    
+scale(Race_White)                           0.017789   0.116110   0.153  0.87824    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Correlation of Fixed Effects:
-            (Intr) prv2yrs_dr prev2yrs_d prv2yrs_m
-prv2yrs_drg -0.151                                
-prev2yers_d -0.427 -0.207                         
-prv2yrs_mrj -0.244 -0.231     -0.337              
-pop_millins -0.506 -0.005      0.064      0.034   </code></pre>
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Db3JyZWxhdGlvbiBtYXRyaXggbm90IHNob3duIGJ5IGRlZmF1bHQsIGFzIHAgPSAxNCA+IDEyLlxuVXNlIHByaW50KHgsIGNvcnJlbGF0aW9uPVRSVUUpICBvclxuICAgIHZjb3YoeCkgICAgICAgIGlmIHlvdSBuZWVkIGl0XG4ifQ== -->
+<pre><code>
+Correlation matrix not shown by default, as p = 14 &gt; 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Assumption #5 - what happens if we fit the model using the predictors
-that were best from LRT for nonprofit / govt?</p>
-<p>Still not significant - this is a good thing because that was the
-result when we included AUD also</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfbm9ucHJvZml0X3NlbnNpdGl2aXR5MSA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcF9taWxsaW9ucyArICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKDF8U3RhdGVfTmFtZSkrICgxIHwgeWVhciksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlNikpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX25vbnByb2ZpdClcbmBgYCJ9 -->
-<pre class="r"><code>glmer_nonprofit_sensitivity1 &lt;- glmer.nb(count_tx ~ 
-                                 prev2years_drugusecalc +
-                                pop_millions +  
-                                (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
-                              data = state_nonprofit)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfb3ZlcmRvc2Vfbm9ucHJvZml0IDwtIGdsbWVyLm5iKGZvcm11bGEocGFzdGUoXCJOb25wcm9maXRcIiwgb3ZlcmRvc2VfY29udHJvbHNfc3RyKSksIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZpbmFsX2RmKVxuYGBgIn0= -->
+<pre class="r"><code>glmer_overdose_nonprofit &lt;- glmer.nb(formula(paste(&quot;Nonprofit&quot;, overdose_controls_str)), control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRcbiJ9 -->
-<pre><code>Warning: iteration limit reached</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRXYXJuaW5nOiBNb2RlbCBmYWlsZWQgdG8gY29udmVyZ2Ugd2l0aCBtYXh8Z3JhZHwgPSAwLjAwNTk1MDA4ICh0b2wgPSAwLjAwMiwgY29tcG9uZW50IDEpV2FybmluZzogTW9kZWwgZmFpbGVkIHRvIGNvbnZlcmdlIHdpdGggbWF4fGdyYWR8ID0gMC4wMTMzNDI0ICh0b2wgPSAwLjAwMiwgY29tcG9uZW50IDEpXG4ifQ== -->
+<pre><code>Warning: iteration limit reachedWarning: Model failed to converge with max|grad| = 0.00595008 (tol = 0.002, component 1)Warning: Model failed to converge with max|grad| = 0.0133424 (tol = 0.002, component 1)</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShnbG1lcl9ub25wcm9maXRfc2Vuc2l0aXZpdHkxKVxuYGBgIn0= -->
-<pre class="r"><code>summary(glmer_nonprofit_sensitivity1)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShnbG1lcl9vdmVyZG9zZV9ub25wcm9maXQpXG5gYGAifQ== -->
+<pre class="r"><code>summary(glmer_overdose_nonprofit)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxMzI4OS45MykgICggbG9nIClcbkZvcm11bGE6IGNvdW50X3R4IH4gcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHBvcF9taWxsaW9ucyArICgxIHwgU3RhdGVfTmFtZSkgKyAgICAgICgxIHwgeWVhcilcbiAgIERhdGE6IHN0YXRlX25vbnByb2ZpdFxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDIxNTAuNSAgIDIxNzEuNyAgLTEwNjkuMiAgIDIxMzguNSAgICAgIDI0OSBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMy42MDQwIC0wLjM5NDggLTAuMDQxMCAgMC4zOTE4ICAyLjU1NjIgXG5cblJhbmRvbSBlZmZlY3RzOlxuIEdyb3VwcyAgICAgTmFtZSAgICAgICAgVmFyaWFuY2UgU3RkLkRldi5cbiBTdGF0ZV9OYW1lIChJbnRlcmNlcHQpIDAuNDI3NzI1IDAuNjU0MDEgXG4geWVhciAgICAgICAoSW50ZXJjZXB0KSAwLjAwMTM1MyAwLjAzNjc4IFxuTnVtYmVyIG9mIG9iczogMjU1LCBncm91cHM6ICBTdGF0ZV9OYW1lLCA1MTsgeWVhciwgNVxuXG5GaXhlZCBlZmZlY3RzOlxuICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICA0LjEyMjg4ICAgIDAuMTMzNTAgIDMwLjg4NCAgPCAyZS0xNiAqKipcbnByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgIDAuMDIyMjMgICAgMC4wNDUyNSAgIDAuNDkxICAgIDAuNjIzICAgIFxucG9wX21pbGxpb25zICAgICAgICAgICAgMC4wNzE5MyAgICAwLjAxMjM5ICAgNS44MDggNi4zNGUtMDkgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeV9cbnBydjJ5cnNfZHJnIC0wLjQwMiAgICAgICBcbnBvcF9taWxsaW5zIC0wLjU5NCAgMC4wMDVcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxNjI3MTk0KSAgKCBsb2cgKVxuRm9ybXVsYTogTm9ucHJvZml0IH4gcHJldjJ5ZWFyc19hdWQgKyBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19tYXJpanVhbmEgKyAgXG4gICAgb3ZlcmRvc2VfcmF0ZV9sYWcgKyBzY2FsZShwb3BfbWlsbGlvbnMpICsgc2NhbGUoSW5jb21lKSArICBcbiAgICBzY2FsZShtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhKSArIHNjYWxlKEdlbmRlcl9NYWxlKSArIHNjYWxlKFVuZW1wbG95bWVudCkgKyAgXG4gICAgc2NhbGUocGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMpICsgc2NhbGUoSW5zdXJhbmNlX1VuaW5zdXJlZCkgKyAgXG4gICAgc2NhbGUoRXRobmljaXR5X0hpc3Bhbmljb3JMYXRpbm8pICsgc2NhbGUoUmFjZV9XaGl0ZSkgKyAoMSB8ICAgICAgU3RhdGVfTmFtZSkgKyAoMSB8IHllYXIpXG4gICBEYXRhOiBzdGF0ZV9maW5hbF9kZlxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDIxMjguOSAgIDIxODguNyAgLTEwNDcuNCAgIDIwOTQuOSAgICAgIDIzMyBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tMy42ODE4IC0wLjQ1NTcgLTAuMDY3MyAgMC40MDk0ICAyLjYxMTEgXG5cblJhbmRvbSBlZmZlY3RzOlxuIEdyb3VwcyAgICAgTmFtZSAgICAgICAgVmFyaWFuY2UgIFN0ZC5EZXYuXG4gU3RhdGVfTmFtZSAoSW50ZXJjZXB0KSAwLjM5OTEzMzEgMC42MzE3NyBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDAwOTk2NSAwLjAzMTU3IFxuTnVtYmVyIG9mIG9iczogMjUwLCBncm91cHM6ICBTdGF0ZV9OYW1lLCA1MDsgeWVhciwgNVxuXG5GaXhlZCBlZmZlY3RzOlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDQuNDk1ODIwICAgMC4xNTQxNzAgIDI5LjE2MSAgPCAyZS0xNiAqKipcbnByZXYyeWVhcnNfYXVkICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wMDU5MDggICAwLjAxNDcxOSAgIDAuNDAxICAgIDAuNjg4ICAgIFxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgICAgICAgICAgICAgICAgICAgICAwLjAyOTg5MCAgIDAuMDUwNjY2ICAgMC41OTAgICAgMC41NTUgICAgXG5wcmV2MnllYXJzX21hcmlqdWFuYSAgICAgICAgICAgICAgICAgICAgICAgIDAuMDA0OTUzICAgMC4wMDgzMDUgICAwLjU5NiAgICAwLjU1MSAgICBcbm92ZXJkb3NlX3JhdGVfbGFnICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4wMDEyNzQgICAwLjAwMTk5MCAgIDAuNjQwICAgIDAuNTIyICAgIFxuc2NhbGUocG9wX21pbGxpb25zKSAgICAgICAgICAgICAgICAgICAgICAgICAwLjQ4MzAzNyAgIDAuMTE2MTMwICAgNC4xNTkgMy4xOWUtMDUgKioqXG5zY2FsZShJbmNvbWUpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMDI2OTY4ICAgMC4wMjYyOTkgICAxLjAyNSAgICAwLjMwNSAgICBcbnNjYWxlKG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEpICAgICAgICAgICAtMC4wMDY3ODUgICAwLjA0MDMwOCAgLTAuMTY4ICAgIDAuODY2ICAgIFxuc2NhbGUoR2VuZGVyX01hbGUpICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjExNTY0NSAgIDAuMDgyNTMxICAtMS40MDEgICAgMC4xNjEgICAgXG5zY2FsZShVbmVtcGxveW1lbnQpICAgICAgICAgICAgICAgICAgICAgICAgIDAuMDI1MjE5ICAgMC4wMTk5NjQgICAxLjI2MyAgICAwLjIwNiAgICBcbnNjYWxlKHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzKSAgMC4wMTY2MjcgICAwLjA0NTIwNiAgIDAuMzY4ICAgIDAuNzEzICAgIFxuc2NhbGUoSW5zdXJhbmNlX1VuaW5zdXJlZCkgICAgICAgICAgICAgICAgICAwLjA0NDg1MSAgIDAuMDQ5NTYxICAgMC45MDUgICAgMC4zNjUgICAgXG5zY2FsZShFdGhuaWNpdHlfSGlzcGFuaWNvckxhdGlubykgICAgICAgICAgLTAuMDE4NDI0ICAgMC4xMDY3NzMgIC0wLjE3MyAgICAwLjg2MyAgICBcbnNjYWxlKFJhY2VfV2hpdGUpICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wNjI3MDIgICAwLjA5NzIzOSAgLTAuNjQ1ICAgIDAuNTE5ICAgIFxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG4ifQ== -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
- Family: Negative Binomial(13289.93)  ( log )
-Formula: count_tx ~ prev2years_drugusecalc + pop_millions + (1 | State_Name) +      (1 | year)
-   Data: state_nonprofit
+ Family: Negative Binomial(1627194)  ( log )
+Formula: Nonprofit ~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +  
+    overdose_rate_lag + scale(pop_millions) + scale(Income) +  
+    scale(medicaid_enroll_percapita) + scale(Gender_Male) + scale(Unemployment) +  
+    scale(percapita_health_spending_thousands) + scale(Insurance_Uninsured) +  
+    scale(Ethnicity_HispanicorLatino) + scale(Race_White) + (1 |      State_Name) + (1 | year)
+   Data: state_final_df
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
 
      AIC      BIC   logLik deviance df.resid 
-  2150.5   2171.7  -1069.2   2138.5      249 
+  2128.9   2188.7  -1047.4   2094.9      233 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.6040 -0.3948 -0.0410  0.3918  2.5562 
-
-Random effects:
- Groups     Name        Variance Std.Dev.
- State_Name (Intercept) 0.427725 0.65401 
- year       (Intercept) 0.001353 0.03678 
-Number of obs: 255, groups:  State_Name, 51; year, 5
-
-Fixed effects:
-                       Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)             4.12288    0.13350  30.884  &lt; 2e-16 ***
-prev2years_drugusecalc  0.02223    0.04525   0.491    0.623    
-pop_millions            0.07193    0.01239   5.808 6.34e-09 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Correlation of Fixed Effects:
-            (Intr) prv2y_
-prv2yrs_drg -0.402       
-pop_millins -0.594  0.005</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfZ292dF9zZW5zaXRpdml0eTEgPC0gZ2xtZXIubmIoY291bnRfdHggfiBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9nb3Z0KVxuYGBgIn0= -->
-<pre class="r"><code>glmer_govt_sensitivity1 &lt;- glmer.nb(count_tx ~ 
-                                 prev2years_drugusecalc +
-                                pop_millions +  
-                                (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
-                              data = state_govt)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRcbiJ9 -->
-<pre><code>Warning: iteration limit reached</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShnbG1lcl9nb3Z0X3NlbnNpdGl2aXR5MSlcbmBgYCJ9 -->
-<pre class="r"><code>summary(glmer_govt_sensitivity1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgyNjc4NDk0KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcG9wX21pbGxpb25zICsgKDEgfCBTdGF0ZV9OYW1lKSArICAgICAgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZ292dFxuQ29udHJvbDogZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlKzA2KSlcblxuICAgICBBSUMgICAgICBCSUMgICBsb2dMaWsgZGV2aWFuY2UgZGYucmVzaWQgXG4gIDE1NjAuMCAgIDE1ODEuMiAgIC03NzQuMCAgIDE1NDguMCAgICAgIDI0OCBcblxuU2NhbGVkIHJlc2lkdWFsczogXG4gICAgIE1pbiAgICAgICAxUSAgIE1lZGlhbiAgICAgICAzUSAgICAgIE1heCBcbi0xLjE3ODI1IC0wLjMzMDI4IC0wLjAwNzY1ICAwLjIyMzE1ICAyLjAwNzQ3IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICAgIE5hbWUgICAgICAgIFZhcmlhbmNlICBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC44MDA0NzkyIDAuODk0NzAgXG4geWVhciAgICAgICAoSW50ZXJjZXB0KSAwLjAwMDg1MzUgMC4wMjkyMSBcbk51bWJlciBvZiBvYnM6IDI1NCwgZ3JvdXBzOiAgU3RhdGVfTmFtZSwgNTE7IHllYXIsIDVcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgMi40MDIyNCAgICAwLjEyNzE4ICAxOC44ODggIDwgMmUtMTYgKioqXG5wcmV2MnllYXJzX2RydWd1c2VjYWxjIC0wLjAyMTUxICAgIDAuMDc2NTkgIC0wLjI4MSAgICAwLjc3OSAgICBcbnBvcF9taWxsaW9ucyAgICAgICAgICAgIDAuMDg2MDIgICAgMC4wMTU0NiAgIDUuNTY1IDIuNjJlLTA4ICoqKlxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cbkNvcnJlbGF0aW9uIG9mIEZpeGVkIEVmZmVjdHM6XG4gICAgICAgICAgICAoSW50cikgcHJ2MnlfXG5wcnYyeXJzX2RyZyAtMC4zNTAgICAgICAgXG5wb3BfbWlsbGlucyAtMC40MDYgLTAuMjAzXG4ifQ== -->
-<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
- Family: Negative Binomial(2678494)  ( log )
-Formula: count_tx ~ prev2years_drugusecalc + pop_millions + (1 | State_Name) +      (1 | year)
-   Data: state_govt
-Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
-
-     AIC      BIC   logLik deviance df.resid 
-  1560.0   1581.2   -774.0   1548.0      248 
-
-Scaled residuals: 
-     Min       1Q   Median       3Q      Max 
--1.17825 -0.33028 -0.00765  0.22315  2.00747 
+-3.6818 -0.4557 -0.0673  0.4094  2.6111 
 
 Random effects:
  Groups     Name        Variance  Std.Dev.
- State_Name (Intercept) 0.8004792 0.89470 
- year       (Intercept) 0.0008535 0.02921 
-Number of obs: 254, groups:  State_Name, 51; year, 5
+ State_Name (Intercept) 0.3991331 0.63177 
+ year       (Intercept) 0.0009965 0.03157 
+Number of obs: 250, groups:  State_Name, 50; year, 5
 
 Fixed effects:
-                       Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)             2.40224    0.12718  18.888  &lt; 2e-16 ***
-prev2years_drugusecalc -0.02151    0.07659  -0.281    0.779    
-pop_millions            0.08602    0.01546   5.565 2.62e-08 ***
+                                            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)                                 4.495820   0.154170  29.161  &lt; 2e-16 ***
+prev2years_aud                              0.005908   0.014719   0.401    0.688    
+prev2years_drugusecalc                      0.029890   0.050666   0.590    0.555    
+prev2years_marijuana                        0.004953   0.008305   0.596    0.551    
+overdose_rate_lag                           0.001274   0.001990   0.640    0.522    
+scale(pop_millions)                         0.483037   0.116130   4.159 3.19e-05 ***
+scale(Income)                               0.026968   0.026299   1.025    0.305    
+scale(medicaid_enroll_percapita)           -0.006785   0.040308  -0.168    0.866    
+scale(Gender_Male)                         -0.115645   0.082531  -1.401    0.161    
+scale(Unemployment)                         0.025219   0.019964   1.263    0.206    
+scale(percapita_health_spending_thousands)  0.016627   0.045206   0.368    0.713    
+scale(Insurance_Uninsured)                  0.044851   0.049561   0.905    0.365    
+scale(Ethnicity_HispanicorLatino)          -0.018424   0.106773  -0.173    0.863    
+scale(Race_White)                          -0.062702   0.097239  -0.645    0.519    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Correlation of Fixed Effects:
-            (Intr) prv2y_
-prv2yrs_drg -0.350       
-pop_millins -0.406 -0.203</code></pre>
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Db3JyZWxhdGlvbiBtYXRyaXggbm90IHNob3duIGJ5IGRlZmF1bHQsIGFzIHAgPSAxNCA+IDEyLlxuVXNlIHByaW50KHgsIGNvcnJlbGF0aW9uPVRSVUUpICBvclxuICAgIHZjb3YoeCkgICAgICAgIGlmIHlvdSBuZWVkIGl0XG4ifQ== -->
+<pre><code>
+Correlation matrix not shown by default, as p = 14 &gt; 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoib3B0aW1pemVyIChib2J5cWEpIGNvbnZlcmdlbmNlIGNvZGU6IDAgKE9LKVxuTW9kZWwgZmFpbGVkIHRvIGNvbnZlcmdlIHdpdGggbWF4fGdyYWR8ID0gMC4wMTMzNDI0ICh0b2wgPSAwLjAwMiwgY29tcG9uZW50IDEpXG4ifQ== -->
+<pre><code>optimizer (bobyqa) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0133424 (tol = 0.002, component 1)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Assumption #6 - do these trends hold PRE- ACA?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI25vbnByb2ZpdCByZXN1bHRzIGFyZSB0aGUgc2FtZSAtIG5vIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIGRydWcgdXNlIHByZXZhbGVuY2UgYW5kIG51bWJlciBvZiB0cmVhdG1lbnQgY2VudGVycywgbm9yIHdpdGggb3ZlcmRvc2UgZGVhdGhzXG5nbG1lcl9vdmVyZG9zZV9nb3Z0IDwtIGdsbWVyLm5iKGZvcm11bGEocGFzdGUoXCJHb3Zlcm5tZW50XCIsIG92ZXJkb3NlX2NvbnRyb2xzX3N0cikpLCBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlNikpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9maW5hbF9kZilcbmBgYCJ9 -->
+<pre class="r"><code>#nonprofit results are the same - no relationship between drug use prevalence and number of treatment centers, nor with overdose deaths
+glmer_overdose_govt &lt;- glmer.nb(formula(paste(&quot;Government&quot;, overdose_controls_str)), control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                            data = state_final_df)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRXYXJuaW5nOiBNb2RlbCBmYWlsZWQgdG8gY29udmVyZ2Ugd2l0aCBtYXh8Z3JhZHwgPSAwLjAwMjQ1NzMzICh0b2wgPSAwLjAwMiwgY29tcG9uZW50IDEpV2FybmluZzogTW9kZWwgZmFpbGVkIHRvIGNvbnZlcmdlIHdpdGggbWF4fGdyYWR8ID0gMC4wMDcyMzA2OCAodG9sID0gMC4wMDIsIGNvbXBvbmVudCAxKVxuIn0= -->
+<pre><code>Warning: iteration limit reachedWarning: Model failed to converge with max|grad| = 0.00245733 (tol = 0.002, component 1)Warning: Model failed to converge with max|grad| = 0.00723068 (tol = 0.002, component 1)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShnbG1lcl9vdmVyZG9zZV9nb3Z0KVxuYGBgIn0= -->
+<pre class="r"><code>summary(glmer_overdose_govt)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgyMTk0MzI1KSAgKCBsb2cgKVxuRm9ybXVsYTogR292ZXJubWVudCB+IHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfbWFyaWp1YW5hICsgIFxuICAgIG92ZXJkb3NlX3JhdGVfbGFnICsgc2NhbGUocG9wX21pbGxpb25zKSArIHNjYWxlKEluY29tZSkgKyAgXG4gICAgc2NhbGUobWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSkgKyBzY2FsZShHZW5kZXJfTWFsZSkgKyBzY2FsZShVbmVtcGxveW1lbnQpICsgIFxuICAgIHNjYWxlKHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzKSArIHNjYWxlKEluc3VyYW5jZV9Vbmluc3VyZWQpICsgIFxuICAgIHNjYWxlKEV0aG5pY2l0eV9IaXNwYW5pY29yTGF0aW5vKSArIHNjYWxlKFJhY2VfV2hpdGUpICsgKDEgfCAgICAgIFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZmluYWxfZGZcbkNvbnRyb2w6IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZSswNikpXG5cbiAgICAgQUlDICAgICAgQklDICAgbG9nTGlrIGRldmlhbmNlIGRmLnJlc2lkIFxuICAxNTU1LjQgICAxNjE1LjMgICAtNzYwLjcgICAxNTIxLjQgICAgICAyMzMgXG5cblNjYWxlZCByZXNpZHVhbHM6IFxuICAgICBNaW4gICAgICAgMVEgICBNZWRpYW4gICAgICAgM1EgICAgICBNYXggXG4tMS40MDE4OCAtMC4yOTU1NiAtMC4wNDE1NyAgMC4yMzQ5MiAgMS45ODc4MCBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSAgU3RkLkRldi5cbiBTdGF0ZV9OYW1lIChJbnRlcmNlcHQpIDAuNjQ2NTQ0MiAwLjgwNDA4IFxuIHllYXIgICAgICAgKEludGVyY2VwdCkgMC4wMDAyMjczIDAuMDE1MDggXG5OdW1iZXIgb2Ygb2JzOiAyNTAsIGdyb3VwczogIFN0YXRlX05hbWUsIDUwOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgeiB2YWx1ZSBQcig+fHp8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMi45NzAyNTQgICAwLjE3ODg4MSAgMTYuNjA1ICA8IDJlLTE2ICoqKlxucHJldjJ5ZWFyc19hdWQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjAyMTUwNyAgIDAuMDI3MjgxICAgMC43ODggICAgMC40MzEgICAgXG5wcmV2MnllYXJzX2RydWd1c2VjYWxjICAgICAgICAgICAgICAgICAgICAgIDAuMDE3NDE1ICAgMC4xMDExMDIgICAwLjE3MiAgICAwLjg2MyAgICBcbnByZXYyeWVhcnNfbWFyaWp1YW5hICAgICAgICAgICAgICAgICAgICAgICAtMC4wMDU2MzcgICAwLjAxNTI4NyAgLTAuMzY5ICAgIDAuNzEyICAgIFxub3ZlcmRvc2VfcmF0ZV9sYWcgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjAwNTgxNCAgIDAuMDA0NDA0ICAtMS4zMjAgICAgMC4xODcgICAgXG5zY2FsZShwb3BfbWlsbGlvbnMpICAgICAgICAgICAgICAgICAgICAgICAgIDAuNTUxNjg3ICAgMC4xMjM5OTIgICA0LjQ0OSA4LjYxZS0wNiAqKipcbnNjYWxlKEluY29tZSkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMTE5MDggICAwLjA1MDQyOSAgLTAuMjM2ICAgIDAuODEzICAgIFxuc2NhbGUobWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSkgICAgICAgICAgICAwLjAyNzI4MCAgIDAuMDcyODc0ICAgMC4zNzQgICAgMC43MDggICAgXG5zY2FsZShHZW5kZXJfTWFsZSkgICAgICAgICAgICAgICAgICAgICAgICAgIDAuMTQ3NzEzICAgMC4xMTA0MTQgICAxLjMzOCAgICAwLjE4MSAgICBcbnNjYWxlKFVuZW1wbG95bWVudCkgICAgICAgICAgICAgICAgICAgICAgICAtMC4wMTU5NTIgICAwLjAzNjQ2MCAgLTAuNDM4ICAgIDAuNjYyICAgIFxuc2NhbGUocGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMpIC0wLjAzMjY5MiAgIDAuMDcwNzUyICAtMC40NjIgICAgMC42NDQgICAgXG5zY2FsZShJbnN1cmFuY2VfVW5pbnN1cmVkKSAgICAgICAgICAgICAgICAgIDAuMDU5MjY4ICAgMC4wNzMwMzkgICAwLjgxMSAgICAwLjQxNyAgICBcbnNjYWxlKEV0aG5pY2l0eV9IaXNwYW5pY29yTGF0aW5vKSAgICAgICAgICAgMC4wNDQwODcgICAwLjExNDU5MSAgIDAuMzg1ICAgIDAuNzAwICAgIFxuc2NhbGUoUmFjZV9XaGl0ZSkgICAgICAgICAgICAgICAgICAgICAgICAgIC0wLjE3NzY1NCAgIDAuMTA4NTUxICAtMS42MzcgICAgMC4xMDIgICAgXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcbiJ9 -->
+<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [&#39;glmerMod&#39;]
+ Family: Negative Binomial(2194325)  ( log )
+Formula: Government ~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +  
+    overdose_rate_lag + scale(pop_millions) + scale(Income) +  
+    scale(medicaid_enroll_percapita) + scale(Gender_Male) + scale(Unemployment) +  
+    scale(percapita_health_spending_thousands) + scale(Insurance_Uninsured) +  
+    scale(Ethnicity_HispanicorLatino) + scale(Race_White) + (1 |      State_Name) + (1 | year)
+   Data: state_final_df
+Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e+06))
+
+     AIC      BIC   logLik deviance df.resid 
+  1555.4   1615.3   -760.7   1521.4      233 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.40188 -0.29556 -0.04157  0.23492  1.98780 
+
+Random effects:
+ Groups     Name        Variance  Std.Dev.
+ State_Name (Intercept) 0.6465442 0.80408 
+ year       (Intercept) 0.0002273 0.01508 
+Number of obs: 250, groups:  State_Name, 50; year, 5
+
+Fixed effects:
+                                            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)                                 2.970254   0.178881  16.605  &lt; 2e-16 ***
+prev2years_aud                              0.021507   0.027281   0.788    0.431    
+prev2years_drugusecalc                      0.017415   0.101102   0.172    0.863    
+prev2years_marijuana                       -0.005637   0.015287  -0.369    0.712    
+overdose_rate_lag                          -0.005814   0.004404  -1.320    0.187    
+scale(pop_millions)                         0.551687   0.123992   4.449 8.61e-06 ***
+scale(Income)                              -0.011908   0.050429  -0.236    0.813    
+scale(medicaid_enroll_percapita)            0.027280   0.072874   0.374    0.708    
+scale(Gender_Male)                          0.147713   0.110414   1.338    0.181    
+scale(Unemployment)                        -0.015952   0.036460  -0.438    0.662    
+scale(percapita_health_spending_thousands) -0.032692   0.070752  -0.462    0.644    
+scale(Insurance_Uninsured)                  0.059268   0.073039   0.811    0.417    
+scale(Ethnicity_HispanicorLatino)           0.044087   0.114591   0.385    0.700    
+scale(Race_White)                          -0.177654   0.108551  -1.637    0.102    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Db3JyZWxhdGlvbiBtYXRyaXggbm90IHNob3duIGJ5IGRlZmF1bHQsIGFzIHAgPSAxNCA+IDEyLlxuVXNlIHByaW50KHgsIGNvcnJlbGF0aW9uPVRSVUUpICBvclxuICAgIHZjb3YoeCkgICAgICAgIGlmIHlvdSBuZWVkIGl0XG4ifQ== -->
+<pre><code>
+Correlation matrix not shown by default, as p = 14 &gt; 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoib3B0aW1pemVyIChib2J5cWEpIGNvbnZlcmdlbmNlIGNvZGU6IDAgKE9LKVxuTW9kZWwgZmFpbGVkIHRvIGNvbnZlcmdlIHdpdGggbWF4fGdyYWR8ID0gMC4wMDcyMzA2OCAodG9sID0gMC4wMDIsIGNvbXBvbmVudCAxKVxuIn0= -->
+<pre><code>optimizer (bobyqa) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.00723068 (tol = 0.002, component 1)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiU0FNSFNBIFNlbnNpdGl2aXR5IEFuYWx5c2lzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQ29uZHVjdCBzZW5zaXRpdml0eSBhbmFseXNpcyB0byBjb25maXJtIHdoZXRoZXIgdGhlc2UgcmVzdWx0cyBob2xkIHVuZGVyIGRpZmZlcmVudCBhc3N1bXB0aW9ucwoKCkFzc3VtcHRpb24gIzEgLSBkbyB0aGUgKGRpcmVjdGlvbiBvZikgdGhlIHJlc3VsdHMgc3RpbGwgaG9sZCB3aGVuIGluY2x1ZGluZyB0aGUgb3RoZXIgY292YXJpYXRlcyAoTWVkaWNhaWQsIGhlYWx0aGNhcmUgc3BlbmRpbmcpIGFzIHByZWRpY3RvcnM/CgpZZXMgLSB0aGUgY29lZmZpY2llbnRzIGFyZSBhbG1vc3QgZXhhY3RseSB0aGUgc2FtZQpgYGB7cn0KZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX2F1ZCArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgKwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZvcnByb2ZpdCkKCnN1bW1hcnkoZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5KQpgYGAKCgpBc3N1bXB0aW9uICMyIC0gd2hhdCBkbyB0aGUgcmVsYXRpb25zaGlwcyBsb29rIGxpa2Ugd2hlbiB0aGUgb3V0Y29tZSBpcyBPTkxZIGRydWcgdXNlIGFuZCBhbGNvaG9sIHVzZT8gKG5vIGNvbnRyb2wgdmFyaWFibGVzLCBubyByYW5kb20gZWZmZWN0cykKCmFsbW9zdCBleGFjdGx5IHRoZSBzYW1lIApgYGB7cn0KZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MiA8LSBnbG1lci5uYihjb3VudF90eCB+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQrCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI3BvcF9taWxsaW9ucyArICBtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhICsgIHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSAiYm9ieXFhIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9mb3Jwcm9maXQpCgpzdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTIpCmBgYAoKCkFzc3VtcHRpb24gIzMgLSB3aGF0IGhhcHBlbnMgaWYgd2Ugc2VwYXJhdGUgb3V0IHRoZSBjb2NhaW5lIGFuZCBoZXJvaW4gdmFyaWFibGVzPyAKCgpBVUQgc3RheXMgbmVnYXRpdmUgYW5kIHNpZ25pZmljYW50LCBidXQgbmVpdGhlciBkcnVnIHVzZSB2YXJpYWJsZSBpcyBzdGlsbCBzaWduaWZpY2FudApgYGB7cn0KZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MyA8LSBnbG1lci5uYihjb3VudF90eCB+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19hdWQgKyBwcmV2MnllYXJzX2hlcm9pbiArIHByZXYyeWVhcnNfY29jYWluZSArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIyBtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhICsgIHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSAiYm9ieXFhIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9mb3Jwcm9maXQpCgpzdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTMpCmBgYAoKQXNzdW1wdGlvbiAjNCAtIHdoYXQgaWYgd2UgYWxzbyBpbmNsdWRlIG1hcmlqdWFuYQoKU2FtZSBnZW5lcmFsIGRpcmVjdGlvbiwgYnV0IHRoZSBkcnVnIHVzZSBtZWFzdXJlbWVudCBpbmNyZWFzZXMgdG8gYmUgc2xpZ2h0bHkgb3ZlciAwLjA1CmBgYHtyfQpnbG1lcl9mb3Jwcm9maXRfc2Vuc2l0aXZpdHk0IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfbWFyaWp1YW5hICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgI21lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgKwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZvcnByb2ZpdCkKCnN1bW1hcnkoZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5NCkKYGBgCgpBc3N1bXB0aW9uICM1IC0gd2hhdCBoYXBwZW5zIGlmIHdlIGZpdCB0aGUgbW9kZWwgdXNpbmcgdGhlIHByZWRpY3RvcnMgdGhhdCB3ZXJlIGJlc3QgZnJvbSBMUlQgZm9yIG5vbnByb2ZpdCAvIGdvdnQ/CgpTdGlsbCBub3Qgc2lnbmlmaWNhbnQgLSB0aGlzIGlzIGEgZ29vZCB0aGluZyBiZWNhdXNlIHRoYXQgd2FzIHRoZSByZXN1bHQgd2hlbiB3ZSBpbmNsdWRlZCBBVUQgYWxzbyAKYGBge3J9CmdsbWVyX25vbnByb2ZpdF9zZW5zaXRpdml0eTEgPC0gZ2xtZXIubmIoY291bnRfdHggfiAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX25vbnByb2ZpdCkKc3VtbWFyeShnbG1lcl9ub25wcm9maXRfc2Vuc2l0aXZpdHkxKQoKZ2xtZXJfZ292dF9zZW5zaXRpdml0eTEgPC0gZ2xtZXIubmIoY291bnRfdHggfiAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2dvdnQpCnN1bW1hcnkoZ2xtZXJfZ292dF9zZW5zaXRpdml0eTEpCmBgYAoKCgoKQXNzdW1wdGlvbiAjNiAtIGRvIHRoZXNlIHRyZW5kcyBob2xkIFBSRS0gQUNBPyAKYGBge3J9CgpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiU0FNSFNBIFNlbnNpdGl2aXR5IEFuYWx5c2lzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKQ29uZHVjdCBzZW5zaXRpdml0eSBhbmFseXNpcyB0byBjb25maXJtIHdoZXRoZXIgdGhlc2UgcmVzdWx0cyBob2xkIHVuZGVyIGRpZmZlcmVudCBhc3N1bXB0aW9ucwoKCkFzc3VtcHRpb24gIzEgLSBkbyB0aGUgKGRpcmVjdGlvbiBvZikgdGhlIHJlc3VsdHMgc3RpbGwgaG9sZCB3aGVuIGluY2x1ZGluZyB0aGUgb3RoZXIgY292YXJpYXRlcyAoTWVkaWNhaWQsIGhlYWx0aGNhcmUgc3BlbmRpbmcpIGFzIHByZWRpY3RvcnM/CgpZZXMgLSB0aGUgY29lZmZpY2llbnRzIGFyZSBhbG1vc3QgZXhhY3RseSB0aGUgc2FtZQpgYGB7cn0KZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX2F1ZCArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgKwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZvcnByb2ZpdCkKCnN1bW1hcnkoZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5KQpgYGAKCgpBc3N1bXB0aW9uICMyIC0gd2hhdCBkbyB0aGUgcmVsYXRpb25zaGlwcyBsb29rIGxpa2Ugd2hlbiB0aGUgb3V0Y29tZSBpcyBPTkxZIGRydWcgdXNlIGFuZCBhbGNvaG9sIHVzZT8gKG5vIGNvbnRyb2wgdmFyaWFibGVzLCBubyByYW5kb20gZWZmZWN0cykKCmFsbW9zdCBleGFjdGx5IHRoZSBzYW1lIApgYGB7cn0KZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MiA8LSBnbG1lci5uYihjb3VudF90eCB+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQrCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI3BvcF9taWxsaW9ucyArICBtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhICsgIHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSAiYm9ieXFhIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9mb3Jwcm9maXQpCgpzdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTIpCmBgYAoKCkFzc3VtcHRpb24gIzMgLSB3aGF0IGhhcHBlbnMgaWYgd2Ugc2VwYXJhdGUgb3V0IHRoZSBjb2NhaW5lIGFuZCBoZXJvaW4gdmFyaWFibGVzPyAKCgpBVUQgc3RheXMgbmVnYXRpdmUgYW5kIHNpZ25pZmljYW50LCBidXQgbmVpdGhlciBkcnVnIHVzZSB2YXJpYWJsZSBpcyBzdGlsbCBzaWduaWZpY2FudApgYGB7cn0KZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MyA8LSBnbG1lci5uYihjb3VudF90eCB+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19hdWQgKyBwcmV2MnllYXJzX2hlcm9pbiArIHByZXYyeWVhcnNfY29jYWluZSArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIyBtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhICsgIHBlcmNhcGl0YV9oZWFsdGhfc3BlbmRpbmdfdGhvdXNhbmRzICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSAiYm9ieXFhIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9mb3Jwcm9maXQpCgpzdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTMpCmBgYAoKQXNzdW1wdGlvbiAjNCAtIHdoYXQgaWYgd2UgYWxzbyBpbmNsdWRlIG1hcmlqdWFuYQoKU2FtZSBnZW5lcmFsIGRpcmVjdGlvbiwgYnV0IHRoZSBkcnVnIHVzZSBtZWFzdXJlbWVudCBpbmNyZWFzZXMgdG8gYmUgc2xpZ2h0bHkgb3ZlciAwLjA1CmBgYHtyfQpnbG1lcl9mb3Jwcm9maXRfc2Vuc2l0aXZpdHk0IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfbWFyaWp1YW5hICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgI21lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgKwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZvcnByb2ZpdCkKCnN1bW1hcnkoZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5NCkKYGBgCgpBc3N1bXB0aW9uICM1IC0gd2hhdCBoYXBwZW5zIGlmIHdlIGZpdCB0aGUgbW9kZWwgdXNpbmcgdGhlIHByZWRpY3RvcnMgdGhhdCB3ZXJlIGJlc3QgZnJvbSBMUlQgZm9yIG5vbnByb2ZpdCAvIGdvdnQ/CgpTdGlsbCBub3Qgc2lnbmlmaWNhbnQgLSB0aGlzIGlzIGEgZ29vZCB0aGluZyBiZWNhdXNlIHRoYXQgd2FzIHRoZSByZXN1bHQgd2hlbiB3ZSBpbmNsdWRlZCBBVUQgYWxzbyAKYGBge3J9CmdsbWVyX25vbnByb2ZpdF9zZW5zaXRpdml0eTEgPC0gZ2xtZXIubmIoY291bnRfdHggfiAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX25vbnByb2ZpdCkKc3VtbWFyeShnbG1lcl9ub25wcm9maXRfc2Vuc2l0aXZpdHkxKQoKZ2xtZXJfZ292dF9zZW5zaXRpdml0eTEgPC0gZ2xtZXIubmIoY291bnRfdHggfiAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9wX21pbGxpb25zICsgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2dvdnQpCnN1bW1hcnkoZ2xtZXJfZ292dF9zZW5zaXRpdml0eTEpCmBgYAoKCgoKQXNzdW1wdGlvbiAjNiAtIGRvIHRoZXNlIHRyZW5kcyBob2xkIFBSRS0gQUNBPyAKYGBge3J9CgpgYGAKCgoKCkFzc3VtcHRpb24gIyA3IC0gZG8gcmVzdWx0cyBjaGFuZ2UgaWYgd2UgaW5jbHVkZSB0aGUgKGxhZ2dlZCkgb3ZlcmRvc2UgcmF0ZXM/IGkuZS4gY2FuIHdlIG1lYXN1cmUgd2hldGhlciB0aGUgbnVtYmVyIG9mIHRyZWF0bWVudCBjZW50ZXJzIGlzIGEgZnVuY3Rpb24gb2YgaG93IG11Y2ggYXR0ZW50aW9uIGlzIGdpdmVuIHRvIGRydWcgdXNlIChicm91Z2h0IGJ5IG92ZXJkb3NlIGRlYXRocykgYW5kIG5vdCBieSBwcmV2YWxlbmNlIG9mIHN1YnN0YW5jZSB1c2U/IApgYGB7cn0Kb3ZlcmRvc2VfY29udHJvbHNfc3RyIDwtICJ+IHByZXYyeWVhcnNfYXVkICsgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfbWFyaWp1YW5hICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdmVyZG9zZV9yYXRlX2xhZyArIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKHBvcF9taWxsaW9ucykgKyAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShJbmNvbWUpICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShtZWRpY2FpZF9lbnJvbGxfcGVyY2FwaXRhKSArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoR2VuZGVyX01hbGUpICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShVbmVtcGxveW1lbnQpICsgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUocGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMpICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShJbnN1cmFuY2VfVW5pbnN1cmVkKSArIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKEV0aG5pY2l0eV9IaXNwYW5pY29yTGF0aW5vKSArIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKFJhY2VfV2hpdGUpICsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXwgU3RhdGVfTmFtZSkgKyAoMSB8IHllYXIpIgoKCgojdGhlIHJlc3VsdHMgYXJlIHRoZSBzYW1lIGZvciBmb3ItcHJvZml0IC0gZXhjZXB0IHRoYXQgQVVEIGJlY29tZXMgbm8gbG9uZ2VyIHNpZ25pZmljYW50IChiYXJlbHkpCgojb3ZlcmRvc2UgcmF0ZXMgdGhlbXNlbHZlcyBhcmUgbm90IHNpZ25pZmljYW50IAoKI2RydWcgdXNlIHByZXZhbGVuY2UgaXMgc3RpbGwgY2xvc2VseSBjb3JyZWxhdGVkCmdsbWVyX292ZXJkb3NlX2ZvcnByb2ZpdCA8LSBnbG1lci5uYihmb3JtdWxhKHBhc3RlKCJGb3Jwcm9maXQiLCBvdmVyZG9zZV9jb250cm9sc19zdHIpKSwgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSAiYm9ieXFhIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZmluYWxfZGYpCgpzdW1tYXJ5KGdsbWVyX292ZXJkb3NlX2ZvcnByb2ZpdCkKYGBgCgpgYGB7cn0KCiNub25wcm9maXQgcmVzdWx0cyBhcmUgdGhlIHNhbWUgLSBubyByZWxhdGlvbnNoaXAgYmV0d2VlbiBkcnVnIHVzZSBwcmV2YWxlbmNlIGFuZCBudW1iZXIgb2YgdHJlYXRtZW50IGNlbnRlcnMsIG5vciB3aXRoIG92ZXJkb3NlIGRlYXRocwpnbG1lcl9vdmVyZG9zZV9ub25wcm9maXQgPC0gZ2xtZXIubmIoZm9ybXVsYShwYXN0ZSgiTm9ucHJvZml0Iiwgb3ZlcmRvc2VfY29udHJvbHNfc3RyKSksIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gImJvYnlxYSIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlNikpLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZpbmFsX2RmKQoKc3VtbWFyeShnbG1lcl9vdmVyZG9zZV9ub25wcm9maXQpCgojc3VtbWFyeShhbGxGaXQoZ2xtZXJfb3ZlcmRvc2Vfbm9ucHJvZml0KSkKYGBgCgpgYGB7cn0KI25vbnByb2ZpdCByZXN1bHRzIGFyZSB0aGUgc2FtZSAtIG5vIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIGRydWcgdXNlIHByZXZhbGVuY2UgYW5kIG51bWJlciBvZiB0cmVhdG1lbnQgY2VudGVycywgbm9yIHdpdGggb3ZlcmRvc2UgZGVhdGhzCmdsbWVyX292ZXJkb3NlX2dvdnQgPC0gZ2xtZXIubmIoZm9ybXVsYShwYXN0ZSgiR292ZXJubWVudCIsIG92ZXJkb3NlX2NvbnRyb2xzX3N0cikpLCBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9ICJib2J5cWEiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9maW5hbF9kZikKCnN1bW1hcnkoZ2xtZXJfb3ZlcmRvc2VfZ292dCkKYGBgCgo=</div>
 
 
 

@@ -579,10 +579,30 @@ state_final_df <- state_final_df %>%
   
 
 
-write.csv(state_final_df, "../Data/CleanData/Allprofit_finaldata.csv", row.names = FALSE)
 
 ```
 
+
+```{r}
+drugoverdose_df <- read.csv("../Data/CDC_DrugOverdoseDeaths.csv")
+
+#format the data 
+drugoverdose_df <- drugoverdose_df %>%
+  arrange(STATE, YEAR) %>%
+  mutate(YEAR = as.character(YEAR),
+         overdose_rate_lag = lag(RATE)) %>%
+  rename(overdose_rate = RATE) %>%
+  select(STATE, YEAR, overdose_rate, overdose_rate_lag)
+
+
+#merge the overdose data onto the final df
+state_final_df <- state_final_df %>% 
+  left_join(drugoverdose_df, by = c('year'='YEAR', 'State_Abbrev'='STATE'))
+```
+
+```{r write data to csv}
+write.csv(state_final_df, "../Data/CleanData/Allprofit_finaldata.csv", row.names = FALSE)
+```
 
 
 
