@@ -1760,73 +1760,27 @@ predictors?</p>
 <p>Yes - the coefficients are almost exactly the same</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgbWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSArICAjcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eSlcbmBgYFxuYGBgIn0= -->
-<pre class="r"><code>```r
-glmer_forprofit_sensitivity &lt;- glmer.nb(count_tx ~ 
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5IDwtIGdsbWVyLm5iKGNvdW50X3R4IH4gXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3BfbWlsbGlvbnMgKyAgbWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSArICBwZXJjYXBpdGFfaGVhbHRoX3NwZW5kaW5nX3Rob3VzYW5kcyArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICgxfFN0YXRlX05hbWUpKyAoMSB8IHllYXIpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9mb3Jwcm9maXQpXG5gYGAifQ== -->
+<pre class="r"><code>glmer_forprofit_sensitivity &lt;- glmer.nb(count_tx ~ 
                                  prev2years_drugusecalc + prev2years_aud +
-                                pop_millions +  medicaid_enroll_percapita +  #percapita_health_spending_thousands +
+                                pop_millions +  medicaid_enroll_percapita +  percapita_health_spending_thousands +
                                 (1|State_Name)+ (1 | year),
-                              control = glmerControl(optimizer = \bobyqa\, optCtrl = list(maxfun = 2e6)),
-                              data = state_forprofit)
-
-summary(glmer_forprofit_sensitivity)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBOZWdhdGl2ZSBCaW5vbWlhbCgxODUuNzk4KSAgKCBsb2cgKVxuRm9ybXVsYTogY291bnRfdHggfiBwcmV2MnllYXJzX2RydWd1c2VjYWxjICsgcHJldjJ5ZWFyc19hdWQgKyBwb3BfbWlsbGlvbnMgKyAgICAgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAoMSB8IFN0YXRlX05hbWUpICsgKDEgfCB5ZWFyKVxuICAgRGF0YTogc3RhdGVfZm9ycHJvZml0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmUrMDYpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgMjEyMS44ICAgMjE1MC4xICAtMTA1Mi45ICAgMjEwNS44ICAgICAgMjQ3IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAxUSAgTWVkaWFuICAgICAgM1EgICAgIE1heCBcbi0yLjU2OTAgLTAuNDE2NyAtMC4wMjMwICAwLjM3NzIgIDMuODM4MyBcblxuUmFuZG9tIGVmZmVjdHM6XG4gR3JvdXBzICAgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIFN0YXRlX05hbWUgKEludGVyY2VwdCkgMC42NDk1MTggMC44MDU5MyBcbiB5ZWFyICAgICAgIChJbnRlcmNlcHQpIDAuMDA1NDU0IDAuMDczODUgXG5OdW1iZXIgb2Ygb2JzOiAyNTUsIGdyb3VwczogIFN0YXRlX05hbWUsIDUxOyB5ZWFyLCA1XG5cbkZpeGVkIGVmZmVjdHM6XG4gICAgICAgICAgICAgICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgeiB2YWx1ZSBQcig+fHp8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgICAgICAgIDMuNzI3OTkgICAgMC4yOTY4NCAgMTIuNTU5ICA8IDJlLTE2ICoqKlxucHJldjJ5ZWFyc19kcnVndXNlY2FsYyAgICAgMC4wNzgzMSAgICAwLjAzODU5ICAgMi4wMjkgICAwLjA0MjQgKiAgXG5wcmV2MnllYXJzX2F1ZCAgICAgICAgICAgIC0wLjA1MDAwICAgIDAuMDIxOTAgIC0yLjI4MyAgIDAuMDIyNSAqICBcbnBvcF9taWxsaW9ucyAgICAgICAgICAgICAgIDAuMDk4NzkgICAgMC4wMTUzMCAgIDYuNDU2IDEuMDhlLTEwICoqKlxubWVkaWNhaWRfZW5yb2xsX3BlcmNhcGl0YSAtMC40OTg3NSAgICAwLjg1MDYwICAtMC41ODYgICAwLjU1NzYgICAgXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgIChJbnRyKSBwcnYyeXJzX2RyIHByZXYyeXJzX2QgcHBfbWxsXG5wcnYyeXJzX2RyZyAtMC4xNjcgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxucHJldjJ5ZXJzX2QgLTAuNDcxIC0wLjMxMiAgICAgICAgICAgICAgICAgICAgICBcbnBvcF9taWxsaW5zIC0wLjM4NSAgMC4wMDQgICAgICAwLjA4MSAgICAgICAgICAgXG5tZGNkX25ybGxfcCAtMC42OTQgIDAuMDEzICAgICAgMC4xMDEgICAgICAwLjAyNFxuIn0= --&gt;
-</code></pre>
-<p>Generalized linear mixed model fit by maximum likelihood (Laplace
-Approximation) [‘glmerMod’] Family: Negative Binomial(185.798) ( log )
-Formula: count_tx ~ prev2years_drugusecalc + prev2years_aud +
-pop_millions + medicaid_enroll_percapita + (1 | State_Name) + (1 | year)
-Data: state_forprofit Control: glmerControl(optimizer = , optCtrl =
-list(maxfun = 2e+06))</p>
-<pre><code> AIC      BIC   logLik deviance df.resid </code></pre>
-<p>2121.8 2150.1 -1052.9 2105.8 247</p>
-<p>Scaled residuals: Min 1Q Median 3Q Max -2.5690 -0.4167 -0.0230 0.3772
-3.8383</p>
-<p>Random effects: Groups Name Variance Std.Dev. State_Name (Intercept)
-0.649518 0.80593 year (Intercept) 0.005454 0.07385 Number of obs: 255,
-groups: State_Name, 51; year, 5</p>
-<p>Fixed effects: Estimate Std. Error z value Pr(&gt;|z|)<br />
-(Intercept) 3.72799 0.29684 12.559 &lt; 2e-16 <strong><em>
-prev2years_drugusecalc 0.07831 0.03859 2.029 0.0424 </em><br />
-prev2years_aud -0.05000 0.02190 -2.283 0.0225 *<br />
-pop_millions 0.09879 0.01530 6.456 1.08e-10 </strong>*
-medicaid_enroll_percapita -0.49875 0.85060 -0.586 0.5576<br />
-— Signif. codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05
-‘.’ 0.1 ‘ ’ 1</p>
-<p>Correlation of Fixed Effects: (Intr) prv2yrs_dr prev2yrs_d pp_mll
-prv2yrs_drg -0.167<br />
-prev2yers_d -0.471 -0.312<br />
-pop_millins -0.385 0.004 0.081<br />
-mdcd_nrll_p -0.694 0.013 0.101 0.024</p>
-<pre><code>
-
-
-&lt;!-- rnb-output-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-
-Assumption #2 - what do the relationships look like when the outcome is ONLY drug use and alcohol use? (no control variables, no random effects)
-
-almost exactly the same 
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MiA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjcG9wX21pbGxpb25zICsgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTIpXG5gYGBcbmBgYCJ9 --&gt;
-
-```r
-```r
+                              control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+                              data = state_forprofit)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IGJhZCAnZGF0YSc6IG9iamVjdCAnc3RhdGVfZm9ycHJvZml0JyBub3QgZm91bmRcbiJ9 -->
+<pre><code>Error: bad &#39;data&#39;: object &#39;state_forprofit&#39; not found</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Assumption #2 - what do the relationships look like when the outcome
+is ONLY drug use and alcohol use? (no control variables, no random
+effects)</p>
+<p>almost exactly the same</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ2xtZXJfZm9ycHJvZml0X3NlbnNpdGl2aXR5MiA8LSBnbG1lci5uYihjb3VudF90eCB+IFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJldjJ5ZWFyc19kcnVndXNlY2FsYyArIHByZXYyeWVhcnNfYXVkK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjcG9wX21pbGxpb25zICsgIG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEgKyAgcGVyY2FwaXRhX2hlYWx0aF9zcGVuZGluZ190aG91c2FuZHMgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXxTdGF0ZV9OYW1lKSsgKDEgfCB5ZWFyKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXFxib2J5cWFcXCwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZm9ycHJvZml0KVxuXG5zdW1tYXJ5KGdsbWVyX2ZvcnByb2ZpdF9zZW5zaXRpdml0eTIpXG5gYGBcbmBgYCJ9 -->
+<pre class="r"><code>```r
 glmer_forprofit_sensitivity2 &lt;- glmer.nb(count_tx ~ 
                                  prev2years_drugusecalc + prev2years_aud+
                                 #pop_millions +  medicaid_enroll_percapita +  percapita_health_spending_thousands +
@@ -2244,7 +2198,7 @@ overdose_rate_lag                          1.00000000</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3ZlcmRvc2VfY29udHJvbHNfc3RyIDwtIFwifiBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX21hcmlqdWFuYSArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG92ZXJkb3NlX3JhdGVfbGFnICsgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKHBvcF9taWxsaW9ucykgKyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoSW5jb21lKSArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEpICtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoR2VuZGVyX01hbGUpICtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoVW5lbXBsb3ltZW50KSArIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShwZXJjYXBpdGFfaGVhbHRoX3NwZW5kaW5nX3Rob3VzYW5kcykgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShJbnN1cmFuY2VfVW5pbnN1cmVkKSArIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShFdGhuaWNpdHlfSGlzcGFuaWNvckxhdGlubykgKyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoUmFjZV9XaGl0ZSkgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXwgU3RhdGVfTmFtZSkgKyAoMSB8IHllYXIpXCJcblxuXG5nbG1lcl9vdmVyZG9zZV9mb3Jwcm9maXQgPC0gZ2xtZXIubmIoZm9ybXVsYShwYXN0ZShcIkZvcnByb2ZpdFwiLCBvdmVyZG9zZV9jb250cm9sc19zdHIpKSwgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZmluYWxfZGYpXG5cbnN1bW1hcnkoZ2xtZXJfb3ZlcmRvc2VfZm9ycHJvZml0KVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3ZlcmRvc2VfY29udHJvbHNfc3RyIDwtIFwifiBwcmV2MnllYXJzX2F1ZCArIHByZXYyeWVhcnNfZHJ1Z3VzZWNhbGMgKyBwcmV2MnllYXJzX21hcmlqdWFuYSArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG92ZXJkb3NlX3JhdGVfbGFnICsgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKHBvcF9taWxsaW9ucykgKyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoSW5jb21lKSArXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjYWxlKG1lZGljYWlkX2Vucm9sbF9wZXJjYXBpdGEpICtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoR2VuZGVyX01hbGUpICtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoVW5lbXBsb3ltZW50KSArIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShwZXJjYXBpdGFfaGVhbHRoX3NwZW5kaW5nX3Rob3VzYW5kcykgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShJbnN1cmFuY2VfVW5pbnN1cmVkKSArIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzY2FsZShFdGhuaWNpdHlfSGlzcGFuaWNvckxhdGlubykgKyBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NhbGUoUmFjZV9XaGl0ZSkgK1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMXwgU3RhdGVfTmFtZSkgKyAoMSB8IHllYXIpXCJcblxuXG5cbiN0aGUgcmVzdWx0cyBhcmUgdGhlIHNhbWUgZm9yIGZvci1wcm9maXQgLSBleGNlcHQgdGhhdCBBVUQgYmVjb21lcyBubyBsb25nZXIgc2lnbmlmaWNhbnQgKGJhcmVseSlcblxuI292ZXJkb3NlIHJhdGVzIHRoZW1zZWx2ZXMgYXJlIG5vdCBzaWduaWZpY2FudCBcblxuI2RydWcgdXNlIHByZXZhbGVuY2UgaXMgc3RpbGwgY2xvc2VseSBjb3JyZWxhdGVkXG5nbG1lcl9vdmVyZG9zZV9mb3Jwcm9maXQgPC0gZ2xtZXIubmIoZm9ybXVsYShwYXN0ZShcIkZvcnByb2ZpdFwiLCBvdmVyZG9zZV9jb250cm9sc19zdHIpKSwgY29udHJvbCA9IGdsbWVyQ29udHJvbChvcHRpbWl6ZXIgPSBcImJvYnlxYVwiLCBvcHRDdHJsID0gbGlzdChtYXhmdW4gPSAyZTYpKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gc3RhdGVfZmluYWxfZGYpXG5cbnN1bW1hcnkoZ2xtZXJfb3ZlcmRvc2VfZm9ycHJvZml0KVxuYGBgIn0= -->
 <pre class="r"><code>overdose_controls_str &lt;- &quot;~ prev2years_aud + prev2years_drugusecalc + prev2years_marijuana +
                                 overdose_rate_lag + 
                                 scale(pop_millions) + 
@@ -2259,6 +2213,12 @@ overdose_rate_lag                          1.00000000</code></pre>
                                 (1| State_Name) + (1 | year)&quot;
 
 
+
+#the results are the same for for-profit - except that AUD becomes no longer significant (barely)
+
+#overdose rates themselves are not significant 
+
+#drug use prevalence is still closely correlated
 glmer_overdose_forprofit &lt;- glmer.nb(formula(paste(&quot;Forprofit&quot;, overdose_controls_str)), control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
                             data = state_final_df)
 
@@ -2317,8 +2277,10 @@ Use print(x, correlation=TRUE)  or
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xtZXJfb3ZlcmRvc2Vfbm9ucHJvZml0IDwtIGdsbWVyLm5iKGZvcm11bGEocGFzdGUoXCJOb25wcm9maXRcIiwgb3ZlcmRvc2VfY29udHJvbHNfc3RyKSksIGNvbnRyb2wgPSBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMmU2KSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IHN0YXRlX2ZpbmFsX2RmKVxuYGBgIn0= -->
-<pre class="r"><code>glmer_overdose_nonprofit &lt;- glmer.nb(formula(paste(&quot;Nonprofit&quot;, overdose_controls_str)), control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jbm9ucHJvZml0IHJlc3VsdHMgYXJlIHRoZSBzYW1lIC0gbm8gcmVsYXRpb25zaGlwIGJldHdlZW4gZHJ1ZyB1c2UgcHJldmFsZW5jZSBhbmQgbnVtYmVyIG9mIHRyZWF0bWVudCBjZW50ZXJzLCBub3Igd2l0aCBvdmVyZG9zZSBkZWF0aHNcbmdsbWVyX292ZXJkb3NlX25vbnByb2ZpdCA8LSBnbG1lci5uYihmb3JtdWxhKHBhc3RlKFwiTm9ucHJvZml0XCIsIG92ZXJkb3NlX2NvbnRyb2xzX3N0cikpLCBjb250cm9sID0gZ2xtZXJDb250cm9sKG9wdGltaXplciA9IFwiYm9ieXFhXCIsIG9wdEN0cmwgPSBsaXN0KG1heGZ1biA9IDJlNikpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBzdGF0ZV9maW5hbF9kZilcbmBgYCJ9 -->
+<pre class="r"><code>
+#nonprofit results are the same - no relationship between drug use prevalence and number of treatment centers, nor with overdose deaths
+glmer_overdose_nonprofit &lt;- glmer.nb(formula(paste(&quot;Nonprofit&quot;, overdose_controls_str)), control = glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 2e6)),
                             data = state_final_df)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogaXRlcmF0aW9uIGxpbWl0IHJlYWNoZWRXYXJuaW5nOiBNb2RlbCBmYWlsZWQgdG8gY29udmVyZ2Ugd2l0aCBtYXh8Z3JhZHwgPSAwLjAwNTk1MDA4ICh0b2wgPSAwLjAwMiwgY29tcG9uZW50IDEpV2FybmluZzogTW9kZWwgZmFpbGVkIHRvIGNvbnZlcmdlIHdpdGggbWF4fGdyYWR8ID0gMC4wMTMzNDI0ICh0b2wgPSAwLjAwMiwgY29tcG9uZW50IDEpXG4ifQ== -->
@@ -2380,6 +2342,9 @@ Use print(x, correlation=TRUE)  or
 <pre><code>optimizer (bobyqa) convergence code: 0 (OK)
 Model failed to converge with max|grad| = 0.0133424 (tol = 0.002, component 1)</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3N1bW1hcnkoYWxsRml0KGdsbWVyX292ZXJkb3NlX25vbnByb2ZpdCkpXG5gYGAifQ== -->
+<pre class="r"><code>#summary(allFit(glmer_overdose_nonprofit))</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
