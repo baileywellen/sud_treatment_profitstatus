@@ -298,11 +298,13 @@ layout <- "
 2233
 "
 
-#combined_maps <-   + guide_area() +  + 
-map_randomeffects(glmer_forprofit, "For-Profit") + 
+combined_maps <- map_randomeffects(glmer_forprofit, "For-Profit") + 
   map_randomeffects(glmer_nonprofit, "Non-Profit") + 
   map_randomeffects(glmer_govt, "Government") +
   plot_layout(heights = c(2,1.5), design = layout,  guides = "collect")
+
+ggsave(filename = "/SUD_TreatmentCenters_RandomEffects.pdf", path = "../Plots", plot = combined_maps, device='pdf', dpi=700)
+
 #map_randomeffects(glmer_all, "Overall Model")
 ```
 
@@ -353,7 +355,12 @@ exp(summary(glmer_forprofit)$coef["(Intercept)", "Estimate"])
 
 #tab_model
 
-tab_model(glmer_all, glmer_forprofit, glmer_nonprofit, glmer_govt, show.ci = FALSE, show.se=TRUE, p.style = 'stars')
+#model for the appendix - with SD, p values shown
+tab_model(glmer_forprofit, glmer_nonprofit, glmer_govt, show.ci = FALSE, show.se=TRUE)
+
+
+#model for the main paper - with stars for p and confidence intervavl instead 
+#tab_model(glmer_forprofit, glmer_nonprofit, glmer_govt, p.style = 'stars')
 ```
 
 
