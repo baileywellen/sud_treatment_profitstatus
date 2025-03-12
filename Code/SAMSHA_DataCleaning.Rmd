@@ -26,6 +26,45 @@ admission_cols <- c("CASEID", "PREG", "STFIPS",  # state ID
 
 ```
 
+```{r}
+nssumhs2021 <- read.csv("../Data/NSUMHSS/NSUMHSS_2021_PUF_CSV.csv")
+nssumhs2022 <- read.csv("../Data/NSUMHSS/NSUMHSS_2022_PUF_CSV.csv")
+nssumhs2023 <- read.csv("../Data/NSUMHSS/NSUMHSS_2023_PUF_CSV.csv")
+
+```
+
+```{r}
+head(nssumhs2021)
+```
+
+```{r}
+table(nssumhs2021$OWNERSHP) #M and L are missing data 
+table(nssumhs2021$TREATMT_SU) #according to documentation, the TREATMT_SU question asks whether they offer Substance use treatment
+#we can filter to where the answer is "1" for yes (not 0 for no, L for logical skip, nor M for missing) 
+```
+```{r clean NSSUMHS data so it can be concatenated with NSSATS data}
+
+clean_nssumhs <- function(df){
+  clean_df <- df %>% 
+    #filter to where TREATMT_SU is 1 , meaning they provide substance use treatment
+  filter(TREATMT_SU == 1) %>%
+    #rename LOCATIONSTATE to STATE to match NSSATS
+  rename(STATE = LOCATIONSTATE) %>%
+    #replace M and L in ownership column with missing (na)
+  #mutate(OWNERSHP = ifelse(is.na(OWNERSHP), NA, OWNERSHP)) %>%
+    #alternatively can filter out missing ownership columns
+    filter((OWNERSHP != "M") & (OWNERSHP != "L")) %>%
+    #cast ownership to integer
+    mutate(OWNERSHP = as.integer(OWNERSHP))
+  
+  return(clean_df)
+}
+clean_nssumhs2021 <- clean_nssumhs(nssumhs2021)
+clean_nssumhs2022 <- clean_nssumhs(nssumhs2022)
+clean_nssumhs2023 <- clean_nssumhs(nssumhs2023)
+
+```
+
 
 
 
@@ -51,8 +90,12 @@ append_number <- function(name, num) {
   paste(name, num, sep = "_")
 }
 
-year_dfs <- list(nssats2014, nssats2015, nssats2016, nssats2017, nssats2018, nssats2019)#, nssats2020)
-year_nums <- seq(2014, 2019)
+#year_dfs <- list(nssats2014, nssats2015, nssats2016, nssats2017, nssats2018, nssats2019)#, nssats2020)
+year_dfs <- list(nssats2014, nssats2015, nssats2016, nssats2017, nssats2018, nssats2019, nssats2020, 
+                 clean_nssumhs2021, clean_nssumhs2022, clean_nssumhs2023)
+
+#year_nums <- seq(2014, 2019)
+year_nums <- seq(2014, 2023)
 
 results <- list()
 index <- 1
@@ -83,17 +126,30 @@ for (year_df in year_dfs)
 Merge the dataframes together
 ```{r}
 
-profit_states_1419 <- results[[1]]
+# profit_states_1419 <- results[[1]]
+# 
+# for (index in seq(2, length(results)))
+# {
+#   profit_states_1419 <- left_join(profit_states_1419, results[[index]])
+# }
+# 
+# #add columns that calculate the change from 2015 - 2019 
+# profit_states_1419$change_Forprofit_1519 <- profit_states_1419$count_Forprofit_2019 - profit_states_1419$count_Forprofit_2015
+# profit_states_1419$change_Nonprofit_1519 <- profit_states_1419$count_Nonprofit_2019 - profit_states_1419$count_Nonprofit_2015
+# profit_states_1419$change_Government_1519 <- profit_states_1419$count_Government_2019 - profit_states_1419$count_Government_2015
+
+profit_states_1423 <- results[[1]]
 
 for (index in seq(2, length(results)))
 {
-  profit_states_1419 <- left_join(profit_states_1419, results[[index]])
+  profit_states_1423 <- left_join(profit_states_1423, results[[index]])
 }
 
 #add columns that calculate the change from 2015 - 2019 
-profit_states_1419$change_Forprofit_1519 <- profit_states_1419$count_Forprofit_2019 - profit_states_1419$count_Forprofit_2015
-profit_states_1419$change_Nonprofit_1519 <- profit_states_1419$count_Nonprofit_2019 - profit_states_1419$count_Nonprofit_2015
-profit_states_1419$change_Government_1519 <- profit_states_1419$count_Government_2019 - profit_states_1419$count_Government_2015
+profit_states_1423$change_Forprofit_1523 <- profit_states_1423$count_Forprofit_2023 - profit_states_1423$count_Forprofit_2015
+profit_states_1423$change_Nonprofit_1523 <- profit_states_1423$count_Nonprofit_2023 - profit_states_1423$count_Nonprofit_2015
+profit_states_1423$change_Government_1523 <- profit_states_1423$count_Government_2023 - profit_states_1423$count_Government_2015
+
 
 ```
 
@@ -210,7 +266,11 @@ state_medicaidenroll_long
 Read all NSDUH data from here: https://www.samhsa.gov/data/nsduh/state-reports
 ```{r read in the combined nsduh file}
 library(haven)
-nsduh_all <- haven::read_sas("../Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
+nsduh_99_19 <- haven::read_sas("../Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
+
+#hitting a hiccup with 2021-2023 NSDUH data - documentation says that the previous years cannot be compared to 2021-2023
+# https://www.samhsa.gov/data/sites/default/files/reports/rpt56198/2023-nsduh-puf-data-users-guide.pdf
+nsduh_2020 <- read.table("../Data/NSDUH/NSDUH_2020_Tab.txt", header = TRUE, sep = '\t')
 ```
 
 
@@ -232,7 +292,7 @@ nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABOD
 
 
 #filter the data to only state reports, and years post-2015 
-nsduh_data_long <- nsduh_all %>% 
+nsduh_data_long <- nsduh_99_19 %>% 
   separate(pyearnm, into = c("start_year", "end_year"), "-") %>%
   filter(area == 2) %>% 
   filter(outcome %in% nsduh_outcomes) %>%
