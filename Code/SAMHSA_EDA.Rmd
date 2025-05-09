@@ -5,22 +5,26 @@ output: html_notebook
 
 ```{r}
 
-years <- seq(2014, 2019) 
-#years <- seq(2014, 2020)
-forprofit_counts <- profit_states_1419 %>% 
+#years <- seq(2014, 2019) 
+years <- seq(2014, 2023)
+
+#forprofit_counts <- profit_states_1419 %>% 
+forprofit_counts <- profit_states_1423 %>% 
   dplyr::select(contains("count_Forprofit_")) %>% 
   summarize(across(everything(), sum, na.rm = TRUE))
 
-nonprofit_counts <- profit_states_1419 %>% 
+#nonprofit_counts <- profit_states_1419 %>% 
+nonprofit_counts <- profit_states_1423 %>% 
   dplyr::select(contains("count_Nonprofit_")) %>% 
   summarize(across(everything(), sum, na.rm = TRUE))
 
-govt_counts <- profit_states_1419 %>% 
+#govt_counts <- profit_states_1419 %>% 
+govt_counts <- profit_states_1423 %>% 
   dplyr::select(contains("count_Government_")) %>% 
   summarize(across(everything(), sum, na.rm = TRUE))
 
 
-plot(years, forprofit_counts, type = 'l', main= "Treatment Facility Counts over time", ylim = c(1000, 8000), col = 'blue', xlab = 'Year', ylab = '# Treatment Centers')
+plot(years, forprofit_counts, type = 'l', main= "Treatment Facility Counts over time", ylim = c(1000, 9000), col = 'blue', xlab = 'Year', ylab = '# Treatment Centers')
 lines(years, nonprofit_counts, type = 'l', main= "Non Profit Counts", col = 'red')
 lines(years, govt_counts, type = 'l', main= "Government Counts", col = 'green')
 

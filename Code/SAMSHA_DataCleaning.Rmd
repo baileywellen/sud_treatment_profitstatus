@@ -262,16 +262,25 @@ state_medicaidenroll_long
 
 
 
-
 Read all NSDUH data from here: https://www.samhsa.gov/data/nsduh/state-reports
 ```{r read in the combined nsduh file}
 library(haven)
 nsduh_99_19 <- haven::read_sas("../Data/NSDUH/NSDUH_99_19_state_saes_final.sas7bdat")
 
+
+nsduh_21_23 <- haven::read_sas("../Data/NSDUH/state_saes_final_2122_22_2223.sas7bdat")
+
 #hitting a hiccup with 2021-2023 NSDUH data - documentation says that the previous years cannot be compared to 2021-2023
 # https://www.samhsa.gov/data/sites/default/files/reports/rpt56198/2023-nsduh-puf-data-users-guide.pdf
-nsduh_2020 <- read.table("../Data/NSDUH/NSDUH_2020_Tab.txt", header = TRUE, sep = '\t')
+#nsduh_2020 <- read.table("../Data/NSDUH/NSDUH_2020_Tab.txt", header = TRUE, sep = '\t')
+#nsduh_2021 <- read.table("../Data/NSDUH/NSDUH_2021_Tab.txt", header = TRUE, sep = '\t')
+#nsduh_2022 <- read.table("../Data/NSDUH/NSDUH_2022_Tab.txt", header = TRUE, sep = '\t')
+#nsduh_2023 <- read.table("../Data/NSDUH/NSDUH_2023_Tab.txt", header = TRUE, sep = '\t')
+
 ```
+
+
+
 
 
 looking for variables which can measure demand but are consistently available for a longer period of time - 
@@ -287,12 +296,10 @@ marijuana use in the past month  (MRJMON) - month chosen over year because it is
 
 
 ```{r clean the nsduh data}
-#interested in 4 substance use outcomes
-nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABODALC", "COCYR", "HERYR", "MRJMON")
 
-
-#filter the data to only state reports, and years post-2015 
-nsduh_data_long <- nsduh_99_19 %>% 
+clean_nsduh_data <- function(nsduh_data){
+ #filter the data to only state reports, and years post-2015 
+nsduh_data_long <- nsduh_data %>% 
   separate(pyearnm, into = c("start_year", "end_year"), "-") %>%
   filter(area == 2) %>% 
   filter(outcome %in% nsduh_outcomes) %>%
@@ -305,25 +312,48 @@ nsduh_data_wide <- nsduh_data_long %>%
   select(stname, start_year, end_year, outcome, BSAE) %>%
   pivot_wider(id_cols = c(stname, end_year), names_from = outcome, values_from = BSAE, unused_fn = first)
 
+  return(nsduh_data_wide) 
+}
+#interested in 4 substance use outcomes
+nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABODALC", "COCYR", "HERYR", "MRJMON")
+
+nsduh_data_wide <- clean_nsduh_data(nsduh_99_19)
+nsduh_data_wide_21 <- clean_nsduh_data(nsduh_21_23)
+
+
 nsduh_data_wide
 
 ```
+```{r}
+```
 
 ```{r merge different statelevel control variables together}
-state_control_long <- statepop_long %>% 
+
+#this function assumes that statepop_long, state_healthspending_long, and state_medicaidenroll_long are read into memory already
+merge_control_vars <- function(nsduh_data)
+{
+  state_control_long <- statepop_long %>% 
   inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
   inner_join(state_medicaidenroll_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
   mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands,
          state_name_lower = tolower(State_Name)) %>%
   #join "demand" measures from NSDUH data
-  left_join(nsduh_data_wide, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
+  left_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
   #join state abbreviations onto dataframe
   left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
   dplyr::select(-c(spending_type, state_name_lower)) %>%
-  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, "needing_tx"= TXNPILAL, "sud" = UDPYILAL, 
-         "heroin_yr"=HERYR, "cocaine_yr"=COCYR, "aud_yr" = ABODALC, "marijuana_month" = MRJMON)
+  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, 
+         #"needing_tx"= TXNPILAL, 
+         #"sud" = UDPYILAL,"aud_yr" = ABODALC, 
+         "heroin_yr"=HERYR, "cocaine_yr"=COCYR, "marijuana_month" = MRJMON)
 
+  return(state_control_long)
+}
+
+state_control_long <- merge_control_vars(nsduh_data_wide)
+state_control_long21 <- merge_control_vars(nsduh_data_wide_21)
 state_control_long
+state_control_long21
 ```
 
 
@@ -454,6 +484,10 @@ demographics_2016 <- read_clean_demographic("../Data/StateYear_DemographicInfo/S
 demographics_2017 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2017)
 demographics_2018 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2013.txt", 2018)
 demographics_2019 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2010-2020 by State and Single-Year Age_2019.txt", 2019)
+demographics_2020 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2020-2022 by State and Single-Year Age_2020.xls", 2020)
+demographics_2021 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2020-2022 by State and Single-Year Age_2021.xls", 2021)
+demographics_2022 <- read_clean_demographic("../Data/StateYear_DemographicInfo/Single-Race Population Estimates 2020-2022 by State and Single-Year Age_2022.xls", 2022)
+
 
 state_demographics <- bind_rows(demographics_2013,
           demographics_2014,
@@ -461,11 +495,14 @@ state_demographics <- bind_rows(demographics_2013,
           demographics_2016,
           demographics_2017,
           demographics_2018, 
-          demographics_2019) %>%
+          demographics_2019,
+          demographics_2020,
+          demographics_2021,
+          demographics_2022) %>%
   mutate(year = as.character(year)) #cast the year column to character
 
 #delete unnecessary dfs 
-rm(demographics_2013, demographics_2014, demographics_2015, demographics_2016, demographics_2017, demographics_2018, demographics_2019)
+rm(demographics_2013, demographics_2014, demographics_2015, demographics_2016, demographics_2017, demographics_2018, demographics_2019, demographics_2020,demographics_2021, demographics_2022)
 ```
 
 Merging insurance variable
