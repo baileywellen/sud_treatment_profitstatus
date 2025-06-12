@@ -315,45 +315,78 @@ nsduh_data_wide <- nsduh_data_long %>%
   return(nsduh_data_wide) 
 }
 #interested in 4 substance use outcomes
-nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABODALC", "COCYR", "HERYR", "MRJMON")
+nsduh_outcomes <- c("BNGDRK", "ILLEMMON", "TXNPILAL", "UDPYILAL", "HERYR", "ABODALC", "UDYR5ALC", "COCYR", "HERYR", "MRJMON")
 
 nsduh_data_wide <- clean_nsduh_data(nsduh_99_19)
 nsduh_data_wide_21 <- clean_nsduh_data(nsduh_21_23)
 
 
 nsduh_data_wide
+nsduh_data_wide_21
 
 ```
-```{r}
-```
+
 
 ```{r merge different statelevel control variables together}
 
 #this function assumes that statepop_long, state_healthspending_long, and state_medicaidenroll_long are read into memory already
-merge_control_vars <- function(nsduh_data)
+merge_control_vars <- function(nsduh_data, alc_colname)
 {
+  
+  nsduh_data$stname <- trimws(nsduh_data$stname)
+  
   state_control_long <- statepop_long %>% 
   inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
   inner_join(state_medicaidenroll_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
-  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands,
-         state_name_lower = tolower(State_Name)) %>%
+  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands) %>%
   #join "demand" measures from NSDUH data
-  left_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
+  #left_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
+  #changing to right join on 6/12 because we don't have control data for 2021-2023 yet
+  right_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
   #join state abbreviations onto dataframe
+  mutate(state_name_lower = tolower(State_Name)) %>%
   left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
   dplyr::select(-c(spending_type, state_name_lower)) %>%
   rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, 
          #"needing_tx"= TXNPILAL, 
-         #"sud" = UDPYILAL,"aud_yr" = ABODALC, 
+         #"sud" = UDPYILAL,
+         "aud_yr" = {{alc_colname}}, 
          "heroin_yr"=HERYR, "cocaine_yr"=COCYR, "marijuana_month" = MRJMON)
 
   return(state_control_long)
 }
 
-state_control_long <- merge_control_vars(nsduh_data_wide)
-state_control_long21 <- merge_control_vars(nsduh_data_wide_21)
+state_control_long14 <- merge_control_vars(nsduh_data_wide, "ABODALC")
+state_control_long21 <- merge_control_vars(nsduh_data_wide_21, "UDYR5ALC")
+
+state_control_long <- bind_rows(state_control_long14, state_control_long21)
+state_control_long <- state_control_long %>% filter(start_year > 2012)
 state_control_long
-state_control_long21
+```
+```{r} 
+#DEBUGGING WHY THE 21 DATA IS NOT JOINING TO THE STATE ABBREVIATIONS DF
+
+#alc_colname <- "UDYR5ALC"
+alc_colname <- "ABODALC"
+
+statepop_long %>% 
+  inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
+  inner_join(state_medicaidenroll_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
+  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands) %>%
+  #join "demand" measures from NSDUH data
+  #left_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
+  #changing to right join on 6/12 because we don't have control data for 2021-2023 yet
+  right_join(nsduh_data_wide, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
+  mutate(state_name_lower= tolower(State_Name))%>%
+  #join state abbreviations onto dataframe
+  left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
+  dplyr::select(-c(spending_type, state_name_lower)) %>%
+  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, 
+         #"needing_tx"= TXNPILAL, 
+         #"sud" = UDPYILAL,
+         "aud_yr" = {{alc_colname}}, 
+         "heroin_yr"=HERYR, "cocaine_yr"=COCYR, "marijuana_month" = MRJMON)
+
 ```
 
 
@@ -368,8 +401,8 @@ state_control_long$pop_millions <- state_control_long$pop_thousands / 1000
 #change the demand variables to percents
 state_control_long$binge_drinking <- state_control_long$binge_drinking * 100
 state_control_long$illicit_druguse <- state_control_long$illicit_druguse * 100
-state_control_long$sud <- state_control_long$sud * 100 
-state_control_long$needing_tx <- state_control_long$needing_tx * 100
+#state_control_long$sud <- state_control_long$sud * 100 
+#state_control_long$needing_tx <- state_control_long$needing_tx * 100
 state_control_long$aud_yr <- state_control_long$aud_yr * 100
 state_control_long$heroin_yr <- state_control_long$heroin_yr * 100
 state_control_long$cocaine_yr <- state_control_long$cocaine_yr * 100
@@ -381,8 +414,8 @@ state_control_long <- state_control_long %>%
                     group_by(State_Name) %>%
                     mutate(prev2years_bingedrinking = dplyr::lag(binge_drinking),
                            prev2years_druguse = dplyr::lag(illicit_druguse),
-                           prev2years_sud = dplyr::lag(sud),
-                           prev2years_needingtx = dplyr::lag(needing_tx),
+                           #prev2years_sud = dplyr::lag(sud),
+                           #prev2years_needingtx = dplyr::lag(needing_tx),
                            prev2years_aud = dplyr::lag(aud_yr),
                            prev2years_marijuana = dplyr::lag(marijuana_month),
                            druguse_calc = (cocaine_yr + heroin_yr)/2, #combine the 2 drug use metrics - average 
@@ -397,11 +430,13 @@ state_control_long <- state_control_long %>%
 ```{r pivot state treatment center counts to long and merge to control variables}
 
 #pivot data to long format
-state_final_df <- profit_states_1419 %>%
+#state_final_df <- profit_states_1419 %>%
+state_final_df <- profit_states_1423 %>%
   dplyr::select(STATE, contains("count")) %>%
   pivot_longer(cols = contains("count")) %>%
   separate(name, into = c(NA, "profit_type", "year"), "_") %>%
-  rename(State_Abbrev = STATE, count_tx = value) %>% 
+  rename(State_Abbrev = STATE, count_tx = value) %>%
+  mutate(State_Abbrev = as.character(State_Abbrev), year = as.character(year)) %>%
 #join to control variables
   left_join(state_control_long, by = c("State_Abbrev" = "state_abbrevs", "year" = "year")) %>%
   #filter(year >= 2016 & year <= 2020) %>%
@@ -426,6 +461,8 @@ read_clean_demographic <- function(filepath, year_param)
   demographic_states <- read.table(filepath, sep = "\t", 
            fill = TRUE,
            header = TRUE) %>%
+    #after 2020 it is a "Sex" variable instead of "Gender"
+    rename(any_of(c(Gender = "Sex"))) %>%
   filter(!is.na(Population),#filter out unnecessary text at the bottom 
          Gender != "", #filter to the most granular level of each combination of gender/Race/Ethnicity and then we can aggregate up
          Race != "", 
@@ -540,12 +577,18 @@ insurance_2016 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2016
 insurance_2017 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2017.csv", 2017)
 insurance_2018 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2018.csv", 2018)
 insurance_2019 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2019.csv", 2019)
+#insurance_2020 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2020.csv", 2020)
+insurance_2021 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2021.csv", 2021)
+insurance_2022 <- read_clean_insurance("../Data/StateYear_Insurance/raw_data2022.csv", 2022)
 
-state_insurance <- bind_rows(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019) %>%
+state_insurance <- bind_rows(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019, 
+                             #insurance_2020, 
+                             insurance_2021, insurance_2022) %>%
   mutate(year = as.character(year))
 
 #delete unnecessary dfs
-rm(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019)
+rm(insurance_2013, insurance_2014, insurance_2015, insurance_2016, insurance_2017, insurance_2018, insurance_2019, #insurance_2020, 
+   insurance_2021, insurance_2022)
 
 ```
 
@@ -591,9 +634,13 @@ freds_df <- freds_df_unformatted %>%
          "2016" = "2016-01-01",
          "2017" = "2017-01-01",
          "2018" = "2018-01-01",
-         "2019" = "2019-01-01") %>% 
+         "2019" = "2019-01-01",
+         "2020" = "2020-01-01",
+         "2021" = "2021-01-01",
+         "2022" = "2022-01-01",
+         "2023" = "2023-01-01") %>% 
   #change the years from the columns to a row indicator - data is now in long format with one row per state-year-measurement
-  pivot_longer(cols = c("2013", "2014", "2015", "2016", "2017", "2018", "2019")) %>%
+  pivot_longer(cols = c("2013", "2014", "2015", "2016", "2017", "2018", "2020", "2019", "2022", "2023")) %>%
   rename("year" = name) %>%
   #pivot the individual measures into columns so we have only one row per state-year
   pivot_wider(id_cols = c(state_name, year), values_from = value, names_from = variable_measure) %>% 
