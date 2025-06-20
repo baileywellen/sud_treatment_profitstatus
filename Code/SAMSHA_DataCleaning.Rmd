@@ -164,20 +164,20 @@ state_abbrevs_df <- data.frame(state_names, state_abbrevs)
 
 
 
-
+#we may want to switch to using the Freds population data so it is consistent and we can include from 2013-2024
 MERGING DATA TOGETHER TO INCLUDE COVARIATES:
 ```{r read and clean CMS population data }
 state_colnames <- c("State_Name", "Y2012", "Y2013", "Y2014", "Y2015", "Y2016", "Y2017", "Y2018", "Y2019", "Y2020")
 
-statepop_long <- read.csv("../Data/state_health_spending/US_POPULATION20.CSV") %>% 
-  dplyr::select(state_colnames) %>%
-  pivot_longer(cols = state_colnames[-1]) %>% 
-  filter(State_Name != "") %>%
-  mutate(year = gsub("Y", "", name)) %>%
-  rename(pop_thousands = value) %>%
-  dplyr::select(State_Name, year, pop_thousands)
+#statepop_long <- read.csv("../Data/state_health_spending/US_POPULATION20.CSV") %>% 
+#  dplyr::select(state_colnames) %>%
+#  pivot_longer(cols = state_colnames[-1]) %>% 
+#  filter(State_Name != "") %>%
+#  mutate(year = gsub("Y", "", name)) %>%
+#  rename(pop_thousands = value) %>%
+#  dplyr::select(State_Name, year, pop_thousands)
 
-statepop_long
+#statepop_long
 ```
 
 ```{r read and clean CMS per capita healthcare spending}
@@ -335,11 +335,14 @@ merge_control_vars <- function(nsduh_data, alc_colname)
   
   nsduh_data$stname <- trimws(nsduh_data$stname)
   
-  state_control_long <- statepop_long %>% 
-  inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
+  state_control_long <- state_healthspending_long %>%
+    #statepop_long %>% 
+  #inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
   inner_join(state_medicaidenroll_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
-  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands) %>%
-  #join "demand" measures from NSDUH data
+  #mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands) %>%
+  
+    
+    #join "demand" measures from NSDUH data
   #left_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
   #changing to right join on 6/12 because we don't have control data for 2021-2023 yet
   right_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
@@ -363,31 +366,7 @@ state_control_long <- bind_rows(state_control_long14, state_control_long21)
 state_control_long <- state_control_long %>% filter(start_year > 2012)
 state_control_long
 ```
-```{r} 
-#DEBUGGING WHY THE 21 DATA IS NOT JOINING TO THE STATE ABBREVIATIONS DF
 
-#alc_colname <- "UDYR5ALC"
-alc_colname <- "ABODALC"
-
-statepop_long %>% 
-  inner_join(state_healthspending_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
-  inner_join(state_medicaidenroll_long, by = c("State_Name"= "State_Name", "year" = "year")) %>%
-  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands) %>%
-  #join "demand" measures from NSDUH data
-  #left_join(nsduh_data, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
-  #changing to right join on 6/12 because we don't have control data for 2021-2023 yet
-  right_join(nsduh_data_wide, by = c("State_Name" = "stname", "year" = "end_year")) %>% 
-  mutate(state_name_lower= tolower(State_Name))%>%
-  #join state abbreviations onto dataframe
-  left_join(state_abbrevs_df, by = c("state_name_lower" = "state_names")) %>%
-  dplyr::select(-c(spending_type, state_name_lower)) %>%
-  rename("binge_drinking" = BNGDRK, "illicit_druguse" = ILLEMMON, 
-         #"needing_tx"= TXNPILAL, 
-         #"sud" = UDPYILAL,
-         "aud_yr" = {{alc_colname}}, 
-         "heroin_yr"=HERYR, "cocaine_yr"=COCYR, "marijuana_month" = MRJMON)
-
-```
 
 
 Scale the variables and lag the need variables 
@@ -396,7 +375,7 @@ Scale the variables and lag the need variables
 #scale to health spending in thousands of dollars
 state_control_long$percapita_health_spending_thousands <- state_control_long$percapita_health_spending / 1000
 #scale to population in millions 
-state_control_long$pop_millions <- state_control_long$pop_thousands / 1000
+#state_control_long$pop_millions <- state_control_long$pop_thousands / 1000
 
 #change the demand variables to percents
 state_control_long$binge_drinking <- state_control_long$binge_drinking * 100
@@ -438,9 +417,9 @@ state_final_df <- profit_states_1423 %>%
   rename(State_Abbrev = STATE, count_tx = value) %>%
   mutate(State_Abbrev = as.character(State_Abbrev), year = as.character(year)) %>%
 #join to control variables
-  left_join(state_control_long, by = c("State_Abbrev" = "state_abbrevs", "year" = "year")) %>%
+  left_join(state_control_long, by = c("State_Abbrev" = "state_abbrevs", "year" = "year")) #%>%
   #filter(year >= 2016 & year <= 2020) %>%
-  mutate(tx_percapita = count_tx / (pop_thousands*1000))
+  #mutate(tx_percapita = count_tx / (pop_thousands*1000))
 
 head(state_final_df)
 ```
@@ -659,7 +638,12 @@ state_final_df <- state_final_df %>%
   #join insurance information
   left_join(state_insurance, by = c("State_Name"="Location", "year"="year")) %>%
   #join the population, unemployment, and income information
-  left_join(freds_df, by=c("State_Name"="state_name", "year"="year"))
+  left_join(freds_df, by=c("State_Name"="state_name", "year"="year")) %>%
+  rename(pop_thousands = Population) %>%
+  mutate(medicaid_enroll_percapita = medicaid_enrollment / pop_thousands,
+         tx_percapita = count_tx / (pop_thousands*1000),
+         pop_millions=pop_thousands/1000)
+         
 
 head(state_final_df)
 ```
@@ -745,9 +729,54 @@ state_final_df <- state_final_df %>%
 ```
 
 ```{r write data to csv}
-write.csv(state_final_df, "../Data/CleanData/Allprofit_finaldata.csv", row.names = FALSE)
+write.csv(state_final_df, "../Data/CleanData/Allprofit_finaldata_6.12.25.csv", row.names = FALSE)
 ```
 
+
+
+As of 6/12/25 - creating a new dataset that separates out the OTPs:
+```{r}
+nssats2014 %>% filter(OTP==1)
+
+
+OTP_results <- list()
+OTP_index <- 1
+for (year_df in year_dfs)
+{
+  this_df <- year_df %>% 
+    mutate(type = profit_types[OWNERSHP],
+           OTP_binary = ifelse(OTP == 1, "OTP", "Not_OTP")) %>%
+    filter(! STATE %in% c("VI", "GU", "PW", "PR", "FM")) %>% #filter out US territories
+    group_by(STATE, OTP_binary, type) %>% 
+    summarize(count = n()) %>%
+    mutate(OTP_profit_group = paste(type,OTP_binary, sep = "_")) %>%
+    ungroup() %>%
+    group_by(STATE) %>%
+    mutate(percent = count / sum(count)) %>% 
+    ungroup() %>%
+    pivot_wider(id_cols = STATE, names_from = OTP_profit_group, values_from = c("count", "percent")) %>% #pivot long rows to columns
+    rename_with(~ ifelse(. == "STATE", ., append_number(., year_nums[OTP_index])), everything())  #add the year onto the columns to track %>%
+  
+
+  # add the dataframe to a list 
+  OTP_results[[OTP_index]] <- this_df
+  OTP_index <- OTP_index + 1
+  
+}
+
+profit_states_OTP_1423 <- OTP_results[[1]]
+
+for (OTP_index in seq(2, length(OTP_results)))
+{
+  profit_states_OTP_1423 <- left_join(profit_states_OTP_1423, OTP_results[[OTP_index]])
+}
+
+
+
+```
+```{r}
+profit_states_OTP_1423
+```
 
 
 
